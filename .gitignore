@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+*.rtf
+trend_report.html
+ror_content_draft.md
