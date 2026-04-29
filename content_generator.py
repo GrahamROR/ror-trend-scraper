@@ -181,8 +181,8 @@ def generate_content(all_groups: list[dict]) -> bool:
     print("  Calling Claude API...")
     try:
         message = client.messages.create(
-            model="claude-opus-4-5",
-            max_tokens=4096,
+            model="claude-sonnet-4-6",
+            max_tokens=8192,
             system=(
                 "You are a copywriter for Rock On Ruby, a print-on-demand personalised clothing brand "
                 "based in Bury, Manchester. You write in Holly's voice — warm, funny, straight-talking, "
