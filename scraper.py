@@ -862,9 +862,12 @@ def build_report(all_groups: list[dict]) -> None:
         seo_section=seo_section, seo_css=seo_css_clean,
     )
     REPORT_FILE.write_text(html, encoding="utf-8")
-    DESKTOP.write_text(html, encoding="utf-8")
-    print(f"Report → {REPORT_FILE}")
-    print(f"Desktop → {DESKTOP}")
+    if DESKTOP.parent.exists():
+        DESKTOP.write_text(html, encoding="utf-8")
+        print(f"Report → {REPORT_FILE}")
+        print(f"Desktop → {DESKTOP}")
+    else:
+        print(f"Report → {REPORT_FILE}")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -909,7 +912,7 @@ if __name__ == "__main__":
     generate_content(all_groups)
 
     print(f"\nDone.")
-    print(f"  HTML report → {DESKTOP}")
-    print(f"  Content draft → {Path.home() / 'Desktop' / 'ROR_Content_Draft.md'}")
-    import subprocess
-    subprocess.Popen(["open", str(DESKTOP)])
+    print(f"  HTML report → {REPORT_FILE}")
+    import subprocess, sys as _sys
+    if _sys.platform == "darwin" and DESKTOP.exists():
+        subprocess.Popen(["open", str(DESKTOP)])

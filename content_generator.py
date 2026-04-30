@@ -214,7 +214,10 @@ Run `python3 scraper.py` to regenerate with fresh trend data.
 """
 
     CONTENT_FILE.write_text(md, encoding="utf-8")
-    DESKTOP_MD.write_text(md, encoding="utf-8")
-    print(f"  Content draft → {CONTENT_FILE}")
-    print(f"  Desktop copy  → {DESKTOP_MD}")
+    if DESKTOP_MD.parent.exists():
+        DESKTOP_MD.write_text(md, encoding="utf-8")
+        print(f"  Content draft → {CONTENT_FILE}")
+        print(f"  Desktop copy  → {DESKTOP_MD}")
+    else:
+        print(f"  Content draft → {CONTENT_FILE}")
     return True
