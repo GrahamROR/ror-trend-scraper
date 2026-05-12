@@ -16,7 +16,6 @@ import anthropic
 
 OUTPUT_DIR   = Path(__file__).parent
 CONTENT_FILE = OUTPUT_DIR / "ror_content_draft.md"
-DESKTOP_MD   = Path.home() / "Desktop" / "ROR_Content_Draft.md"
 
 BRAND_CONTEXT = """
 BRAND: Rock On Ruby — print-on-demand personalised clothing and accessories.
@@ -214,10 +213,5 @@ Run `python3 scraper.py` to regenerate with fresh trend data.
 """
 
     CONTENT_FILE.write_text(md, encoding="utf-8")
-    if DESKTOP_MD.parent.exists():
-        DESKTOP_MD.write_text(md, encoding="utf-8")
-        print(f"  Content draft → {CONTENT_FILE}")
-        print(f"  Desktop copy  → {DESKTOP_MD}")
-    else:
-        print(f"  Content draft → {CONTENT_FILE}")
+    print(f"  Content draft → {CONTENT_FILE}")
     return True

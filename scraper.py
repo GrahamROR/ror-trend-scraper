@@ -25,7 +25,6 @@ SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "0d688fd4041a0138284ae5c8bda49036f86
 OUTPUT_DIR  = Path(__file__).parent
 REPORT_FILE = OUTPUT_DIR / "trend_report.html"
 CACHE_FILE  = OUTPUT_DIR / "trend_cache.json"
-DESKTOP     = Path.home() / "Desktop" / "ROR_Trend_Report.html"
 
 GEO      = "GB"
 TIMEFRAME = "today 3-m"
@@ -862,12 +861,7 @@ def build_report(all_groups: list[dict]) -> None:
         seo_section=seo_section, seo_css=seo_css_clean,
     )
     REPORT_FILE.write_text(html, encoding="utf-8")
-    if DESKTOP.parent.exists():
-        DESKTOP.write_text(html, encoding="utf-8")
-        print(f"Report → {REPORT_FILE}")
-        print(f"Desktop → {DESKTOP}")
-    else:
-        print(f"Report → {REPORT_FILE}")
+    print(f"Report → {REPORT_FILE}")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -913,6 +907,3 @@ if __name__ == "__main__":
 
     print(f"\nDone.")
     print(f"  HTML report → {REPORT_FILE}")
-    import subprocess, sys as _sys
-    if _sys.platform == "darwin" and DESKTOP.exists():
-        subprocess.Popen(["open", str(DESKTOP)])
