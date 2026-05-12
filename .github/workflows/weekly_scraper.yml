@@ -10,6 +10,8 @@ jobs:
   scrape-and-generate:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repo
@@ -44,8 +46,7 @@ jobs:
         run: |
           git config user.name  "ROR Trend Bot"
           git config user.email "bot@rockonruby.co.uk"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git add trend_report.html ror_content_draft.md trend_cache.json || true
           git diff --staged --quiet || git commit -m "Weekly trend report $(date +'%Y-%m-%d')"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
