@@ -12,6 +12,8 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: write
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout repo
@@ -32,6 +34,12 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scraper.py
 
+      - name: Create ClickUp tasks for Bethan
+        env:
+          CLICKUP_API_KEY: ${{ secrets.CLICKUP_API_KEY }}
+          CLICKUP_LIST_ID: ${{ vars.CLICKUP_LIST_ID }}
+        run: python clickup_tasks.py
+
       - name: Upload report as artefact
         uses: actions/upload-artifact@v4
         with:
@@ -41,6 +49,16 @@ jobs:
             ror_content_draft.md
             trend_cache.json
           retention-days: 30
+
+      - name: Prepare GitHub Pages
+        run: mkdir -p _site && cp trend_report.html _site/index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
 
       - name: Commit outputs back to repo
         run: |
