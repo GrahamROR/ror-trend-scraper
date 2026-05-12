@@ -21,7 +21,7 @@ from serpapi import GoogleSearch
 
 # ── Config ───────────────────────────────────────────────────────────────────
 
-SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "0d688fd4041a0138284ae5c8bda49036f860023e5558adb9d1de30e4cc5147ac")
+SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
 OUTPUT_DIR  = Path(__file__).parent
 REPORT_FILE = OUTPUT_DIR / "trend_report.html"
 CACHE_FILE  = OUTPUT_DIR / "trend_cache.json"
