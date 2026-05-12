@@ -4,23 +4,11 @@
     "results": [
       {
         "term": "fathers day gifts uk",
-        "avg_interest": 12,
-        "peak_interest": 100,
-        "trend": "stable",
-        "rising_queries": [
-          "gifts for fathers day uk",
-          "personalised fathers day gifts uk",
-          "fathers day uk 2026",
-          "fathers day gifts next day delivery uk",
-          "cheap fathers day gifts uk"
-        ],
-        "top_queries": [
-          "gifts for fathers day uk",
-          "personalised fathers day gifts uk",
-          "fathers day uk 2026",
-          "fathers day gifts next day delivery uk",
-          "cheap fathers day gifts uk"
-        ],
+        "avg_interest": 45,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "personalised gifts",
         "suggestions": [
@@ -29,8 +17,8 @@
           "Cap: 'Coffee First, Dad Stuff Second' \u2014 funny and fast to execute",
           "Social: 'What Dad Really Wants' reel featuring BBQ-themed personalised cap"
         ],
-        "score": 4,
-        "data_source": "live"
+        "score": 8,
+        "data_source": "estimated"
       },
       {
         "term": "bbq gifts for dad",
@@ -39,11 +27,7 @@
         "trend": "rising",
         "rising_queries": [],
         "top_queries": [],
-        "paa": [
-          "What to get someone who loves barbecue?",
-          "What can I barbecue for Father's Day?",
-          "What to get an outdoorsy dad for Father's Day?"
-        ],
+        "paa": [],
         "ror_existing": "personalised gifts",
         "suggestions": [
           "Cap: 'Grill Sergeant' \u2014 Father's Day BBQ gifting, fast to produce",
@@ -56,27 +40,25 @@
       },
       {
         "term": "funny gifts for dad",
-        "avg_interest": 1,
-        "peak_interest": 100,
+        "avg_interest": 30,
+        "peak_interest": 0,
         "trend": "rising",
         "rising_queries": [],
-        "top_queries": [
-          "funny christmas gifts for dad"
-        ],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "personalised gifts",
         "suggestions": [
           "Slogan cap or sweatshirt tied to 'funny gifts for dad' \u2014 quick to produce as print-on-demand",
           "Social: behind-the-scenes making content featuring this theme"
         ],
-        "score": 5,
-        "data_source": "live"
+        "score": 7,
+        "data_source": "estimated"
       },
       {
         "term": "tea gifts for dad",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "rising",
+        "avg_interest": 10,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -85,20 +67,16 @@
           "Cap/tote: 'Tea Please' \u2014 already in ROR range, push harder pre-Father's Day",
           "Social: 'The great British tea debate \u2014 milk first?' poll"
         ],
-        "score": 5,
-        "data_source": "live"
+        "score": 4,
+        "data_source": "estimated"
       },
       {
         "term": "coffee gifts for dad",
         "avg_interest": 8,
         "peak_interest": 0,
         "trend": "stable",
-        "rising_queries": [
-          "birthday gifts for dad"
-        ],
-        "top_queries": [
-          "birthday gifts for dad"
-        ],
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "personalised gifts",
         "suggestions": [
@@ -115,29 +93,12 @@
     "results": [
       {
         "term": "fathers day uk 2026",
-        "avg_interest": 9,
-        "peak_interest": 100,
+        "avg_interest": 18,
+        "peak_interest": 0,
         "trend": "rising",
-        "rising_queries": [
-          "when is father's day 2026",
-          "whens fathers day",
-          "father's day 2026 uk",
-          "father's day uk"
-        ],
-        "top_queries": [
-          "uk mothers day 2026",
-          "mothers day",
-          "mothers day uk",
-          "mothers day 2026",
-          "when is fathers day uk 2026",
-          "when is fathers day uk"
-        ],
-        "paa": [
-          "Does father's day change every year in the UK?",
-          "Are UK and USA father's day the same?",
-          "What should a wife do on father's day?",
-          "What day will fathers be on in 2026?"
-        ],
+        "rising_queries": [],
+        "top_queries": [],
+        "paa": [],
         "ror_existing": "",
         "suggestions": [
           "Cap: 'Only Here for the BBQ' \u2014 embroidered slogan, Father's Day gifting angle",
@@ -146,7 +107,7 @@
           "Social: 'What Dad Really Wants' reel featuring BBQ-themed personalised cap"
         ],
         "score": 6,
-        "data_source": "live"
+        "data_source": "estimated"
       },
       {
         "term": "personalised fathers day gift",
@@ -171,12 +132,8 @@
         "avg_interest": 6,
         "peak_interest": 0,
         "trend": "rising",
-        "rising_queries": [
-          "fathers day 2026"
-        ],
-        "top_queries": [
-          "fathers day 2026"
-        ],
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "biscuit themed clothing",
         "suggestions": [
@@ -190,23 +147,19 @@
       },
       {
         "term": "gift for dad uk",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "falling",
-        "rising_queries": [
-          "birthday gift for dad"
-        ],
-        "top_queries": [
-          "birthday gift for dad"
-        ],
+        "avg_interest": 38,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "personalised gifts",
         "suggestions": [
           "Slogan cap or sweatshirt tied to 'gift for dad uk' \u2014 quick to produce as print-on-demand",
           "Social: behind-the-scenes making content featuring this theme"
         ],
-        "score": 2,
-        "data_source": "live"
+        "score": 8,
+        "data_source": "estimated"
       }
     ]
   },
@@ -215,24 +168,11 @@
     "results": [
       {
         "term": "bourbon biscuit",
-        "avg_interest": 8,
-        "peak_interest": 100,
-        "trend": "rising",
-        "rising_queries": [
-          "bourbon brands",
-          "bourbon biscuit pronunciation",
-          "big bourbon biscuit",
-          "is a penguin biscuit a bourbon",
-          "how many calories in a bourbon biscuit"
-        ],
-        "top_queries": [
-          "bourbon calories",
-          "bourbon biscuit calories",
-          "calories in bourbon biscuit",
-          "calories in a bourbon biscuit",
-          "chocolate bourbon biscuit",
-          "bourbon biscuit recipe"
-        ],
+        "avg_interest": 32,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "bourbon biscuit",
         "suggestions": [
@@ -242,27 +182,15 @@
           "Social: 'Rank our biscuit range' poll \u2014 drives engagement and discovery"
         ],
         "score": 3,
-        "data_source": "live"
+        "data_source": "estimated"
       },
       {
         "term": "custard cream biscuit",
-        "avg_interest": 3,
-        "peak_interest": 100,
-        "trend": "rising",
-        "rising_queries": [
-          "custard cream easter egg",
-          "m&s biscuit egg",
-          "m&s biscuit easter egg",
-          "how many calories in a custard cream biscuit"
-        ],
-        "top_queries": [
-          "bourbon biscuit",
-          "how many calories in a custard cream",
-          "how many calories in a custard cream biscuit",
-          "custard cream recipe",
-          "custard cream easter egg",
-          "m&s biscuit egg"
-        ],
+        "avg_interest": 26,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "bourbon biscuit",
         "suggestions": [
@@ -272,29 +200,15 @@
           "Social: 'Rank our biscuit range' poll \u2014 drives engagement and discovery"
         ],
         "score": 3,
-        "data_source": "live"
+        "data_source": "estimated"
       },
       {
         "term": "jammy dodger",
-        "avg_interest": 13,
-        "peak_interest": 100,
-        "trend": "rising",
-        "rising_queries": [
-          "jammy dodger easter egg",
-          "jammy dodger necklace",
-          "jammy dodger blondies",
-          "jammy dodger blondie recipe",
-          "jammy dodger blondie",
-          "giant jammy dodger"
-        ],
-        "top_queries": [
-          "jammy dodger shot",
-          "jammy dodger recipe",
-          "jammy dodger blondie",
-          "jammy dodger easter egg",
-          "jammy dodger cake",
-          "jammy dodger blondies"
-        ],
+        "avg_interest": 38,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "jammy dodger",
         "suggestions": [
@@ -304,7 +218,7 @@
           "Social: 'Rank our biscuit range' poll \u2014 drives engagement and discovery"
         ],
         "score": 4,
-        "data_source": "live"
+        "data_source": "estimated"
       },
       {
         "term": "party rings biscuit",
@@ -326,25 +240,11 @@
       },
       {
         "term": "great british bake off",
-        "avg_interest": 30,
-        "peak_interest": 100,
+        "avg_interest": 18,
+        "peak_interest": 0,
         "trend": "stable",
-        "rising_queries": [
-          "when does bake off start 2026",
-          "nigella",
-          "stand up to cancer bake off 2026",
-          "nigella lawson",
-          "molly mae bake off",
-          "molly mae"
-        ],
-        "top_queries": [
-          "the bake off",
-          "the great british bake off",
-          "british bake off 2026",
-          "great british bake off 2026",
-          "bake off 2026",
-          "celebrity bake off"
-        ],
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "",
         "suggestions": [
@@ -353,8 +253,8 @@
           "Tote: 'Only Here for the Jammy Dodgers' \u2014 low cost, high shareability",
           "Social: 'Rank our biscuit range' poll \u2014 drives engagement and discovery"
         ],
-        "score": 4,
-        "data_source": "live"
+        "score": 3,
+        "data_source": "estimated"
       }
     ]
   },
@@ -363,25 +263,11 @@
     "results": [
       {
         "term": "personalised gifts uk",
-        "avg_interest": 11,
-        "peak_interest": 100,
-        "trend": "rising",
-        "rising_queries": [
-          "mothers day personalised gifts",
-          "mothers day gifts",
-          "personalised valentines gifts",
-          "moonpig uk",
-          "moonpig personalised gifts",
-          "personalised wedding gifts uk"
-        ],
-        "top_queries": [
-          "personalised gift",
-          "personalised baby gifts uk",
-          "personalised baby gifts",
-          "photo gifts uk",
-          "personalised gifts for him",
-          "amazon uk"
-        ],
+        "avg_interest": 58,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "personalised caps",
         "suggestions": [
@@ -389,14 +275,14 @@
           "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
           "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
         ],
-        "score": 5,
-        "data_source": "live"
+        "score": 6,
+        "data_source": "estimated"
       },
       {
         "term": "funny personalised gifts",
-        "avg_interest": 3,
-        "peak_interest": 100,
-        "trend": "rising",
+        "avg_interest": 32,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -407,13 +293,13 @@
           "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
         ],
         "score": 4,
-        "data_source": "live"
+        "data_source": "estimated"
       },
       {
         "term": "personalised clothing uk",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "rising",
+        "avg_interest": 22,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -424,13 +310,13 @@
           "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
         ],
         "score": 4,
-        "data_source": "live"
+        "data_source": "estimated"
       },
       {
         "term": "custom gifts uk",
-        "avg_interest": 2,
-        "peak_interest": 100,
-        "trend": "rising",
+        "avg_interest": 48,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -440,8 +326,8 @@
           "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
           "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
         ],
-        "score": 4,
-        "data_source": "live"
+        "score": 5,
+        "data_source": "estimated"
       }
     ]
   },
@@ -450,9 +336,9 @@
     "results": [
       {
         "term": "slogan sweatshirt uk",
-        "avg_interest": 3,
-        "peak_interest": 100,
-        "trend": "falling",
+        "avg_interest": 16,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -462,14 +348,14 @@
           "Cap: 'Festival Hair, Don't Care' \u2014 festival season tie-in",
           "Sweatshirt: 'Only Here for the Headliners' \u2014 Glastonbury hype angle"
         ],
-        "score": 0,
-        "data_source": "live"
+        "score": 2,
+        "data_source": "estimated"
       },
       {
         "term": "embroidered cap uk",
-        "avg_interest": 15,
-        "peak_interest": 100,
-        "trend": "falling",
+        "avg_interest": 9,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -479,8 +365,8 @@
           "Cap: 'Festival Hair, Don't Care' \u2014 festival season tie-in",
           "Sweatshirt: 'Only Here for the Headliners' \u2014 Glastonbury hype angle"
         ],
-        "score": 1,
-        "data_source": "live"
+        "score": 2,
+        "data_source": "estimated"
       },
       {
         "term": "funny slogan top",
@@ -501,9 +387,9 @@
       },
       {
         "term": "leopard print fashion uk",
-        "avg_interest": 7,
-        "peak_interest": 100,
-        "trend": "falling",
+        "avg_interest": 38,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -514,14 +400,14 @@
           "Sweatshirt: 'Only Here for the Headliners' \u2014 Glastonbury hype angle",
           "Leopard print sweatshirt with embroidered slogan \u2014 bold colourway"
         ],
-        "score": 0,
-        "data_source": "live"
+        "score": 4,
+        "data_source": "estimated"
       },
       {
         "term": "embroidered clothing uk",
-        "avg_interest": 9,
-        "peak_interest": 100,
-        "trend": "falling",
+        "avg_interest": 11,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -531,8 +417,8 @@
           "Cap: 'Festival Hair, Don't Care' \u2014 festival season tie-in",
           "Sweatshirt: 'Only Here for the Headliners' \u2014 Glastonbury hype angle"
         ],
-        "score": 1,
-        "data_source": "live"
+        "score": 2,
+        "data_source": "estimated"
       }
     ]
   },
@@ -541,31 +427,12 @@
     "results": [
       {
         "term": "glastonbury 2026",
-        "avg_interest": 29,
-        "peak_interest": 100,
+        "avg_interest": 52,
+        "peak_interest": 0,
         "trend": "rising",
-        "rising_queries": [
-          "eurovision 2026",
-          "glastonbury tor",
-          "wireless lineup 2026",
-          "fallow year",
-          "glastonbury 2027 rumours",
-          "all points east"
-        ],
-        "top_queries": [
-          "festival",
-          "glastonbury festival 2026",
-          "festival 2026",
-          "glastonbury festival",
-          "glastonbury 2027",
-          "glastonbury 2025"
-        ],
-        "paa": [
-          "Why is Glastonbury not on in 2026?",
-          "Is Glastonbury on in 2027?",
-          "Is Glastonbury on in 2026 tickets?",
-          "Is Glastonbury every 2 years now?"
-        ],
+        "rising_queries": [],
+        "top_queries": [],
+        "paa": [],
         "ror_existing": "",
         "suggestions": [
           "Festival cap collection \u2014 embroidered, practical, gifting angle pre-June",
@@ -573,57 +440,16 @@
           "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal",
           "Drop: personalised beach tote + 'Girls Trip 2026' cap"
         ],
-        "score": 6,
-        "data_source": "live"
+        "score": 8,
+        "data_source": "estimated"
       },
       {
         "term": "reading festival 2026",
-        "avg_interest": 29,
-        "peak_interest": 100,
+        "avg_interest": 42,
+        "peak_interest": 0,
         "trend": "rising",
-        "rising_queries": [
-          "all points east 2026 lineup",
-          "fontaines dc tour",
-          "reading fc",
-          "festivals this year",
-          "chase and status",
-          "bst hyde park 2026"
-        ],
-        "top_queries": [
-          "reading lineup",
-          "reading festival lineup",
-          "reading 2026 lineup",
-          "reading lineup 2026",
-          "leeds",
-          "leeds reading 2026"
-        ],
-        "paa": [
-          "What date is Reading Fest 2026?",
-          "Should I let my 16 year old go to the Reading Festival?",
-          "Who are the headliners for the 2026 festival?",
-          "Who is rumoured to be at Reading Festival 2026?"
-        ],
-        "ror_existing": "festival clothing",
-        "suggestions": [
-          "Festival cap collection \u2014 embroidered, practical, gifting angle pre-June",
-          "Social: 'What goes on tour' \u2014 personalised cap gifting content for festival groups",
-          "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal",
-          "Drop: personalised beach tote + 'Girls Trip 2026' cap"
-        ],
-        "score": 6,
-        "data_source": "live"
-      },
-      {
-        "term": "festival outfit uk",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "rising",
-        "rising_queries": [
-          "festival outfits uk"
-        ],
-        "top_queries": [
-          "festival outfits uk"
-        ],
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "festival clothing",
         "suggestions": [
@@ -632,18 +458,34 @@
           "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal",
           "Drop: personalised beach tote + 'Girls Trip 2026' cap"
         ],
-        "score": 4,
-        "data_source": "live"
+        "score": 7,
+        "data_source": "estimated"
+      },
+      {
+        "term": "festival outfit uk",
+        "avg_interest": 32,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "paa": [],
+        "ror_existing": "festival clothing",
+        "suggestions": [
+          "Festival cap collection \u2014 embroidered, practical, gifting angle pre-June",
+          "Social: 'What goes on tour' \u2014 personalised cap gifting content for festival groups",
+          "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal",
+          "Drop: personalised beach tote + 'Girls Trip 2026' cap"
+        ],
+        "score": 6,
+        "data_source": "estimated"
       },
       {
         "term": "festival clothing uk",
-        "avg_interest": 3,
-        "peak_interest": 100,
+        "avg_interest": 27,
+        "peak_interest": 0,
         "trend": "rising",
         "rising_queries": [],
-        "top_queries": [
-          "festival outfits"
-        ],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "biscuit themed clothing",
         "suggestions": [
@@ -652,30 +494,16 @@
           "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal",
           "Drop: personalised beach tote + 'Girls Trip 2026' cap"
         ],
-        "score": 4,
-        "data_source": "live"
+        "score": 6,
+        "data_source": "estimated"
       },
       {
         "term": "summer festival uk 2026",
-        "avg_interest": 8,
-        "peak_interest": 100,
+        "avg_interest": 21,
+        "peak_interest": 0,
         "trend": "rising",
-        "rising_queries": [
-          "all points east 2026",
-          "isle of wight festival 2026",
-          "festivals this summer",
-          "download festival 2026",
-          "latitude festival 2026",
-          "latitude festival"
-        ],
-        "top_queries": [
-          "uk festivals 2026",
-          "summer festivals uk",
-          "festivals uk",
-          "reading festival",
-          "all points east 2026",
-          "leeds festival"
-        ],
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "festival clothing",
         "suggestions": [
@@ -684,8 +512,8 @@
           "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal",
           "Drop: personalised beach tote + 'Girls Trip 2026' cap"
         ],
-        "score": 4,
-        "data_source": "live"
+        "score": 6,
+        "data_source": "estimated"
       }
     ]
   },
@@ -694,43 +522,26 @@
     "results": [
       {
         "term": "summer holidays uk 2026",
-        "avg_interest": 18,
-        "peak_interest": 100,
+        "avg_interest": 38,
+        "peak_interest": 0,
         "trend": "rising",
-        "rising_queries": [
-          "uk public holidays 2026",
-          "skyscanner",
-          "caravan holidays uk",
-          "what are the uk school holidays for 2026"
-        ],
-        "top_queries": [
-          "uk school holidays 2026",
-          "summer school holidays 2026",
-          "school summer holidays 2026",
-          "school holidays 2026",
-          "bank holidays 2026 uk",
-          "uk bank holidays"
-        ],
-        "paa": [
-          "What are the UK school holidays for 2026?",
-          "How long is summer break for the UK?",
-          "What are the holidays in the UK in 2026?",
-          "What are the school term dates in the UK?"
-        ],
+        "rising_queries": [],
+        "top_queries": [],
+        "paa": [],
         "ror_existing": "",
         "suggestions": [
           "Drop: personalised beach tote + 'Girls Trip 2026' cap",
           "Social: 'Your summer sorted' gift guide email pulling existing products together",
           "Cap: 'Only Here for the Sunshine' \u2014 seasonal slogan, fast to execute"
         ],
-        "score": 6,
-        "data_source": "live"
+        "score": 8,
+        "data_source": "estimated"
       },
       {
         "term": "holiday outfit uk",
         "avg_interest": 22,
-        "peak_interest": 100,
-        "trend": "stable",
+        "peak_interest": 0,
+        "trend": "rising",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -740,57 +551,16 @@
           "Social: 'Your summer sorted' gift guide email pulling existing products together",
           "Cap: 'Only Here for the Sunshine' \u2014 seasonal slogan, fast to execute"
         ],
-        "score": 4,
-        "data_source": "live"
+        "score": 6,
+        "data_source": "estimated"
       },
       {
         "term": "beach holiday uk",
-        "avg_interest": 48,
-        "peak_interest": 100,
+        "avg_interest": 33,
+        "peak_interest": 0,
         "trend": "rising",
-        "rising_queries": [
-          "parkdean",
-          "centre parcs uk",
-          "travel insurance uk",
-          "beach bag",
-          "woolacombe beach",
-          "haven holidays"
-        ],
-        "top_queries": [
-          "beach holiday in uk",
-          "beach holidays",
-          "uk beach holidays",
-          "uk holidays",
-          "on the beach",
-          "holiday on the beach uk"
-        ],
-        "paa": [
-          "What is the nicest beach in the UK?",
-          "What is a beach holiday?",
-          "What is the nicest seaside town in the UK?",
-          "What to take on a UK beach holiday?"
-        ],
-        "ror_existing": "",
-        "suggestions": [
-          "Drop: personalised beach tote + 'Girls Trip 2026' cap",
-          "Social: 'Your summer sorted' gift guide email pulling existing products together",
-          "Cap: 'Only Here for the Sunshine' \u2014 seasonal slogan, fast to execute"
-        ],
-        "score": 8,
-        "data_source": "live"
-      },
-      {
-        "term": "summer fashion uk 2026",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "rising",
-        "rising_queries": [
-          "summer 2026 fashion trends"
-        ],
-        "top_queries": [
-          "summer 2026 fashion trends",
-          "spring summer 2026 fashion trends"
-        ],
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "",
         "suggestions": [
@@ -798,8 +568,25 @@
           "Social: 'Your summer sorted' gift guide email pulling existing products together",
           "Cap: 'Only Here for the Sunshine' \u2014 seasonal slogan, fast to execute"
         ],
-        "score": 5,
-        "data_source": "live"
+        "score": 7,
+        "data_source": "estimated"
+      },
+      {
+        "term": "summer fashion uk 2026",
+        "avg_interest": 16,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "paa": [],
+        "ror_existing": "",
+        "suggestions": [
+          "Drop: personalised beach tote + 'Girls Trip 2026' cap",
+          "Social: 'Your summer sorted' gift guide email pulling existing products together",
+          "Cap: 'Only Here for the Sunshine' \u2014 seasonal slogan, fast to execute"
+        ],
+        "score": 6,
+        "data_source": "estimated"
       }
     ]
   },
@@ -808,9 +595,9 @@
     "results": [
       {
         "term": "funny gifts for women uk",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "falling",
+        "avg_interest": 42,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -820,8 +607,8 @@
           "Social: 'Gifts that aren't a candle' \u2014 positions ROR against generic gifting",
           "Sweatshirt: 'Bra Off By 7' \u2014 speaks directly to the ROR customer"
         ],
-        "score": 1,
-        "data_source": "live"
+        "score": 5,
+        "data_source": "estimated"
       },
       {
         "term": "novelty gifts for women",
@@ -843,9 +630,9 @@
       },
       {
         "term": "funny birthday gifts uk",
-        "avg_interest": 12,
-        "peak_interest": 100,
-        "trend": "falling",
+        "avg_interest": 48,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -855,30 +642,16 @@
           "Social: 'Gifts that aren't a candle' \u2014 positions ROR against generic gifting",
           "Sweatshirt: 'Bra Off By 7' \u2014 speaks directly to the ROR customer"
         ],
-        "score": 2,
-        "data_source": "live"
+        "score": 5,
+        "data_source": "estimated"
       },
       {
         "term": "gifts for her uk",
-        "avg_interest": 8,
-        "peak_interest": 100,
-        "trend": "rising",
-        "rising_queries": [
-          "valentines gifts for her",
-          "valentines gifts for her uk",
-          "valentine gifts for her uk",
-          "valentine's gifts for her",
-          "valentine's day gifts for her uk",
-          "valentines day gifts for her"
-        ],
-        "top_queries": [
-          "gifts for her birthday",
-          "birthday gifts for her uk",
-          "gifts for women",
-          "valentines gifts for her",
-          "valentines gifts for her uk",
-          "anniversary gifts for her"
-        ],
+        "avg_interest": 58,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "personalised gifts",
         "suggestions": [
@@ -886,8 +659,8 @@
           "Social: 'Gifts that aren't a candle' \u2014 positions ROR against generic gifting",
           "Sweatshirt: 'Bra Off By 7' \u2014 speaks directly to the ROR customer"
         ],
-        "score": 4,
-        "data_source": "live"
+        "score": 6,
+        "data_source": "estimated"
       }
     ]
   },
@@ -896,9 +669,9 @@
     "results": [
       {
         "term": "bbq season uk",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "falling",
+        "avg_interest": 42,
+        "peak_interest": 0,
+        "trend": "rising",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -909,14 +682,14 @@
           "Gap product: Personalised apron \u2014 'Head Chef (Self-Appointed)'",
           "Social: 'Team Ketchup vs Team Brown Sauce' poll \u2014 big engagement driver"
         ],
-        "score": 2,
-        "data_source": "live"
+        "score": 8,
+        "data_source": "estimated"
       },
       {
         "term": "ketchup condiment",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "falling",
+        "avg_interest": 22,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -927,25 +700,16 @@
           "Gap product: Personalised apron \u2014 'Head Chef (Self-Appointed)'",
           "Social: 'Team Ketchup vs Team Brown Sauce' poll \u2014 big engagement driver"
         ],
-        "score": 0,
-        "data_source": "live"
+        "score": 3,
+        "data_source": "estimated"
       },
       {
         "term": "brown sauce uk",
-        "avg_interest": 9,
-        "peak_interest": 100,
-        "trend": "rising",
-        "rising_queries": [
-          "what is brown sauce uk",
-          "hp brown sauce",
-          "what is brown sauce in the uk"
-        ],
-        "top_queries": [
-          "what is brown sauce uk",
-          "what is brown sauce",
-          "hp brown sauce",
-          "what is brown sauce in the uk"
-        ],
+        "avg_interest": 27,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
         "paa": [],
         "ror_existing": "",
         "suggestions": [
@@ -954,24 +718,17 @@
           "Gap product: Personalised apron \u2014 'Head Chef (Self-Appointed)'",
           "Social: 'Team Ketchup vs Team Brown Sauce' poll \u2014 big engagement driver"
         ],
-        "score": 5,
-        "data_source": "live"
+        "score": 4,
+        "data_source": "estimated"
       },
       {
         "term": "bbq food uk",
-        "avg_interest": 10,
-        "peak_interest": 100,
+        "avg_interest": 38,
+        "peak_interest": 0,
         "trend": "rising",
         "rising_queries": [],
-        "top_queries": [
-          "bbq food ideas uk"
-        ],
-        "paa": [
-          "What do British people eat at a barbecue?",
-          "Is barbecue good for heart patients?",
-          "What are the most popular foods at a barbecue?",
-          "What is the best barbecue in the UK?"
-        ],
+        "top_queries": [],
+        "paa": [],
         "ror_existing": "",
         "suggestions": [
           "Cap: 'Grill Sergeant' \u2014 Father's Day BBQ gifting, fast to produce",
@@ -979,8 +736,8 @@
           "Gap product: Personalised apron \u2014 'Head Chef (Self-Appointed)'",
           "Social: 'Team Ketchup vs Team Brown Sauce' poll \u2014 big engagement driver"
         ],
-        "score": 6,
-        "data_source": "live"
+        "score": 8,
+        "data_source": "estimated"
       }
     ]
   },
@@ -989,9 +746,9 @@
     "results": [
       {
         "term": "funny tshirt uk",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "falling",
+        "avg_interest": 27,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -1000,14 +757,14 @@
           "Novelty slogan caps for gifting \u2014 lean into the anti-boring positioning",
           "Social: 'Slogans we've actually embroidered' reel \u2014 funny UGC-style content"
         ],
-        "score": 0,
-        "data_source": "live"
+        "score": 3,
+        "data_source": "estimated"
       },
       {
         "term": "novelty clothing uk",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "rising",
+        "avg_interest": 16,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -1016,14 +773,14 @@
           "Novelty slogan caps for gifting \u2014 lean into the anti-boring positioning",
           "Social: 'Slogans we've actually embroidered' reel \u2014 funny UGC-style content"
         ],
-        "score": 3,
-        "data_source": "live"
+        "score": 2,
+        "data_source": "estimated"
       },
       {
         "term": "viral fashion uk",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "falling",
+        "avg_interest": 11,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -1032,14 +789,14 @@
           "Novelty slogan caps for gifting \u2014 lean into the anti-boring positioning",
           "Social: 'Slogans we've actually embroidered' reel \u2014 funny UGC-style content"
         ],
-        "score": 1,
-        "data_source": "live"
+        "score": 3,
+        "data_source": "estimated"
       },
       {
         "term": "meme clothing uk",
-        "avg_interest": 1,
-        "peak_interest": 100,
-        "trend": "rising",
+        "avg_interest": 6,
+        "peak_interest": 0,
+        "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
         "paa": [],
@@ -1048,8 +805,8 @@
           "Novelty slogan caps for gifting \u2014 lean into the anti-boring positioning",
           "Social: 'Slogans we've actually embroidered' reel \u2014 funny UGC-style content"
         ],
-        "score": 3,
-        "data_source": "live"
+        "score": 1,
+        "data_source": "estimated"
       }
     ]
   }
