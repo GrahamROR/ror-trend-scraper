@@ -17,12 +17,43 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 DOMAIN         = os.environ.get("SHOPIFY_STORE_DOMAIN", "rockonruby.myshopify.com")
-TOKEN          = os.environ.get("SHOPIFY_ACCESS_TOKEN", "")
 OUTPUT_DIR     = Path(__file__).parent
 CATALOGUE_FILE = OUTPUT_DIR / "shopify_catalogue.json"
 BASE           = f"https://{DOMAIN}/admin/api/2024-01"
-HEADERS        = {"X-Shopify-Access-Token": TOKEN, "Content-Type": "application/json"}
 SITE           = "rockonruby.co.uk"
+
+
+def _get_token() -> str:
+    """Get an Admin API access token.
+
+    Supports two auth methods:
+      1. SHOPIFY_CLIENT_ID + SHOPIFY_CLIENT_SECRET  — Dev Dashboard app (post-Jan 2026)
+         Exchanges credentials for a fresh token each run (24hr expiry is fine for cron).
+      2. SHOPIFY_ACCESS_TOKEN — legacy shpat_ token (pre-Jan 2026 custom apps).
+    """
+    direct = os.environ.get("SHOPIFY_ACCESS_TOKEN", "")
+    if direct:
+        return direct
+    client_id = os.environ.get("SHOPIFY_CLIENT_ID", "")
+    client_secret = os.environ.get("SHOPIFY_CLIENT_SECRET", "")
+    if not client_id or not client_secret:
+        return ""
+    resp = requests.post(
+        f"https://{DOMAIN}/admin/oauth/access_token",
+        json={"client_id": client_id, "client_secret": client_secret, "grant_type": "client_credentials"},
+        timeout=20,
+    )
+    if not resp.ok:
+        print(f"  Token exchange failed {resp.status_code}: {resp.text[:120]}")
+        return ""
+    token = resp.json().get("access_token", "")
+    if token:
+        print("  Token exchange OK.")
+    return token
+
+
+TOKEN   = _get_token()
+HEADERS = {"X-Shopify-Access-Token": TOKEN, "Content-Type": "application/json"}
 
 # Product types to skip — these are personalisation add-ons, not real products
 _SKIP_TYPES    = {"personalisation", "gift box", "personalisation add-on"}
@@ -144,7 +175,9 @@ def fetch_bestsellers(days: int = 90) -> list[dict]:
 
 def main() -> None:
     if not TOKEN:
-        print("SHOPIFY_ACCESS_TOKEN not set — skipping Shopify sync.")
+        print("No Shopify credentials — skipping sync.")
+        print("Set SHOPIFY_CLIENT_ID + SHOPIFY_CLIENT_SECRET (Dev Dashboard app)")
+        print("or SHOPIFY_ACCESS_TOKEN (legacy custom app).")
         return
 
     print("-- Shopify Catalogue Sync --")
