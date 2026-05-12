@@ -1,0 +1,352 @@
+{
+  "_note": "Pre-seeded 2026-05-12 from Shopify MCP data. Live shopify_sync.py will overwrite this once SHOPIFY_ACCESS_TOKEN secret is added to GitHub Actions.",
+  "synced_at": "2026-05-12T14:30:00",
+  "collections": [
+    {"title": "Accessories", "handle": "accessories", "url": "rockonruby.co.uk/collections/accessories"},
+    {"title": "All ROR Christmas", "handle": "christmas", "url": "rockonruby.co.uk/collections/christmas"},
+    {"title": "All Sale", "handle": "sale", "url": "rockonruby.co.uk/collections/sale"},
+    {"title": "Autumn Essentials", "handle": "autumn-essentials", "url": "rockonruby.co.uk/collections/autumn-essentials"},
+    {"title": "Basics", "handle": "basics", "url": "rockonruby.co.uk/collections/basics"},
+    {"title": "Best Sellers", "handle": "best-sellers", "url": "rockonruby.co.uk/collections/best-sellers"},
+    {"title": "Biscuit Collection", "handle": "biscuit-collection", "url": "rockonruby.co.uk/collections/biscuit-collection"},
+    {"title": "Book Club '25", "handle": "book-club-25", "url": "rockonruby.co.uk/collections/book-club-25"},
+    {"title": "Caps, Beanies and Hats", "handle": "hats", "url": "rockonruby.co.uk/collections/hats"},
+    {"title": "Cards", "handle": "cards", "url": "rockonruby.co.uk/collections/cards"},
+    {"title": "Children's Clothing", "handle": "children-s-clothing", "url": "rockonruby.co.uk/collections/children-s-clothing"},
+    {"title": "Christmas 2025", "handle": "christmas-2025", "url": "rockonruby.co.uk/collections/christmas-2025"},
+    {"title": "Christmas Jumpers", "handle": "christmas-jumpers", "url": "rockonruby.co.uk/collections/christmas-jumpers"},
+    {"title": "Christmas Pyjamas", "handle": "christmas-pyjamas", "url": "rockonruby.co.uk/collections/christmas-pyjamas"},
+    {"title": "Christmas T-Shirts", "handle": "christmas-t-shirts", "url": "rockonruby.co.uk/collections/christmas-t-shirts"},
+    {"title": "Christmas Tops", "handle": "christmas-tops", "url": "rockonruby.co.uk/collections/christmas-tops"},
+    {"title": "Clothing", "handle": "clothing", "url": "rockonruby.co.uk/collections/clothing"},
+    {"title": "Cocktails & Dreams", "handle": "cocktails-dreams", "url": "rockonruby.co.uk/collections/cocktails-dreams"},
+    {"title": "Custom Slogan", "handle": "custom-slogan", "url": "rockonruby.co.uk/collections/custom-slogan"},
+    {"title": "Gifting", "handle": "gifting", "url": "rockonruby.co.uk/collections/gifting"},
+    {"title": "Gifts for Book Lovers", "handle": "gifts-for-book-lovers", "url": "rockonruby.co.uk/collections/gifts-for-book-lovers"},
+    {"title": "Gifts For Children", "handle": "gifts-for-children", "url": "rockonruby.co.uk/collections/gifts-for-children"},
+    {"title": "Gifts for Dad", "handle": "gifts-for-dad", "url": "rockonruby.co.uk/collections/gifts-for-dad"},
+    {"title": "Gifts For Her", "handle": "gifts-for-her", "url": "rockonruby.co.uk/collections/gifts-for-her"},
+    {"title": "Gifts For Him", "handle": "gifts-for-him", "url": "rockonruby.co.uk/collections/gifts-for-him"},
+    {"title": "Gifts For Mum", "handle": "gifts-for-mum", "url": "rockonruby.co.uk/collections/gifts-for-mum"},
+    {"title": "Gifts Under £15", "handle": "gifts-under-15", "url": "rockonruby.co.uk/collections/gifts-under-15"},
+    {"title": "Gifts Under £30", "handle": "gifts-under-30", "url": "rockonruby.co.uk/collections/gifts-under-30"},
+    {"title": "Greetings Cards", "handle": "greetings-cards", "url": "rockonruby.co.uk/collections/greetings-cards"},
+    {"title": "Gymwear", "handle": "gymwear", "url": "rockonruby.co.uk/collections/gymwear"},
+    {"title": "Halloween", "handle": "halloween", "url": "rockonruby.co.uk/collections/halloween"},
+    {"title": "Holiday Packing Essentials", "handle": "holiday-packing-essentials", "url": "rockonruby.co.uk/collections/holiday-packing-essentials"},
+    {"title": "Home Accessories", "handle": "home-accessories", "url": "rockonruby.co.uk/collections/home-accessories"},
+    {"title": "Homeware", "handle": "homeware", "url": "rockonruby.co.uk/collections/homeware"},
+    {"title": "Jewellery", "handle": "jewellery", "url": "rockonruby.co.uk/collections/jewellery"},
+    {"title": "Key Rings", "handle": "key-rings", "url": "rockonruby.co.uk/collections/key-rings"},
+    {"title": "Leopard Print Lover", "handle": "leopard-print-lover", "url": "rockonruby.co.uk/collections/leopard-print-lover"},
+    {"title": "Make Up Bags", "handle": "make-up-bags", "url": "rockonruby.co.uk/collections/make-up-bags"},
+    {"title": "Mugs", "handle": "mugs", "url": "rockonruby.co.uk/collections/mugs"},
+    {"title": "New in", "handle": "new-in", "url": "rockonruby.co.uk/collections/new-in"},
+    {"title": "New Leopard Print Accessories", "handle": "new-leopard-print-accessories", "url": "rockonruby.co.uk/collections/new-leopard-print-accessories"},
+    {"title": "Only Here For...", "handle": "only-here-for", "url": "rockonruby.co.uk/collections/only-here-for"},
+    {"title": "Parent Cards", "handle": "parent-cards", "url": "rockonruby.co.uk/collections/parent-cards"},
+    {"title": "Pencil Cases", "handle": "pencil-cases", "url": "rockonruby.co.uk/collections/pencil-cases"},
+    {"title": "Personalised Accessories", "handle": "personalised-accessories", "url": "rockonruby.co.uk/collections/personalised-accessories"},
+    {"title": "Personalised Caps", "handle": "personalised-caps", "url": "rockonruby.co.uk/collections/personalised-caps"},
+    {"title": "Personalised Handwriting", "handle": "personalised-handwriting", "url": "rockonruby.co.uk/collections/personalised-handwriting"},
+    {"title": "Personalised Hoodies", "handle": "personalised-hoodies", "url": "rockonruby.co.uk/collections/personalised-hoodies"},
+    {"title": "Personalised Sweatshirts", "handle": "personalised-sweatshirts", "url": "rockonruby.co.uk/collections/personalised-sweatshirts"},
+    {"title": "Personalised T-shirts", "handle": "personalised-t-shirts", "url": "rockonruby.co.uk/collections/personalised-t-shirts"},
+    {"title": "Personalised Year", "handle": "personalised-year", "url": "rockonruby.co.uk/collections/personalised-year"},
+    {"title": "Pride T-shirts", "handle": "pride-t-shirts", "url": "rockonruby.co.uk/collections/pride-t-shirts"},
+    {"title": "Pyjamas", "handle": "pyjamas", "url": "rockonruby.co.uk/collections/pyjamas"},
+    {"title": "Resting Bitch Face Club", "handle": "resting-bitch-face-club", "url": "rockonruby.co.uk/collections/resting-bitch-face-club"},
+    {"title": "ROR Brunch Club", "handle": "ror-brunch-club", "url": "rockonruby.co.uk/collections/ror-brunch-club"},
+    {"title": "ROR Faves", "handle": "ror-faves", "url": "rockonruby.co.uk/collections/ror-faves"},
+    {"title": "Seeing Red", "handle": "seeing-red", "url": "rockonruby.co.uk/collections/seeing-red"},
+    {"title": "Slogan Caps", "handle": "slogan-caps", "url": "rockonruby.co.uk/collections/slogan-caps"},
+    {"title": "Slogan Hoodies", "handle": "hoodies", "url": "rockonruby.co.uk/collections/hoodies"},
+    {"title": "Slogan Sweatshirts", "handle": "slogan-sweatshirts", "url": "rockonruby.co.uk/collections/slogan-sweatshirts"},
+    {"title": "Slogan T-shirts", "handle": "slogan-t-shirts", "url": "rockonruby.co.uk/collections/slogan-t-shirts"},
+    {"title": "Socks", "handle": "socks", "url": "rockonruby.co.uk/collections/socks"},
+    {"title": "Stocking Fillers", "handle": "stocking-fillers", "url": "rockonruby.co.uk/collections/stocking-fillers"},
+    {"title": "Sweatshirts", "handle": "sweatshirts", "url": "rockonruby.co.uk/collections/sweatshirts"},
+    {"title": "T-shirts", "handle": "t-shirts", "url": "rockonruby.co.uk/collections/t-shirts"},
+    {"title": "Tea Lovers", "handle": "tea-lovers", "url": "rockonruby.co.uk/collections/tea-lovers"},
+    {"title": "Teacher Gifts", "handle": "teacher-gifts", "url": "rockonruby.co.uk/collections/teacher-gifts"},
+    {"title": "Tote Bags", "handle": "tote-bags", "url": "rockonruby.co.uk/collections/tote-bags"},
+    {"title": "Valentine's Day", "handle": "valentine-s-day", "url": "rockonruby.co.uk/collections/valentine-s-day"},
+    {"title": "Varsity Collection", "handle": "varsity-collection", "url": "rockonruby.co.uk/collections/varsity-collection"},
+    {"title": "Wall Art Prints", "handle": "wall-art-prints", "url": "rockonruby.co.uk/collections/wall-art-prints"},
+    {"title": "Wedding Party", "handle": "wedding-party", "url": "rockonruby.co.uk/collections/wedding-party"},
+    {"title": "Winter Hats", "handle": "winter-hats", "url": "rockonruby.co.uk/collections/winter-hats"},
+    {"title": "Yoga Clothing", "handle": "yoga-clothing", "url": "rockonruby.co.uk/collections/yoga-clothing"}
+  ],
+  "products": [
+    {
+      "title": "Personalised Year Sweatshirt",
+      "handle": "personalised-year-sweatshirt",
+      "url": "rockonruby.co.uk/products/personalised-year-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Personalised Sweatshirts", "Personalised Year", "Clothing", "bestseller", "interest:birthday"],
+      "price": 35.0
+    },
+    {
+      "title": "Men's Personalised Year Sweatshirt",
+      "handle": "mens-year-sweatshirt",
+      "url": "rockonruby.co.uk/products/mens-year-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Personalised Sweatshirts", "Personalised Year", "Clothing", "Gifts for Dad", "interest:birthday"],
+      "price": 35.0
+    },
+    {
+      "title": "Funky Font Personalised Year Sweatshirt",
+      "handle": "funky-font-personalised-year-sweatshirt",
+      "url": "rockonruby.co.uk/products/funky-font-personalised-year-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Personalised Sweatshirts", "Personalised Year", "Clothing", "interest:birthday"],
+      "price": 35.0
+    },
+    {
+      "title": "Old English Font Personalised Year Sweatshirt",
+      "handle": "old-english-font-personalised-year-sweatshirt",
+      "url": "rockonruby.co.uk/products/old-english-font-personalised-year-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Personalised Sweatshirts", "Personalised Year", "Clothing", "interest:birthday"],
+      "price": 35.0
+    },
+    {
+      "title": "Embroidered Personalised Year Sweatshirt",
+      "handle": "embroidered-personalised-year-sweatshirt",
+      "url": "rockonruby.co.uk/products/embroidered-personalised-year-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Personalised Sweatshirts", "Personalised Year", "Clothing", "Embroidered", "interest:birthday"],
+      "price": 38.0
+    },
+    {
+      "title": "Personalised Year Hoodie",
+      "handle": "personalised-year-hoodie",
+      "url": "rockonruby.co.uk/products/personalised-year-hoodie",
+      "product_type": "Hoodie",
+      "tags": ["Personalised Hoodies", "Personalised Year", "Clothing", "interest:birthday"],
+      "price": 48.0
+    },
+    {
+      "title": "Embroidered Personalised Year T-Shirt",
+      "handle": "embroidered-personalised-year-t-shirt",
+      "url": "rockonruby.co.uk/products/embroidered-personalised-year-t-shirt",
+      "product_type": "T-Shirt",
+      "tags": ["T-shirts", "Personalised T-shirts", "Personalised Year", "Clothing", "Embroidered", "interest:birthday"],
+      "price": 28.0
+    },
+    {
+      "title": "Embroidered Made In Year T-shirt",
+      "handle": "embroidered-made-in-year-t-shirt",
+      "url": "rockonruby.co.uk/products/embroidered-made-in-year-t-shirt",
+      "product_type": "T-Shirt",
+      "tags": ["T-shirts", "Personalised T-shirts", "Personalised Year", "Clothing", "Embroidered", "interest:birthday"],
+      "price": 28.0
+    },
+    {
+      "title": "Happy Hour Slogan Sweatshirt",
+      "handle": "happy-hour-slogan-sweatshirt",
+      "url": "rockonruby.co.uk/products/happy-hour-slogan-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Slogan Sweatshirts", "Cocktails & Dreams", "Gifting", "Clothing", "bestseller", "interest:drinks"],
+      "price": 35.0
+    },
+    {
+      "title": "Happy Hour Slogan T-Shirt",
+      "handle": "happy-hour-slogan-t-shirt",
+      "url": "rockonruby.co.uk/products/happy-hour-slogan-t-shirt",
+      "product_type": "T-Shirt",
+      "tags": ["T-shirts", "Slogan T-shirts", "Cocktails & Dreams", "Gifting", "Clothing", "interest:drinks"],
+      "price": 26.0
+    },
+    {
+      "title": "Yes I Like Pina Colada Cap",
+      "handle": "yes-i-like-pina-colada-cap",
+      "url": "rockonruby.co.uk/products/yes-i-like-pina-colada-cap",
+      "product_type": "Cap",
+      "tags": ["Caps", "Slogan Cap", "Cocktails & Dreams", "Accessories", "bestseller", "interest:drinks"],
+      "price": 21.0
+    },
+    {
+      "title": "Yes I Like Pina Coladas Sweatshirt",
+      "handle": "yes-i-like-pina-coladas-sweater",
+      "url": "rockonruby.co.uk/products/yes-i-like-pina-coladas-sweater",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Slogan Sweatshirts", "Cocktails & Dreams", "Clothing", "interest:drinks"],
+      "price": 35.0
+    },
+    {
+      "title": "Embroidered Yes I Like Pina Coladas T-shirt",
+      "handle": "embroidered-yes-i-like-pina-coladas-t-shirt",
+      "url": "rockonruby.co.uk/products/embroidered-yes-i-like-pina-coladas-t-shirt",
+      "product_type": "T-Shirt",
+      "tags": ["T-shirts", "Slogan T-shirts", "Cocktails & Dreams", "Embroidered", "Clothing", "interest:drinks"],
+      "price": 28.0
+    },
+    {
+      "title": "Custard Cream Connoisseur Sweatshirt",
+      "handle": "custard-cream-connoisseur-sweatshirt",
+      "url": "rockonruby.co.uk/products/custard-cream-connoisseur-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Slogan Sweatshirts", "Biscuit Collection", "Clothing", "bestseller"],
+      "price": 38.0
+    },
+    {
+      "title": "Bourbon Biscuit Fan Club Sweatshirt",
+      "handle": "bourbon-biscuit-fan-club-sweatshirt",
+      "url": "rockonruby.co.uk/products/bourbon-biscuit-fan-club-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Slogan Sweatshirts", "Biscuit Collection", "Clothing"],
+      "price": 38.0
+    },
+    {
+      "title": "Jammy Dodger Enthusiast Sweatshirt",
+      "handle": "jammy-dodger-enthusiast-sweatshirt",
+      "url": "rockonruby.co.uk/products/jammy-dodger-enthusiast-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Slogan Sweatshirts", "Biscuit Collection", "Clothing"],
+      "price": 38.0
+    },
+    {
+      "title": "Personalised Handwriting Cuff Sweatshirt",
+      "handle": "personalised-handwriting-cuff-sweatshirt",
+      "url": "rockonruby.co.uk/products/personalised-handwriting-cuff-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Personalised Sweatshirts", "Personalised Handwriting", "Clothing", "bestseller", "Gifting"],
+      "price": 48.0
+    },
+    {
+      "title": "Personalised Handwriting Sweatshirt",
+      "handle": "personalised-handwriting-sweatshirt",
+      "url": "rockonruby.co.uk/products/personalised-handwriting-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Personalised Sweatshirts", "Personalised Handwriting", "Clothing", "Gifting"],
+      "price": 48.0
+    },
+    {
+      "title": "Tea Please Sweatshirt",
+      "handle": "tea-please-sweatshirt-ror",
+      "url": "rockonruby.co.uk/products/tea-please-sweatshirt-ror",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Slogan Sweatshirts", "Tea Lovers", "Clothing", "bestseller", "interest:tea"],
+      "price": 35.0
+    },
+    {
+      "title": "Blah Blah Blah Stripe T-shirt",
+      "handle": "blah-blah-blah-stripe-tshirt",
+      "url": "rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt",
+      "product_type": "T-Shirt",
+      "tags": ["T-shirts", "Slogan T-shirts", "Clothing", "bestseller"],
+      "price": 26.0
+    },
+    {
+      "title": "Embroidered Unisex Personalised Slogan Cap",
+      "handle": "embroidered-unisex-personalised-slogan-cap",
+      "url": "rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap",
+      "product_type": "Cap",
+      "tags": ["Caps", "Personalised Caps", "Custom Slogan", "Embroidered", "Accessories", "bestseller"],
+      "price": 21.0
+    },
+    {
+      "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
+      "handle": "vintage-style-unisex-personalised-slogan-cap",
+      "url": "rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap",
+      "product_type": "Cap",
+      "tags": ["Caps", "Personalised Caps", "Custom Slogan", "Embroidered", "Accessories", "bestseller"],
+      "price": 24.0
+    },
+    {
+      "title": "Personalised Classic Initials Cap",
+      "handle": "personalised-classic-initials-cap",
+      "url": "rockonruby.co.uk/products/personalised-classic-initials-cap",
+      "product_type": "Cap",
+      "tags": ["Caps", "Personalised Caps", "Embroidered", "Accessories", "Gifts for Dad"],
+      "price": 21.0
+    },
+    {
+      "title": "Rock On Ruby Branded Tote Bag",
+      "handle": "ror-branded-spark-tote-bag",
+      "url": "rockonruby.co.uk/products/ror-branded-spark-tote-bag",
+      "product_type": "Tote Bag",
+      "tags": ["Tote Bags", "Accessories", "bestseller", "Gifting"],
+      "price": 16.0
+    },
+    {
+      "title": "Personalised Varsity Year Leopard Print Tote Bag",
+      "handle": "personalised-varsity-year-leopard-print-tote-bag",
+      "url": "rockonruby.co.uk/products/personalised-varsity-year-leopard-print-tote-bag",
+      "product_type": "Tote Bag",
+      "tags": ["Tote Bags", "Accessories", "Personalised Year", "Personalised Accessories", "New in", "bestseller", "DTF"],
+      "price": 24.0
+    },
+    {
+      "title": "Personalised Leopard Print Initial Tote Bag",
+      "handle": "personalised-leopard-print-initial-tote-bag",
+      "url": "rockonruby.co.uk/products/personalised-leopard-print-initial-tote-bag",
+      "product_type": "Tote Bag",
+      "tags": ["Tote Bags", "Accessories", "Personalised Accessories", "New in", "DTF", "Gifts For Her"],
+      "price": 24.0
+    },
+    {
+      "title": "Personalised Leopard Print Accessory Bag",
+      "handle": "personalised-leopard-print-accessory-bag",
+      "url": "rockonruby.co.uk/products/personalised-leopard-print-accessory-bag",
+      "product_type": "Make Up Bag",
+      "tags": ["Make Up Bags", "Accessories", "Personalised Accessories", "New in", "DTF", "Gifts For Her"],
+      "price": 18.0
+    },
+    {
+      "title": "Personalised Year Wash Bag",
+      "handle": "custom-year-wash-bag",
+      "url": "rockonruby.co.uk/products/custom-year-wash-bag",
+      "product_type": "Wash Bag",
+      "tags": ["Make Up Bags", "Accessories", "Personalised Year", "Personalised Accessories", "interest:birthday"],
+      "price": 16.0
+    },
+    {
+      "title": "Embroidered Wifey Always & Forever Sweatshirt",
+      "handle": "embroidered-wifey-always-forever-sweatshirt",
+      "url": "rockonruby.co.uk/products/embroidered-wifey-always-forever-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Embroidered", "Wedding Party", "Clothing", "Gifting", "interest:wedding"],
+      "price": 42.0
+    },
+    {
+      "title": "Embroidered Hubby Always & Forever Sweatshirt",
+      "handle": "embroidered-hubby-always-forever-sweatshirt-2",
+      "url": "rockonruby.co.uk/products/embroidered-hubby-always-forever-sweatshirt-2",
+      "product_type": "Sweatshirt",
+      "tags": ["Sweatshirts", "Embroidered", "Wedding Party", "Clothing", "Gifting", "interest:wedding"],
+      "price": 44.0
+    },
+    {
+      "title": "Daddy Dad Est Year Embroidered T-shirt",
+      "handle": "daddy-dad-est-year-embroidered-t-shirt",
+      "url": "rockonruby.co.uk/products/daddy-dad-est-year-embroidered-t-shirt",
+      "product_type": "T-Shirt",
+      "tags": ["T-shirts", "Embroidered", "Gifts for Dad", "Personalised T-shirts", "Clothing", "interest:dad"],
+      "price": 28.0
+    }
+  ],
+  "bestsellers": [
+    {"title": "Personalised Year Sweatshirt", "handle": "personalised-year-sweatshirt", "orders": 738, "revenue": 23512.58},
+    {"title": "Personalised Year Unisex T-shirt", "handle": "personalised-year-unisex-t-shirt", "orders": 109, "revenue": 2643.17},
+    {"title": "Personalised Varsity Year Leopard Print Tote Bag", "handle": "personalised-varsity-year-leopard-print-tote-bag", "orders": 89, "revenue": 1940.0},
+    {"title": "Happy Hour Slogan Sweatshirt", "handle": "happy-hour-slogan-sweatshirt", "orders": 49, "revenue": 1487.38},
+    {"title": "Vintage Style Denim Unisex Personalised Slogan Cap", "handle": "vintage-style-unisex-personalised-slogan-cap", "orders": 37, "revenue": 1139.99},
+    {"title": "Men's Personalised Year Sweatshirt", "handle": "mens-year-sweatshirt", "orders": 34, "revenue": 1020.72},
+    {"title": "Personalised Handwriting Cuff Sweatshirt", "handle": "personalised-handwriting-cuff-sweatshirt", "orders": 25, "revenue": 1000.0},
+    {"title": "Rock On Ruby Branded Tote Bag", "handle": "ror-branded-spark-tote-bag", "orders": 62, "revenue": 992.37},
+    {"title": "Funky Font Personalised Year Sweatshirt", "handle": "funky-font-personalised-year-sweatshirt", "orders": 30, "revenue": 874.89},
+    {"title": "Custard Cream Connoisseur Sweatshirt", "handle": "custard-cream-connoisseur-sweatshirt", "orders": 22, "revenue": 836.0},
+    {"title": "Embroidered Yes I Like Pina Coladas T-shirt", "handle": "embroidered-yes-i-like-pina-coladas-t-shirt", "orders": 31, "revenue": 775.87},
+    {"title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt", "handle": "my-other-job-is-a-dallas-cowboys-cheerleader-sweatshirt", "orders": 20, "revenue": 735.0},
+    {"title": "Embroidered Personalised Cuff Sweatshirt", "handle": "embroidered-personalised-cuff-sweatshirt", "orders": 22, "revenue": 733.24},
+    {"title": "Tea Please Sweatshirt", "handle": "tea-please-sweatshirt-ror", "orders": 23, "revenue": 670.81},
+    {"title": "Note To Self Sleeve Sweatshirt", "handle": "note-to-self-sleeve-sweatshirt", "orders": 19, "revenue": 616.5},
+    {"title": "Personalised Slogan Sweatshirt", "handle": "personalised-slogan-sweatshirt", "orders": 16, "revenue": 601.58},
+    {"title": "Personalised Varsity Year Leopard print Makeup Bag", "handle": "personalised-varsity-year-leopard-print-makeup-bag", "orders": 31, "revenue": 585.0},
+    {"title": "I'd Rather be Reading Sweatshirt", "handle": "id-rather-be-reading-sweatshirt", "orders": 14, "revenue": 570.0},
+    {"title": "Embroidered Unisex Personalised Slogan Cap", "handle": "embroidered-unisex-personalised-slogan-cap", "orders": 25, "revenue": 529.13},
+    {"title": "9pm Bedtime Club Sweatshirt", "handle": "9pm-bedtime-club-sweatshirt", "orders": 12, "revenue": 456.0}
+  ]
+}
