@@ -1,273 +1,34 @@
 [
   {
-    "label": "Father's Day \u2014 Food & Drink",
+    "label": "Best Sellers & Birthday (Layer 4)",
     "results": [
       {
-        "term": "fathers day gifts uk",
-        "avg_interest": 45,
+        "term": "birthday",
+        "avg_interest": 35,
         "peak_interest": 0,
         "trend": "rising",
         "rising_queries": [],
         "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised gifts",
-        "suggestions": [
-          "Cap: 'Only Here for the BBQ' \u2014 embroidered slogan, Father's Day gifting angle",
-          "Sweatshirt: 'Tea Please Dad' \u2014 simple embroidered text, gift-ready",
-          "Cap: 'Coffee First, Dad Stuff Second' \u2014 funny and fast to execute",
-          "Social: 'What Dad Really Wants' reel featuring BBQ-themed personalised cap"
-        ],
-        "score": 8,
-        "data_source": "estimated"
-      },
-      {
-        "term": "bbq gifts for dad",
-        "avg_interest": 20,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised gifts",
-        "suggestions": [
-          "Cap: 'Grill Sergeant' \u2014 Father's Day BBQ gifting, fast to produce",
-          "Cap: 'Ketchup or Brown Sauce' \u2014 divisive, funny, conversation-starting",
-          "Gap product: Personalised apron \u2014 'Head Chef (Self-Appointed)'",
-          "Social: 'Team Ketchup vs Team Brown Sauce' poll \u2014 big engagement driver"
-        ],
-        "score": 6,
-        "data_source": "estimated"
-      },
-      {
-        "term": "funny gifts for dad",
-        "avg_interest": 30,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised gifts",
-        "suggestions": [
-          "Slogan cap or sweatshirt tied to 'funny gifts for dad' \u2014 quick to produce as print-on-demand",
-          "Social: behind-the-scenes making content featuring this theme"
-        ],
-        "score": 7,
-        "data_source": "estimated"
-      },
-      {
-        "term": "tea gifts for dad",
-        "avg_interest": 10,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised gifts",
-        "suggestions": [
-          "Cap/tote: 'Tea Please' \u2014 already in ROR range, push harder pre-Father's Day",
-          "Social: 'The great British tea debate \u2014 milk first?' poll"
-        ],
-        "score": 4,
-        "data_source": "estimated"
-      },
-      {
-        "term": "coffee gifts for dad",
-        "avg_interest": 8,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised gifts",
-        "suggestions": [
-          "Cap: 'Coffee Please' \u2014 already in range, bundle with Tea Please for gifting drop",
-          "Social: 'Your coffee order = your personality' \u2014 high-engagement content"
-        ],
-        "score": 3,
-        "data_source": "estimated"
-      }
-    ]
-  },
-  {
-    "label": "Father's Day \u2014 General",
-    "results": [
-      {
-        "term": "fathers day uk 2026",
-        "avg_interest": 18,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
+        "breakout_queries": [],
         "paa": [],
         "ror_existing": "",
         "suggestions": [
-          "Cap: 'Only Here for the BBQ' \u2014 embroidered slogan, Father's Day gifting angle",
-          "Sweatshirt: 'Tea Please Dad' \u2014 simple embroidered text, gift-ready",
-          "Cap: 'Coffee First, Dad Stuff Second' \u2014 funny and fast to execute",
-          "Social: 'What Dad Really Wants' reel featuring BBQ-themed personalised cap"
-        ],
-        "score": 6,
-        "data_source": "estimated"
-      },
-      {
-        "term": "personalised fathers day gift",
-        "avg_interest": 28,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised caps",
-        "suggestions": [
-          "Cap: 'Only Here for the BBQ' \u2014 embroidered slogan, Father's Day gifting angle",
-          "Sweatshirt: 'Tea Please Dad' \u2014 simple embroidered text, gift-ready",
-          "Cap: 'Coffee First, Dad Stuff Second' \u2014 funny and fast to execute",
-          "Social: 'What Dad Really Wants' reel featuring BBQ-themed personalised cap"
-        ],
-        "score": 7,
-        "data_source": "estimated"
-      },
-      {
-        "term": "fathers day clothing",
-        "avg_interest": 6,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "biscuit themed clothing",
-        "suggestions": [
-          "Cap: 'Only Here for the BBQ' \u2014 embroidered slogan, Father's Day gifting angle",
-          "Sweatshirt: 'Tea Please Dad' \u2014 simple embroidered text, gift-ready",
-          "Cap: 'Coffee First, Dad Stuff Second' \u2014 funny and fast to execute",
-          "Social: 'What Dad Really Wants' reel featuring BBQ-themed personalised cap"
-        ],
-        "score": 4,
-        "data_source": "estimated"
-      },
-      {
-        "term": "gift for dad uk",
-        "avg_interest": 38,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised gifts",
-        "suggestions": [
-          "Slogan cap or sweatshirt tied to 'gift for dad uk' \u2014 quick to produce as print-on-demand",
+          "Slogan cap or sweatshirt tied to 'birthday' \u2014 quick to produce as print-on-demand",
           "Social: behind-the-scenes making content featuring this theme"
         ],
-        "score": 8,
-        "data_source": "estimated"
-      }
-    ]
-  },
-  {
-    "label": "Biscuit & Food Culture",
-    "results": [
-      {
-        "term": "bourbon biscuit",
-        "avg_interest": 32,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "bourbon biscuit",
-        "suggestions": [
-          "Cap: 'Only Here for the Bourbons' \u2014 biscuit range hero product",
-          "Sweatshirt: Custard Cream slogan print \u2014 nostalgic British humour",
-          "Tote: 'Only Here for the Jammy Dodgers' \u2014 low cost, high shareability",
-          "Social: 'Rank our biscuit range' poll \u2014 drives engagement and discovery"
-        ],
-        "score": 3,
+        "score": 6,
+        "seo_action": "Write blog post \u2014 no ROR page to land on yet",
+        "layer": 4,
         "data_source": "estimated"
       },
       {
-        "term": "custard cream biscuit",
-        "avg_interest": 26,
+        "term": "personalised year",
+        "avg_interest": 35,
         "peak_interest": 0,
-        "trend": "stable",
+        "trend": "rising",
         "rising_queries": [],
         "top_queries": [],
-        "paa": [],
-        "ror_existing": "bourbon biscuit",
-        "suggestions": [
-          "Cap: 'Only Here for the Bourbons' \u2014 biscuit range hero product",
-          "Sweatshirt: Custard Cream slogan print \u2014 nostalgic British humour",
-          "Tote: 'Only Here for the Jammy Dodgers' \u2014 low cost, high shareability",
-          "Social: 'Rank our biscuit range' poll \u2014 drives engagement and discovery"
-        ],
-        "score": 3,
-        "data_source": "estimated"
-      },
-      {
-        "term": "jammy dodger",
-        "avg_interest": 38,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "jammy dodger",
-        "suggestions": [
-          "Cap: 'Only Here for the Bourbons' \u2014 biscuit range hero product",
-          "Sweatshirt: Custard Cream slogan print \u2014 nostalgic British humour",
-          "Tote: 'Only Here for the Jammy Dodgers' \u2014 low cost, high shareability",
-          "Social: 'Rank our biscuit range' poll \u2014 drives engagement and discovery"
-        ],
-        "score": 4,
-        "data_source": "estimated"
-      },
-      {
-        "term": "party rings biscuit",
-        "avg_interest": 22,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "bourbon biscuit",
-        "suggestions": [
-          "Cap: 'Only Here for the Bourbons' \u2014 biscuit range hero product",
-          "Sweatshirt: Custard Cream slogan print \u2014 nostalgic British humour",
-          "Tote: 'Only Here for the Jammy Dodgers' \u2014 low cost, high shareability",
-          "Social: 'Rank our biscuit range' poll \u2014 drives engagement and discovery"
-        ],
-        "score": 3,
-        "data_source": "estimated"
-      },
-      {
-        "term": "great british bake off",
-        "avg_interest": 18,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "",
-        "suggestions": [
-          "Cap: 'Only Here for the Bourbons' \u2014 biscuit range hero product",
-          "Sweatshirt: Custard Cream slogan print \u2014 nostalgic British humour",
-          "Tote: 'Only Here for the Jammy Dodgers' \u2014 low cost, high shareability",
-          "Social: 'Rank our biscuit range' poll \u2014 drives engagement and discovery"
-        ],
-        "score": 3,
-        "data_source": "estimated"
-      }
-    ]
-  },
-  {
-    "label": "Personalised Gifts",
-    "results": [
-      {
-        "term": "personalised gifts uk",
-        "avg_interest": 58,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
+        "breakout_queries": [],
         "paa": [],
         "ror_existing": "personalised caps",
         "suggestions": [
@@ -276,497 +37,426 @@
           "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
         ],
         "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
         "data_source": "estimated"
       },
       {
-        "term": "funny personalised gifts",
-        "avg_interest": 32,
+        "term": "custom year",
+        "avg_interest": 35,
         "peak_interest": 0,
-        "trend": "stable",
+        "trend": "rising",
         "rising_queries": [],
         "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised caps",
-        "suggestions": [
-          "Gap: Personalised aprons \u2014 Father's Day / BBQ crossover, not on ROR yet",
-          "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
-          "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
-        ],
-        "score": 4,
-        "data_source": "estimated"
-      },
-      {
-        "term": "personalised clothing uk",
-        "avg_interest": 22,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised caps",
-        "suggestions": [
-          "Gap: Personalised aprons \u2014 Father's Day / BBQ crossover, not on ROR yet",
-          "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
-          "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
-        ],
-        "score": 4,
-        "data_source": "estimated"
-      },
-      {
-        "term": "custom gifts uk",
-        "avg_interest": 48,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
+        "breakout_queries": [],
         "paa": [],
         "ror_existing": "custom caps",
         "suggestions": [
+          "Slogan cap or sweatshirt tied to 'custom year' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "birthday gift",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'birthday gift' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "birthday sweatshirt",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised sweatshirts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'birthday sweatshirt' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 5,
+        "seo_action": "Refresh product description \u2014 keyword is stable",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "personalised birthday hoodie",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised caps",
+        "suggestions": [
           "Gap: Personalised aprons \u2014 Father's Day / BBQ crossover, not on ROR yet",
           "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
           "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
         ],
-        "score": 5,
-        "data_source": "estimated"
-      }
-    ]
-  },
-  {
-    "label": "Slogan & Embroidery Fashion",
-    "results": [
-      {
-        "term": "slogan sweatshirt uk",
-        "avg_interest": 16,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised sweatshirts",
-        "suggestions": [
-          "Slogan drop: 'Only Here for the\u2026' extended into summer \u2014 beach, Prosecco, festival",
-          "Cap: 'Festival Hair, Don't Care' \u2014 festival season tie-in",
-          "Sweatshirt: 'Only Here for the Headliners' \u2014 Glastonbury hype angle"
-        ],
-        "score": 2,
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
         "data_source": "estimated"
       },
       {
-        "term": "embroidered cap uk",
-        "avg_interest": 9,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "embroidered caps",
-        "suggestions": [
-          "Slogan drop: 'Only Here for the\u2026' extended into summer \u2014 beach, Prosecco, festival",
-          "Cap: 'Festival Hair, Don't Care' \u2014 festival season tie-in",
-          "Sweatshirt: 'Only Here for the Headliners' \u2014 Glastonbury hype angle"
-        ],
-        "score": 2,
-        "data_source": "estimated"
-      },
-      {
-        "term": "funny slogan top",
-        "avg_interest": 12,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "slogan sweatshirts",
-        "suggestions": [
-          "Slogan drop: 'Only Here for the\u2026' extended into summer \u2014 beach, Prosecco, festival",
-          "Cap: 'Festival Hair, Don't Care' \u2014 festival season tie-in",
-          "Sweatshirt: 'Only Here for the Headliners' \u2014 Glastonbury hype angle"
-        ],
-        "score": 2,
-        "data_source": "estimated"
-      },
-      {
-        "term": "leopard print fashion uk",
-        "avg_interest": 38,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "leopard print clothing",
-        "suggestions": [
-          "Slogan drop: 'Only Here for the\u2026' extended into summer \u2014 beach, Prosecco, festival",
-          "Cap: 'Festival Hair, Don't Care' \u2014 festival season tie-in",
-          "Sweatshirt: 'Only Here for the Headliners' \u2014 Glastonbury hype angle",
-          "Leopard print sweatshirt with embroidered slogan \u2014 bold colourway"
-        ],
-        "score": 4,
-        "data_source": "estimated"
-      },
-      {
-        "term": "embroidered clothing uk",
-        "avg_interest": 11,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "embroidered caps",
-        "suggestions": [
-          "Slogan drop: 'Only Here for the\u2026' extended into summer \u2014 beach, Prosecco, festival",
-          "Cap: 'Festival Hair, Don't Care' \u2014 festival season tie-in",
-          "Sweatshirt: 'Only Here for the Headliners' \u2014 Glastonbury hype angle"
-        ],
-        "score": 2,
-        "data_source": "estimated"
-      }
-    ]
-  },
-  {
-    "label": "Summer Festivals UK 2026",
-    "results": [
-      {
-        "term": "glastonbury 2026",
-        "avg_interest": 52,
+        "term": "custom birth year cap",
+        "avg_interest": 35,
         "peak_interest": 0,
         "trend": "rising",
         "rising_queries": [],
         "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "custom caps",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'custom birth year cap' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "born in",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
         "paa": [],
         "ror_existing": "",
         "suggestions": [
-          "Festival cap collection \u2014 embroidered, practical, gifting angle pre-June",
-          "Social: 'What goes on tour' \u2014 personalised cap gifting content for festival groups",
-          "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal",
-          "Drop: personalised beach tote + 'Girls Trip 2026' cap"
-        ],
-        "score": 8,
-        "data_source": "estimated"
-      },
-      {
-        "term": "reading festival 2026",
-        "avg_interest": 42,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "festival clothing",
-        "suggestions": [
-          "Festival cap collection \u2014 embroidered, practical, gifting angle pre-June",
-          "Social: 'What goes on tour' \u2014 personalised cap gifting content for festival groups",
-          "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal",
-          "Drop: personalised beach tote + 'Girls Trip 2026' cap"
-        ],
-        "score": 7,
-        "data_source": "estimated"
-      },
-      {
-        "term": "festival outfit uk",
-        "avg_interest": 32,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "festival clothing",
-        "suggestions": [
-          "Festival cap collection \u2014 embroidered, practical, gifting angle pre-June",
-          "Social: 'What goes on tour' \u2014 personalised cap gifting content for festival groups",
-          "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal",
-          "Drop: personalised beach tote + 'Girls Trip 2026' cap"
+          "Slogan cap or sweatshirt tied to 'born in' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
         ],
         "score": 6,
+        "seo_action": "Write blog post \u2014 no ROR page to land on yet",
+        "layer": 4,
         "data_source": "estimated"
       },
       {
-        "term": "festival clothing uk",
-        "avg_interest": 27,
+        "term": "birth year clothing",
+        "avg_interest": 35,
         "peak_interest": 0,
         "trend": "rising",
         "rising_queries": [],
         "top_queries": [],
+        "breakout_queries": [],
         "paa": [],
         "ror_existing": "biscuit themed clothing",
         "suggestions": [
-          "Festival cap collection \u2014 embroidered, practical, gifting angle pre-June",
-          "Social: 'What goes on tour' \u2014 personalised cap gifting content for festival groups",
-          "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal",
-          "Drop: personalised beach tote + 'Girls Trip 2026' cap"
+          "Slogan cap or sweatshirt tied to 'birth year clothing' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
         ],
-        "score": 6,
+        "score": 5,
+        "seo_action": "Refresh product description \u2014 keyword is stable",
+        "layer": 4,
         "data_source": "estimated"
       },
       {
-        "term": "summer festival uk 2026",
-        "avg_interest": 21,
+        "term": "milestone birthday gift",
+        "avg_interest": 35,
         "peak_interest": 0,
         "trend": "rising",
         "rising_queries": [],
         "top_queries": [],
+        "breakout_queries": [],
         "paa": [],
-        "ror_existing": "festival clothing",
+        "ror_existing": "personalised gifts",
         "suggestions": [
-          "Festival cap collection \u2014 embroidered, practical, gifting angle pre-June",
-          "Social: 'What goes on tour' \u2014 personalised cap gifting content for festival groups",
-          "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal",
-          "Drop: personalised beach tote + 'Girls Trip 2026' cap"
+          "Slogan cap or sweatshirt tied to 'milestone birthday gift' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
         ],
         "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "40th birthday gift uk",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to '40th birthday gift uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "50th birthday gift uk",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to '50th birthday gift uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "30th birthday gift uk",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to '30th birthday gift uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "18th birthday gift uk",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to '18th birthday gift uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "21st birthday gift uk",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to '21st birthday gift uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "personalised birthday gift",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised caps",
+        "suggestions": [
+          "Gap: Personalised aprons \u2014 Father's Day / BBQ crossover, not on ROR yet",
+          "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
+          "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "custom birthday jumper",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "custom caps",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'custom birthday jumper' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "birthday hoodie uk",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised hoodies",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'birthday hoodie uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 5,
+        "seo_action": "Refresh product description \u2014 keyword is stable",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "personalised sweatshirt uk",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised caps",
+        "suggestions": [
+          "Gap: Personalised aprons \u2014 Father's Day / BBQ crossover, not on ROR yet",
+          "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
+          "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
+        "data_source": "estimated"
+      },
+      {
+        "term": "50th birthday gift ideas",
+        "avg_interest": 35,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to '50th birthday gift ideas' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 4,
         "data_source": "estimated"
       }
     ]
   },
   {
-    "label": "Summer Holidays UK",
+    "label": "Broad Category Discovery",
     "results": [
       {
-        "term": "summer holidays uk 2026",
-        "avg_interest": 38,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "",
-        "suggestions": [
-          "Drop: personalised beach tote + 'Girls Trip 2026' cap",
-          "Social: 'Your summer sorted' gift guide email pulling existing products together",
-          "Cap: 'Only Here for the Sunshine' \u2014 seasonal slogan, fast to execute"
-        ],
-        "score": 8,
-        "data_source": "estimated"
-      },
-      {
-        "term": "holiday outfit uk",
-        "avg_interest": 22,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "festival outfit",
-        "suggestions": [
-          "Drop: personalised beach tote + 'Girls Trip 2026' cap",
-          "Social: 'Your summer sorted' gift guide email pulling existing products together",
-          "Cap: 'Only Here for the Sunshine' \u2014 seasonal slogan, fast to execute"
-        ],
-        "score": 6,
-        "data_source": "estimated"
-      },
-      {
-        "term": "beach holiday uk",
-        "avg_interest": 33,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "",
-        "suggestions": [
-          "Drop: personalised beach tote + 'Girls Trip 2026' cap",
-          "Social: 'Your summer sorted' gift guide email pulling existing products together",
-          "Cap: 'Only Here for the Sunshine' \u2014 seasonal slogan, fast to execute"
-        ],
-        "score": 7,
-        "data_source": "estimated"
-      },
-      {
-        "term": "summer fashion uk 2026",
-        "avg_interest": 16,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "",
-        "suggestions": [
-          "Drop: personalised beach tote + 'Girls Trip 2026' cap",
-          "Social: 'Your summer sorted' gift guide email pulling existing products together",
-          "Cap: 'Only Here for the Sunshine' \u2014 seasonal slogan, fast to execute"
-        ],
-        "score": 6,
-        "data_source": "estimated"
-      }
-    ]
-  },
-  {
-    "label": "Funny Gifts for Women",
-    "results": [
-      {
-        "term": "funny gifts for women uk",
-        "avg_interest": 42,
+        "term": "women's fashion uk",
+        "avg_interest": 20,
         "peak_interest": 0,
         "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
+        "breakout_queries": [],
         "paa": [],
-        "ror_existing": "personalised gifts",
+        "ror_existing": "",
         "suggestions": [
           "Funny birthday gift sets \u2014 cap + tote bundle, gift-wrapped",
           "Social: 'Gifts that aren't a candle' \u2014 positions ROR against generic gifting",
           "Sweatshirt: 'Bra Off By 7' \u2014 speaks directly to the ROR customer"
-        ],
-        "score": 5,
-        "data_source": "estimated"
-      },
-      {
-        "term": "novelty gifts for women",
-        "avg_interest": 37,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised gifts",
-        "suggestions": [
-          "Funny birthday gift sets \u2014 cap + tote bundle, gift-wrapped",
-          "Social: 'Gifts that aren't a candle' \u2014 positions ROR against generic gifting",
-          "Sweatshirt: 'Bra Off By 7' \u2014 speaks directly to the ROR customer",
-          "Novelty slogan caps for gifting \u2014 lean into the anti-boring positioning"
-        ],
-        "score": 5,
-        "data_source": "estimated"
-      },
-      {
-        "term": "funny birthday gifts uk",
-        "avg_interest": 48,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised gifts",
-        "suggestions": [
-          "Funny birthday gift sets \u2014 cap + tote bundle, gift-wrapped",
-          "Social: 'Gifts that aren't a candle' \u2014 positions ROR against generic gifting",
-          "Sweatshirt: 'Bra Off By 7' \u2014 speaks directly to the ROR customer"
-        ],
-        "score": 5,
-        "data_source": "estimated"
-      },
-      {
-        "term": "gifts for her uk",
-        "avg_interest": 58,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised gifts",
-        "suggestions": [
-          "Funny birthday gift sets \u2014 cap + tote bundle, gift-wrapped",
-          "Social: 'Gifts that aren't a candle' \u2014 positions ROR against generic gifting",
-          "Sweatshirt: 'Bra Off By 7' \u2014 speaks directly to the ROR customer"
-        ],
-        "score": 6,
-        "data_source": "estimated"
-      }
-    ]
-  },
-  {
-    "label": "BBQ & Condiments Culture",
-    "results": [
-      {
-        "term": "bbq season uk",
-        "avg_interest": 42,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "",
-        "suggestions": [
-          "Cap: 'Grill Sergeant' \u2014 Father's Day BBQ gifting, fast to produce",
-          "Cap: 'Ketchup or Brown Sauce' \u2014 divisive, funny, conversation-starting",
-          "Gap product: Personalised apron \u2014 'Head Chef (Self-Appointed)'",
-          "Social: 'Team Ketchup vs Team Brown Sauce' poll \u2014 big engagement driver"
-        ],
-        "score": 8,
-        "data_source": "estimated"
-      },
-      {
-        "term": "ketchup condiment",
-        "avg_interest": 22,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "condiment gifts",
-        "suggestions": [
-          "Cap: 'Grill Sergeant' \u2014 Father's Day BBQ gifting, fast to produce",
-          "Cap: 'Ketchup or Brown Sauce' \u2014 divisive, funny, conversation-starting",
-          "Gap product: Personalised apron \u2014 'Head Chef (Self-Appointed)'",
-          "Social: 'Team Ketchup vs Team Brown Sauce' poll \u2014 big engagement driver"
         ],
         "score": 3,
+        "seo_action": "Potential new product \u2014 monitor volume before committing",
+        "layer": 0,
         "data_source": "estimated"
       },
       {
-        "term": "brown sauce uk",
-        "avg_interest": 27,
+        "term": "gift ideas uk",
+        "avg_interest": 20,
         "peak_interest": 0,
         "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
+        "breakout_queries": [],
         "paa": [],
-        "ror_existing": "",
+        "ror_existing": "personalised gifts",
         "suggestions": [
-          "Cap: 'Grill Sergeant' \u2014 Father's Day BBQ gifting, fast to produce",
-          "Cap: 'Ketchup or Brown Sauce' \u2014 divisive, funny, conversation-starting",
-          "Gap product: Personalised apron \u2014 'Head Chef (Self-Appointed)'",
-          "Social: 'Team Ketchup vs Team Brown Sauce' poll \u2014 big engagement driver"
-        ],
-        "score": 4,
-        "data_source": "estimated"
-      },
-      {
-        "term": "bbq food uk",
-        "avg_interest": 38,
-        "peak_interest": 0,
-        "trend": "rising",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "",
-        "suggestions": [
-          "Cap: 'Grill Sergeant' \u2014 Father's Day BBQ gifting, fast to produce",
-          "Cap: 'Ketchup or Brown Sauce' \u2014 divisive, funny, conversation-starting",
-          "Gap product: Personalised apron \u2014 'Head Chef (Self-Appointed)'",
-          "Social: 'Team Ketchup vs Team Brown Sauce' poll \u2014 big engagement driver"
-        ],
-        "score": 8,
-        "data_source": "estimated"
-      }
-    ]
-  },
-  {
-    "label": "Pop Culture & Novelty Fashion",
-    "results": [
-      {
-        "term": "funny tshirt uk",
-        "avg_interest": 27,
-        "peak_interest": 0,
-        "trend": "stable",
-        "rising_queries": [],
-        "top_queries": [],
-        "paa": [],
-        "ror_existing": "personalised sweatshirts",
-        "suggestions": [
-          "Novelty slogan caps for gifting \u2014 lean into the anti-boring positioning",
-          "Social: 'Slogans we've actually embroidered' reel \u2014 funny UGC-style content"
+          "Slogan cap or sweatshirt tied to 'gift ideas uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
         ],
         "score": 3,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 0,
+        "data_source": "estimated"
+      },
+      {
+        "term": "food and drink trends uk",
+        "avg_interest": 20,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'food and drink trends uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 3,
+        "seo_action": "Potential new product \u2014 monitor volume before committing",
+        "layer": 0,
         "data_source": "estimated"
       },
       {
         "term": "novelty clothing uk",
-        "avg_interest": 16,
+        "avg_interest": 20,
         "peak_interest": 0,
         "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
+        "breakout_queries": [],
         "paa": [],
         "ror_existing": "biscuit themed clothing",
         "suggestions": [
@@ -774,38 +464,529 @@
           "Social: 'Slogans we've actually embroidered' reel \u2014 funny UGC-style content"
         ],
         "score": 2,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 0,
         "data_source": "estimated"
       },
       {
-        "term": "viral fashion uk",
-        "avg_interest": 11,
+        "term": "birthday gift",
+        "avg_interest": 20,
         "peak_interest": 0,
         "trend": "stable",
         "rising_queries": [],
         "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'birthday gift' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 3,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 0,
+        "data_source": "estimated"
+      },
+      {
+        "term": "birthday sweatshirt",
+        "avg_interest": 20,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised sweatshirts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'birthday sweatshirt' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 2,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 0,
+        "data_source": "estimated"
+      },
+      {
+        "term": "personalised gift",
+        "avg_interest": 20,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised caps",
+        "suggestions": [
+          "Gap: Personalised aprons \u2014 Father's Day / BBQ crossover, not on ROR yet",
+          "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
+          "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
+        ],
+        "score": 3,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 0,
+        "data_source": "estimated"
+      }
+    ]
+  },
+  {
+    "label": "Seasonal Trends (Layer 3)",
+    "results": [
+      {
+        "term": "fathers day gifts uk",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Cap: 'Only Here for the BBQ' \u2014 embroidered slogan, Father's Day gifting angle",
+          "Sweatshirt: 'Tea Please Dad' \u2014 simple embroidered text, gift-ready",
+          "Cap: 'Coffee First, Dad Stuff Second' \u2014 funny and fast to execute",
+          "Social: 'What Dad Really Wants' reel featuring BBQ-themed personalised cap"
+        ],
+        "score": 7,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "glastonbury 2026",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
         "paa": [],
         "ror_existing": "",
         "suggestions": [
-          "Novelty slogan caps for gifting \u2014 lean into the anti-boring positioning",
-          "Social: 'Slogans we've actually embroidered' reel \u2014 funny UGC-style content"
+          "Slogan cap or sweatshirt tied to 'glastonbury 2026' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
         ],
-        "score": 3,
+        "score": 6,
+        "seo_action": "Write blog post \u2014 no ROR page to land on yet",
+        "layer": 3,
         "data_source": "estimated"
       },
       {
-        "term": "meme clothing uk",
-        "avg_interest": 6,
+        "term": "reading festival 2026",
+        "avg_interest": 25,
         "peak_interest": 0,
-        "trend": "stable",
+        "trend": "rising",
         "rising_queries": [],
         "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "festival clothing",
+        "suggestions": [
+          "Festival cap collection \u2014 embroidered, practical, gifting angle pre-June",
+          "Social: 'What goes on tour' \u2014 personalised cap gifting content for festival groups",
+          "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "festival outfit uk",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "festival clothing",
+        "suggestions": [
+          "Festival cap collection \u2014 embroidered, practical, gifting angle pre-June",
+          "Social: 'What goes on tour' \u2014 personalised cap gifting content for festival groups",
+          "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "festival clothing uk",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "biscuit themed clothing",
+        "suggestions": [
+          "Festival cap collection \u2014 embroidered, practical, gifting angle pre-June",
+          "Social: 'What goes on tour' \u2014 personalised cap gifting content for festival groups",
+          "Tote: Festival tote with custom name or slogan \u2014 low cost, high gift appeal"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "summer holidays uk 2026",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "",
+        "suggestions": [
+          "Drop: personalised beach tote + 'Girls Trip 2026' cap",
+          "Social: 'Your summer sorted' gift guide email pulling existing products together",
+          "Cap: 'Only Here for the Sunshine' \u2014 seasonal slogan, fast to execute"
+        ],
+        "score": 7,
+        "seo_action": "Write blog post \u2014 no ROR page to land on yet",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "personalised gifts uk",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised caps",
+        "suggestions": [
+          "Gap: Personalised aprons \u2014 Father's Day / BBQ crossover, not on ROR yet",
+          "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
+          "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "funny gifts for women uk",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Funny birthday gift sets \u2014 cap + tote bundle, gift-wrapped",
+          "Social: 'Gifts that aren't a candle' \u2014 positions ROR against generic gifting",
+          "Sweatshirt: 'Bra Off By 7' \u2014 speaks directly to the ROR customer"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "funny birthday gifts uk",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'funny birthday gifts uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "gifts for her uk",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised gifts",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'gifts for her uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 6,
+        "seo_action": "Update collection page copy + add to FAQs",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "leopard print fashion uk",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "leopard print clothing",
+        "suggestions": [
+          "Leopard print sweatshirt with embroidered slogan \u2014 bold colourway",
+          "Social: 'Leopard print is forever' \u2014 leans into ROR's anti-boring positioning"
+        ],
+        "score": 5,
+        "seo_action": "Refresh product description \u2014 keyword is stable",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "bbq season uk",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "",
+        "suggestions": [
+          "Cap: 'Grill Sergeant' \u2014 Father's Day BBQ gifting, fast to produce",
+          "Cap: 'Ketchup or Brown Sauce' \u2014 divisive, funny, conversation-starting",
+          "Gap product: Personalised apron \u2014 'Head Chef (Self-Appointed)'",
+          "Social: 'Team Ketchup vs Team Brown Sauce' poll \u2014 big engagement driver"
+        ],
+        "score": 7,
+        "seo_action": "Write blog post \u2014 no ROR page to land on yet",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "bourbon biscuit",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "bourbon biscuit",
+        "suggestions": [
+          "Cap: 'Only Here for the Bourbons' \u2014 biscuit range hero product",
+          "Sweatshirt: Custard Cream slogan print \u2014 nostalgic British humour",
+          "Tote: 'Only Here for the Jammy Dodgers' \u2014 low cost, high shareability",
+          "Social: 'Rank our biscuit range' poll \u2014 drives engagement and discovery"
+        ],
+        "score": 5,
+        "seo_action": "Refresh product description \u2014 keyword is stable",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "jammy dodger",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "jammy dodger",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'jammy dodger' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 5,
+        "seo_action": "Refresh product description \u2014 keyword is stable",
+        "layer": 3,
+        "data_source": "estimated"
+      },
+      {
+        "term": "novelty clothing uk",
+        "avg_interest": 25,
+        "peak_interest": 0,
+        "trend": "rising",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
         "paa": [],
         "ror_existing": "biscuit themed clothing",
         "suggestions": [
           "Novelty slogan caps for gifting \u2014 lean into the anti-boring positioning",
           "Social: 'Slogans we've actually embroidered' reel \u2014 funny UGC-style content"
         ],
-        "score": 1,
+        "score": 5,
+        "seo_action": "Refresh product description \u2014 keyword is stable",
+        "layer": 3,
+        "data_source": "estimated"
+      }
+    ]
+  },
+  {
+    "label": "Industry \u00d7 Product (Layers 1+2)",
+    "results": [
+      {
+        "term": "personalised hoodie uk",
+        "avg_interest": 15,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised caps",
+        "suggestions": [
+          "Gap: Personalised aprons \u2014 Father's Day / BBQ crossover, not on ROR yet",
+          "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
+          "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
+        ],
+        "score": 3,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 12,
+        "data_source": "estimated"
+      },
+      {
+        "term": "personalised cap uk",
+        "avg_interest": 15,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised caps",
+        "suggestions": [
+          "Gap: Personalised aprons \u2014 Father's Day / BBQ crossover, not on ROR yet",
+          "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
+          "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
+        ],
+        "score": 3,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 12,
+        "data_source": "estimated"
+      },
+      {
+        "term": "personalised tote bag uk",
+        "avg_interest": 15,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised caps",
+        "suggestions": [
+          "Gap: Personalised aprons \u2014 Father's Day / BBQ crossover, not on ROR yet",
+          "Gap: Personalised BBQ accessories \u2014 gifting gap for food-loving dads",
+          "Social: 'Weird personalisation requests we've actually had' \u2014 relatable content"
+        ],
+        "score": 3,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 12,
+        "data_source": "estimated"
+      },
+      {
+        "term": "custom sweatshirt uk",
+        "avg_interest": 15,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "custom caps",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'custom sweatshirt uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 3,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 12,
+        "data_source": "estimated"
+      },
+      {
+        "term": "custom hoodie uk",
+        "avg_interest": 15,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "custom caps",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'custom hoodie uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 3,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 12,
+        "data_source": "estimated"
+      },
+      {
+        "term": "custom cap uk",
+        "avg_interest": 15,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "custom caps",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'custom cap uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 3,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 12,
+        "data_source": "estimated"
+      },
+      {
+        "term": "custom tote bag uk",
+        "avg_interest": 15,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "custom caps",
+        "suggestions": [
+          "Slogan cap or sweatshirt tied to 'custom tote bag uk' \u2014 quick to produce as print-on-demand",
+          "Social: behind-the-scenes making content featuring this theme"
+        ],
+        "score": 3,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 12,
+        "data_source": "estimated"
+      },
+      {
+        "term": "slogan sweatshirt uk",
+        "avg_interest": 15,
+        "peak_interest": 0,
+        "trend": "stable",
+        "rising_queries": [],
+        "top_queries": [],
+        "breakout_queries": [],
+        "paa": [],
+        "ror_existing": "personalised sweatshirts",
+        "suggestions": [
+          "Slogan drop: 'Only Here for the\u2026' extended into summer \u2014 beach, Prosecco, festival",
+          "Cap: 'Festival Hair, Don't Care' \u2014 festival season tie-in",
+          "Sweatshirt: 'Only Here for the Headliners' \u2014 Glastonbury hype angle"
+        ],
+        "score": 2,
+        "seo_action": "Low priority \u2014 review next quarter",
+        "layer": 12,
         "data_source": "estimated"
       }
     ]
