@@ -45,10 +45,11 @@ jobs:
           path: trend_report.html
           retention-days: 14
 
+      - name: Prepare Pages deploy
+        run: mkdir -p _site && cp trend_report.html _site/index.html
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          include_files: trend_report.html
-          destination_dir: .
+          publish_dir: _site
