@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   scrape:
@@ -42,3 +44,11 @@ jobs:
           name: trend-report
           path: trend_report.html
           retention-days: 14
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          include_files: trend_report.html
+          destination_dir: .
