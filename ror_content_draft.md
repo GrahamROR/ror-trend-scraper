@@ -1,5 +1,5 @@
 # Rock On Ruby — Content Drafts
-Generated: 12 May 2026, 10:06
+Generated: 12 May 2026, 11:19
 Run `python3 scraper.py` to regenerate with fresh trend data.
 
 ---
@@ -12,205 +12,178 @@ Run `python3 scraper.py` to regenerate with fresh trend data.
 
 # What to Wear to Glastonbury 2026 (Without Looking Like You Tried Too Hard)
 
-Glastonbury 2026 is coming, and somewhere right now there's a woman staring at her wardrobe thinking: I have absolutely nothing to wear to a field in Somerset for five days.
+Glastonbury 2026 is happening, and if you're going, you already know the chaos that comes with packing for it. You want to look good. You also need to survive three days of mud, warm cider, and queuing for a portaloo at 2am. These are not compatible goals. Or so I used to think.
 
-That woman is me, by the way. Every single year.
+I went to Glasto a few years back with what I genuinely believed was a considered festival outfit. Colour-coordinated. Accessories. The works. By lunchtime on Friday I looked like I'd been dragged through a hedge by someone who really meant it.
 
-I've done Glastonbury enough times to know that the outfits you plan in April and the outfits you actually wear are two completely different things. The cute co-ord? Stays in the tent. The floaty dress? Ruined by Wednesday. What you actually live in is a cap, a sweatshirt, and the same pair of wellies for four days straight.
+That's the thing about festivals. They humble you.
 
-Which is fine. That's actually the whole point.
+So I've stopped trying to dress like the Pinterest board and started dressing for the actual experience. And the thing that's saved me every time? A decent cap.
 
-Here's the thing nobody tells you before your first Glastonbury — the best festival fits aren't the ones that look planned. They're the ones that feel like you. A worn-in sweatshirt. A cap that's got a bit of a story. Stuff that says something without you having to shout over the Pyramid Stage to explain it.
+Not a paper-thin supermarket cap that blows off the second there's a breeze. A proper, embroidered cap that feels like it's yours. That's got something on it that makes you smile when you catch yourself in a portaloo mirror at midnight.
 
-That's where personalisation comes in.
+That's where we come in, by the way. At [Rock On Ruby](https://rockonruby.co.uk), we make personalised embroidered caps that you choose the words on. Your name. A phrase. An inside joke. Whatever makes sense to you and absolutely no one else — which, honestly, is the whole point.
 
-We've been making personalised caps and sweatshirts at Rock On Ruby for a while now, and every summer the festival orders go a bit mad. People want something that's theirs. Not the same cap you can grab from a stall at the gate. Not a generic slogan printed on three million tote bags. Something with their name, their group's name, an inside joke that'll make their mate laugh on the bus down to Pilton.
+There's something about wearing something personalised at a festival that feels different to wearing a band tee you grabbed at the merch stand. It's yours. Nobody else has one. In a field of 200,000 people, that's not nothing.
 
-It also solves the "I can't find anyone in this crowd" problem, which — if you've ever tried to locate four people near the Other Stage at 11pm — is a very real problem.
+And caps are just practical. Sun protection. Hides the second-day hair situation. Can be pulled low when you're watching an act you secretly love but don't want anyone to clock you singing along to.
 
-A matching set of personalised caps for your group is genuinely one of the best things you can do before you go. Practical, funny, and it makes every photo look like you had a plan even when you absolutely did not.
+If you're going with a group, this is also your sign to sort matching caps. I know, I know — it sounds like the kind of thing a hen do does. But hear me out. When you lose someone in a crowd (and you will), being able to say "she's got a pink cap with CHAOS written on the front" is significantly more useful than "she's wearing a khaki jacket." Half the field is wearing a khaki jacket.
 
-The sweatshirts are the other thing. Glastonbury nights are cold. I don't care what the forecast says. It's always cold. A personalised sweatshirt you actually want to wear is about a thousand times better than the sad grey hoodie you find at the bottom of your bag at 2am.
+Our caps are fully personalised, embroidered (not printed, proper stitching), and made to order. You pick the colour, you pick the text, we do the rest.
 
-So if you're going to Glastonbury 2026 — lucky you, genuinely — start thinking about this now. Not because you need to stress about it. Just because the best stuff sells out, personalisation takes a bit of time, and you'll feel so much better turning up with something that's actually yours.
+We deliver to the whole of the UK, and turnaround is quick — so you've got plenty of time before the gates open.
 
-Come have a look at what we do over at [rockonruby.co.uk](https://rockonruby.co.uk). Caps, sweatshirts, the lot — all personalised, all made for exactly this kind of adventure.
+If you're heading to Glastonbury 2026 and you want something to wear that'll last longer than a wristband tan, have a look at what we've got at [rockonruby.co.uk](https://rockonruby.co.uk).
 
-See ya in the mud.
-
-Love Team ROR x
+See ya in the field.
 
 ---
 
 ## BLOG POST 2
 
-# Father's Day Gifts UK 2026: Why a Personalised Cap Beats Another Bottle of Whisky
+# Father's Day Gifts UK 2026 — What to Get the Dad Who Says He Doesn't Want Anything
 
-Father's Day gifts in the UK have a bit of a reputation problem. Every year, around late May, the same slightly panicked search begins. Novelty socks. Whisky. A book about the war. A card with a lawnmower on it.
+Father's Day gifts in the UK this year fall on 21 June, and if you've already opened seventeen browser tabs and closed them all in defeat, you're in the right place.
 
-Your dad deserves better than a lawnmower card.
+Here's the situation. You ask your dad what he wants. He says nothing. You ask again. He says he's got everything he needs. You resist the urge to take that literally and buy him nothing, because we both know how that goes down.
 
-I say this with love, because I've bought the lawnmower card. I've also bought the generic mug, the multi-pack of socks, and — in one deeply regrettable year — a spa voucher that he never used and we never spoke about again.
+So you go looking. And it's either a novelty mug with a terrible pun on it, a BBQ set he'll use once, or a box of biscuits with "DAD" written on it in a font that belongs on a 2009 screensaver.
 
-The thing is, dads are actually quite easy to buy for when you think about what they really want. Not stuff. Not another thing to find a space for. They want to feel like you thought about them. Like you know them.
+There's a gap between "didn't bother" and "actually thought about you," and that's exactly where we sit.
 
-That's the whole trick.
+At [Rock On Ruby](https://rockonruby.co.uk), we make personalised embroidered clothing and accessories — caps, sweatshirts, hoodies, tees — and you put whatever you want on them. His name. His nickname. Something only your family would understand. The thing he always says that makes everyone groan.
 
-A personalised cap sounds simple, and it is — but simple done right hits differently. His name on it. A nickname. A running joke between the two of you. Something that makes him laugh and then wear it every Saturday to the garden centre for the next three years.
+That's the bit that makes it a proper gift.
 
-That's the dream, isn't it? A gift that becomes his thing. That he actually uses.
+A personalised cap with "Top Bloke" on it is funny. A personalised cap with the nickname your mum has called him for thirty years — that's something else entirely. That's the thing he'll actually wear. That's the thing he'll tell the neighbours about.
 
-We do personalised embroidered caps at Rock On Ruby, and Father's Day is honestly one of our busiest times of year. People come to us when they've run out of ideas, and they leave feeling like they've cracked it. Because they have.
+I've been making personalised bits for a few years now, and Father's Day is one of those moments where people really get it. Mums ordering for little kids who can't get to the shops. Adult daughters who live miles away and want to send something that feels like it came from them, not from a warehouse.
 
-The sweatshirts work brilliantly too, especially for dads who are always cold, always outside, or who have some sort of permanent attachment to a particular hobby that you can lean into. "World's Okayest Golfer." His actual name in big letters. The year he was born. Whatever means something to your family.
+The gifts that land are the ones that reference something real. An in-joke. A nickname. A year that meant something. You don't need a big budget for that — you just need to think about it for five minutes.
 
-That's the shift from a forgettable gift to a good one. It's not about spending more. It's about being specific.
+Which is, clearly, more than most Father's Day gift guides are asking of anyone.
 
-Father's Day 2026 falls on Sunday 15th June. Which sounds far away and then suddenly isn't. Personalised orders need a little lead time — we're not Amazon, and we're proud of that — so the earlier you get in, the better.
+Our personalised caps are fully embroidered — proper stitching, not a sticker — and you pick every detail. Colour, text, placement. They're the kind of thing you can wear to the pub, the allotment, the school run (if he's that kind of dad). Not a shelf ornament. An actual useful thing.
 
-If your dad is the kind of man who says "don't bother getting me anything" and then is quietly a bit pleased when you do — this is for you.
+We're based in Bury, Manchester, we make everything to order, and we ship across the whole UK. Turnaround is fast, so even if you've left it a bit late — no judgment, we've all done it — you've still got time.
 
-If your dad is the kind of man who genuinely would wear a cap every day for the rest of his life given the chance — also for you.
+If you're stuck on Father's Day gifts this year and you want something that'll actually mean something, come and have a look at [rockonruby.co.uk](https://rockonruby.co.uk).
 
-Head over to [rockonruby.co.uk](https://rockonruby.co.uk) and have a look at what we've got. You'll find personalised caps, sweatshirts, and a few other things that are a lot more him than a lawnmower card.
-
-You've got time. Just don't leave it too late.
-
-Love Team ROR x
+He'll still say it's too much. But he'll wear it every week.
 
 ---
 
 ## SOCIAL CAPTIONS
 
-**Caption 1 — Glastonbury 2026**
+**Caption 1**
 
-Your Glastonbury outfit sorted in five minutes, no festival stall markup required.
+The festival cap that basically IS your personality.
 
-Personalised cap. Your name. Your group. Done.
-We've been sending caps to Glastonbury for years and the photos are always brilliant.
-The mud, less so.
+Glastonbury 2026 is coming and we're not turning up in something off a petrol station shelf.
+Personalised. Embroidered. Entirely yours.
+Pick your colour, pick your words, we'll sort the rest.
 
-Order now, it takes a bit of time — rockonruby.co.uk
+[Visual: flat lay of embroidered caps in festival-ready colours — dusty pink, sage green, cream — on a denim jacket background]
 
-[Visual: flat lay of embroidered festival caps on a denim jacket, golden hour lighting, slightly chaotic energy]
-
-#glastonbury2026 #festivaloutfit #personalisedgifts #rockonruby #festivalcap
+#GlastonburyOutfit #PersonalisedCap #FestivalFashion #RockOnRuby #Glastonbury2026
 
 ---
 
-**Caption 2 — Father's Day Gifts UK**
+**Caption 2**
 
-Stop. Put the novelty socks down. We need to talk.
+"He said he doesn't want anything for Father's Day" okay but he's not getting nothing.
 
-Your dad doesn't want another thing that lives in a drawer.
-He wants something that's actually his.
-A personalised cap he'll wear every Saturday. A sweatshirt with his name on it.
-Something that says you know him.
+A personalised cap with his nickname on it?
+That's the one he wears to the pub and tells everyone about.
+That's the one that actually lands.
 
-That's what we do. rockonruby.co.uk
+[Visual: close-up of embroidered cap in navy with a warm nickname text — photographed on a wooden surface with natural light]
 
-[Visual: personalised cap laid on a wooden surface next to a simple kraft gift box, natural daylight]
-
-#fathersdaygifts #fathersdayuk #personalisedgifts #giftsfordad #rockonruby
+#FathersDayGiftsUK #PersonalisedGifts #GiftForDad #RockOnRuby #FathersDay2026
 
 ---
 
-**Caption 3 — BBQ Season**
+**Caption 3**
 
-BBQ season is here and someone in your garden absolutely needs a personalised cap.
+BBQ season is here and someone's going to turn up in a plain boring apron.
 
-Could be the chef. Could be the person who keeps telling everyone to relax, it'll be ready soon.
-Could be you, owning the whole situation.
-We're not here to judge. We're here to embroider.
+Don't be that person.
+(Or — do be that person but make the cap extremely personal to compensate.)
+We've got you.
 
-rockonruby.co.uk
+[Visual: model wearing an embroidered cap in the garden, sunny day, casual BBQ vibes in the background — relaxed, not staged]
 
-[Visual: someone in a personalised cap standing at a BBQ, tongs in hand, laughing — backyard, sunny, casual]
-
-#bbqseason #summervibes #personalisedcap #rockonruby #personalisedgifts
+#BBQSeason #SummerVibes #PersonalisedCap #RockOnRuby #BBQLife
 
 ---
 
-**Caption 4 — Beach Holiday UK**
+**Caption 4**
 
-Packing for your summer holiday and forgetting everything useful as usual?
+Beach bag check: towel ✅ suncream ✅ book you won't read ✅ tote that looks like you've got your life together ✅
 
-Don't forget the tote bag.
-A personalised one, specifically.
-Sand, snacks, a paperback you won't finish, and your name on the outside so nobody nicks it.
-That's a solid holiday right there.
+Our personalised tote bags are doing a lot of heavy lifting this summer.
+Literally and aesthetically.
 
-rockonruby.co.uk
+[Visual: personalised canvas tote propped against a beach bag flat lay — sunglasses, suncream, paperback, all very summer holiday UK energy]
 
-[Visual: personalised tote bag on a pebble beach, sunglasses and a paperback stuffed inside, bright UK summer light]
-
-#beachholiday #summerholidays2026 #personalisedtotebag #rockonruby #ukholiday
+#BeachHolidayUK #PersonalisedTote #SummerHolidays #RockOnRuby #ToteBag
 
 ---
 
-**Caption 5 — Summer Holidays**
+**Caption 5**
 
-Six weeks of summer holidays and you need a plan. Or at least a cap.
+Summer holidays 2026 — the kids are off, the plans are vague, the vibes are chaotic.
 
-Matching personalised caps for the kids.
-They'll actually wear them. You'll actually find them in a crowd.
-Everyone wins.
-Especially you.
+A personalised sweatshirt for every single mood you're going to have in the next six weeks.
+We're here. We're ready. Come find us.
 
-rockonruby.co.uk
+[Visual: woman in an oversized personalised sweatshirt, coffee in hand, kids' shoes visible in the background — relatable, warm, slightly dishevelled in a good way]
 
-[Visual: three kids' personalised caps lined up by size on a wall, bright colours, playful feel]
-
-#summerholidays2026 #kidsclothing #personalisedgifts #rockonruby #familyholiday
+#SummerHolidaysUK #PersonalisedClothing #MumLife #RockOnRuby #SlognClothing
 
 ---
 
 ## EMAIL SUBJECT LINES
 
-**Subject:** Your dad said don't bother. Get him this anyway.
-**Preview text:** Father's Day is 15th June and "don't get me anything" is not a legally binding agreement. We've got personalised caps and sweatshirts that'll make him actually pleased you ignored him. Have a look before the rush starts.
+**Subject:** Your Glastonbury outfit is one cap away from being sorted
+**Preview text:** You've booked the ticket, panicked about the weather, and started a packing list you'll ignore. We can't help with the mud, but we can sort you a personalised embroidered cap that's actually worth wearing. Have a look at what we've got at rockonruby.co.uk before you panic-buy something beige.
 
 ---
 
-**Subject:** Glastonbury sorted. (Well, the outfit bit at least.)
-**Preview text:** You can't sort the weather, the queues, or whoever books the Sunday headliner. But you can sort a personalised cap for the whole group. We make them, you wear them, the photos are great. Come have a look at rockonruby.co.uk.
+**Subject:** He says he doesn't want anything. Get him this anyway.
+**Preview text:** Father's Day is 21 June and "nothing" is not a gift. A personalised cap with his actual nickname on it? That's the one he wears every week and definitely mentions to the neighbours. We make them to order, we embroider them properly, and we ship UK-wide. Come have a look.
 
 ---
 
-**Subject:** BBQ season is here and someone needs a cap.
-**Preview text:** It's warm, there's a grill involved, and someone in your garden is taking it very seriously. A personalised cap is the move. Whether that's for the self-appointed head chef or just you, living your best summer, we've got you covered at rockonruby.co.uk.
+**Subject:** BBQ season + personalised caps = your whole summer sorted
+**Preview text:** The sun is out (occasionally, we're in Manchester, let's be realistic), the BBQs are lit, and your summer wardrobe needs one good cap to tie it all together. Personalised, embroidered, made to order. Pick your colour, pick your words, and we'll have it with you sharpish.
 
 ---
 
 ## PRODUCT DESCRIPTIONS
 
-**Father's Day Gifts UK → Personalised Cap**
+**Fathers Day Gifts UK → Personalised Cap**
 
-This is the gift for the dad who says he doesn't want anything and then quietly loves it. A personalised embroidered cap with his name, his nickname, or whatever running joke your family has had since 1997. He'll wear it every weekend. You'll see it in every photo for the next decade. Solid gift. Zero lawnmower cards required.
+Stop scrolling past seventeen novelty mugs and get him something he'll actually wear. Our personalised embroidered caps are made to order — you pick the colour, you write the words, we stitch it properly. His nickname, his catchphrase, something only your family gets. The gift that looks like you thought about it. Because you did.
 
 ---
 
 **Glastonbury 2026 → Festival Cap**
 
-Five days in a field and you need a cap that's actually yours — not grabbed from a stall, not the same one as everyone else. Our personalised embroidered festival caps are made to be worn hard and look brilliant in photos. Get your name on it, your crew's name, whatever you fancy. See you near the Pyramid Stage.
+A festival cap that's actually yours — not grabbed off a rail, not one of fifty identical ones in the same field. Our personalised embroidered caps are made to order, properly stitched, built for three days of sun, rain, and whatever Glastonbury throws at you. Your words, your colours, your cap. See you down the front.
 
 ---
 
 **Beach Holiday UK → Personalised Tote Bag**
 
-Sand, sunscreen, three books you'll definitely read, and snacks you'll definitely eat before you hit the motorway. A personalised tote bag holds all of it and looks good doing it. Your name on the outside means nobody wanders off with it. Useful, a bit funny, and genuinely better than a plastic bag from the services.
+Every beach trip needs a bag that can carry a wet towel, four snacks, and your entire sense of optimism about British summer weather. Our personalised tote bags are roomy, sturdy, and embroidered with whatever you fancy. Your name, a phrase, a running joke. Practical and a bit brilliant, which is exactly what a beach bag should be.
 
 ---
 
 **Personalised Gifts UK → Personalised Cap**
 
-When you want to give someone a gift that actually feels like them — not a candle, not a voucher, not something they'll regret finding space for — a personalised cap is the answer. Embroidered with their name, a date, a word that means something. Worn constantly. Keeps coming up in photos. The gift that just keeps giving.
-
----
-
-## PAA ANSWERS
-
-No PAA questions captured this run — skipping this section.
+A personalised cap is the gift that looks thoughtful because it IS thoughtful. Not in a complicated way — you just pick the words that mean something to your person, we stitch them on properly, and you hand over something nobody else has. Available in a load of colours, made to order, and shipped across the UK. Simple as that.
 
 ---
 *Generated by ROR Trend Scraper · rockonruby.co.uk*
