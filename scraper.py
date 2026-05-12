@@ -15,19 +15,152 @@ import os
 import sys
 import time
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from serpapi import GoogleSearch
 
 # ── Config ───────────────────────────────────────────────────────────────────
 
-SERPAPI_KEY = os.environ.get("SERPAPI_KEY", "")
-OUTPUT_DIR  = Path(__file__).parent
-REPORT_FILE = OUTPUT_DIR / "trend_report.html"
-CACHE_FILE  = OUTPUT_DIR / "trend_cache.json"
+SERPAPI_KEY      = os.environ.get("SERPAPI_KEY", "")
+OUTPUT_DIR       = Path(__file__).parent
+REPORT_FILE      = OUTPUT_DIR / "trend_report.html"
+CACHE_FILE       = OUTPUT_DIR / "trend_cache.json"
+FOCUS_FILE       = OUTPUT_DIR / "ror_focus.json"
+LAYER4_CACHE     = OUTPUT_DIR / "layer4_expanded.json"
 
 GEO      = "GB"
 TIMEFRAME = "today 3-m"
+
+
+# ── Season config ─────────────────────────────────────────────────────────────
+
+def load_focus_config() -> dict:
+    if FOCUS_FILE.exists():
+        try:
+            return json.loads(FOCUS_FILE.read_text())
+        except Exception:
+            pass
+    return {}
+
+
+def expand_layer4_with_claude(seeds: list[str]) -> list[str]:
+    """
+    Ask Claude to suggest 10 additional Layer 4 keywords based on seeds.
+    Result is cached in layer4_expanded.json for 7 days.
+    """
+    # Return cached result if fresh (< 7 days old)
+    if LAYER4_CACHE.exists():
+        try:
+            cached = json.loads(LAYER4_CACHE.read_text())
+            age_days = (datetime.now() - datetime.fromisoformat(cached["date"])).days
+            if age_days < 7:
+                return cached.get("keywords", [])
+        except Exception:
+            pass
+
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        return []
+
+    try:
+        import anthropic
+        client = anthropic.Anthropic(api_key=api_key)
+        prompt = (
+            "You are a keyword researcher for Rock On Ruby, a UK personalised clothing brand. "
+            "Based on these seed keywords for birthday/milestone gifting searches, suggest 10 additional "
+            "high-volume UK search terms that would drive traffic to personalised birthday clothing and gifts. "
+            "Return ONLY a JSON array of strings, no explanation:\n"
+            f"{json.dumps(seeds[:8])}"
+        )
+        msg = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=256,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw = msg.content[0].text.strip()
+        # Extract JSON array from response
+        start = raw.find("[")
+        end   = raw.rfind("]") + 1
+        suggestions = json.loads(raw[start:end]) if start >= 0 else []
+        suggestions = [s.lower().strip() for s in suggestions if isinstance(s, str)][:10]
+
+        LAYER4_CACHE.write_text(json.dumps({"date": datetime.now().isoformat(), "keywords": suggestions}))
+        print(f"  Layer 4 expanded with {len(suggestions)} Claude-suggested keywords")
+        return suggestions
+    except Exception as e:
+        print(f"  Layer 4 expansion skipped: {e}")
+        return []
+
+
+def build_term_groups(config: dict) -> list[dict]:
+    """
+    Build TERM_GROUPS dynamically from ror_focus.json using the 4-layer system.
+    Cap total queries at 50 across all groups.
+    """
+    if not config:
+        return TERM_GROUPS_FALLBACK
+
+    l1     = config.get("layer_1_industry", [])
+    l2     = config.get("layer_2_products", [])
+    l3     = config.get("layer_3_trends", [])
+    l4     = config.get("layer_4_bestsellers", [])
+    broad  = config.get("broad_categories", [])
+
+    # Expand Layer 4 with Claude suggestions (cached)
+    l4_extra = expand_layer4_with_claude(l4)
+    l4_all   = list(dict.fromkeys(l4 + l4_extra))  # deduplicate, preserve order
+
+    groups = []
+    used   = 0
+    CAP    = 50
+
+    # Layer 4 — best sellers (priority, tracked most heavily, generates 3 content pieces)
+    l4_terms = [(t, 35, "rising") for t in l4_all[:20]]
+    if l4_terms:
+        groups.append({"label": "Best Sellers & Birthday (Layer 4)", "terms": l4_terms, "layer": 4})
+        used += len(l4_terms)
+
+    # Broad categories — for rising query discovery, breakout detection
+    if used < CAP:
+        broad_terms = [(t, 20, "stable") for t in broad[:7]]
+        if broad_terms:
+            groups.append({"label": "Broad Category Discovery", "terms": broad_terms, "layer": 0})
+            used += len(broad_terms)
+
+    # Layer 3 — seasonal trends
+    if used < CAP:
+        remaining  = min(CAP - used, 15)
+        l3_terms   = [(t, 25, "rising") for t in l3[:remaining]]
+        if l3_terms:
+            groups.append({"label": "Seasonal Trends (Layer 3)", "terms": l3_terms, "layer": 3})
+            used += len(l3_terms)
+
+    # Layer 1 × Layer 2 cross combinations (personalised/embroidered/slogan × product)
+    if used < CAP:
+        l1_priority = [x for x in l1 if x in ("personalised", "embroidered", "custom", "slogan")]
+        combos = []
+        for mod in l1_priority[:3]:
+            for product in l2[:4]:
+                combo = f"{mod} {product} uk"
+                if combo not in [t[0] for g in groups for t in g["terms"]]:
+                    combos.append((combo, 15, "stable"))
+                if len(combos) >= min(8, CAP - used):
+                    break
+            if len(combos) >= min(8, CAP - used):
+                break
+        if combos:
+            groups.append({"label": "Industry × Product (Layers 1+2)", "terms": combos, "layer": 12})
+            used += len(combos)
+
+    # Layer 2 standalone — product keyword tracking
+    if used < CAP:
+        remaining  = min(CAP - used, 6)
+        all_used   = {t[0] for g in groups for t in g["terms"]}
+        l2_terms   = [(f"{p} uk", 12, "stable") for p in l2 if f"{p} uk" not in all_used][:remaining]
+        if l2_terms:
+            groups.append({"label": "Product Keywords (Layer 2)", "terms": l2_terms, "layer": 2})
+
+    return groups
 
 # ── ROR existing catalogue ────────────────────────────────────────────────────
 
@@ -48,105 +181,25 @@ ROR_EXISTING = [
     "festival clothing", "festival outfit",
 ]
 
-# ── Term groups ───────────────────────────────────────────────────────────────
-# (term, seed_avg, seed_trend) — seed values used if API call fails
+# ── Term groups (built dynamically from ror_focus.json) ───────────────────────
 
-TERM_GROUPS = [
+# Fallback used only if ror_focus.json is missing
+TERM_GROUPS_FALLBACK = [
     {
-        "label": "Father's Day — Food & Drink",
+        "label": "Seasonal Trends",
+        "layer": 3,
         "terms": [
-            ("fathers day gifts uk",         45, "rising"),
-            ("bbq gifts for dad",            20, "rising"),
-            ("funny gifts for dad",          30, "rising"),
-            ("tea gifts for dad",            10, "stable"),
-            ("coffee gifts for dad",          8, "stable"),
-        ],
-    },
-    {
-        "label": "Father's Day — General",
-        "terms": [
-            ("fathers day uk 2026",          18, "rising"),
-            ("personalised fathers day gift", 28, "rising"),
-            ("fathers day clothing",           6, "rising"),
-            ("gift for dad uk",              38, "rising"),
-        ],
-    },
-    {
-        "label": "Biscuit & Food Culture",
-        "terms": [
-            ("bourbon biscuit",              32, "stable"),
-            ("custard cream biscuit",        26, "stable"),
-            ("jammy dodger",                 38, "stable"),
-            ("party rings biscuit",          22, "stable"),
-            ("great british bake off",       18, "stable"),
-        ],
-    },
-    {
-        "label": "Personalised Gifts",
-        "terms": [
-            ("personalised gifts uk",        58, "stable"),
-            ("funny personalised gifts",     32, "stable"),
-            ("personalised clothing uk",     22, "stable"),
-            ("custom gifts uk",              48, "stable"),
-        ],
-    },
-    {
-        "label": "Slogan & Embroidery Fashion",
-        "terms": [
-            ("slogan sweatshirt uk",         16, "stable"),
-            ("embroidered cap uk",            9, "stable"),
-            ("funny slogan top",             12, "stable"),
-            ("leopard print fashion uk",     38, "stable"),
-            ("embroidered clothing uk",      11, "stable"),
-        ],
-    },
-    {
-        "label": "Summer Festivals UK 2026",
-        "terms": [
-            ("glastonbury 2026",             52, "rising"),
-            ("reading festival 2026",        42, "rising"),
-            ("festival outfit uk",           32, "rising"),
-            ("festival clothing uk",         27, "rising"),
-            ("summer festival uk 2026",      21, "rising"),
-        ],
-    },
-    {
-        "label": "Summer Holidays UK",
-        "terms": [
-            ("summer holidays uk 2026",      38, "rising"),
-            ("holiday outfit uk",            22, "rising"),
-            ("beach holiday uk",             33, "rising"),
-            ("summer fashion uk 2026",       16, "rising"),
-        ],
-    },
-    {
-        "label": "Funny Gifts for Women",
-        "terms": [
-            ("funny gifts for women uk",     42, "stable"),
-            ("novelty gifts for women",      37, "stable"),
-            ("funny birthday gifts uk",      48, "stable"),
-            ("gifts for her uk",             58, "stable"),
-        ],
-    },
-    {
-        "label": "BBQ & Condiments Culture",
-        "terms": [
-            ("bbq season uk",                42, "rising"),
-            ("ketchup condiment",            22, "stable"),
-            ("brown sauce uk",               27, "stable"),
-            ("bbq food uk",                  38, "rising"),
-        ],
-    },
-    {
-        "label": "Pop Culture & Novelty Fashion",
-        "terms": [
-            ("funny tshirt uk",              27, "stable"),
-            ("novelty clothing uk",          16, "stable"),
-            ("viral fashion uk",             11, "stable"),
-            ("meme clothing uk",              6, "stable"),
+            ("fathers day gifts uk",    45, "rising"),
+            ("glastonbury 2026",        52, "rising"),
+            ("personalised gifts uk",   58, "stable"),
+            ("funny gifts for women uk",42, "stable"),
+            ("birthday gift uk",        48, "stable"),
         ],
     },
 ]
+
+FOCUS_CONFIG = load_focus_config()
+TERM_GROUPS  = build_term_groups(FOCUS_CONFIG)
 
 # ── Product + social suggestions ──────────────────────────────────────────────
 
@@ -318,8 +371,9 @@ def serpapi_trends_timeseries(term: str) -> dict:
 
 def serpapi_related_queries(term: str) -> dict[str, list[str]]:
     """
-    Fetch rising + top related queries for a single term.
-    Returns {"rising": [...], "top": [...]}.
+    Fetch rising + top + breakout related queries for a single term.
+    Returns {"rising": [...], "top": [...], "breakout": [...]}.
+    Breakout = search interest suddenly spiking (Google marks value as "Breakout").
     """
     params = {
         "engine":    "google_trends",
@@ -329,14 +383,27 @@ def serpapi_related_queries(term: str) -> dict[str, list[str]]:
         "data_type": "RELATED_QUERIES",
         "api_key":   SERPAPI_KEY,
     }
-    out = {"rising": [], "top": []}
+    out = {"rising": [], "top": [], "breakout": []}
     try:
         data = GoogleSearch(params).get_dict()
         rq   = data.get("related_queries", {})
         for kind in ("rising", "top"):
             items = rq.get(kind, [])
             if isinstance(items, list):
-                out[kind] = [i["query"] for i in items[:6] if "query" in i]
+                for i in items[:6]:
+                    if "query" not in i:
+                        continue
+                    # Breakout = value is literally "Breakout" or extracted_value >= 5000
+                    is_breakout = (
+                        str(i.get("value", "")).lower() == "breakout"
+                        or int(i.get("extracted_value", 0)) >= 5000
+                    )
+                    if is_breakout:
+                        out["breakout"].append(i["query"])
+                    elif kind == "rising":
+                        out["rising"].append(i["query"])
+                    else:
+                        out["top"].append(i["query"])
     except Exception as e:
         print(f"    Related queries error for '{term}': {e}")
     return out
@@ -390,11 +457,13 @@ def fetch_all(cached: bool = False) -> list[dict]:
             ts_data[term] = serpapi_trends_timeseries(term)
             time.sleep(random.uniform(1.2, 2.0))
 
-        # ── 2. Related queries for each term in group ──
+        # ── 2. Related queries for each term in group (includes breakout detection) ──
         related_data = {}
         for term in terms:
             print(f"  → Related queries: {term}")
             related_data[term] = serpapi_related_queries(term)
+            if related_data[term].get("breakout"):
+                print(f"    🚨 BREAKOUT detected in related: {related_data[term]['breakout']}")
             time.sleep(random.uniform(1.2, 2.0))
 
         # ── 3. PAA — only for terms scoring 6+ (keeps API usage lean) ──
@@ -418,26 +487,30 @@ def fetch_all(cached: bool = False) -> list[dict]:
             trend  = live.get("trend", seed_trend)
             is_live = bool(live)
 
-            rising_q = related_data.get(term, {}).get("rising", [])
-            top_q    = related_data.get(term, {}).get("top", [])
-            paa      = paa_data.get(term, [])
+            rising_q   = related_data.get(term, {}).get("rising", [])
+            top_q      = related_data.get(term, {}).get("top", [])
+            breakout_q = related_data.get(term, {}).get("breakout", [])
+            paa        = paa_data.get(term, [])
 
             existing    = already_sells(term)
             suggestions = get_suggestions(label, term)
             score       = score_term(avg, trend, term)
 
             results.append({
-                "term":          term,
-                "avg_interest":  avg,
-                "peak_interest": peak,
-                "trend":         trend,
-                "rising_queries":rising_q,
-                "top_queries":   top_q,
-                "paa":           paa,
-                "ror_existing":  existing,
-                "suggestions":   suggestions,
-                "score":         score,
-                "data_source":   "live" if is_live else "estimated",
+                "term":             term,
+                "avg_interest":     avg,
+                "peak_interest":    peak,
+                "trend":            trend,
+                "rising_queries":   rising_q,
+                "top_queries":      top_q,
+                "breakout_queries": breakout_q,
+                "paa":              paa,
+                "ror_existing":     existing,
+                "suggestions":      suggestions,
+                "score":            score,
+                "seo_action":       seo_action(score, trend, existing),
+                "layer":            group.get("layer", 3),
+                "data_source":      "live" if is_live else "estimated",
             })
 
         all_groups.append({"label": label, "results": results})
@@ -565,8 +638,42 @@ def build_seo_section(all_groups: list[dict]) -> str:
 </section>"""
 
 
+def build_breakout_section(all_groups: list[dict]) -> str:
+    """Return an HTML alert block for any breakout keywords found this run."""
+    breakouts = []
+    for g in all_groups:
+        for r in g["results"]:
+            for bq in r.get("breakout_queries", []):
+                breakouts.append({"query": bq, "parent": r["term"], "score": r["score"]})
+    if not breakouts:
+        return ""
+    items_html = "".join(
+        f'<div class="bo-item"><span class="bo-kw">{b["query"]}</span>'
+        f'<span class="bo-via">via "{b["parent"]}"</span></div>'
+        for b in breakouts
+    )
+    return f"""
+<section class="breakout-section">
+  <div class="breakout-header">🚨 BREAKOUT KEYWORDS — Urgent Opportunities This Week</div>
+  <p class="breakout-sub">These keywords are showing a sudden spike in search interest. Act fast — early content wins rankings.</p>
+  <div class="breakout-grid">{items_html}</div>
+</section>"""
+
+
 SEO_CSS = """
-  .seo-section { padding: 0 2rem 3rem; max-width: 1440px; margin: 0 auto; }
+  .breakout-section {{ padding: 1rem 2rem; max-width: 1440px; margin: 0 auto 1rem; }}
+  .breakout-header {{ font-size: 1rem; font-weight: 700; color: #fff;
+                      background: linear-gradient(90deg,#d63031,#e91e8c);
+                      padding: .6rem 1.2rem; border-radius: 8px 8px 0 0; }}
+  .breakout-sub {{ font-size: .8rem; color: var(--muted); padding: .5rem 1.2rem;
+                   background: rgba(214,48,49,.08); border: 1px solid rgba(214,48,49,.25);
+                   border-top: none; border-radius: 0; margin-bottom: .6rem; }}
+  .breakout-grid {{ display: flex; flex-wrap: wrap; gap: .5rem; padding: .2rem 0; }}
+  .bo-item {{ background: rgba(214,48,49,.12); border: 1px solid rgba(214,48,49,.35);
+              border-radius: 6px; padding: .3rem .7rem; display: flex; gap: .5rem; align-items: center; }}
+  .bo-kw {{ font-weight: 700; color: #ff7675; font-size: .85rem; }}
+  .bo-via {{ font-size: .72rem; color: var(--muted); }}
+  .seo-section {{ padding: 0 2rem 3rem; max-width: 1440px; margin: 0 auto; }}
   .seo-title { font-size: 1.2rem; color: var(--pink); padding-bottom: .7rem;
                border-bottom: 2px solid rgba(233,30,140,.25); margin-bottom: .5rem; }
   .seo-sub { font-size: .8rem; color: var(--muted); margin-bottom: 1.2rem; }
@@ -725,6 +832,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <p>Generated {date} · Google Trends + SerpAPI · UK · 90-day window</p>
 </header>
 
+{breakout_section}
+
 {notice}
 
 <div class="summary">
@@ -849,9 +958,9 @@ def build_report(all_groups: list[dict]) -> None:
         cards = "".join(render_card(r) for r in sorted(g["results"], key=lambda x: -x["score"]))
         groups_html += f'<div class="group"><h2>{g["label"]}</h2><div class="cards">{cards}</div></div>\n'
 
-    seo_section = build_seo_section(all_groups)
-    # Strip the leading newline for clean injection into the template
-    seo_css_clean = SEO_CSS.strip()
+    seo_section      = build_seo_section(all_groups)
+    breakout_section = build_breakout_section(all_groups)
+    seo_css_clean    = SEO_CSS.strip()
 
     date_str = datetime.now().strftime("%d %B %Y, %H:%M")
     html = HTML_TEMPLATE.format(
@@ -859,6 +968,7 @@ def build_report(all_groups: list[dict]) -> None:
         gaps=gaps, live=live, paa_count=paa_count,
         notice=notice, groups_html=groups_html,
         seo_section=seo_section, seo_css=seo_css_clean,
+        breakout_section=breakout_section,
     )
     REPORT_FILE.write_text(html, encoding="utf-8")
     print(f"Report → {REPORT_FILE}")
@@ -900,10 +1010,6 @@ if __name__ == "__main__":
         print(f"  ~{r['avg_interest']:3d}/100 {src}  {r['term']}{gap}")
 
     print(f"\n● live  ○ estimated")
-
-    # ── Content generation (Claude API) ──
-    from content_generator import generate_content
-    generate_content(all_groups)
-
     print(f"\nDone.")
     print(f"  HTML report → {REPORT_FILE}")
+    print(f"  Cache       → {CACHE_FILE}")

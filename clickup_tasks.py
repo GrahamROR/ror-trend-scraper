@@ -68,24 +68,49 @@ def parse_sections(md: str) -> list[dict]:
                 "description": c,
             })
 
-    # Email subject lines — one task per subject/preview pair
-    email = re.search(r"## EMAIL SUBJECT LINES\n+(.*?)(?=\n## |\Z)", md, re.DOTALL)
-    if email:
-        pairs = re.findall(
-            r"\*\*Subject:\*\*\s*(.+?)\n\*\*Preview text:\*\*\s*(.+?)(?=\n\*\*Subject|\Z)",
-            email.group(1), re.DOTALL,
-        )
-        if pairs:
-            for i, (subj, preview) in enumerate(pairs[:3], 1):
-                tasks.append({
-                    "name": f"[Email] Subject line {i} — {today}",
-                    "description": f"**Subject:** {subj.strip()}\n\n**Preview text:** {preview.strip()}",
-                })
-        else:
+    # Email design prompts — one task per full prompt block
+    for m in re.finditer(r"## EMAIL DESIGN PROMPT (\d+)\n+(.*?)(?=\n## |\Z)", md, re.DOTALL):
+        body = m.group(2).strip()
+        # Extract subject for the task name
+        subj_match = re.search(r"\*\*Subject:\*\*\s*(.+)", body)
+        subj = subj_match.group(1).strip() if subj_match else f"Email prompt {m.group(1)}"
+        tasks.append({
+            "name":        f"[Email] {subj} — {today}",
+            "description": body,
+        })
+
+    # SEO blog drafts — one task per draft
+    seo_blog = re.search(r"## SEO CONTENT — BLOG DRAFTS\n+(.*?)(?=\n## |\Z)", md, re.DOTALL)
+    if seo_blog:
+        drafts = re.split(r"\n(?=---|\*\*Keyword|\*\*H1|# )", seo_blog.group(1))
+        drafts = [d.strip() for d in drafts if len(d.strip()) > 60]
+        for i, d in enumerate(drafts[:5], 1):
+            first_line = d.split("\n")[0][:80].strip("# ").strip()
             tasks.append({
-                "name":        f"[Email] Subject lines — {today}",
-                "description": email.group(1).strip(),
+                "name":        f"[SEO Blog] {first_line} — {today}",
+                "description": d,
             })
+        if not drafts:
+            tasks.append({
+                "name":        f"[SEO Blog] Drafts — {today}",
+                "description": seo_blog.group(1).strip(),
+            })
+
+    # SEO product page briefs — one task covering all briefs
+    prod_seo = re.search(r"## SEO CONTENT — PRODUCT PAGE BRIEFS\n+(.*?)(?=\n## |\Z)", md, re.DOTALL)
+    if prod_seo:
+        tasks.append({
+            "name":        f"[SEO Product] Page briefs — {today}",
+            "description": prod_seo.group(1).strip(),
+        })
+
+    # SEO collection copy — one task covering all copy
+    coll_seo = re.search(r"## SEO CONTENT — COLLECTION PAGE COPY\n+(.*?)(?=\n## |\Z)", md, re.DOTALL)
+    if coll_seo:
+        tasks.append({
+            "name":        f"[SEO Collection] Page copy — {today}",
+            "description": coll_seo.group(1).strip(),
+        })
 
     return tasks
 

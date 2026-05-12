@@ -1,0 +1,44 @@
+name: Weekly Trend Scraper
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"   # Monday 8am UK (BST = UTC+1; covers GMT season too)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run trend scraper
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scraper.py
+
+      - name: Commit outputs
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git add trend_report.html trend_cache.json layer4_expanded.json || true
+          git diff --cached --quiet || git commit -m "chore: weekly trend scrape $(date +%Y-%m-%d)"
+          git pull --rebase && git push
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: trend-report
+          path: trend_report.html
+          retention-days: 14
