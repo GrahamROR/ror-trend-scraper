@@ -29,10 +29,22 @@ CACHE_FILE   = OUTPUT_DIR / "trend_cache.json"
 FOCUS_FILE   = OUTPUT_DIR / "ror_focus.json"
 LAYER4_CACHE = OUTPUT_DIR / "layer4_expanded.json"
 
-GEO       = "GB"
-TIMEFRAME = "today 3-m"
+GEO            = "GB"
+TIMEFRAME      = "today 3-m"
+CATALOGUE_FILE = OUTPUT_DIR / "shopify_catalogue.json"
 
-_PT = TrendReq(hl="en-GB", tz=0, retries=3, backoff_factor=0.5)
+_PT        = TrendReq(hl="en-GB", tz=0, retries=3, backoff_factor=0.5)
+_CATALOGUE: dict = {}
+
+
+def load_catalogue() -> dict:
+    global _CATALOGUE
+    if CATALOGUE_FILE.exists():
+        try:
+            _CATALOGUE = json.loads(CATALOGUE_FILE.read_text())
+        except Exception:
+            pass
+    return _CATALOGUE
 
 
 # ── Season config ─────────────────────────────────────────────────────────────
@@ -113,6 +125,19 @@ def build_term_groups(config: dict) -> list[dict]:
     l4_extra = expand_layer4_with_claude(l4)
     l4_all   = list(dict.fromkeys(l4 + l4_extra))  # deduplicate, preserve order
 
+    # Supplement Layer 4 with live Shopify bestsellers if catalogue is loaded
+    if _CATALOGUE and _CATALOGUE.get("bestsellers"):
+        _skip = {"personalisation", "option-set", "mystery bag", "back of the neck",
+                 "2nd line", "add ", "gift box"}
+        existing_lower = {t.lower() for t in l4_all}
+        for bs in _CATALOGUE["bestsellers"][:15]:
+            bt = bs["title"].lower().strip()
+            if any(s in bt for s in _skip):
+                continue
+            if bt not in existing_lower:
+                l4_all.append(bs["title"].lower())
+                existing_lower.add(bt)
+
     groups = []
     used   = 0
     CAP    = 50
@@ -165,23 +190,31 @@ def build_term_groups(config: dict) -> list[dict]:
 
     return groups
 
-# ── ROR existing catalogue ────────────────────────────────────────────────────
+# ── ROR static fallback catalogue (used only if shopify_catalogue.json missing) ──
 
 ROR_EXISTING = [
-    "personalised caps", "embroidered caps", "custom caps",
-    "personalised sweatshirts", "personalised hoodies",
-    "slogan sweatshirts", "slogan hoodies", "slogan tees",
-    "personalised tote bags", "embroidered tote bags",
+    # Top sellers by revenue — keep in sync with actual Shopify data
+    "personalised year sweatshirt", "personalised year t-shirt",
+    "happy hour sweatshirt", "happy hour t-shirt",
+    "personalised handwriting cuff sweatshirt",
+    "embroidered personalised slogan cap",
+    "yes i like pina colada cap", "pina colada",
+    "custard cream sweatshirt", "custard cream connoisseur",
+    "blah blah blah slogan t-shirt",
+    "rock on ruby branded tote bag",
+    "tea please sweatshirt", "tea please",
+    "funky font personalised year sweatshirt",
+    # Collections / categories
+    "personalised caps", "embroidered caps", "slogan cap",
+    "personalised sweatshirts", "slogan sweatshirts",
+    "personalised tote bags", "make up bag", "makeup bag",
+    "wedding party", "teacher gifts", "twinning",
     "personalised gifts", "funny gifts for women",
-    "personalised gifts for mum", "personalised gifts for dad",
-    "father's day gifts", "mothers day gifts",
-    "bourbon biscuit", "custard cream", "jammy dodger", "party rings",
-    "biscuit gifts", "biscuit themed clothing",
-    "only here for the", "only here for the biscuits",
-    "tea please", "coffee please",
-    "bbq gifts", "condiment gifts",
-    "leopard print clothing", "leopard print sweatshirt",
-    "festival clothing", "festival outfit",
+    "father's day gifts", "gifts for dad", "gifts for mum",
+    "bourbon biscuit", "custard cream", "jammy dodger",
+    "only here for the", "tea please", "coffee please",
+    "leopard print", "festival clothing", "festival outfit",
+    "christmas jumper", "pyjamas",
 ]
 
 # ── Term groups (built dynamically from ror_focus.json) ───────────────────────
@@ -201,6 +234,7 @@ TERM_GROUPS_FALLBACK = [
     },
 ]
 
+load_catalogue()   # must run before build_term_groups so _CATALOGUE is populated
 FOCUS_CONFIG = load_focus_config()
 TERM_GROUPS  = build_term_groups(FOCUS_CONFIG)
 
@@ -284,10 +318,34 @@ def get_suggestions(label: str, term: str) -> list[str]:
 
 
 def already_sells(term: str) -> str:
+    """Return matching product/collection title if ROR sells something related, else ''."""
     term_lower = term.lower()
+    words = [w for w in term_lower.split()
+             if len(w) > 3 and w not in {"with", "from", "that", "this", "your", "they", "have", "here"}]
+    if not words:
+        return ""
+
+    if _CATALOGUE:
+        # Collections first — highest confidence for SEO mapping
+        for c in _CATALOGUE.get("collections", []):
+            c_lower = c["title"].lower()
+            if any(w in c_lower for w in words):
+                return c["title"]
+        # Bestsellers — proven sellers, highest relevance for content
+        for b in _CATALOGUE.get("bestsellers", []):
+            b_lower = b["title"].lower()
+            if any(w in b_lower for w in words):
+                return b["title"]
+        # All products — broad match
+        for p in _CATALOGUE.get("products", []):
+            p_lower = p["title"].lower()
+            p_tags  = " ".join(p.get("tags", [])).lower()
+            if any(w in p_lower for w in words) or any(w in p_tags for w in words):
+                return p["title"]
+
+    # Static fallback
     for existing in ROR_EXISTING:
-        words = [w for w in term_lower.split() if len(w) > 3]
-        if words and any(w in existing for w in words):
+        if any(w in existing for w in words):
             return existing
     return ""
 
@@ -526,33 +584,52 @@ def seo_action(score: int, trend: str, existing: str) -> str:
         return "Potential new product — monitor volume before committing"
     return "Low priority — review next quarter"
 
-# Maps term to a suggested ROR page/product URL slug
 def seo_page_map(term: str, existing: str) -> str:
-    mapping = {
-        "fathers day":        "/collections/fathers-day-gifts",
-        "festival":           "/collections/festival-clothing",
-        "glastonbury":        "/collections/festival-clothing",
-        "reading festival":   "/collections/festival-clothing",
-        "beach holiday":      "/collections/personalised-tote-bags",
-        "summer":             "/collections/personalised-gifts",
-        "biscuit":            "/collections/biscuit-range",
-        "bourbon":            "/collections/biscuit-range",
-        "jammy dodger":       "/collections/biscuit-range",
-        "custard cream":      "/collections/biscuit-range",
-        "personalised gifts": "/collections/personalised-gifts",
-        "personalised cap":   "/collections/personalised-caps",
-        "embroidered cap":    "/collections/embroidered-caps",
-        "sweatshirt":         "/collections/personalised-sweatshirts",
-        "hoodie":             "/collections/personalised-hoodies",
-        "tote":               "/collections/personalised-tote-bags",
-        "bbq":                "/collections/fathers-day-gifts",
-        "leopard":            "/collections/sweatshirts",
-        "funny gifts":        "/collections/funny-gifts",
+    """Return the best matching ROR page URL for a trend term."""
+    t     = term.lower()
+    words = [w for w in t.split() if len(w) > 3]
+
+    # Live catalogue — match collections first (SEO gold: collection URLs rank best)
+    if _CATALOGUE:
+        for c in _CATALOGUE.get("collections", []):
+            c_lower = c["title"].lower()
+            if any(w in c_lower for w in words):
+                return c["url"]
+        for b in _CATALOGUE.get("bestsellers", []):
+            b_lower = b["title"].lower()
+            if any(w in b_lower for w in words):
+                return b.get("url", f"rockonruby.co.uk/products/search?q={term}")
+        for p in _CATALOGUE.get("products", []):
+            p_lower = p["title"].lower()
+            if any(w in p_lower for w in words):
+                return p["url"]
+
+    # Static fallback mapping
+    fallback = {
+        "fathers day":     "rockonruby.co.uk/collections/gifts-for-dad",
+        "father's day":    "rockonruby.co.uk/collections/gifts-for-dad",
+        "festival":        "rockonruby.co.uk/collections/clothing",
+        "glastonbury":     "rockonruby.co.uk/collections/clothing",
+        "biscuit":         "rockonruby.co.uk/collections/clothing",
+        "bourbon":         "rockonruby.co.uk/collections/clothing",
+        "custard cream":   "rockonruby.co.uk/collections/clothing",
+        "sweatshirt":      "rockonruby.co.uk/collections/sweatshirts",
+        "hoodie":          "rockonruby.co.uk/collections/sweatshirts",
+        "cap":             "rockonruby.co.uk/collections/hats",
+        "tote":            "rockonruby.co.uk/collections/tote-bags",
+        "make up bag":     "rockonruby.co.uk/collections/make-up-bags",
+        "wedding":         "rockonruby.co.uk/collections/wedding-party",
+        "teacher":         "rockonruby.co.uk/collections/teacher-gifts",
+        "birthday":        "rockonruby.co.uk/collections/personalised-year",
+        "personalised":    "rockonruby.co.uk/collections/personalised-accessories",
+        "leopard":         "rockonruby.co.uk/collections/sweatshirts",
+        "funny gifts":     "rockonruby.co.uk/collections/gifting",
+        "gifts for her":   "rockonruby.co.uk/collections/gifts-for-her",
+        "gifts for him":   "rockonruby.co.uk/collections/gifts-for-him",
     }
-    t = term.lower()
-    for key, slug in mapping.items():
+    for key, url in fallback.items():
         if key in t:
-            return f"rockonruby.co.uk{slug}"
+            return url
     if existing:
         return f"rockonruby.co.uk — {existing}"
     return "New page needed"

@@ -23,6 +23,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Sync Shopify catalogue
+        env:
+          SHOPIFY_ACCESS_TOKEN: ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
+        run: python shopify_sync.py
+
       - name: Run trend scraper
         env:
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
@@ -34,7 +39,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git add trend_report.html trend_cache.json layer4_expanded.json || true
+          git add trend_report.html trend_cache.json layer4_expanded.json shopify_catalogue.json || true
           git diff --cached --quiet || git commit -m "chore: weekly trend scrape $(date +%Y-%m-%d)"
           git pull --rebase && git push
 

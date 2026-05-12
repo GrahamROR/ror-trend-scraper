@@ -19,11 +19,13 @@ from datetime import datetime, timedelta
 from pathlib import Path
 import anthropic
 
-OUTPUT_DIR    = Path(__file__).parent
-CONTENT_FILE  = OUTPUT_DIR / "ror_content_draft.md"
-HISTORY_FILE  = OUTPUT_DIR / "content_history.json"
-CACHE_FILE    = OUTPUT_DIR / "trend_cache.json"
-FOCUS_FILE    = OUTPUT_DIR / "ror_focus.json"
+OUTPUT_DIR       = Path(__file__).parent
+CONTENT_FILE     = OUTPUT_DIR / "ror_content_draft.md"
+HISTORY_FILE     = OUTPUT_DIR / "content_history.json"
+CACHE_FILE       = OUTPUT_DIR / "trend_cache.json"
+FOCUS_FILE       = OUTPUT_DIR / "ror_focus.json"
+CATALOGUE_FILE   = OUTPUT_DIR / "shopify_catalogue.json"
+INSTAGRAM_FILE   = OUTPUT_DIR / "instagram_insights.json"
 
 BRAND_CONTEXT = """
 BRAND: Rock On Ruby — print-on-demand personalised clothing and accessories.
@@ -149,7 +151,8 @@ def pick_seo_terms(all_groups: list[dict], history: dict, cap: int = 10) -> list
 
 # ── Prompt builder ────────────────────────────────────────────────────────────
 
-def build_prompt(layer_terms: dict[int, list[dict]], seo_terms: list[dict], all_groups: list[dict]) -> str:
+def build_prompt(layer_terms: dict[int, list[dict]], seo_terms: list[dict], all_groups: list[dict],
+                 catalogue: dict | None = None, instagram: dict | None = None) -> str:
     today = datetime.now().strftime("%d %B %Y")
 
     # Flatten all selected terms for context
@@ -300,9 +303,73 @@ Answer in the first sentence, then add context. Mention Rock On Ruby naturally i
 {chr(10).join(f'- {q}' for _, q in all_paa[:6])}
 """
 
+    # ── Shopify catalogue context ──────────────────────────────────────────────
+    _skip_bs = {"personalisation", "option-set", "mystery bag", "back of the neck", "2nd line"}
+    catalogue_ctx = ""
+    if catalogue:
+        # Top bestsellers with real URLs
+        top_sellers = [b for b in catalogue.get("bestsellers", [])[:12]
+                       if not any(s in b["title"].lower() for s in _skip_bs)][:6]
+        if top_sellers:
+            seller_lines = "\n".join(
+                f"  - {b['title']} (£{b['revenue']:,.0f} revenue, {b['orders']} orders)"
+                for b in top_sellers
+            )
+            catalogue_ctx += f"\nTOP BESTSELLERS — link to these wherever relevant:\n{seller_lines}\n"
+
+        # Relevant collections matched against today's selected terms
+        all_words = set()
+        for r in all_selected:
+            all_words.update(w for w in r["term"].lower().split() if len(w) > 3)
+        matched_collections = [
+            c for c in catalogue.get("collections", [])
+            if any(w in c["title"].lower() for w in all_words)
+        ][:10]
+        if matched_collections:
+            coll_lines = "\n".join(f"  - {c['title']} → {c['url']}" for c in matched_collections)
+            catalogue_ctx += f"\nMATCHING ROR COLLECTION URLS (use exact URLs in all CTAs and internal links):\n{coll_lines}\n"
+
+        # Relevant products for today's terms
+        matched_products = []
+        for p in catalogue.get("products", []):
+            p_lower = p["title"].lower()
+            if any(w in p_lower for w in all_words):
+                matched_products.append(p)
+            if len(matched_products) >= 8:
+                break
+        if matched_products:
+            prod_lines = "\n".join(
+                f"  - {p['title']} — {p['url']}" + (f" (£{p['price']:.0f})" if p.get("price") else "")
+                for p in matched_products
+            )
+            catalogue_ctx += f"\nMATCHING ROR PRODUCTS (use real URLs, not guessed slugs):\n{prod_lines}\n"
+
+    # ── Instagram insights context ─────────────────────────────────────────────
+    instagram_ctx = ""
+    if instagram and instagram.get("recent_posts"):
+        posts = [p for p in instagram["recent_posts"] if p.get("topic")][-5:]
+        if posts:
+            post_lines = "\n".join(
+                f"  - {p['topic']} ({p.get('content_type', '')}): {p.get('engagement', '')} engagement"
+                + (f" — {p['notes']}" if p.get("notes") else "")
+                for p in posts
+            )
+            top_formats  = ", ".join(instagram.get("top_formats", []))
+            trending_own = ", ".join(instagram.get("trending_topics_on_our_account", []))
+            not_working  = "; ".join(instagram.get("what_is_not_working", []))
+            instagram_ctx = f"""
+INSTAGRAM PERFORMANCE (align content with what's working on our account):
+Recent posts:
+{post_lines}
+Top performing formats: {top_formats}
+Trending on our account right now: {trending_own}
+What is NOT working: {not_working}
+"""
+
     return f"""
 {BRAND_CONTEXT}
-
+{catalogue_ctx}
+{instagram_ctx}
 ---
 TODAY'S DATE: {today}
 
@@ -336,10 +403,23 @@ def generate_content(all_groups: list[dict] | None = None) -> bool:
             return False
         all_groups = json.loads(CACHE_FILE.read_text())
 
-    history     = load_history()
+    history   = load_history()
+    catalogue = {}
+    instagram = {}
+    if CATALOGUE_FILE.exists():
+        try:
+            catalogue = json.loads(CATALOGUE_FILE.read_text())
+        except Exception:
+            pass
+    if INSTAGRAM_FILE.exists():
+        try:
+            instagram = json.loads(INSTAGRAM_FILE.read_text())
+        except Exception:
+            pass
+
     layer_terms = pick_terms_by_layer(all_groups, history)
     seo_terms   = pick_seo_terms(all_groups, history)
-    prompt      = build_prompt(layer_terms, seo_terms, all_groups)
+    prompt      = build_prompt(layer_terms, seo_terms, all_groups, catalogue, instagram)
 
     print("\n-- Content Generation (Claude API) --")
     all_selected = [r for terms in layer_terms.values() for r in terms]

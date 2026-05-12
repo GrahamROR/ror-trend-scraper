@@ -1,34 +1,40 @@
 {
-  "_comment": "ROR Trend Scraper — Season & Keyword Config. Edit this file to change what the scraper tracks. Changes take effect on the next scheduled Monday run. Layer 4 gets tracked most heavily (3 content pieces per run vs 2 for other layers).",
+  "_comment": "ROR Trend Scraper — Season & Keyword Config. Edit this file to change what the scraper tracks. Changes take effect on the next scheduled Monday run. Layer 4 gets tracked most heavily (3 content pieces per run vs 2 for other layers). Product lists here are SUPPLEMENTED by live Shopify data — the scraper loads shopify_catalogue.json automatically.",
 
   "current_collections": [
+    "personalised year sweatshirt",
+    "slogan sweatshirt",
     "personalised caps",
     "embroidered caps",
-    "personalised sweatshirts",
-    "slogan sweatshirts",
+    "slogan t-shirt",
     "personalised tote bags",
-    "festival clothing",
-    "biscuit range",
-    "fathers day gifts",
-    "funny gifts for women",
-    "personalised hoodies"
+    "make up bags",
+    "wedding party",
+    "teacher gifts",
+    "gifts for dad",
+    "gifts for mum",
+    "christmas jumpers"
   ],
 
   "upcoming_seasons": [
-    "Summer 2026",
     "Father's Day June 2026",
     "Glastonbury June 2026",
+    "Summer 2026",
+    "Teacher Gifts July 2026",
     "Back to School September 2026"
   ],
 
   "hero_products": [
-    "personalised embroidered cap",
-    "slogan sweatshirt",
-    "bourbon biscuit cap",
-    "tea please cap",
-    "festival tote bag",
-    "birthday sweatshirt",
-    "personalised hoodie"
+    "personalised year sweatshirt",
+    "happy hour slogan sweatshirt",
+    "yes i like pina colada cap",
+    "custard cream connoisseur sweatshirt",
+    "blah blah blah slogan t-shirt",
+    "embroidered personalised slogan cap",
+    "personalised handwriting cuff sweatshirt",
+    "tea please sweatshirt",
+    "rock on ruby branded tote bag",
+    "bourbon biscuit fan club sweatshirt"
   ],
 
   "layer_1_industry": [
@@ -48,10 +54,12 @@
     "hoodie",
     "cap",
     "tote bag",
+    "make up bag",
     "bucket hat",
     "embroidered cap",
     "slogan t-shirt",
-    "graphic t-shirt"
+    "graphic t-shirt",
+    "pyjamas"
   ],
 
   "layer_3_trends": [
@@ -69,25 +77,30 @@
     "bbq season uk",
     "bourbon biscuit",
     "jammy dodger",
-    "novelty clothing uk"
+    "novelty clothing uk",
+    "wedding party gifts uk",
+    "hen party gifts uk",
+    "teacher end of year gifts uk",
+    "personalised make up bag uk",
+    "twinning outfits mum baby"
   ],
 
   "layer_4_bestsellers": [
-    "birthday",
-    "personalised year",
-    "custom year",
-    "birthday gift",
-    "birthday sweatshirt",
-    "personalised birthday hoodie",
-    "custom birth year cap",
-    "born in",
-    "birth year clothing",
-    "milestone birthday gift",
+    "personalised year sweatshirt",
+    "birthday sweatshirt uk",
+    "personalised year hoodie",
+    "personalised year t-shirt",
+    "born in sweatshirt",
+    "birth year clothing uk",
+    "milestone birthday gift uk",
     "40th birthday gift uk",
     "50th birthday gift uk",
     "30th birthday gift uk",
     "18th birthday gift uk",
-    "21st birthday gift uk"
+    "21st birthday gift uk",
+    "happy hour sweatshirt",
+    "slogan sweatshirt uk",
+    "pina colada cap"
   ],
 
   "broad_categories": [
@@ -95,9 +108,9 @@
     "gift ideas uk",
     "food and drink trends uk",
     "novelty clothing uk",
-    "birthday gift",
-    "birthday sweatshirt",
-    "personalised gift"
+    "birthday gift uk",
+    "personalised gift uk",
+    "funny slogan clothing uk"
   ],
 
   "keywords_to_track": [
