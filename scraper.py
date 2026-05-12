@@ -1,8 +1,8 @@
 """
 Rock On Ruby — Trend Scraper
 Data sources:
-  - Google Trends via SerpAPI (interest over time + rising queries) — no rate limiting
-  - People Also Ask via SerpAPI (real questions = content/social gold)
+  - Google Trends via pytrends (free, no API key required)
+  - People Also Ask via Serper.dev (uses SERPER_API_KEY — free credits)
   - Knowledge-seeded baseline scores as fallback
 
 Usage:
@@ -17,19 +17,22 @@ import time
 import random
 from datetime import datetime, timedelta
 from pathlib import Path
-from serpapi import GoogleSearch
+import requests
+from pytrends.request import TrendReq
 
 # ── Config ───────────────────────────────────────────────────────────────────
 
-SERPAPI_KEY      = os.environ.get("SERPAPI_KEY", "")
-OUTPUT_DIR       = Path(__file__).parent
-REPORT_FILE      = OUTPUT_DIR / "trend_report.html"
-CACHE_FILE       = OUTPUT_DIR / "trend_cache.json"
-FOCUS_FILE       = OUTPUT_DIR / "ror_focus.json"
-LAYER4_CACHE     = OUTPUT_DIR / "layer4_expanded.json"
+SERPER_KEY   = os.environ.get("SERPER_API_KEY", "")
+OUTPUT_DIR   = Path(__file__).parent
+REPORT_FILE  = OUTPUT_DIR / "trend_report.html"
+CACHE_FILE   = OUTPUT_DIR / "trend_cache.json"
+FOCUS_FILE   = OUTPUT_DIR / "ror_focus.json"
+LAYER4_CACHE = OUTPUT_DIR / "layer4_expanded.json"
 
-GEO      = "GB"
+GEO       = "GB"
 TIMEFRAME = "today 3-m"
+
+_PT = TrendReq(hl="en-GB", tz=0, retries=3, backoff_factor=0.5)
 
 
 # ── Season config ─────────────────────────────────────────────────────────────
@@ -304,32 +307,18 @@ def score_term(avg: int, trend: str, term: str) -> int:
     return min(score, 10)
 
 
-# ── SerpAPI calls ─────────────────────────────────────────────────────────────
+# ── Trends + PAA data fetches ─────────────────────────────────────────────────
 
 def _trends_query(q: str) -> dict:
-    """Single SerpAPI Trends TIMESERIES call. Returns parsed dict or {}."""
-    params = {
-        "engine":    "google_trends",
-        "q":         q,
-        "geo":       GEO,
-        "date":      TIMEFRAME,
-        "data_type": "TIMESERIES",
-        "api_key":   SERPAPI_KEY,
-    }
-    data     = GoogleSearch(params).get_dict()
-    if "error" in data:
+    """Single pytrends interest-over-time call. Returns parsed dict or {}."""
+    try:
+        _PT.build_payload([q], cat=0, timeframe=TIMEFRAME, geo=GEO)
+        df = _PT.interest_over_time()
+    except Exception:
         return {}
-    timeline = data.get("interest_over_time", {}).get("timeline_data", [])
-    if not timeline:
+    if df is None or df.empty or q not in df.columns:
         return {}
-    values = []
-    for point in timeline:
-        vals = point.get("values", [])
-        if vals:
-            try:
-                values.append(int(vals[0].get("extracted_value", 0)))
-            except (ValueError, TypeError):
-                pass
+    values = [int(v) for v in df[q].tolist() if isinstance(v, (int, float))]
     if not values or max(values) == 0:
         return {}
     avg  = int(sum(values) / len(values))
@@ -341,25 +330,23 @@ def _trends_query(q: str) -> dict:
     return {"avg": avg, "peak": peak, "trend": trend}
 
 
-def serpapi_trends_timeseries(term: str) -> dict:
+def pytrends_interest_over_time(term: str) -> dict:
     """
-    Fetch interest-over-time for a term (standalone 0-100 scale).
-    Falls back to stripping trailing ' uk' if the first call returns no data
-    (geo=GB is already set, so 'uk' in the query string is often redundant).
+    Fetch interest-over-time for a term (0-100 scale, UK, 90-day window).
+    Falls back to stripping trailing ' uk' suffix if first call returns no data.
     Returns {"avg": int, "peak": int, "trend": str} or {}.
     """
     try:
         result = _trends_query(term)
         if result:
             return result
-        # Fallback: try without trailing " uk" or " uk 2026" suffix
         cleaned = term
         for suffix in (" uk 2026", " uk"):
             if cleaned.lower().endswith(suffix):
                 cleaned = cleaned[: -len(suffix)].strip()
                 break
         if cleaned != term:
-            time.sleep(random.uniform(0.8, 1.4))
+            time.sleep(random.uniform(1.0, 1.8))
             result = _trends_query(cleaned)
             if result:
                 return result
@@ -369,64 +356,58 @@ def serpapi_trends_timeseries(term: str) -> dict:
         return {}
 
 
-def serpapi_related_queries(term: str) -> dict[str, list[str]]:
+def pytrends_related_queries(term: str) -> dict[str, list[str]]:
     """
-    Fetch rising + top + breakout related queries for a single term.
+    Rising + top + breakout related queries via pytrends.
+    Breakout = Google marks the rising value as 'Breakout' (>5000% increase).
     Returns {"rising": [...], "top": [...], "breakout": [...]}.
-    Breakout = search interest suddenly spiking (Google marks value as "Breakout").
     """
-    params = {
-        "engine":    "google_trends",
-        "q":         term,
-        "geo":       GEO,
-        "date":      TIMEFRAME,
-        "data_type": "RELATED_QUERIES",
-        "api_key":   SERPAPI_KEY,
-    }
     out = {"rising": [], "top": [], "breakout": []}
     try:
-        data = GoogleSearch(params).get_dict()
-        rq   = data.get("related_queries", {})
-        for kind in ("rising", "top"):
-            items = rq.get(kind, [])
-            if isinstance(items, list):
-                for i in items[:6]:
-                    if "query" not in i:
-                        continue
-                    # Breakout = value is literally "Breakout" or extracted_value >= 5000
-                    is_breakout = (
-                        str(i.get("value", "")).lower() == "breakout"
-                        or int(i.get("extracted_value", 0)) >= 5000
-                    )
-                    if is_breakout:
-                        out["breakout"].append(i["query"])
-                    elif kind == "rising":
-                        out["rising"].append(i["query"])
-                    else:
-                        out["top"].append(i["query"])
+        _PT.build_payload([term], cat=0, timeframe=TIMEFRAME, geo=GEO)
+        related   = _PT.related_queries()
+        if not related or term not in related:
+            return out
+        term_data = related[term]
+
+        rising_df = term_data.get("rising")
+        if rising_df is not None and not rising_df.empty and "query" in rising_df.columns:
+            for _, row in rising_df.head(6).iterrows():
+                q = str(row.get("query", ""))
+                v = row.get("value", 0)
+                if not q:
+                    continue
+                if str(v).lower() == "breakout" or (isinstance(v, (int, float)) and v >= 5000):
+                    out["breakout"].append(q)
+                else:
+                    out["rising"].append(q)
+
+        top_df = term_data.get("top")
+        if top_df is not None and not top_df.empty and "query" in top_df.columns:
+            out["top"] = [str(r["query"]) for _, r in top_df.head(6).iterrows() if r.get("query")]
     except Exception as e:
         print(f"    Related queries error for '{term}': {e}")
     return out
 
 
-def serpapi_people_also_ask(term: str) -> list[str]:
-    """Fetch People Also Ask questions for a term via Google Search."""
-    params = {
-        "engine":  "google",
-        "q":       term,
-        "gl":      "uk",
-        "hl":      "en",
-        "num":     10,
-        "api_key": SERPAPI_KEY,
-    }
-    questions = []
+def serper_people_also_ask(term: str) -> list[str]:
+    """Fetch People Also Ask questions via Serper.dev (uses SERPER_API_KEY)."""
+    if not SERPER_KEY:
+        return []
     try:
-        data = GoogleSearch(params).get_dict()
-        paa  = data.get("related_questions", [])
-        questions = [item["question"] for item in paa[:5] if "question" in item]
+        resp = requests.post(
+            "https://google.serper.dev/search",
+            headers={"X-API-KEY": SERPER_KEY, "Content-Type": "application/json"},
+            json={"q": term, "gl": "gb", "hl": "en"},
+            timeout=10,
+        )
+        if not resp.ok:
+            return []
+        return [item["question"] for item in resp.json().get("peopleAlsoAsk", [])[:5]
+                if "question" in item]
     except Exception as e:
         print(f"    PAA error for '{term}': {e}")
-    return questions
+        return []
 
 
 # ── Fetch all data ────────────────────────────────────────────────────────────
@@ -450,33 +431,33 @@ def fetch_all(cached: bool = False) -> list[dict]:
 
         print(f"\n[{g_idx+1}/{total_groups}] {label}")
 
-        # ── 1. Trends timeseries (1 call per term — standalone 0-100 score) ──
+        # ── 1. Trends timeseries (pytrends, 1 call per term) ──
         ts_data = {}
         for term in terms:
             print(f"  → Trends: {term}")
-            ts_data[term] = serpapi_trends_timeseries(term)
-            time.sleep(random.uniform(1.2, 2.0))
+            ts_data[term] = pytrends_interest_over_time(term)
+            time.sleep(random.uniform(1.5, 2.5))
 
-        # ── 2. Related queries for each term in group (includes breakout detection) ──
+        # ── 2. Related queries (pytrends, includes breakout detection) ──
         related_data = {}
         for term in terms:
             print(f"  → Related queries: {term}")
-            related_data[term] = serpapi_related_queries(term)
+            related_data[term] = pytrends_related_queries(term)
             if related_data[term].get("breakout"):
                 print(f"    🚨 BREAKOUT detected in related: {related_data[term]['breakout']}")
-            time.sleep(random.uniform(1.2, 2.0))
+            time.sleep(random.uniform(1.5, 2.5))
 
-        # ── 3. PAA — only for terms scoring 6+ (keeps API usage lean) ──
+        # ── 3. PAA via Serper.dev — only for terms scoring 6+ ──
         paa_data = {}
         for term, seed_avg, seed_trend in term_list:
-            live      = ts_data.get(term, {})
-            avg       = live.get("avg", seed_avg)
-            trend     = live.get("trend", seed_trend)
+            live        = ts_data.get(term, {})
+            avg         = live.get("avg", seed_avg)
+            trend       = live.get("trend", seed_trend)
             rough_score = score_term(avg, trend, term)
             if rough_score >= 6:
                 print(f"  → People Also Ask: {term}")
-                paa_data[term] = serpapi_people_also_ask(term)
-                time.sleep(random.uniform(1.2, 2.0))
+                paa_data[term] = serper_people_also_ask(term)
+                time.sleep(random.uniform(0.8, 1.2))
 
         # ── Build result dicts ──
         results = []
@@ -829,7 +810,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
 <header>
   <h1>Rock On Ruby — Trend Intelligence Report</h1>
-  <p>Generated {date} · Google Trends + SerpAPI · UK · 90-day window</p>
+  <p>Generated {date} · Google Trends (pytrends) · PAA via Serper.dev · UK · 90-day window</p>
 </header>
 
 {breakout_section}
@@ -983,9 +964,9 @@ if __name__ == "__main__":
         print("Rock On Ruby — Trend Scraper (cached mode)\n")
     else:
         total_terms = sum(len(g["terms"]) for g in TERM_GROUPS)
-        print(f"Rock On Ruby — Trend Scraper (live · SerpAPI)")
+        print(f"Rock On Ruby — Trend Scraper (live · pytrends + Serper.dev PAA)")
         print(f"Groups: {len(TERM_GROUPS)}  ·  Terms: {total_terms}")
-        print(f"Estimated API calls: ~{total_terms * 2 + 15} (Trends per term + Related + PAA)\n")
+        print(f"pytrends calls: ~{total_terms * 2} (interest + related per term) · PAA: Serper.dev (score≥6 only)\n")
 
     all_groups = fetch_all(cached=cached)
     build_report(all_groups)
