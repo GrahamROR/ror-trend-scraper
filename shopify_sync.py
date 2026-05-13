@@ -13,7 +13,7 @@ import os
 import json
 import re
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 DOMAIN         = os.environ.get("SHOPIFY_STORE_DOMAIN", "rockonruby.myshopify.com")
@@ -144,7 +144,7 @@ def fetch_products(max_products: int = 500) -> list[dict]:
 
 def fetch_bestsellers(days: int = 90) -> list[dict]:
     print(f"  Fetching bestsellers (last {days} days)...")
-    since = (datetime.utcnow() - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    since = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%SZ")
     orders = _paginate(
         f"{BASE}/orders.json", "orders",
         {"status": "any", "financial_status": "paid",
@@ -186,7 +186,7 @@ def main() -> None:
     bestsellers = fetch_bestsellers()
 
     catalogue = {
-        "synced_at":   datetime.utcnow().isoformat(),
+        "synced_at":   datetime.now(timezone.utc).isoformat(),
         "collections": collections,
         "products":    products,
         "bestsellers": bestsellers,
