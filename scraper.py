@@ -325,9 +325,16 @@ def already_sells(term: str) -> str:
     if not words:
         return ""
 
+    _SKIP_COLL = {"gift-vouchers", "all", "frontpage", "homepage-collection",
+                  "imported", "best-sellers-vs-hidden-gems", "collections",
+                  "sale", "christmas-sale", "year-sale", "sale-tops", "sale-accessories",
+                  "winter-sale", "holiday-bundle", "basics", "easter"}
+
     if _CATALOGUE:
         # Collections first — highest confidence for SEO mapping
         for c in _CATALOGUE.get("collections", []):
+            if c.get("handle") in _SKIP_COLL:
+                continue
             c_lower = c["title"].lower()
             if any(w in c_lower for w in words):
                 return c["title"]
@@ -589,9 +596,17 @@ def seo_page_map(term: str, existing: str) -> str:
     t     = term.lower()
     words = [w for w in t.split() if len(w) > 3]
 
+    # Collections to skip for SEO mapping — internal/utility, not SEO landing pages
+    _SKIP_COLL = {"gift-vouchers", "all", "frontpage", "homepage-collection",
+                  "imported", "best-sellers-vs-hidden-gems", "collections",
+                  "sale", "christmas-sale", "year-sale", "sale-tops", "sale-accessories",
+                  "winter-sale", "holiday-bundle", "basics", "easter"}
+
     # Live catalogue — match collections first (SEO gold: collection URLs rank best)
     if _CATALOGUE:
         for c in _CATALOGUE.get("collections", []):
+            if c.get("handle") in _SKIP_COLL:
+                continue
             c_lower = c["title"].lower()
             if any(w in c_lower for w in words):
                 return c["url"]
@@ -663,12 +678,13 @@ def build_seo_section(all_groups: list[dict]) -> str:
         else:
             action_cls = "act-watch"
 
+        page_html = _as_link(page) if page.startswith("rockonruby.co.uk/") else f'<span style="color:var(--yellow);font-size:.75rem">{page}</span>'
         rows += f"""
 <tr>
   <td class="kw-cell">{r['term']} <span class="src-dot">{src}</span></td>
   <td style="color:{trend_col};font-weight:600">{trend_icon} {r['trend'].capitalize()}</td>
   <td style="color:{score_col};font-weight:700;text-align:center">{r['score']}/10</td>
-  <td class="page-cell">{page}</td>
+  <td class="page-cell">{page_html}</td>
   <td><span class="act {action_cls}">{action}</span></td>
 </tr>"""
 
@@ -718,6 +734,124 @@ def build_breakout_section(all_groups: list[dict]) -> str:
 </section>"""
 
 
+def _as_link(url_or_text: str, label: str = None) -> str:
+    """Return an HTML anchor if the string looks like a real ROR URL, else plain text."""
+    display = label or url_or_text
+    if url_or_text.startswith("rockonruby.co.uk/"):
+        return f'<a href="https://{url_or_text}" target="_blank" rel="noopener">{display}</a>'
+    return display
+
+
+def build_gaps_section(all_groups: list[dict]) -> str:
+    """Trending keywords where ROR has no matching product page — top SEO opportunities."""
+    all_results = [r for g in all_groups for r in g["results"]]
+    gaps = [r for r in all_results if not r["ror_existing"] and r["score"] >= 5]
+    gaps.sort(key=lambda r: (-r["score"], -r["avg_interest"]))
+    if not gaps:
+        return ""
+
+    items_html = ""
+    for r in gaps[:12]:
+        action     = seo_action(r["score"], r["trend"], r["ror_existing"])
+        trend_icon = {"rising": "↑", "falling": "↓", "stable": "→"}.get(r["trend"], "→")
+        t_col      = {"rising": "var(--green)", "falling": "var(--red)", "stable": "var(--muted)"}.get(r["trend"], "var(--muted)")
+        s_col      = score_color(r["score"])
+        items_html += f"""
+<div class="gap-item">
+  <div class="gap-kw">{r['term']}</div>
+  <div class="gap-meta">
+    <span style="color:{s_col};font-weight:700">{r['score']}/10</span>
+    <span style="color:{t_col}">{trend_icon} {r['trend'].capitalize()}</span>
+    <span style="color:var(--muted);font-size:.72rem">~{r['avg_interest']}/100 interest</span>
+  </div>
+  <div class="gap-action">{action}</div>
+</div>"""
+
+    count = len(gaps)
+    return f"""
+<section class="gap-section">
+  <div class="gap-header">⚡ {count} Search Gap{"s" if count != 1 else ""} — Trending but No Matching ROR Page</div>
+  <p class="gap-sub">These keywords have real search demand but no product or collection page on rockonruby.co.uk targeting them. Each is a direct SEO opportunity to create or improve a page.</p>
+  <div class="gap-grid">{items_html}</div>
+</section>"""
+
+
+def build_bestseller_demand_section(all_groups: list[dict]) -> str:
+    """Cross-reference live Shopify bestsellers against trend data from this run."""
+    if not _CATALOGUE or not _CATALOGUE.get("bestsellers"):
+        return ""
+
+    all_results  = [r for g in all_groups for r in g["results"]]
+    bestsellers  = [b for b in _CATALOGUE["bestsellers"]
+                    if b["title"] and "personalisation" not in b["title"].lower()
+                    and "back of the neck" not in b["title"].lower()][:20]
+
+    rows = ""
+    for bs in bestsellers:
+        title   = bs["title"]
+        revenue = f"£{bs['revenue']:,.0f}" if bs.get("revenue") else "—"
+        orders  = str(bs.get("orders", "—"))
+        handle  = bs.get("handle", "")
+
+        # Link the product title if we have a handle
+        if handle:
+            title_cell = f'<a href="https://rockonruby.co.uk/products/{handle}" target="_blank" rel="noopener">{title}</a>'
+        else:
+            title_cell = title
+
+        # Fuzzy-match against this run's trend results (≥2 significant words in common)
+        bs_words = {w for w in title.lower().split() if len(w) > 3}
+        matched  = None
+        for r in all_results:
+            term_words = {w for w in r["term"].lower().split() if len(w) > 3}
+            if len(bs_words & term_words) >= 2:
+                matched = r
+                break
+
+        if matched:
+            s_col  = score_color(matched["score"])
+            t_icon = {"rising": "↑", "falling": "↓", "stable": "→"}.get(matched["trend"], "→")
+            t_col  = {"rising": "var(--green)", "falling": "var(--red)", "stable": "var(--muted)"}.get(matched["trend"], "var(--muted)")
+            score_cell    = f'<span style="color:{s_col};font-weight:700">{matched["score"]}/10</span>'
+            trend_cell    = f'<span style="color:{t_col}">{t_icon} {matched["trend"].capitalize()}</span>'
+            interest_cell = f'~{matched["avg_interest"]}/100'
+        else:
+            score_cell    = '<span style="color:var(--muted);font-size:.75rem">Not tracked</span>'
+            trend_cell    = "—"
+            interest_cell = '<span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span>'
+
+        rows += f"""
+<tr>
+  <td class="bs-prod">{title_cell}</td>
+  <td class="bs-rev">{revenue}</td>
+  <td style="text-align:center;color:var(--muted)">{orders}</td>
+  <td style="text-align:center">{score_cell}</td>
+  <td style="text-align:center">{trend_cell}</td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">{interest_cell}</td>
+</tr>"""
+
+    return f"""
+<section class="bs-section">
+  <h2 class="bs-header">Your Bestsellers vs Search Demand</h2>
+  <p class="bs-sub">Top-selling products from Shopify (last 90 days) matched against what people are actually searching. "Not tracked" = add to <code>ror_focus.json</code> to monitor.</p>
+  <div class="table-wrap">
+  <table class="bs-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Revenue (90d)</th>
+        <th style="text-align:center">Orders</th>
+        <th style="text-align:center">Trend Score</th>
+        <th style="text-align:center">Direction</th>
+        <th style="text-align:center">Search Interest</th>
+      </tr>
+    </thead>
+    <tbody>{rows}</tbody>
+  </table>
+  </div>
+</section>"""
+
+
 SEO_CSS = """
   .breakout-section {{ padding: 1rem 2rem; max-width: 1440px; margin: 0 auto 1rem; }}
   .breakout-header {{ font-size: 1rem; font-weight: 700; color: #fff;
@@ -755,8 +889,41 @@ SEO_CSS = """
                 border: 1px solid rgba(0,184,148,.3); }
   .act-watch  { background: rgba(253,203,110,.1); color: var(--yellow);
                 border: 1px solid rgba(253,203,110,.3); }
-  .act-low    { background: rgba(255,255,255,.05); color: var(--muted);
-                border: 1px solid rgba(255,255,255,.1); }
+  .act-low    {{ background: rgba(255,255,255,.05); color: var(--muted);
+                border: 1px solid rgba(255,255,255,.1); }}
+  .page-cell a {{ color: var(--blue); text-decoration: none; }}
+  .page-cell a:hover {{ text-decoration: underline; }}
+
+  .gap-section {{ padding: 1rem 2rem; max-width: 1440px; margin: 0 auto 1.5rem; }}
+  .gap-header {{ font-size: 1rem; font-weight: 700; color: #fff;
+                background: linear-gradient(90deg,#fdcb6e,#e17055);
+                padding: .6rem 1.2rem; border-radius: 8px 8px 0 0; }}
+  .gap-sub {{ font-size: .8rem; color: var(--muted); padding: .6rem 1.2rem .8rem;
+              background: rgba(253,203,110,.05); border: 1px solid rgba(253,203,110,.2);
+              border-top: none; }}
+  .gap-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+               gap: .6rem; padding: .8rem 0 .2rem; }}
+  .gap-item {{ background: rgba(253,203,110,.06); border: 1px solid rgba(253,203,110,.2);
+               border-radius: 8px; padding: .8rem 1rem; }}
+  .gap-kw {{ font-weight: 700; color: #fff; font-size: .9rem; margin-bottom: .35rem; }}
+  .gap-meta {{ display: flex; gap: .8rem; align-items: center; font-size: .78rem; margin-bottom: .3rem; }}
+  .gap-action {{ font-size: .72rem; color: var(--yellow); }}
+
+  .bs-section {{ padding: 0 2rem 2.5rem; max-width: 1440px; margin: 0 auto; }}
+  .bs-header {{ font-size: 1.2rem; color: var(--pink); padding-bottom: .7rem;
+                border-bottom: 2px solid rgba(233,30,140,.25); margin-bottom: .5rem; }}
+  .bs-sub {{ font-size: .8rem; color: var(--muted); margin-bottom: 1.2rem; }}
+  .bs-table {{ width: 100%; border-collapse: collapse; font-size: .82rem; }}
+  .bs-table thead tr {{ background: rgba(255,255,255,.05); }}
+  .bs-table th {{ padding: .6rem .8rem; text-align: left; color: var(--muted);
+                  font-size: .72rem; text-transform: uppercase; letter-spacing: .05em;
+                  border-bottom: 1px solid rgba(255,255,255,.1); white-space: nowrap; }}
+  .bs-table td {{ padding: .55rem .8rem; border-bottom: 1px solid rgba(255,255,255,.04); vertical-align: middle; }}
+  .bs-table tr:hover td {{ background: rgba(255,255,255,.03); }}
+  .bs-prod {{ font-weight: 600; }}
+  .bs-prod a {{ color: var(--pink); text-decoration: none; }}
+  .bs-prod a:hover {{ text-decoration: underline; }}
+  .bs-rev {{ color: var(--green); font-weight: 600; }}
 """
 
 
@@ -911,6 +1078,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <span>○ Est = Knowledge-seeded estimate</span>
 </div>
 
+{gaps_section}
+
+{bestseller_section}
+
 <main>
 {groups_html}
 </main>
@@ -945,11 +1116,12 @@ def render_card(r: dict) -> str:
     src_badge = '<span class="badge b-live">● Live</span>' if r["data_source"] == "live" \
                 else '<span class="badge b-est">○ Est</span>'
 
-    ror_html = (
-        f'<span class="ror-tag ror-has">✓ ROR sells: {r["ror_existing"]}</span>'
-        if r["ror_existing"]
-        else '<span class="ror-tag ror-gap">⚡ Product gap — not on rockonruby.co.uk yet</span>'
-    )
+    if r["ror_existing"]:
+        ror_url  = seo_page_map(r["term"], r["ror_existing"])
+        ror_link = _as_link(ror_url, r["ror_existing"])
+        ror_html = f'<span class="ror-tag ror-has">✓ ROR sells: {ror_link}</span>'
+    else:
+        ror_html = '<span class="ror-tag ror-gap">⚡ Product gap — not on rockonruby.co.uk yet</span>'
 
     color   = score_color(r["score"])
     bar_pct = r["score"] * 10
@@ -1016,9 +1188,11 @@ def build_report(all_groups: list[dict]) -> None:
         cards = "".join(render_card(r) for r in sorted(g["results"], key=lambda x: -x["score"]))
         groups_html += f'<div class="group"><h2>{g["label"]}</h2><div class="cards">{cards}</div></div>\n'
 
-    seo_section      = build_seo_section(all_groups)
-    breakout_section = build_breakout_section(all_groups)
-    seo_css_clean    = SEO_CSS.strip()
+    seo_section        = build_seo_section(all_groups)
+    breakout_section   = build_breakout_section(all_groups)
+    gaps_section       = build_gaps_section(all_groups)
+    bestseller_section = build_bestseller_demand_section(all_groups)
+    seo_css_clean      = SEO_CSS.strip()
 
     date_str = datetime.now().strftime("%d %B %Y, %H:%M")
     html = HTML_TEMPLATE.format(
@@ -1027,6 +1201,8 @@ def build_report(all_groups: list[dict]) -> None:
         notice=notice, groups_html=groups_html,
         seo_section=seo_section, seo_css=seo_css_clean,
         breakout_section=breakout_section,
+        gaps_section=gaps_section,
+        bestseller_section=bestseller_section,
     )
     REPORT_FILE.write_text(html, encoding="utf-8")
     print(f"Report → {REPORT_FILE}")
