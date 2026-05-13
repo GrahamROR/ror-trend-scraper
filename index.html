@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rock On Ruby — Trend Report 13 May 2026, 15:47</title>
+<title>Rock On Ruby — Trend Report 13 May 2026, 16:09</title>
 <style>
   :root {
     --pink: #e91e8c; --dark: #1a1a2e; --mid: #16213e; --card: #0f3460;
@@ -145,8 +145,41 @@
                 border: 1px solid rgba(0,184,148,.3); }
   .act-watch  { background: rgba(253,203,110,.1); color: var(--yellow);
                 border: 1px solid rgba(253,203,110,.3); }
-  .act-low    { background: rgba(255,255,255,.05); color: var(--muted);
-                border: 1px solid rgba(255,255,255,.1); }
+  .act-low    {{ background: rgba(255,255,255,.05); color: var(--muted);
+                border: 1px solid rgba(255,255,255,.1); }}
+  .page-cell a {{ color: var(--blue); text-decoration: none; }}
+  .page-cell a:hover {{ text-decoration: underline; }}
+
+  .gap-section {{ padding: 1rem 2rem; max-width: 1440px; margin: 0 auto 1.5rem; }}
+  .gap-header {{ font-size: 1rem; font-weight: 700; color: #fff;
+                background: linear-gradient(90deg,#fdcb6e,#e17055);
+                padding: .6rem 1.2rem; border-radius: 8px 8px 0 0; }}
+  .gap-sub {{ font-size: .8rem; color: var(--muted); padding: .6rem 1.2rem .8rem;
+              background: rgba(253,203,110,.05); border: 1px solid rgba(253,203,110,.2);
+              border-top: none; }}
+  .gap-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+               gap: .6rem; padding: .8rem 0 .2rem; }}
+  .gap-item {{ background: rgba(253,203,110,.06); border: 1px solid rgba(253,203,110,.2);
+               border-radius: 8px; padding: .8rem 1rem; }}
+  .gap-kw {{ font-weight: 700; color: #fff; font-size: .9rem; margin-bottom: .35rem; }}
+  .gap-meta {{ display: flex; gap: .8rem; align-items: center; font-size: .78rem; margin-bottom: .3rem; }}
+  .gap-action {{ font-size: .72rem; color: var(--yellow); }}
+
+  .bs-section {{ padding: 0 2rem 2.5rem; max-width: 1440px; margin: 0 auto; }}
+  .bs-header {{ font-size: 1.2rem; color: var(--pink); padding-bottom: .7rem;
+                border-bottom: 2px solid rgba(233,30,140,.25); margin-bottom: .5rem; }}
+  .bs-sub {{ font-size: .8rem; color: var(--muted); margin-bottom: 1.2rem; }}
+  .bs-table {{ width: 100%; border-collapse: collapse; font-size: .82rem; }}
+  .bs-table thead tr {{ background: rgba(255,255,255,.05); }}
+  .bs-table th {{ padding: .6rem .8rem; text-align: left; color: var(--muted);
+                  font-size: .72rem; text-transform: uppercase; letter-spacing: .05em;
+                  border-bottom: 1px solid rgba(255,255,255,.1); white-space: nowrap; }}
+  .bs-table td {{ padding: .55rem .8rem; border-bottom: 1px solid rgba(255,255,255,.04); vertical-align: middle; }}
+  .bs-table tr:hover td {{ background: rgba(255,255,255,.03); }}
+  .bs-prod {{ font-weight: 600; }}
+  .bs-prod a {{ color: var(--pink); text-decoration: none; }}
+  .bs-prod a:hover {{ text-decoration: underline; }}
+  .bs-rev {{ color: var(--green); font-weight: 600; }}
   @media (max-width: 640px) {
     header h1 { font-size: 1.4rem; }
     .cards { grid-template-columns: 1fr; }
@@ -160,7 +193,7 @@
 
 <header>
   <h1>Rock On Ruby — Trend Intelligence Report</h1>
-  <p>Generated 13 May 2026, 15:47 · Google Trends (pytrends) · PAA via Serper.dev · UK · 90-day window</p>
+  <p>Generated 13 May 2026, 16:09 · Google Trends (pytrends) · PAA via Serper.dev · UK · 90-day window</p>
 </header>
 
 
@@ -184,6 +217,195 @@
   <span>○ Est = Knowledge-seeded estimate</span>
 </div>
 
+
+<section class="gap-section">
+  <div class="gap-header">⚡ 1 Search Gap — Trending but No Matching ROR Page</div>
+  <p class="gap-sub">These keywords have real search demand but no product or collection page on rockonruby.co.uk targeting them. Each is a direct SEO opportunity to create or improve a page.</p>
+  <div class="gap-grid">
+<div class="gap-item">
+  <div class="gap-kw">glastonbury 2026</div>
+  <div class="gap-meta">
+    <span style="color:#fdcb6e;font-weight:700">6/10</span>
+    <span style="color:var(--green)">↑ Rising</span>
+    <span style="color:var(--muted);font-size:.72rem">~25/100 interest</span>
+  </div>
+  <div class="gap-action">Write blog post — no ROR page to land on yet</div>
+</div></div>
+</section>
+
+
+<section class="bs-section">
+  <h2 class="bs-header">Your Bestsellers vs Search Demand</h2>
+  <p class="bs-sub">Top-selling products from Shopify (last 90 days) matched against what people are actually searching. "Not tracked" = add to <code>ror_focus.json</code> to monitor.</p>
+  <div class="table-wrap">
+  <table class="bs-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Revenue (90d)</th>
+        <th style="text-align:center">Orders</th>
+        <th style="text-align:center">Trend Score</th>
+        <th style="text-align:center">Direction</th>
+        <th style="text-align:center">Search Interest</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr>
+  <td class="bs-prod">Personalised Year Sweatshirt</td>
+  <td class="bs-rev">£16,591</td>
+  <td style="text-align:center;color:var(--muted)">469</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Personalised Year Unisex T-shirt</td>
+  <td class="bs-rev">£2,288</td>
+  <td style="text-align:center;color:var(--muted)">85</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Personalised Varsity Year Leopard Print Tote Bag</td>
+  <td class="bs-rev">£2,184</td>
+  <td style="text-align:center;color:var(--muted)">90</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Vintage Style Denim Unisex Personalised Slogan Cap</td>
+  <td class="bs-rev">£1,056</td>
+  <td style="text-align:center;color:var(--muted)">41</td>
+  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
+  <td style="text-align:center">—</td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
+</tr>
+<tr>
+  <td class="bs-prod">Happy Hour Slogan Sweatshirt</td>
+  <td class="bs-rev">£805</td>
+  <td style="text-align:center;color:var(--muted)">23</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">5/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Funky Font Personalised Year Sweatshirt</td>
+  <td class="bs-rev">£700</td>
+  <td style="text-align:center;color:var(--muted)">20</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Men's Personalised Year Sweatshirt</td>
+  <td class="bs-rev">£700</td>
+  <td style="text-align:center;color:var(--muted)">20</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Personalised Varsity Year Leopard print Makeup Bag</td>
+  <td class="bs-rev">£630</td>
+  <td style="text-align:center;color:var(--muted)">33</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Embroidered Yes I Like Pina Coladas T-shirt</td>
+  <td class="bs-rev">£561</td>
+  <td style="text-align:center;color:var(--muted)">20</td>
+  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
+  <td style="text-align:center">—</td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
+</tr>
+<tr>
+  <td class="bs-prod">Embroidered Personalised Cuff Sweatshirt</td>
+  <td class="bs-rev">£560</td>
+  <td style="text-align:center;color:var(--muted)">12</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Embroidered Unisex Personalised Slogan Cap</td>
+  <td class="bs-rev">£547</td>
+  <td style="text-align:center;color:var(--muted)">22</td>
+  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
+  <td style="text-align:center">—</td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
+</tr>
+<tr>
+  <td class="bs-prod">Rock On Ruby Branded Tote Bag</td>
+  <td class="bs-rev">£480</td>
+  <td style="text-align:center;color:var(--muted)">30</td>
+  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
+  <td style="text-align:center">—</td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
+</tr>
+<tr>
+  <td class="bs-prod">Tea Please Sweatshirt</td>
+  <td class="bs-rev">£455</td>
+  <td style="text-align:center;color:var(--muted)">13</td>
+  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
+  <td style="text-align:center">—</td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
+</tr>
+<tr>
+  <td class="bs-prod">Custard Cream Connoisseur Sweatshirt</td>
+  <td class="bs-rev">£418</td>
+  <td style="text-align:center;color:var(--muted)">11</td>
+  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
+  <td style="text-align:center">—</td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
+</tr>
+<tr>
+  <td class="bs-prod">Happy Hour Slogan T-Shirt</td>
+  <td class="bs-rev">£390</td>
+  <td style="text-align:center;color:var(--muted)">15</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">5/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Bourbon Biscuit Fan Club T-Shirt</td>
+  <td class="bs-rev">£390</td>
+  <td style="text-align:center;color:var(--muted)">15</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">5/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~25/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Personalised Handwriting Cuff Sweatshirt</td>
+  <td class="bs-rev">£384</td>
+  <td style="text-align:center;color:var(--muted)">8</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Personalised Initial Leopard print Tote Bag</td>
+  <td class="bs-rev">£336</td>
+  <td style="text-align:center;color:var(--muted)">14</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">5/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~25/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Out Of Office Slogan Cap</td>
+  <td class="bs-rev">£336</td>
+  <td style="text-align:center;color:var(--muted)">16</td>
+  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
+  <td style="text-align:center">—</td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
+</tr></tbody>
+  </table>
+  </div>
+</section>
+
 <main>
 <div class="group"><h2>Best Sellers & Birthday (Layer 4)</h2><div class="cards">
 <div class="card rising">
@@ -198,7 +420,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Personalised Accessories</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
   <div class="two-col">
@@ -218,7 +440,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Personalised Accessories</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
   <div class="two-col">
@@ -238,7 +460,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Christmas T-Shirts</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/christmas-t-shirts" target="_blank" rel="noopener">Christmas T-Shirts</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
   <div class="two-col">
@@ -258,7 +480,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gift Vouchers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">Gifting</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'milestone birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -278,7 +500,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gift Vouchers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">Gifting</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to '40th birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -298,7 +520,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gift Vouchers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">Gifting</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to '50th birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -318,7 +540,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gift Vouchers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">Gifting</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to '30th birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -338,7 +560,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gift Vouchers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">Gifting</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to '18th birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -358,7 +580,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gift Vouchers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">Gifting</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to '21st birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -378,7 +600,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gift Vouchers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">Gifting</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
   <div class="two-col">
@@ -398,7 +620,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Christmas Jumpers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/christmas-jumpers" target="_blank" rel="noopener">Christmas Jumpers</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'custom birthday jumper' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -418,7 +640,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Personalised Accessories</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
   <div class="two-col">
@@ -438,7 +660,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gift Vouchers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">Gifting</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'milestone birthday gift' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -458,7 +680,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">5</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Personalised Sweatshirts</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">Personalised Sweatshirts</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'birthday sweatshirt uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -478,7 +700,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">5</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Personalised Sweatshirts</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">Personalised Sweatshirts</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'born in sweatshirt' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -498,7 +720,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">5</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Children’s Clothing</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">Children’s Clothing</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'birth year clothing uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -518,7 +740,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">5</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Personalised Sweatshirts</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">Personalised Sweatshirts</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'happy hour sweatshirt' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -538,7 +760,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">5</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Custom Slogan</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan drop: 'Only Here for the…' extended into summer — beach, Prosecco, festival</li><li>Cap: 'Festival Hair, Don't Care' — festival season tie-in</li><li>Sweatshirt: 'Only Here for the Headliners' — Glastonbury hype angle</li></ul>
   <div class="two-col">
@@ -558,7 +780,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">5</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Embroidered Yes I Like Pina Coladas T-shirt</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/search?q=pina colada cap" target="_blank" rel="noopener">Embroidered Yes I Like Pina Coladas T-shirt</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'pina colada cap' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -578,7 +800,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">5</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Personalised Hoodies</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-hoodies" target="_blank" rel="noopener">Personalised Hoodies</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'birthday hoodie uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -599,7 +821,7 @@
     </div>
     <div class="score-val" style="color:#636e72">3</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gift Vouchers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">Gifting</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'gift ideas uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -619,7 +841,7 @@
     </div>
     <div class="score-val" style="color:#636e72">3</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gift Vouchers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">Gifting</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -639,7 +861,7 @@
     </div>
     <div class="score-val" style="color:#636e72">3</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gift Vouchers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">Gifting</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
   <div class="two-col">
@@ -659,7 +881,7 @@
     </div>
     <div class="score-val" style="color:#636e72">2</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Women's Premium Rock On Ruby Joggers</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/premium-spark-joggers" target="_blank" rel="noopener">Women's Premium Rock On Ruby Joggers</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Funny birthday gift sets — cap + tote bundle, gift-wrapped</li><li>Social: 'Gifts that aren't a candle' — positions ROR against generic gifting</li><li>Sweatshirt: 'Bra Off By 7' — speaks directly to the ROR customer</li></ul>
   <div class="two-col">
@@ -679,7 +901,7 @@
     </div>
     <div class="score-val" style="color:#636e72">2</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Bourbon Biscuit Fan Club Sweatshirt</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/only-here-for-the-food-christmas-jumper" target="_blank" rel="noopener">Bourbon Biscuit Fan Club Sweatshirt</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'food and drink trends uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -699,7 +921,7 @@
     </div>
     <div class="score-val" style="color:#636e72">2</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Children’s Clothing</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">Children’s Clothing</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Novelty slogan caps for gifting — lean into the anti-boring positioning</li><li>Social: 'Slogans we've actually embroidered' reel — funny UGC-style content</li></ul>
   <div class="two-col">
@@ -719,7 +941,7 @@
     </div>
     <div class="score-val" style="color:#636e72">2</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Children’s Clothing</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">Children’s Clothing</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan drop: 'Only Here for the…' extended into summer — beach, Prosecco, festival</li><li>Cap: 'Festival Hair, Don't Care' — festival season tie-in</li><li>Sweatshirt: 'Only Here for the Headliners' — Glastonbury hype angle</li></ul>
   <div class="two-col">
@@ -740,7 +962,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">7</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gifts For Children</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifts-for-children" target="_blank" rel="noopener">Gifts For Children</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Cap: 'Only Here for the BBQ' — embroidered slogan, Father's Day gifting angle</li><li>Sweatshirt: 'Tea Please Dad' — simple embroidered text, gift-ready</li><li>Cap: 'Coffee First, Dad Stuff Second' — funny and fast to execute</li><li>Social: 'What Dad Really Wants' reel featuring BBQ-themed personalised cap</li></ul>
   <div class="two-col">
@@ -780,7 +1002,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Book Club Tote Bag</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap" target="_blank" rel="noopener">Book Club Tote Bag</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Festival cap collection — embroidered, practical, gifting angle pre-June</li><li>Social: 'What goes on tour' — personalised cap gifting content for festival groups</li><li>Tote: Festival tote with custom name or slogan — low cost, high gift appeal</li></ul>
   <div class="two-col">
@@ -800,7 +1022,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Embroidered Personalised Initials Tote Bag</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/clothing" target="_blank" rel="noopener">Embroidered Personalised Initials Tote Bag</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Festival cap collection — embroidered, practical, gifting angle pre-June</li><li>Social: 'What goes on tour' — personalised cap gifting content for festival groups</li><li>Tote: Festival tote with custom name or slogan — low cost, high gift appeal</li></ul>
   <div class="two-col">
@@ -820,7 +1042,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Children’s Clothing</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">Children’s Clothing</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Festival cap collection — embroidered, practical, gifting angle pre-June</li><li>Social: 'What goes on tour' — personalised cap gifting content for festival groups</li><li>Tote: Festival tote with custom name or slogan — low cost, high gift appeal</li></ul>
   <div class="two-col">
@@ -840,7 +1062,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Summer 2023</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/summer-2023" target="_blank" rel="noopener">Summer 2023</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Drop: personalised beach tote + 'Girls Trip 2026' cap</li><li>Social: 'Your summer sorted' gift guide email pulling existing products together</li><li>Cap: 'Only Here for the Sunshine' — seasonal slogan, fast to execute</li></ul>
   <div class="two-col">
@@ -860,7 +1082,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gifts For Children</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifts-for-children" target="_blank" rel="noopener">Gifts For Children</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
   <div class="two-col">
@@ -880,7 +1102,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gifts For Children</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifts-for-children" target="_blank" rel="noopener">Gifts For Children</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Funny birthday gift sets — cap + tote bundle, gift-wrapped</li><li>Social: 'Gifts that aren't a candle' — positions ROR against generic gifting</li><li>Sweatshirt: 'Bra Off By 7' — speaks directly to the ROR customer</li></ul>
   <div class="two-col">
@@ -900,7 +1122,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gifts For Children</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifts-for-children" target="_blank" rel="noopener">Gifts For Children</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'funny birthday gifts uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -920,7 +1142,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Gifts For Children</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/gifts-for-children" target="_blank" rel="noopener">Gifts For Children</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'gifts for her uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -940,7 +1162,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">6</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Spritz Season Slogan Cap</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/spritz-season-slogan-cap" target="_blank" rel="noopener">Spritz Season Slogan Cap</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Cap: 'Grill Sergeant' — Father's Day BBQ gifting, fast to produce</li><li>Cap: 'Ketchup or Brown Sauce' — divisive, funny, conversation-starting</li><li>Gap product: Personalised apron — 'Head Chef (Self-Appointed)'</li><li>Social: 'Team Ketchup vs Team Brown Sauce' poll — big engagement driver</li></ul>
   <div class="two-col">
@@ -960,7 +1182,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">5</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Leopard Print Lover</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/leopard-print-lover" target="_blank" rel="noopener">Leopard Print Lover</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Leopard print sweatshirt with embroidered slogan — bold colourway</li><li>Social: 'Leopard print is forever' — leans into ROR's anti-boring positioning</li></ul>
   <div class="two-col">
@@ -980,7 +1202,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">5</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Biscuit Collection</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/biscuit-collection" target="_blank" rel="noopener">Biscuit Collection</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Cap: 'Only Here for the Bourbons' — biscuit range hero product</li><li>Sweatshirt: Custard Cream slogan print — nostalgic British humour</li><li>Tote: 'Only Here for the Jammy Dodgers' — low cost, high shareability</li><li>Social: 'Rank our biscuit range' poll — drives engagement and discovery</li></ul>
   <div class="two-col">
@@ -1000,7 +1222,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">5</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Jammy Dodger Enthusiast Slogan Cap</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/jammy-dodger-enthusiast-slogan-cap" target="_blank" rel="noopener">Jammy Dodger Enthusiast Slogan Cap</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'jammy dodger' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -1020,7 +1242,7 @@
     </div>
     <div class="score-val" style="color:#fdcb6e">5</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Children’s Clothing</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">Children’s Clothing</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Novelty slogan caps for gifting — lean into the anti-boring positioning</li><li>Social: 'Slogans we've actually embroidered' reel — funny UGC-style content</li></ul>
   <div class="two-col">
@@ -1041,7 +1263,7 @@
     </div>
     <div class="score-val" style="color:#636e72">3</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Personalised Accessories</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
   <div class="two-col">
@@ -1061,7 +1283,7 @@
     </div>
     <div class="score-val" style="color:#636e72">3</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Personalised Accessories</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
   <div class="two-col">
@@ -1081,7 +1303,7 @@
     </div>
     <div class="score-val" style="color:#636e72">3</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Personalised Accessories</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
   <div class="two-col">
@@ -1101,7 +1323,7 @@
     </div>
     <div class="score-val" style="color:#636e72">3</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Custom Slogan</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'custom sweatshirt uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -1121,7 +1343,7 @@
     </div>
     <div class="score-val" style="color:#636e72">3</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Custom Slogan</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'custom hoodie uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -1141,7 +1363,7 @@
     </div>
     <div class="score-val" style="color:#636e72">3</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Custom Slogan</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'custom cap uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -1161,7 +1383,7 @@
     </div>
     <div class="score-val" style="color:#636e72">3</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Custom Slogan</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan cap or sweatshirt tied to 'custom tote bag uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
   <div class="two-col">
@@ -1181,7 +1403,7 @@
     </div>
     <div class="score-val" style="color:#636e72">2</div>
   </div>
-  <span class="ror-tag ror-has">✓ ROR sells: Custom Slogan</span>
+  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
   <div class="section-label">ROR product &amp; social ideas</div>
   <ul class="items"><li>Slogan drop: 'Only Here for the…' extended into summer — beach, Prosecco, festival</li><li>Cap: 'Festival Hair, Don't Care' — festival season tie-in</li><li>Sweatshirt: 'Only Here for the Headliners' — Glastonbury hype angle</li></ul>
   <div class="two-col">
@@ -1214,350 +1436,350 @@
   <td class="kw-cell">fathers day gifts uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">7/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gifts-for-children</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifts-for-children" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifts-for-children</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">personalised year sweatshirt <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/personalised-accessories</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">personalised year hoodie <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/personalised-accessories</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">personalised year t-shirt <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/christmas-t-shirts</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/christmas-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/christmas-t-shirts</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">milestone birthday gift uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gift-vouchers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifting</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">40th birthday gift uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gift-vouchers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifting</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">50th birthday gift uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gift-vouchers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifting</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">30th birthday gift uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gift-vouchers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifting</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">18th birthday gift uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gift-vouchers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifting</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">21st birthday gift uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gift-vouchers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifting</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">personalised birthday gift <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gift-vouchers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifting</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">custom birthday jumper <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/christmas-jumpers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/christmas-jumpers" target="_blank" rel="noopener">rockonruby.co.uk/collections/christmas-jumpers</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">personalised sweatshirt uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/personalised-accessories</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">milestone birthday gift <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gift-vouchers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifting</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">glastonbury 2026 <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/clothing</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/clothing</a></td>
   <td><span class="act act-create">Write blog post — no ROR page to land on yet</span></td>
 </tr>
 <tr>
   <td class="kw-cell">reading festival 2026 <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">festival outfit uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/clothing</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/clothing</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">festival clothing uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/children-s-clothing</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/children-s-clothing</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">summer holidays uk 2026 <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/summer-2023</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/summer-2023" target="_blank" rel="noopener">rockonruby.co.uk/collections/summer-2023</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">personalised gifts uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gifts-for-children</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifts-for-children" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifts-for-children</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">funny gifts for women uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gifts-for-children</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifts-for-children" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifts-for-children</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">funny birthday gifts uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gifts-for-children</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifts-for-children" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifts-for-children</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">gifts for her uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gifts-for-children</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifts-for-children" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifts-for-children</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">bbq season uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell">rockonruby.co.uk/products/spritz-season-slogan-cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/spritz-season-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/spritz-season-slogan-cap</a></td>
   <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
 </tr>
 <tr>
   <td class="kw-cell">birthday sweatshirt uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/personalised-sweatshirts</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-sweatshirts</a></td>
   <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
 </tr>
 <tr>
   <td class="kw-cell">born in sweatshirt <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/personalised-sweatshirts</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-sweatshirts</a></td>
   <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
 </tr>
 <tr>
   <td class="kw-cell">birth year clothing uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/children-s-clothing</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/children-s-clothing</a></td>
   <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
 </tr>
 <tr>
   <td class="kw-cell">happy hour sweatshirt <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/personalised-sweatshirts</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-sweatshirts</a></td>
   <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
 </tr>
 <tr>
   <td class="kw-cell">slogan sweatshirt uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/custom-slogan</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
   <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
 </tr>
 <tr>
   <td class="kw-cell">pina colada cap <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell">rockonruby.co.uk/products/search?q=pina colada cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/search?q=pina colada cap" target="_blank" rel="noopener">rockonruby.co.uk/products/search?q=pina colada cap</a></td>
   <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
 </tr>
 <tr>
   <td class="kw-cell">birthday hoodie uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/personalised-hoodies</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-hoodies" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-hoodies</a></td>
   <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
 </tr>
 <tr>
   <td class="kw-cell">leopard print fashion uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/leopard-print-lover</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/leopard-print-lover" target="_blank" rel="noopener">rockonruby.co.uk/collections/leopard-print-lover</a></td>
   <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
 </tr>
 <tr>
   <td class="kw-cell">bourbon biscuit <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/biscuit-collection</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/biscuit-collection" target="_blank" rel="noopener">rockonruby.co.uk/collections/biscuit-collection</a></td>
   <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
 </tr>
 <tr>
   <td class="kw-cell">jammy dodger <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell">rockonruby.co.uk/products/jammy-dodger-enthusiast-slogan-cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/jammy-dodger-enthusiast-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/jammy-dodger-enthusiast-slogan-cap</a></td>
   <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
 </tr>
 <tr>
   <td class="kw-cell">novelty clothing uk <span class="src-dot">○</span></td>
   <td style="color:#00b894;font-weight:600">↑ Rising</td>
   <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/children-s-clothing</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/children-s-clothing</a></td>
   <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
 </tr>
 <tr>
   <td class="kw-cell">gift ideas uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gift-vouchers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifting</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">birthday gift uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gift-vouchers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifting</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">personalised gift uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/gift-vouchers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/gifting" target="_blank" rel="noopener">rockonruby.co.uk/collections/gifting</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">personalised hoodie uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/personalised-accessories</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">personalised cap uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/personalised-accessories</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">personalised tote bag uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/personalised-accessories</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">custom sweatshirt uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/custom-slogan</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">custom hoodie uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/custom-slogan</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">custom cap uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/custom-slogan</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">custom tote bag uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/custom-slogan</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">women's fashion uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">2/10</td>
-  <td class="page-cell">rockonruby.co.uk/products/premium-spark-joggers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/premium-spark-joggers" target="_blank" rel="noopener">rockonruby.co.uk/products/premium-spark-joggers</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">food and drink trends uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">2/10</td>
-  <td class="page-cell">rockonruby.co.uk/products/only-here-for-the-food-christmas-jumper</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/only-here-for-the-food-christmas-jumper" target="_blank" rel="noopener">rockonruby.co.uk/products/only-here-for-the-food-christmas-jumper</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">novelty clothing uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">2/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/children-s-clothing</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/children-s-clothing</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">funny slogan clothing uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">2/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/children-s-clothing</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/children-s-clothing</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
 <tr>
   <td class="kw-cell">slogan hoodie uk <span class="src-dot">○</span></td>
   <td style="color:#aaa;font-weight:600">→ Stable</td>
   <td style="color:#636e72;font-weight:700;text-align:center">2/10</td>
-  <td class="page-cell">rockonruby.co.uk/collections/custom-slogan</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
   <td><span class="act act-low">Low priority — review next quarter</span></td>
 </tr>
     </tbody>
