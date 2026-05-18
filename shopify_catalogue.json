@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-05-13T16:04:17.783083+00:00",
+  "synced_at": "2026-05-18T11:09:45.746813+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -3559,6 +3559,20 @@
       "price": 26.0
     },
     {
+      "title": "Oversized Personalised Varsity Year Leopard Print Tote Bag",
+      "handle": "oversized-personalised-varsity-year-leopard-print-tote-bag",
+      "url": "rockonruby.co.uk/products/oversized-personalised-varsity-year-leopard-print-tote-bag",
+      "product_type": "",
+      "tags": [
+        "Accessories",
+        "DTF",
+        "New in",
+        "Personalised Accessories",
+        "Tote Bags"
+      ],
+      "price": 26.0
+    },
+    {
       "title": "Overthinking Embroidered Sweatshirt",
       "handle": "overthinking-embroidered-sweatshirt",
       "url": "rockonruby.co.uk/products/overthinking-embroidered-sweatshirt",
@@ -6467,50 +6481,44 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 469,
-      "revenue": 16591.24
+      "orders": 450,
+      "revenue": 15925.0
     },
     {
       "title": "Personalised Year Unisex T-shirt",
       "handle": "",
-      "orders": 85,
-      "revenue": 2288.0
+      "orders": 87,
+      "revenue": 2340.0
     },
     {
       "title": "Personalised Varsity Year Leopard Print Tote Bag",
       "handle": "",
-      "orders": 90,
-      "revenue": 2184.0
+      "orders": 79,
+      "revenue": 1920.0
     },
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 41,
-      "revenue": 1056.0
+      "orders": 40,
+      "revenue": 1032.0
     },
     {
       "title": "Happy Hour Slogan Sweatshirt",
       "handle": "",
-      "orders": 23,
-      "revenue": 805.0
-    },
-    {
-      "title": "Funky Font Personalised Year Sweatshirt",
-      "handle": "",
-      "orders": 20,
-      "revenue": 700.0
-    },
-    {
-      "title": "Men's Personalised Year Sweatshirt",
-      "handle": "",
-      "orders": 20,
-      "revenue": 700.0
+      "orders": 21,
+      "revenue": 735.0
     },
     {
       "title": "Personalisation on the back of the neck (+\u00a34.95)",
       "handle": "",
-      "orders": 138,
-      "revenue": 683.31
+      "orders": 139,
+      "revenue": 688.26
+    },
+    {
+      "title": "Funky Font Personalised Year Sweatshirt",
+      "handle": "",
+      "orders": 18,
+      "revenue": 630.0
     },
     {
       "title": "Personalised Varsity Year Leopard print Makeup Bag",
@@ -6519,10 +6527,16 @@
       "revenue": 630.0
     },
     {
+      "title": "Embroidered Unisex Personalised Slogan Cap",
+      "handle": "",
+      "orders": 24,
+      "revenue": 588.65
+    },
+    {
       "title": "Embroidered Yes I Like Pina Coladas T-shirt",
       "handle": "",
       "orders": 20,
-      "revenue": 561.33
+      "revenue": 560.0
     },
     {
       "title": "Embroidered Personalised Cuff Sweatshirt",
@@ -6531,16 +6545,16 @@
       "revenue": 560.0
     },
     {
-      "title": "Embroidered Unisex Personalised Slogan Cap",
+      "title": "Men's Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 22,
-      "revenue": 546.65
+      "orders": 16,
+      "revenue": 560.0
     },
     {
-      "title": "Rock On Ruby Branded Tote Bag",
+      "title": "Personalised Handwriting Cuff Sweatshirt",
       "handle": "",
-      "orders": 30,
-      "revenue": 480.37
+      "orders": 10,
+      "revenue": 480.0
     },
     {
       "title": "Tea Please Sweatshirt",
@@ -6549,40 +6563,40 @@
       "revenue": 455.0
     },
     {
+      "title": "Happy Hour Slogan T-Shirt",
+      "handle": "",
+      "orders": 17,
+      "revenue": 442.0
+    },
+    {
       "title": "Custard Cream Connoisseur Sweatshirt",
       "handle": "",
       "orders": 11,
       "revenue": 418.0
     },
     {
-      "title": "Happy Hour Slogan T-Shirt",
+      "title": "Rock On Ruby Branded Tote Bag",
       "handle": "",
-      "orders": 15,
-      "revenue": 390.0
+      "orders": 24,
+      "revenue": 384.37
+    },
+    {
+      "title": "Tea Please T-shirt",
+      "handle": "",
+      "orders": 14,
+      "revenue": 364.0
     },
     {
       "title": "Bourbon Biscuit Fan Club T-Shirt",
       "handle": "",
-      "orders": 15,
-      "revenue": 390.0
-    },
-    {
-      "title": "Personalised Handwriting Cuff Sweatshirt",
-      "handle": "",
-      "orders": 8,
-      "revenue": 384.0
-    },
-    {
-      "title": "Personalised Initial Leopard print Tote Bag",
-      "handle": "",
       "orders": 14,
-      "revenue": 336.0
+      "revenue": 364.0
     },
     {
-      "title": "Out Of Office Slogan Cap",
+      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
       "handle": "",
-      "orders": 16,
-      "revenue": 336.0
+      "orders": 9,
+      "revenue": 350.0
     }
   ]
 }
