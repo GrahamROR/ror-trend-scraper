@@ -1,258 +1,284 @@
 # Rock On Ruby — Content Drafts
-Generated: 19 May 2026, 10:37
+Generated: 21 May 2026, 10:40
 Run `python3 content_generator.py` to regenerate with cached trend data.
 
 ---
 
 > **Layer 4 (bestsellers) terms this run:** none
-> **Top terms this run:** birthday sweatshirt uk, born in sweatshirt
+> **Top terms this run:** birth year clothing uk, happy hour sweatshirt
 > **SEO content pieces:** 0
 
 ---
 
 ## BLOG POST 1
 
-# The Best Birthday Sweatshirt UK Buyers Are Actually Gifting Right Now
+# The Best Birth Year Clothing in the UK (That Doesn't Look Like a Novelty Gift Shop Exploded)
 
-My mate turned 40 last spring. I'd left it too late for anything fancy — you know how it goes. I was standing in the middle of a big chain shop holding a candle that smelled like "coastal breeze" thinking, this is not it. This is not a 40-year-old woman's birthday gift. This is a petrol station backup plan in nicer packaging.
+There's a specific kind of panic that sets in about three days before someone's big birthday.
 
-So I went home, got on my laptop, and ordered her a personalised birthday sweatshirt instead.
+You know the one. You've left it too long for anything to arrive in time. You're scrolling Amazon at 11pm. You've considered — briefly — a candle. Or one of those spa sets in a wicker basket that smells like disappointment.
 
-She cried. In a good way.
+And then you remember. She's turning 40. She deserves better than a wicker basket.
 
----
+This is where birth year clothing comes in. And before you picture those stiff, scratchy t-shirts with "Aged to Perfection" plastered on them in Comic Sans — stay with me. Because it's not that.
 
-Here's the thing about birthday gifts. We always *mean* to do better. We mean to plan ahead, find something thoughtful, make them feel properly seen. And then suddenly it's four days before and we're panic-scrolling Amazon hoping something decent turns up between the batteries and the garden hoses.
+**What birth year clothing actually is (when it's done right)**
 
-A birthday sweatshirt cuts through all of that.
+The idea is simple. You take the year someone was born — or the year something big happened — and you put it on something they'll actually wear. A sweatshirt. A tee. A tote bag.
 
-Not because it's flashy. Because it's *specific*. You pick the year she was born, or the big birthday she's hitting, and it's done. It's got her name on it. It says "I thought about you, actually."
+Here in the UK, birth year clothing has quietly become one of the most-bought personalised gifts for milestone birthdays. And honestly? I get it. It's specific without being naff. It means something without being over the top.
 
-That's rarer than it sounds.
+At Rock On Ruby, our [Personalised Year Sweatshirt](https://rockonruby.co.uk/collections/personalised-year) has been our best-selling product for a while now. Over 450 orders. That's a lot of birthdays sorted.
 
----
+**Why it works so well as a gift**
 
-At Rock On Ruby, the one that outsells everything else — by a long way — is our [Personalised Year Sweatshirt](https://rockonruby.co.uk/collections/personalised-sweatshirts). We've sold over 450 of them. Four hundred and fifty. I'm not saying that to brag, I'm saying it because that many people have made someone cry at a birthday and that feels like something worth knowing.
+A high street sweatshirt is just a sweatshirt. But one that says "Est. 1984" or "Class of 1979" — suddenly it's *about* someone. It tells a little story. It says: I thought about you specifically, not just about getting something in the post on time.
 
-You pick the year. We embroider it. It arrives looking like something you'd find in a boutique in Margate, not a factory in a business park.
+And because we embroider everything here in Bury (yes, actual embroidery, not a sticky iron-on that peels in the wash), it looks proper. The kind of thing someone hangs onto.
 
-We also do the [Funky Font Personalised Year Sweatshirt](https://rockonruby.co.uk/collections/personalised-sweatshirts) if she's a bit more *extra* — great for the friend who'd wear a statement piece to the supermarket without batting an eye. (We all have one. We love her.)
+**Who actually buys birth year clothing in the UK?**
 
----
+Mostly women, buying for their mums, sisters, best mates. Big birthdays — 40th, 50th, 60th — are the big ones. But we also see people buying them for new babies, for 18ths, for "she finally retired" moments. Any year that matters to someone is fair game.
 
-The women who shop with us are mostly buying for their friends and sisters. They're not looking for something that *could* work for anyone. They're looking for something that works for *her*. The one who has everything. The one who says she doesn't want anything. The one who deserves better than another bath set she'll use twice.
+**What to look for when you're buying**
 
-A birthday sweatshirt she'll actually wear — on her birthday, the weekend after, every cold morning she reaches for something comfortable — that's a gift that keeps showing up.
+Quality of print matters more than most people think. Embroidery lasts. Printed vinyl doesn't always. Check the fabric weight too — a thin tee feels very different to a proper mid-weight sweatshirt you'd actually reach for on a cold Saturday morning.
 
-Which, honestly, is what good friends do.
+And personalisation options. Can you choose the year AND a name? Can you pick the colour? The more it can be *theirs*, the better.
 
----
+**Right then**
 
-If you're looking for a birthday sweatshirt in the UK that doesn't look like it came out of a search engine, you're in the right place.
+If you've got a birthday coming up and you want something that feels thoughtful rather than last-minute, birth year clothing is genuinely one of the best shouts out there.
 
-Head over to [rockonruby.co.uk/collections/personalised-sweatshirts](https://rockonruby.co.uk/collections/personalised-sweatshirts) and find the one that's got her name on it. Literally.
+Have a look at what we've got at [rockonruby.co.uk/collections/personalised-year](https://rockonruby.co.uk/collections/personalised-year) — and if you're not sure what to pick, the sweatshirt never fails.
 
-See ya!
-*Holly x*
+Love Team ROR x
 
 ---
 
 ## BLOG POST 2
 
-# Born In Sweatshirts: Why the Year You Were Born Deserves to Be on a Jumper
+# The Happy Hour Sweatshirt: Because Some Days Deserve a Countdown
 
-Someone on my street has one of those big wooden signs above their mantelpiece. "Established 1987." Just their birth year, in chunky letters, hanging there like they're a pub in the Lake District.
+It started with my friend Sarah.
 
-And honestly? I respect it.
+She messaged me on a Tuesday afternoon — nothing dramatic, just: "Is it wine o'clock yet?" And then, twenty minutes later: "I genuinely think I need that on a sweatshirt."
 
-There's something brilliant about owning your year. The vintage you. The limited edition. Born and made in a specific time that nobody else gets to claim in quite the same way.
+Reader, we made her one.
 
-That's the whole idea behind a born in sweatshirt — and it turns out a lot of people feel exactly the same way.
+And the thing is, she wasn't wrong. There is a very specific kind of day — the kind where the school run was chaos, the inbox was worse, and someone at work said "let's circle back" one too many times — where a slogan on your sweatshirt just *gets it*. Like a little nod from your wardrobe that says: yeah, you're doing great, and also it's nearly five o'clock somewhere.
 
----
+**Why slogan sweatshirts have had a proper moment**
 
-The problem with milestone birthday gifts is that they tend to be either too serious or too silly. You get the "Over the Hill" balloon and the novelty wine glass, or you get a piece of jewellery that's beautiful but a bit anonymous. Neither one says *this is about you specifically*.
+I think people are a bit tired of clothes that say nothing. Everything on the high street right now is very beige and very neutral and very — fine. But fine isn't that fun, is it?
 
-A born in sweatshirt hits different.
+A good slogan sweatshirt makes you smile when you put it on. It makes other people laugh when they see it. It's a conversation in fabric form.
 
-It says the year. *Her* year. The one that explains everything — the music she grew up on, the films she quotes too much, the cultural references that only land with a certain group of people in a certain part of the world.
+Our [Happy Hour Slogan Sweatshirt](https://rockonruby.co.uk/collections/slogan-sweatshirts) — which is exactly what it sounds like — has become a proper favourite. It's not trying to be ironic or try-hard. It's just funny, and it fits well, and it's the kind of thing you grab first when you want to feel like yourself.
 
-It's personal without being sentimental. Wearable without being boring.
+**Who's buying it?**
 
----
+Gifts, mostly. Birthdays, Christmas, "just because I saw this and thought of you immediately." That last one is my favourite reason to buy anything.
 
-Our [Personalised Year Sweatshirt](https://rockonruby.co.uk/collections/personalised-sweatshirts) is the one people keep coming back to. You choose the year, we embroider it, and it goes out looking genuinely lovely. Not novelty. Not tacky. Just a really well-made sweatshirt that happens to have your birth year stitched into it.
+It also goes down brilliantly as a group gift. If you and three other people are buying for a mate who absolutely clocks out mentally at 5pm every Friday, split it between you and you're golden.
 
-We've had customers order them for 30ths, 40ths, 50ths. We've had people order them for themselves — no occasion, just felt like it. Which I fully support. Not every purchase needs a birthday to justify it.
+**What makes a slogan sweatshirt worth buying (and what doesn't)**
 
-If she's got a bit more personality in her wardrobe, the [Funky Font Personalised Year Sweatshirt](https://rockonruby.co.uk/collections/personalised-sweatshirts) might be more her thing. Bolder lettering, same idea. Great for the woman who describes herself as "a lot."
+Here's the thing with slogan clothing — the quality underneath the slogan has to do some work. A great joke on a thin, scratchy sweatshirt is just a waste of a great joke.
 
----
+Ours are mid-weight, proper soft, the kind of thing that gets better after a few washes. And because we're based in Bury and we do everything in-house, you're not waiting three weeks for it to arrive from a warehouse somewhere far away.
 
-What makes a born in sweatshirt work as a gift is that it requires *knowledge*. You have to know her year. You have to have thought about it. That tiny bit of effort — honestly, it takes about forty-five seconds on our website — changes how the gift lands completely.
+**The bit where I tell you it also makes a brilliant gift**
 
-It moves it from "something I got you" to "something that's yours."
+If you're reading this because you need a present for someone — yes, it works. It especially works for anyone who talks about wine before noon, counts down to Friday from Monday, or has ever said "I need a holiday from my holiday."
 
-That's the shift. That's why it works.
+That's most of us, right?
 
-And it's why we see so many of these ordered in the week before big birthdays. Not because people are disorganised (well, a bit), but because once they find it, they know it's the one.
+Go have a look at our full [slogan sweatshirt collection at rockonruby.co.uk/collections/slogan-sweatshirts](https://rockonruby.co.uk/collections/slogan-sweatshirts). The Happy Hour one is in there. So are a lot of other things that'll make you want to text someone immediately.
 
----
-
-If you're looking for a born in sweatshirt that looks great, ships fast, and actually means something — come and find your year at [rockonruby.co.uk/collections/personalised-sweatshirts](https://rockonruby.co.uk/collections/personalised-sweatshirts).
-
-She'll wear it. Promise.
-
-See ya!
-*Holly x*
+Love Team ROR x
 
 ---
 
 ## SOCIAL CAPTIONS
 
-**Caption 1 — Birthday Sweatshirt UK**
+**Caption 1 — Birth Year Clothing UK**
 
-The birthday gift that made her actually cry. (Good cry. Obviously.)
+The birthday gift that doesn't look like you panicked. 🎂
 
-A personalised sweatshirt with her year on it. That's it. That's the gift.
+Birth year on a sweatshirt. Embroidered properly. In a colour she'll actually wear.
 
-No "coastal breeze" candle. No bath set. Just something she'll reach for every cold morning and actually remember who gave it to her.
+Not a spa set. Not a candle. Something she'll still have in five years.
 
-Link in bio — you've got time if you order now. Probably.
+We've done 450+ of these now and they never get old.
 
-[Visual note: flat lay of the Personalised Year Sweatshirt in a neutral colourway, birthday card tucked alongside, slightly rumpled — real, not styled]
+Link in bio to find the year that matters to her. 👆
 
-#BirthdaySweatshirt #PersonalisedGifts #BirthdayGiftIdeas #RockOnRuby #GiftsForHer
+[Visual note: flat lay of the Personalised Year Sweatshirt in two colourways, slightly scruffy styling — on a kitchen table or wooden floor, nothing too posed]
+
+#birthyearclothing #personalisedbirthdaygift #40thbirthday #personalisedsweashirt #rockonruby
 
 ---
 
-**Caption 2 — Born In Sweatshirt**
+**Caption 2 — Happy Hour Sweatshirt**
 
-Born in [year]. Limited edition. Still going.
+It's giving: I work hard, I love wine, and I'm not apologising for either. 🍷
 
-That's basically what a personalised year sweatshirt says and I think it's the most accurate birthday gift description I've ever written.
+The Happy Hour Sweatshirt exists because some days just need a little acknowledgement.
 
-Pick her year. We embroider it. She gets something that's actually, properly hers.
+It's cosy. It's funny. It makes a brilliant gift for someone who clocks out mentally at 4:57pm every Friday.
 
-Find it at rockonruby.co.uk — link in bio.
+(We see you. We are you.)
 
-[Visual note: close-up of embroidered birth year on a sweatshirt cuff or chest, natural light, slightly messy background — real home not a studio]
+Link in bio — go find her one. Or one for yourself. No judgement here.
 
-#BornIn #PersonalisedSweatshirt #MilestoneGift #RockOnRuby #BirthdayGiftUK
+[Visual note: close-up of the slogan on the sweatshirt — worn, slightly casual, maybe a coffee mug just visible in the shot. Real, not styled.]
+
+#happyhour #slogansweashirt #funnygift #giftforher #rockonruby
 
 ---
 
 ## EMAIL DESIGN PROMPT 1
 
-**Subject:** The birthday gift that doesn't look like you panicked
-**Preview text:** (spoiler: it's a sweatshirt with her year on it)
+**Subject:** The birthday gift that proves you didn't panic
+**Preview text:** Birth year sweatshirts. Proper ones.
 
-**Story angle:** Holly was standing in a big chain shop four days before a best mate's 40th, holding a candle that smelled vaguely of the sea, thinking: this is embarrassing. She went home, ordered a personalised birthday sweatshirt, and her mate cried when she opened it.
+**Story angle:** Someone's got a big birthday coming up and the usual options feel a bit grim — another candle, another hamper, another thing that says "I ran out of ideas." Birth year clothing is the answer that feels personal without being hard work.
 
-**Tension/friction:** She wants to give a thoughtful gift but time is running out and the high street offers nothing that actually feels personal — just generic options dressed up with nice packaging.
+**Tension/friction:** She knows the birthday is coming. She wants to get it right. But she's short on time and most personalised gifts either look cheap or take forever to arrive.
 
-**Shift:** Before → another forgettable gift that gets a polite "oh lovely." After → a sweatshirt with her year on it that she wears on her birthday, the next morning, and every cold day after.
+**Shift:** Before — scrolling Amazon at 11pm, settling for something that'll do. After — ordering something specific and beautiful that arrives in time and actually means something.
 
-**Reason to care:** It's not about the sweatshirt. It's about feeling seen. A gift that required someone to actually *know* something about you — even something as simple as your birth year — lands completely differently to something that could've been bought for anyone.
+**Reason to care:** A birth year sweatshirt isn't just clothing. It's proof that someone thought about the person specifically. That they got something made. That matters, especially for the big ones.
 
 **Email structure:**
-- Opening (Hey [name]) — Open with the candle-in-a-chain-shop moment, one sentence. Then ask if she's ever been that person, and admit Holly definitely has been.
-- Section 1 — Introduce the Personalised Year Sweatshirt as the anti-panic gift. Explain what it is simply: you choose the year, we embroider it, it arrives looking brilliant. Mention 450+ orders without making it sound like a sales pitch — frame it as "apparently a lot of people agree with me on this one."
-- Section 2 — Mention the Funky Font Personalised Year Sweatshirt as the option for the mate who's a bit extra about it. Keep it light and fun — one short paragraph.
-- CTA — **Shop Birthday Sweatshirts** linking to rockonruby.co.uk/collections/personalised-sweatshirts
-- PS — "PS. If her birthday is in the next few days, drop us a message — we'll do what we can."
+- Opening (Hey [name]) — Open with the 11pm Amazon panic moment — she'll recognise it instantly. Keep it two sentences, warm, no apology for being in her inbox.
+- Section 1 — Introduce birth year sweatshirts as the antidote. Explain what they are (personalised with someone's year of birth, properly embroidered, not a novelty iron-on). Link to rockonruby.co.uk/collections/personalised-year
+- Section 2 — Talk about who they're for (big birthdays — 40th, 50th, 60th, but also new babies, 18ths, retirements). Make it feel like she's seeing herself in this. Mention the quality — mid-weight, embroidered, lasts.
+- CTA — **Find Her Year →** linking to rockonruby.co.uk/collections/personalised-year
+- PS — "P.S. If you need it fast, drop us a message. We're in Bury, not a warehouse in a timezone you've never heard of."
 
 **Holly's voice notes for this email:**
-1. Write to one woman, not a list. She's thinking about one specific person she needs a gift for.
-2. The humour should be self-deprecating — Holly's been the panicked gift-buyer too. No lecturing, just "I get it, here's what helped."
-3. No hard sell. Don't list features. The emotional payoff (she cried, in a good way) does more work than any product description.
+1. Don't describe the sweatshirt like a product page — describe it like you're recommending it to your mate over a coffee
+2. The humour here is warm and relatable, not sarcastic — she's not laughing at the reader, she's laughing with her
+3. Never say "perfect gift" or "treat" — just describe the situation honestly and let her arrive at that conclusion herself
 
 **Image suggestions:**
-- Flat lay of the Personalised Year Sweatshirt, folded in tissue paper with a birthday card — real, not overly styled
-- Customer photo repost of someone wearing their year sweatshirt (birthday setting, at home or out — scrappy is better)
-- Close-up of the embroidered year on the sweatshirt fabric — shows quality without looking like a catalogue shot
+1. Flat lay of the Personalised Year Sweatshirt on a kitchen table — unposed, slightly scrappy, two colourways visible
+2. Close-up of the embroidered year — shows quality without needing words
+3. Customer photo repost if available — real person wearing it is always more powerful than a studio shot
 
 **Ready-to-paste Claude prompt:**
-"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing brand based in Bury, Manchester. Holly is co-owner — warm, funny, straight-talking, never corporate. She writes like she's texting her sister.
+"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing brand based in Bury, Manchester. Holly is the co-owner and brand voice — warm, funny, straight-talking, never corporate. She writes like she's texting her sister.
 
-Write a marketing email with the subject line: 'The birthday gift that doesn't look like you panicked.' Preview text: '(spoiler: it's a sweatshirt with her year on it)'
+Write a full marketing email with this brief:
 
-Open with this real moment: Holly was in a big chain shop four days before a mate's 40th, holding a candle that smelled of 'coastal breeze,' thinking this is not it. She went home, ordered a personalised birthday sweatshirt. Her mate cried when she opened it. Good cry.
+TOPIC: Birth year clothing as the antidote to the last-minute birthday panic gift.
 
-The email is for a woman who's a thoughtful gift-buyer but running out of time before a birthday. She wants something personal, not generic. The tension is: she means to do better, but the high street keeps letting her down.
+STORY ANGLE: Open with the 11pm Amazon scroll moment — she's got a big birthday coming, she's running out of time, and everything feels a bit grim. No candles. No hampers. She wants to get it right.
 
-Introduce the Personalised Year Sweatshirt (rockonruby.co.uk/collections/personalised-sweatshirts) as the solution. Over 450 sold — mention this warmly, not as a boast. Also mention the Funky Font Personalised Year Sweatshirt for the friend who's a bit extra. Keep it brief and fun.
+TENSION: She's short on time and most personalised gifts either look cheap or take forever.
 
-End with a CTA button: 'Shop Birthday Sweatshirts' linking to rockonruby.co.uk/collections/personalised-sweatshirts.
+SHIFT: Birth year clothing from Rock On Ruby is specific, embroidered properly, and arrives without the drama.
 
-Add a PS: 'PS. If her birthday is in the next few days, drop us a message — we'll do what we can.'
+REASON TO CARE: A sweatshirt with someone's birth year on it says 'I thought about you specifically.' That matters for milestone birthdays — 40th, 50th, 60th, and beyond.
 
-Voice rules: Start with 'Hey [name]'. Short paragraphs. One idea each. Conversational. No swearing. Never say: curated, intentional, journey, effortless, timeless, wardrobe staple, treat yourself, girlboss, excited to share, or boss babe. Never sound like AI or a brand. End with 'Love Team ROR x'. Write to one person, not a crowd."
+PRODUCT TO FEATURE: The Personalised Year Sweatshirt — Rock On Ruby's bestseller (450+ orders). Link to: rockonruby.co.uk/collections/personalised-year
+
+EMAIL STRUCTURE:
+- Start with 'Hey [name]' — no apology for making contact
+- Para 1: The relatable panic moment (2–3 sentences max)
+- Para 2: Introduce birth year sweatshirts as the answer — what they are, why they're different
+- Para 3: Who they're for — big birthdays, retirements, new babies, 18ths. Make her feel seen.
+- CTA button: 'Find Her Year →' — links to rockonruby.co.uk/collections/personalised-year
+- End: 'Love Team ROR x'
+- PS: Something warm and practical about being based in Bury and being easy to reach if she needs it fast
+
+VOICE RULES:
+- Short paragraphs. One idea each.
+- Never say: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, honestly, girlboss, empower, excited to share, boss babe
+- No swearing. No corporate language. No hard sell.
+- Write to ONE woman — Holly's sister. Warm, funny, slightly chaotic.
+- Sound like a human wrote it. Because one did."
 
 ---
 
 ## EMAIL DESIGN PROMPT 2
 
-**Subject:** Born in [year]? There's a sweatshirt for that.
-**Preview text:** Limited edition. Still going strong.
+**Subject:** For everyone who starts the countdown at Monday morning
+**Preview text:** The Happy Hour Sweatshirt has arrived.
 
-**Story angle:** Holly saw one of those "Established [year]" wooden signs above someone's mantelpiece and thought — that's actually brilliant. There's something about owning your birth year that just works. It's specific, it's yours, it makes people feel like more than just another person with a birthday.
+**Story angle:** It's a Tuesday. Someone's had A Day. The inbox was grim, the school run was chaos, and someone at work said "let's circle back" at 4:45pm. She needs her wardrobe to understand her right now.
 
-**Tension/friction:** Milestone birthday gifts are hard. They're either too jokey (the "Over the Hill" balloon) or too generic (nice but anonymous jewellery). Neither one says *this is specifically about you.*
+**Tension/friction:** She wants something funny and comfortable that feels like her — but slogan clothing can tip into try-hard or cheap really fast. She doesn't want a sticker on a thin tee. She wants the real thing.
 
-**Shift:** Before → another birthday gift that could have been for anyone. After → a born in sweatshirt she wears on repeat, that actually means something because someone had to *know* her year to give it.
+**Shift:** Before — settling for something beige from the high street that says nothing. After — wearing something that makes her smile every time she pulls it over her head.
 
-**Reason to care:** The year someone was born isn't just a number — it's shorthand for who they are. Their music, their films, their references. A sweatshirt that carries that feels like it was made for them. Because it was.
+**Reason to care:** Funny clothing that's also good quality is rarer than it should be. When you find it, you wear it constantly. This is that sweatshirt.
 
 **Email structure:**
-- Opening (Hey [name]) — Start with the "Established [year]" mantelpiece sign observation, one sentence. Then ask if she's ever thought about how oddly perfect that idea is as a gift.
-- Section 1 — Introduce the born in sweatshirt concept and the Personalised Year Sweatshirt. Keep it simple: you tell us the year, we embroider it, it arrives looking genuinely lovely. Mention it works for 30ths, 40ths, 50ths — and also for buying yourself one, no occasion required.
-- Section 2 — Mention the Funky Font Personalised Year Sweatshirt as the option for someone with a louder sense of style. One short, warm paragraph.
-- CTA — **Find Her Year** linking to rockonruby.co.uk/collections/personalised-sweatshirts
-- PS — "PS. You can absolutely order one for yourself. Born in [your year]. Limited edition. Go on."
+- Opening (Hey [name]) — Set the scene: it's been one of those weeks. She knows the feeling. Don't explain it too much — just name it and let her nod along. Two sentences max.
+- Section 1 — Introduce the Happy Hour Slogan Sweatshirt. Tell her what it is, what it says, why it works. Make it feel like a recommendation from a mate, not a product listing. Link to rockonruby.co.uk/collections/slogan-sweatshirts
+- Section 2 — Make the gift angle. This is brilliant for birthdays, Christmas, or the "I saw this and thought of you" message. Mention the quality — mid-weight, soft, embroidered — so she knows it's not a thin novelty tee.
+- CTA — **Get the Sweatshirt →** linking to rockonruby.co.uk/products/happy-hour-slogan-sweatshirt (note to Bethan: check this URL slug is live before sending)
+- PS — "P.S. While you're there, have a nose at the rest of the slogan collection. There's something for everyone who's ever thought it's nearly wine o'clock before noon."
 
 **Holly's voice notes for this email:**
-1. Lean into the "limited edition human" angle — it's warm and funny without being over the top. Don't belabour it.
-2. The "no occasion required" line matters — some women reading this are buying for themselves. Make that feel normal and fine.
-3. Keep the product description short. The idea sells it. Don't list specs.
+1. The humour has to feel earned, not forced — don't try too hard to be funny, just be honest about the feeling and the funny takes care of itself
+2. Keep it short — this is not the email for long paragraphs. If a line isn't doing something useful, cut it.
+3. She's writing to one woman who's had a week. Not a crowd. Not a demographic. One tired, funny, brilliant woman.
 
 **Image suggestions:**
-- Close-up of embroidered birth year on a sweatshirt — slightly imperfect, real fabric texture visible, natural light
-- Flat lay showing two sweatshirts with different years — suggests the "find her year" idea visually
-- Behind-the-scenes embroidery machine shot with a year being stitched — this performs well on the Rock On Ruby account
+1. Close-up of the slogan on the sweatshirt — worn and slightly lived-in looking, real hands visible if possible
+2. Flat lay with a glass of something (wine? coffee? doesn't matter) just in frame — nods to the theme without spelling it out
+3. Behind-the-scenes of the embroidery being done — always performs well and shows quality without being boring about it
 
 **Ready-to-paste Claude prompt:**
-"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing brand based in Bury, Manchester. Holly is co-owner — warm, funny, straight-talking, never corporate. She writes like she's texting her sister.
+"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing brand based in Bury, Manchester. Holly is the co-owner and brand voice — warm, funny, straight-talking, never corporate. She writes like she's texting her sister.
 
-Write a marketing email with the subject line: 'Born in [year]? There's a sweatshirt for that.' Preview text: 'Limited edition. Still going strong.'
+Write a full marketing email with this brief:
 
-Open with this observation: Holly saw one of those 'Established [year]' wooden signs above a mantelpiece and thought — there's something brilliant about owning your birth year. It's specific. It's yours. Nobody else gets to claim it the same way.
+TOPIC: The Happy Hour Slogan Sweatshirt — for anyone who starts the Friday countdown on Monday morning.
 
-The email is for a woman buying a milestone birthday gift — 30th, 40th, 50th — or possibly treating herself. The tension: birthday gifts are either too jokey or too generic. Neither feels personal enough.
+STORY ANGLE: It's been one of those weeks. The inbox, the school run, someone in a meeting who said something that made her eyes go to the ceiling. She needs her wardrobe to get it.
 
-Introduce the born in sweatshirt concept via the Personalised Year Sweatshirt (rockonruby.co.uk/collections/personalised-sweatshirts). Explain it simply: pick the year, we embroider it, it arrives looking genuinely lovely. Also mention the Funky Font Personalised Year Sweatshirt as the bolder option for someone with more personality in her wardrobe.
+TENSION: Slogan clothing can be great or it can be cheap and try-hard. She doesn't want a sticker on a thin tee. She wants something that's actually funny AND actually good.
 
-Make space for the 'buy one for yourself, no occasion needed' idea — normalise it, make it feel fun.
+SHIFT: The Happy Hour Sweatshirt is both. Properly made, properly funny. The kind of thing she reaches for first.
 
-End with a CTA button: 'Find Her Year' linking to rockonruby.co.uk/collections/personalised-sweatshirts.
+REASON TO CARE: A sweatshirt that makes you smile when you put it on is not a small thing. Life's too short for beige.
 
-Add a PS: 'PS. You can absolutely order one for yourself. Born in [your year]. Limited edition. Go on.'
+PRODUCT TO FEATURE: Happy Hour Slogan Sweatshirt — £38. Part of the Rock On Ruby slogan sweatshirt range. Link collection to: rockonruby.co.uk/collections/slogan-sweatshirts
 
-Voice rules: Start with 'Hey [name]'. Short paragraphs. One idea each. Conversational. No swearing. Never say: curated, intentional, journey, effortless, timeless, wardrobe staple, treat yourself, girlboss, excited to share, or boss babe. Never sound like AI or a brand. End with 'Love Team ROR x'. Write to one person, not a crowd."
+EMAIL STRUCTURE:
+- Start with 'Hey [name]' — no apology for making contact
+- Para 1: The relatable Tuesday/week feeling — short, warm, she'll recognise it
+- Para 2: Introduce the Happy Hour Sweatshirt — what it says, why it works, why it's not a novelty piece
+- Para 3: The gift angle — brilliant for birthdays, Christmas, 'I saw this and thought of you' moments. Quality note here — mid-weight, soft, proper.
+- CTA button: 'Get the Sweatshirt →' — links to rockonruby.co.uk/collections/slogan-sweatshirts
+- End: 'Love Team ROR x'
+- PS: Nudge her toward the wider slogan collection — something fun and light, not salesy
+
+VOICE RULES:
+- Short paragraphs. One idea each.
+- Never say: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, honestly, girlboss, empower, excited to share, boss babe
+- No swearing. No corporate language. No hard sell.
+- Write to ONE woman — Holly's sister. Warm, funny, slightly chaotic.
+- Sound like a human wrote it. Because one did."
 
 ---
 
 ## PRODUCT DESCRIPTIONS
 
-**Birthday Sweatshirt UK → Personalised Sweatshirts**
+**Birth Year Clothing UK → Children's Clothing**
 
-The gift that takes about forty-five seconds to order and somehow makes grown women cry at kitchen tables. You pick the year, we embroider it, it arrives looking genuinely lovely. Not novelty. Not generic. Just a really well-made sweatshirt that says *I actually thought about you* — which, as birthday gifts go, is rarer than it should be.
+Your kid's birth year, on something they'll actually wear. Our children's personalised sweatshirts and tees are properly made — not thin, not scratchy, not something they'll refuse to put on. Great for birthdays, Christmas, or the "first day of school and I need photographic evidence" moment. Sizes for little ones all the way up. Browse at [rockonruby.co.uk/collections/children-s-clothing](https://rockonruby.co.uk/collections/children-s-clothing).
 
 ---
 
-**Born In Sweatshirt → Personalised Sweatshirts**
+**Happy Hour Sweatshirt → Personalised Sweatshirts**
 
-Born in a specific year. Shaped by specific music, films, and cultural references that nobody younger quite gets. Now wearing that year on a sweatshirt, which honestly feels correct. Choose her year, we stitch it on, and she gets something that's properly hers. Wearable on her birthday, the morning after, and every cold day she can't decide what to put on.
+For anyone who starts mentally clocking off at 4:57pm on a Friday — or a Tuesday, no judgement. Our personalised sweatshirts are mid-weight, genuinely soft, and properly embroidered so they last. Whether you want your name, your year, or a slogan that sums up your entire personality — we've got you. The kind of thing you'll wear on repeat and feel good about every single time. Shop at [rockonruby.co.uk/collections/personalised-sweatshirts](https://rockonruby.co.uk/collections/personalised-sweatshirts).
 
 ---
 *Generated by ROR Content Generator · rockonruby.co.uk*
