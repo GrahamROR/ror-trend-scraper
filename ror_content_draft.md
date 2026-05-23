@@ -1,284 +1,240 @@
 # Rock On Ruby — Content Drafts
-Generated: 21 May 2026, 10:40
+Generated: 23 May 2026, 09:02
 Run `python3 content_generator.py` to regenerate with cached trend data.
 
 ---
 
 > **Layer 4 (bestsellers) terms this run:** none
-> **Top terms this run:** birth year clothing uk, happy hour sweatshirt
+> **Top terms this run:** slogan sweatshirt uk, pina colada cap
 > **SEO content pieces:** 0
 
 ---
 
 ## BLOG POST 1
 
-# The Best Birth Year Clothing in the UK (That Doesn't Look Like a Novelty Gift Shop Exploded)
+# The Best Slogan Sweatshirts in the UK (That Aren't Boring)
 
-There's a specific kind of panic that sets in about three days before someone's big birthday.
+There's a moment — and I reckon you know exactly the one I mean — where you're standing in a changing room in some big high street shop, holding a perfectly fine sweatshirt, and thinking: *this is absolutely fine and I will never feel anything about it.*
 
-You know the one. You've left it too long for anything to arrive in time. You're scrolling Amazon at 11pm. You've considered — briefly — a candle. Or one of those spa sets in a wicker basket that smells like disappointment.
+Fine. Beige. Forgettable. You buy it anyway because you need something, and three months later it's at the back of the wardrobe with the tags still on.
 
-And then you remember. She's turning 40. She deserves better than a wicker basket.
+That's not a you problem. That's a sweatshirt problem.
 
-This is where birth year clothing comes in. And before you picture those stiff, scratchy t-shirts with "Aged to Perfection" plastered on them in Comic Sans — stay with me. Because it's not that.
+**The UK is drowning in fine sweatshirts.**
 
-**What birth year clothing actually is (when it's done right)**
+Millions of them. In dusty rose. In oat. In that specific shade of grey that says "I have given up on myself." And they're everywhere — every fast fashion site, every market stall, every supermarket clothing aisle at 8am when you're just trying to get milk.
 
-The idea is simple. You take the year someone was born — or the year something big happened — and you put it on something they'll actually wear. A sweatshirt. A tee. A tote bag.
+Here's the thing though. You don't actually want fine. You want something that makes you smile when you pull it out of the drawer. Something that gets a comment when you wear it. Something that feels like *you*.
 
-Here in the UK, birth year clothing has quietly become one of the most-bought personalised gifts for milestone birthdays. And honestly? I get it. It's specific without being naff. It means something without being over the top.
+That's why slogan sweatshirts exist.
 
-At Rock On Ruby, our [Personalised Year Sweatshirt](https://rockonruby.co.uk/collections/personalised-year) has been our best-selling product for a while now. Over 450 orders. That's a lot of birthdays sorted.
+**Not the cheesy ones. Not the ones with motivational quotes from Pinterest.**
 
-**Why it works so well as a gift**
+I mean the good ones. The ones that say something real — about your actual personality, your sense of humour, your complete inability to stay awake past 9pm (our [9pm Bedtime Club Sweatshirt](https://rockonruby.co.uk/products/9pm-bedtime-club-sweatshirt) was basically written about me personally).
 
-A high street sweatshirt is just a sweatshirt. But one that says "Est. 1984" or "Class of 1979" — suddenly it's *about* someone. It tells a little story. It says: I thought about you specifically, not just about getting something in the post on time.
+Or the ones that are just brilliantly daft — like announcing to the world that you are a fully committed member of the [Bourbon Biscuit Fan Club](https://rockonruby.co.uk/products/bourbon-biscuit-fan-club-sweatshirt). Which, honestly, is a valid identity.
 
-And because we embroider everything here in Bury (yes, actual embroidery, not a sticky iron-on that peels in the wash), it looks proper. The kind of thing someone hangs onto.
+**What makes a slogan sweatshirt worth buying?**
 
-**Who actually buys birth year clothing in the UK?**
+A few things, in my opinion as someone who spends a genuinely alarming amount of time thinking about this:
 
-Mostly women, buying for their mums, sisters, best mates. Big birthdays — 40th, 50th, 60th — are the big ones. But we also see people buying them for new babies, for 18ths, for "she finally retired" moments. Any year that matters to someone is fair game.
+It has to actually say something. "Good vibes only" says nothing. "Always Time for a Good Time" says everything.
 
-**What to look for when you're buying**
+The quality has to be there. A slogan sweatshirt that goes bobbly after two washes is just a joke with bad timing.
 
-Quality of print matters more than most people think. Embroidery lasts. Printed vinyl doesn't always. Check the fabric weight too — a thin tee feels very different to a proper mid-weight sweatshirt you'd actually reach for on a cold Saturday morning.
+And it helps if it doesn't look like twelve thousand other people are wearing the exact same one. Which is why personalised slogan sweatshirts have become such a thing — you get to make it yours, with your words, your name, your year.
 
-And personalisation options. Can you choose the year AND a name? Can you pick the colour? The more it can be *theirs*, the better.
+**That's kind of what we do here at Rock On Ruby.**
 
-**Right then**
+We're based in Bury, Manchester — it's me (Holly) and Graham — and we make personalised clothing that people actually want to wear. Our [Personalised Year Sweatshirts](https://rockonruby.co.uk/collections/personalised-sweatshirts) are our bestsellers for a reason. People buy them as birthday gifts, as Christmas presents, as "just because" treats for someone they love.
 
-If you've got a birthday coming up and you want something that feels thoughtful rather than last-minute, birth year clothing is genuinely one of the best shouts out there.
+And yes, occasionally for themselves. Which is absolutely fine. Encouraged, even.
 
-Have a look at what we've got at [rockonruby.co.uk/collections/personalised-year](https://rockonruby.co.uk/collections/personalised-year) — and if you're not sure what to pick, the sweatshirt never fails.
+**If you're after slogan sweatshirts in the UK that have a bit of personality about them**, you're in the right place.
 
-Love Team ROR x
+Have a browse at [rockonruby.co.uk/collections/slogan-sweatshirts](https://rockonruby.co.uk/collections/slogan-sweatshirts) — and if you want something completely bespoke, we do that too at [rockonruby.co.uk/collections/custom-slogan](https://rockonruby.co.uk/collections/custom-slogan).
+
+Life's too short for beige.
 
 ---
 
 ## BLOG POST 2
 
-# The Happy Hour Sweatshirt: Because Some Days Deserve a Countdown
+# Yes, You Can Get a Piña Colada Cap — And It's Everything
 
-It started with my friend Sarah.
+Picture this. It's a Friday evening. You've had a week. Not a dramatic week, not a made-for-TV week, just a long, relentless, full-inbox, everyone-needs-something kind of week. You are sitting in the garden — or at the kitchen table pretending you're in a garden — with a drink, and somewhere in the background Rupert Holmes is asking if you like piña coladas.
 
-She messaged me on a Tuesday afternoon — nothing dramatic, just: "Is it wine o'clock yet?" And then, twenty minutes later: "I genuinely think I need that on a sweatshirt."
+And the answer is yes. Obviously yes.
 
-Reader, we made her one.
+**The piña colada is not just a drink. It is a whole mood.**
 
-And the thing is, she wasn't wrong. There is a very specific kind of day — the kind where the school run was chaos, the inbox was worse, and someone at work said "let's circle back" one too many times — where a slogan on your sweatshirt just *gets it*. Like a little nod from your wardrobe that says: yeah, you're doing great, and also it's nearly five o'clock somewhere.
+It's the holiday you're planning in your head. It's the version of you that exists on Saturday afternoon when there's nothing that urgently needs doing. It's fun, it's a bit retro, and it's unapologetically cheerful.
 
-**Why slogan sweatshirts have had a proper moment**
+So naturally — obviously — it needed to be on a cap.
 
-I think people are a bit tired of clothes that say nothing. Everything on the high street right now is very beige and very neutral and very — fine. But fine isn't that fun, is it?
+**Here's where I think accessories get interesting.**
 
-A good slogan sweatshirt makes you smile when you put it on. It makes other people laugh when they see it. It's a conversation in fabric form.
+A plain cap is a cap. Fine. Functional. But a cap with something to say? That's a conversation starter. That's the thing someone clocks across a pub garden and grins at. That's the thing you wear on holiday and someone in the queue for the pool bar says "love that."
 
-Our [Happy Hour Slogan Sweatshirt](https://rockonruby.co.uk/collections/slogan-sweatshirts) — which is exactly what it sounds like — has become a proper favourite. It's not trying to be ironic or try-hard. It's just funny, and it fits well, and it's the kind of thing you grab first when you want to feel like yourself.
+A piña colada cap taps into something very specific: the person who knows that life is better with a bit of humour in it. Not the kind that's trying too hard — the kind that just makes you smile.
 
-**Who's buying it?**
+**We've been making embroidered caps at Rock On Ruby for a while now.**
 
-Gifts, mostly. Birthdays, Christmas, "just because I saw this and thought of you immediately." That last one is my favourite reason to buy anything.
+And what we've learned is that the best ones are specific. Not generic. Not "good times ahead" or "summer vibes." The ones that really land are the ones that say an actual thing — like, for example, that you are someone who genuinely, sincerely enjoys a piña colada and you want everyone to know about it.
 
-It also goes down brilliantly as a group gift. If you and three other people are buying for a mate who absolutely clocks out mentally at 5pm every Friday, split it between you and you're golden.
+Our [Slogan Caps](https://rockonruby.co.uk/collections/slogan-caps) are embroidered, not printed — which means they actually last. No peeling, no cracking, no sad faded words after six washes. Just clean, sharp embroidery that looks as good on holiday number four as it did when you first pulled it out of the packaging.
 
-**What makes a slogan sweatshirt worth buying (and what doesn't)**
+**They also make brilliant gifts.**
 
-Here's the thing with slogan clothing — the quality underneath the slogan has to do some work. A great joke on a thin, scratchy sweatshirt is just a waste of a great joke.
+If you've got a friend who makes a piña colada every single summer, who hums along whenever the song comes on, who is basically the human embodiment of a Friday afternoon — this is the gift. Not a spa voucher she'll forget to use. Not another candle. A cap that says exactly who she is.
 
-Ours are mid-weight, proper soft, the kind of thing that gets better after a few washes. And because we're based in Bury and we do everything in-house, you're not waiting three weeks for it to arrive from a warehouse somewhere far away.
+That's what we're here for at Rock On Ruby. Gifts — and honestly, things for yourself — that feel like they were made with someone specific in mind. Because they were.
 
-**The bit where I tell you it also makes a brilliant gift**
+Personalised, embroidered, made with care in Bury, Manchester. By me and Graham, who is significantly more organised than I am.
 
-If you're reading this because you need a present for someone — yes, it works. It especially works for anyone who talks about wine before noon, counts down to Friday from Monday, or has ever said "I need a holiday from my holiday."
+If you fancy having a look at what we've got, head over to [rockonruby.co.uk/collections/slogan-caps](https://rockonruby.co.uk/collections/slogan-caps).
 
-That's most of us, right?
-
-Go have a look at our full [slogan sweatshirt collection at rockonruby.co.uk/collections/slogan-sweatshirts](https://rockonruby.co.uk/collections/slogan-sweatshirts). The Happy Hour one is in there. So are a lot of other things that'll make you want to text someone immediately.
-
-Love Team ROR x
+Because yes. You like piña coladas. Own it.
 
 ---
 
 ## SOCIAL CAPTIONS
 
-**Caption 1 — Birth Year Clothing UK**
+**Caption 1 — Slogan Sweatshirt UK**
 
-The birthday gift that doesn't look like you panicked. 🎂
+The high street has been doing beige for three years now and honestly, enough.
 
-Birth year on a sweatshirt. Embroidered properly. In a colour she'll actually wear.
+This is your sign to wear something that actually says something.
 
-Not a spa set. Not a candle. Something she'll still have in five years.
+Funny slogans, personalised years, custom text — all embroidered, all made to order.
 
-We've done 450+ of these now and they never get old.
+Link in bio 👇
 
-Link in bio to find the year that matters to her. 👆
+[Visual note: flat lay of the Bourbon Biscuit Fan Club Sweatshirt or 9pm Bedtime Club on a simple background — slightly scrappy, natural light, no over-styling]
 
-[Visual note: flat lay of the Personalised Year Sweatshirt in two colourways, slightly scruffy styling — on a kitchen table or wooden floor, nothing too posed]
-
-#birthyearclothing #personalisedbirthdaygift #40thbirthday #personalisedsweashirt #rockonruby
+#slogansweatshirt #personalisedclothing #ukgifts #sweatshirtuk #rockonruby
 
 ---
 
-**Caption 2 — Happy Hour Sweatshirt**
+**Caption 2 — Piña Colada Cap**
 
-It's giving: I work hard, I love wine, and I'm not apologising for either. 🍷
+If she likes piña coladas, she needs this cap. It's just facts.
 
-The Happy Hour Sweatshirt exists because some days just need a little acknowledgement.
+Embroidered. Lasts longer than the drink. Way more portable.
 
-It's cosy. It's funny. It makes a brilliant gift for someone who clocks out mentally at 4:57pm every Friday.
+Perfect for holidays, festivals, or just the back garden on a Friday night when you've earned it.
 
-(We see you. We are you.)
+[Visual note: cap laid flat on a bright, summery background — maybe next to a bright drink or some sunglasses. Real and fun, not overly styled]
 
-Link in bio — go find her one. Or one for yourself. No judgement here.
-
-[Visual note: close-up of the slogan on the sweatshirt — worn, slightly casual, maybe a coffee mug just visible in the shot. Real, not styled.]
-
-#happyhour #slogansweashirt #funnygift #giftforher #rockonruby
+#pinacolada #slogancap #summergifts #embroideredcap #rockonruby
 
 ---
 
 ## EMAIL DESIGN PROMPT 1
 
-**Subject:** The birthday gift that proves you didn't panic
-**Preview text:** Birth year sweatshirts. Proper ones.
+**Subject:** Your sweatshirt drawer is lying to you
+**Preview text:** It says you've got loads to wear. You haven't.
 
-**Story angle:** Someone's got a big birthday coming up and the usual options feel a bit grim — another candle, another hamper, another thing that says "I ran out of ideas." Birth year clothing is the answer that feels personal without being hard work.
+**Story angle:** Holly opens her wardrobe, pulls out three perfectly adequate sweatshirts, and feels absolutely nothing about any of them. They're fine. They're all fine. And that's the problem.
 
-**Tension/friction:** She knows the birthday is coming. She wants to get it right. But she's short on time and most personalised gifts either look cheap or take forever to arrive.
+**Tension/friction:** She has a drawer full of clothes but nothing that feels like *her*. She wants to wear something that makes her smile — or makes someone laugh — but the high street keeps offering the same safe, personality-free options. The decision is: keep settling for fine, or find something that actually says something.
 
-**Shift:** Before — scrolling Amazon at 11pm, settling for something that'll do. After — ordering something specific and beautiful that arrives in time and actually means something.
+**Shift:** Before — a wardrobe full of beige, forgettable basics that she bought out of necessity and never really loved. After — a slogan sweatshirt that gets a comment every single time she wears it, that feels like it was made for her (because it was).
 
-**Reason to care:** A birth year sweatshirt isn't just clothing. It's proof that someone thought about the person specifically. That they got something made. That matters, especially for the big ones.
+**Reason to care:** Clothes aren't just practical. The right thing to wear in the morning genuinely changes how you feel about your day. A slogan sweatshirt that makes you grin when you pull it out of the drawer is a small thing — but it's not nothing.
 
 **Email structure:**
-- Opening (Hey [name]) — Open with the 11pm Amazon panic moment — she'll recognise it instantly. Keep it two sentences, warm, no apology for being in her inbox.
-- Section 1 — Introduce birth year sweatshirts as the antidote. Explain what they are (personalised with someone's year of birth, properly embroidered, not a novelty iron-on). Link to rockonruby.co.uk/collections/personalised-year
-- Section 2 — Talk about who they're for (big birthdays — 40th, 50th, 60th, but also new babies, 18ths, retirements). Make it feel like she's seeing herself in this. Mention the quality — mid-weight, embroidered, lasts.
-- CTA — **Find Her Year →** linking to rockonruby.co.uk/collections/personalised-year
-- PS — "P.S. If you need it fast, drop us a message. We're in Bury, not a warehouse in a timezone you've never heard of."
+- Opening (Hey [name]) — Open with the wardrobe moment. Two sentences, warm and funny, self-deprecating. Something like: "I opened my wardrobe this week and stared at seven perfectly adequate sweatshirts and felt absolutely nothing. Turns out having lots of clothes and having things you actually want to wear are not the same thing."
+- Section 1 — Introduce the idea that slogan sweatshirts done well aren't cheesy — they're personality. Reference the 9pm Bedtime Club Sweatshirt and Bourbon Biscuit Fan Club Sweatshirt as examples of sweatshirts that say something real. Keep it conversational — one product per sentence, no hard sell.
+- Section 2 — Shift to the personalised angle. Explain that for birthdays, the Personalised Year Sweatshirt is the bestseller for a reason — people want something that feels made for them. Link to the personalised sweatshirts collection. Keep it short — two or three sentences max.
+- CTA — **Shop Slogan Sweatshirts** linking to rockonruby.co.uk/collections/slogan-sweatshirts
+- PS — "If you want something completely your own — your words, your slogan — we do custom too. rockonruby.co.uk/collections/custom-slogan"
 
 **Holly's voice notes for this email:**
-1. Don't describe the sweatshirt like a product page — describe it like you're recommending it to your mate over a coffee
-2. The humour here is warm and relatable, not sarcastic — she's not laughing at the reader, she's laughing with her
-3. Never say "perfect gift" or "treat" — just describe the situation honestly and let her arrive at that conclusion herself
+1. Stay in the wardrobe moment — keep coming back to it. The humour comes from the relatability, not from trying to be funny.
+2. Never list products like a catalogue. Mention them the way you'd mention them to a mate — in passing, with context, like "you know the one."
+3. No hard sell, no urgency language. The CTA is casual, like a recommendation from a friend.
 
 **Image suggestions:**
-1. Flat lay of the Personalised Year Sweatshirt on a kitchen table — unposed, slightly scrappy, two colourways visible
-2. Close-up of the embroidered year — shows quality without needing words
-3. Customer photo repost if available — real person wearing it is always more powerful than a studio shot
+1. Flat lay of the Bourbon Biscuit Fan Club Sweatshirt — clean but not over-styled, natural light
+2. Behind-the-scenes embroidery machine shot — always performs well, feels real and honest
+3. Customer photo repost of a Personalised Year Sweatshirt if available — real person, real reaction
 
 **Ready-to-paste Claude prompt:**
-"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing brand based in Bury, Manchester. Holly is the co-owner and brand voice — warm, funny, straight-talking, never corporate. She writes like she's texting her sister.
+"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a personalised print-on-demand clothing brand based in Bury, Manchester, co-owned by Holly (brand voice) and Graham. The customer is a UK woman, 30–50, warm, funny, slightly chaotic, a thoughtful gift buyer. Holly's voice is short paragraphs, conversational, warm, self-deprecating humour, never corporate, never hard sell. Start with 'Hey [name]'. End with 'Love Team ROR x'. Never use the words: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, girlboss, empower, excited to share, boss babe. No swearing. Write to one person — like Holly's sister.
 
-Write a full marketing email with this brief:
+The email opens with a real moment: Holly opens her wardrobe, stares at seven perfectly adequate sweatshirts, and feels nothing about any of them. They're fine. All fine. And that's the problem. The tension is having loads of clothes but nothing that feels like her — the high street keeps offering safe, personality-free options. The shift is: before — forgettable basics she never really loved. After — a slogan sweatshirt she grins at every time she pulls it out of the drawer.
 
-TOPIC: Birth year clothing as the antidote to the last-minute birthday panic gift.
+Section 1 should introduce the idea that slogan sweatshirts done well aren't cheesy — mention the 9pm Bedtime Club Sweatshirt (rockonruby.co.uk/products/9pm-bedtime-club-sweatshirt, £38) and the Bourbon Biscuit Fan Club Sweatshirt (rockonruby.co.uk/products/bourbon-biscuit-fan-club-sweatshirt, £38) as examples. Conversational, no listing.
 
-STORY ANGLE: Open with the 11pm Amazon scroll moment — she's got a big birthday coming, she's running out of time, and everything feels a bit grim. No candles. No hampers. She wants to get it right.
+Section 2 should mention that for birthdays, the Personalised Year Sweatshirt is the bestseller and link to the personalised sweatshirts collection at rockonruby.co.uk/collections/personalised-sweatshirts.
 
-TENSION: She's short on time and most personalised gifts either look cheap or take forever.
+CTA button text: 'Shop Slogan Sweatshirts' — link: rockonruby.co.uk/collections/slogan-sweatshirts.
 
-SHIFT: Birth year clothing from Rock On Ruby is specific, embroidered properly, and arrives without the drama.
+PS: A casual mention of the custom slogan option at rockonruby.co.uk/collections/custom-slogan.
 
-REASON TO CARE: A sweatshirt with someone's birth year on it says 'I thought about you specifically.' That matters for milestone birthdays — 40th, 50th, 60th, and beyond.
-
-PRODUCT TO FEATURE: The Personalised Year Sweatshirt — Rock On Ruby's bestseller (450+ orders). Link to: rockonruby.co.uk/collections/personalised-year
-
-EMAIL STRUCTURE:
-- Start with 'Hey [name]' — no apology for making contact
-- Para 1: The relatable panic moment (2–3 sentences max)
-- Para 2: Introduce birth year sweatshirts as the answer — what they are, why they're different
-- Para 3: Who they're for — big birthdays, retirements, new babies, 18ths. Make her feel seen.
-- CTA button: 'Find Her Year →' — links to rockonruby.co.uk/collections/personalised-year
-- End: 'Love Team ROR x'
-- PS: Something warm and practical about being based in Bury and being easy to reach if she needs it fast
-
-VOICE RULES:
-- Short paragraphs. One idea each.
-- Never say: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, honestly, girlboss, empower, excited to share, boss babe
-- No swearing. No corporate language. No hard sell.
-- Write to ONE woman — Holly's sister. Warm, funny, slightly chaotic.
-- Sound like a human wrote it. Because one did."
+Keep it around 250–300 words. Warm, funny, real. Like a mate who happens to run a brilliant clothing brand."
 
 ---
 
 ## EMAIL DESIGN PROMPT 2
 
-**Subject:** For everyone who starts the countdown at Monday morning
-**Preview text:** The Happy Hour Sweatshirt has arrived.
+**Subject:** She likes piña coladas. We've got the cap for that.
+**Preview text:** Embroidered. Cheerful. Better than a spa voucher.
 
-**Story angle:** It's a Tuesday. Someone's had A Day. The inbox was grim, the school run was chaos, and someone at work said "let's circle back" at 4:45pm. She needs her wardrobe to understand her right now.
+**Story angle:** It's a warm Friday evening, Rupert Holmes is on somewhere in the background, and someone — maybe you, maybe your mate — is making a piña colada and feeling extremely good about that decision. It's a whole vibe. And it absolutely should be on a cap.
 
-**Tension/friction:** She wants something funny and comfortable that feels like her — but slogan clothing can tip into try-hard or cheap really fast. She doesn't want a sticker on a thin tee. She wants the real thing.
+**Tension/friction:** She needs a gift for a friend who is impossible to buy for — not because she doesn't have taste, but because the obvious stuff (candles, vouchers, wine) feels lazy and forgettable. She wants something specific, something funny, something that says "I actually know you." The decision: another generic present, or something that'll make her laugh out loud when she opens it.
 
-**Shift:** Before — settling for something beige from the high street that says nothing. After — wearing something that makes her smile every time she pulls it over her head.
+**Shift:** Before — another gift that's perfectly fine and will be forgotten by February. After — a cap that becomes a running joke, a holiday essential, a thing she actually wears and tells people about.
 
-**Reason to care:** Funny clothing that's also good quality is rarer than it should be. When you find it, you wear it constantly. This is that sweatshirt.
+**Reason to care:** The best gifts are the ones that say "I saw this and thought of you immediately." That's not something you can replicate with an Amazon voucher. A piña colada cap is small, specific, and completely joyful — exactly the kind of thing that makes someone feel properly seen.
 
 **Email structure:**
-- Opening (Hey [name]) — Set the scene: it's been one of those weeks. She knows the feeling. Don't explain it too much — just name it and let her nod along. Two sentences max.
-- Section 1 — Introduce the Happy Hour Slogan Sweatshirt. Tell her what it is, what it says, why it works. Make it feel like a recommendation from a mate, not a product listing. Link to rockonruby.co.uk/collections/slogan-sweatshirts
-- Section 2 — Make the gift angle. This is brilliant for birthdays, Christmas, or the "I saw this and thought of you" message. Mention the quality — mid-weight, soft, embroidered — so she knows it's not a thin novelty tee.
-- CTA — **Get the Sweatshirt →** linking to rockonruby.co.uk/products/happy-hour-slogan-sweatshirt (note to Bethan: check this URL slug is live before sending)
-- PS — "P.S. While you're there, have a nose at the rest of the slogan collection. There's something for everyone who's ever thought it's nearly wine o'clock before noon."
+- Opening (Hey [name]) — Set the scene: Friday evening, that song, the drink. Two sentences, warm and vivid, like Holly's describing her own evening. No need to mention the brand immediately — let the moment land first.
+- Section 1 — Make the case for the cap as a gift. Funny, specific, low pressure. Why a cap with an embroidered piña colada reference beats every safe gift option she's been considering. Mention that it's embroidered (not printed) so it actually lasts.
+- Section 2 — Widen slightly to the slogan caps collection. Mention that there are loads of options for people with very specific personalities — because that's kind of the whole point. Link to the slogan caps collection.
+- CTA — **See the Slogan Caps** linking to rockonruby.co.uk/collections/slogan-caps
+- PS — "And if you want something completely bespoke — her actual words, her actual slogan — we do custom too. rockonruby.co.uk/collections/custom-slogan"
 
 **Holly's voice notes for this email:**
-1. The humour has to feel earned, not forced — don't try too hard to be funny, just be honest about the feeling and the funny takes care of itself
-2. Keep it short — this is not the email for long paragraphs. If a line isn't doing something useful, cut it.
-3. She's writing to one woman who's had a week. Not a crowd. Not a demographic. One tired, funny, brilliant woman.
+1. The piña colada is a *mood* — keep that energy throughout. Light, cheerful, Friday-afternoon-in-the-garden. Don't let it get serious.
+2. The gift angle is key here — she's buying this for someone specific. Write to that instinct. "You know exactly who this is for" is the energy.
+3. The product detail (embroidered, not printed) should be dropped in casually — like you'd mention it to a mate — not listed as a feature.
 
 **Image suggestions:**
-1. Close-up of the slogan on the sweatshirt — worn and slightly lived-in looking, real hands visible if possible
-2. Flat lay with a glass of something (wine? coffee? doesn't matter) just in frame — nods to the theme without spelling it out
-3. Behind-the-scenes of the embroidery being done — always performs well and shows quality without being boring about it
+1. Cap flat lay on a bright, summery background — near sunglasses or a colourful drink, natural and fun, not polished
+2. Close-up of embroidery detail on the cap — shows quality without needing to say "quality"
+3. Lifestyle shot of someone wearing the cap outdoors — scrappy and real, not studio
 
 **Ready-to-paste Claude prompt:**
-"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing brand based in Bury, Manchester. Holly is the co-owner and brand voice — warm, funny, straight-talking, never corporate. She writes like she's texting her sister.
+"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a personalised print-on-demand clothing brand based in Bury, Manchester, co-owned by Holly (brand voice) and Graham. The customer is a UK woman, 30–50, warm, funny, slightly chaotic, a thoughtful gift buyer. Holly's voice is short paragraphs, conversational, warm, self-deprecating humour, never corporate, never hard sell. Start with 'Hey [name]'. End with 'Love Team ROR x'. Never use the words: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, girlboss, empower, excited to share, boss babe. No swearing. Write to one person — like Holly's sister.
 
-Write a full marketing email with this brief:
+The email opens with a warm scene: Friday evening, Rupert Holmes playing somewhere, someone making a piña colada and feeling very good about it. It's a whole mood. The tension is the gift problem: she needs something for a friend who is impossible to buy for — not because she has no taste, but because the obvious stuff feels lazy. The shift is: before — another forgettable present. After — a cap that makes her laugh out loud, that she'll actually wear, that screams 'I know you.'
 
-TOPIC: The Happy Hour Slogan Sweatshirt — for anyone who starts the Friday countdown on Monday morning.
+Section 1 should make the case for the piña colada cap as the perfect specific gift. Mention that it's embroidered (not printed) and actually lasts — drop this in casually, not as a feature list.
 
-STORY ANGLE: It's been one of those weeks. The inbox, the school run, someone in a meeting who said something that made her eyes go to the ceiling. She needs her wardrobe to get it.
+Section 2 should widen to the slogan caps collection at rockonruby.co.uk/collections/slogan-caps — mention there are options for people with very specific personalities, because that's the whole point.
 
-TENSION: Slogan clothing can be great or it can be cheap and try-hard. She doesn't want a sticker on a thin tee. She wants something that's actually funny AND actually good.
+CTA button text: 'See the Slogan Caps' — link: rockonruby.co.uk/collections/slogan-caps.
 
-SHIFT: The Happy Hour Sweatshirt is both. Properly made, properly funny. The kind of thing she reaches for first.
+PS: Casual mention of the custom slogan option for bespoke caps at rockonruby.co.uk/collections/custom-slogan.
 
-REASON TO CARE: A sweatshirt that makes you smile when you put it on is not a small thing. Life's too short for beige.
-
-PRODUCT TO FEATURE: Happy Hour Slogan Sweatshirt — £38. Part of the Rock On Ruby slogan sweatshirt range. Link collection to: rockonruby.co.uk/collections/slogan-sweatshirts
-
-EMAIL STRUCTURE:
-- Start with 'Hey [name]' — no apology for making contact
-- Para 1: The relatable Tuesday/week feeling — short, warm, she'll recognise it
-- Para 2: Introduce the Happy Hour Sweatshirt — what it says, why it works, why it's not a novelty piece
-- Para 3: The gift angle — brilliant for birthdays, Christmas, 'I saw this and thought of you' moments. Quality note here — mid-weight, soft, proper.
-- CTA button: 'Get the Sweatshirt →' — links to rockonruby.co.uk/collections/slogan-sweatshirts
-- End: 'Love Team ROR x'
-- PS: Nudge her toward the wider slogan collection — something fun and light, not salesy
-
-VOICE RULES:
-- Short paragraphs. One idea each.
-- Never say: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, honestly, girlboss, empower, excited to share, boss babe
-- No swearing. No corporate language. No hard sell.
-- Write to ONE woman — Holly's sister. Warm, funny, slightly chaotic.
-- Sound like a human wrote it. Because one did."
+Keep it around 250–300 words. Warm, funny, summery. Like a mate who's had a very good Friday evening and wants you to have one too."
 
 ---
 
 ## PRODUCT DESCRIPTIONS
 
-**Birth Year Clothing UK → Children's Clothing**
+**Custom Slogan — for 'slogan sweatshirt uk'**
 
-Your kid's birth year, on something they'll actually wear. Our children's personalised sweatshirts and tees are properly made — not thin, not scratchy, not something they'll refuse to put on. Great for birthdays, Christmas, or the "first day of school and I need photographic evidence" moment. Sizes for little ones all the way up. Browse at [rockonruby.co.uk/collections/children-s-clothing](https://rockonruby.co.uk/collections/children-s-clothing).
+Got something to say? Say it on a sweatshirt. Our custom slogan sweatshirts are made to order — your words, your font, your vibe — embroidered properly so they actually last. Whether it's a running joke, a birthday message, or something that'll make your mate snort-laugh when she opens it, we'll put it on a sweatshirt. No beige. No boring. Just something that's actually, properly yours.
 
 ---
 
-**Happy Hour Sweatshirt → Personalised Sweatshirts**
+**Embroidered Yes I Like Piña Coladas T-shirt — for 'pina colada cap'**
 
-For anyone who starts mentally clocking off at 4:57pm on a Friday — or a Tuesday, no judgement. Our personalised sweatshirts are mid-weight, genuinely soft, and properly embroidered so they last. Whether you want your name, your year, or a slogan that sums up your entire personality — we've got you. The kind of thing you'll wear on repeat and feel good about every single time. Shop at [rockonruby.co.uk/collections/personalised-sweatshirts](https://rockonruby.co.uk/collections/personalised-sweatshirts).
+For the person who hears that song and immediately raises their hand. This t-shirt does exactly what it says — announces your piña colada allegiance to anyone within reading distance. Embroidered (not printed, so it won't give up on you after three washes), comfortable, and genuinely excellent holiday packing. Wear it to the pool bar. Wear it at home. Wear it whenever Friday arrives and you've earned a drink.
 
 ---
 *Generated by ROR Content Generator · rockonruby.co.uk*
