@@ -1,240 +1,278 @@
 # Rock On Ruby — Content Drafts
-Generated: 23 May 2026, 09:02
+Generated: 25 May 2026, 11:10
 Run `python3 content_generator.py` to regenerate with cached trend data.
 
 ---
 
 > **Layer 4 (bestsellers) terms this run:** none
-> **Top terms this run:** slogan sweatshirt uk, pina colada cap
+> **Top terms this run:** birthday hoodie uk, leopard print fashion uk
 > **SEO content pieces:** 0
 
 ---
 
 ## BLOG POST 1
 
-# The Best Slogan Sweatshirts in the UK (That Aren't Boring)
+# The Best Birthday Hoodie in the UK (That Actually Means Something)
 
-There's a moment — and I reckon you know exactly the one I mean — where you're standing in a changing room in some big high street shop, holding a perfectly fine sweatshirt, and thinking: *this is absolutely fine and I will never feel anything about it.*
+It started with a group chat.
 
-Fine. Beige. Forgettable. You buy it anyway because you need something, and three months later it's at the back of the wardrobe with the tags still on.
+Someone's 40th was coming up. Sixteen women trying to agree on a gift. Forty-seven messages in, someone suggested a voucher. The chat went quiet. Not the good quiet. The deflated kind.
 
-That's not a you problem. That's a sweatshirt problem.
+Sound familiar?
 
-**The UK is drowning in fine sweatshirts.**
+Here's the thing about birthdays. The older we get, the more they matter. Not in a dramatic way — just in a "she deserves something that's actually for HER" kind of way. A voucher says "I ran out of ideas." A personalised birthday hoodie says "I thought about you."
 
-Millions of them. In dusty rose. In oat. In that specific shade of grey that says "I have given up on myself." And they're everywhere — every fast fashion site, every market stall, every supermarket clothing aisle at 8am when you're just trying to get milk.
+And that difference? It lands.
 
-Here's the thing though. You don't actually want fine. You want something that makes you smile when you pull it out of the drawer. Something that gets a comment when you wear it. Something that feels like *you*.
+**Why a birthday hoodie actually works**
 
-That's why slogan sweatshirts exist.
+A hoodie isn't a boring gift. It's the thing someone reaches for on a Sunday morning. The thing they pull on after a long week. It goes everywhere — school runs, sofa evenings, walks with the dog, that camping trip they keep meaning to book.
 
-**Not the cheesy ones. Not the ones with motivational quotes from Pinterest.**
+Make it personal — her year, her name, something that's specific to her — and suddenly it's not just a hoodie. It's a thing she keeps. A thing she shows people. A thing she actually wears, not shoves in a drawer next to the bath salts nobody asked for.
 
-I mean the good ones. The ones that say something real — about your actual personality, your sense of humour, your complete inability to stay awake past 9pm (our [9pm Bedtime Club Sweatshirt](https://rockonruby.co.uk/products/9pm-bedtime-club-sweatshirt) was basically written about me personally).
+**What makes a good personalised birthday hoodie**
 
-Or the ones that are just brilliantly daft — like announcing to the world that you are a fully committed member of the [Bourbon Biscuit Fan Club](https://rockonruby.co.uk/products/bourbon-biscuit-fan-club-sweatshirt). Which, honestly, is a valid identity.
+Not all personalised hoodies are the same. Here's what to look for.
 
-**What makes a slogan sweatshirt worth buying?**
+The print quality has to hold up. There's nothing worse than a hoodie that's crispy-looking after three washes. At Rock On Ruby, we embroider or print on heavyweight blanks that feel like something, not like a supermarket own-brand that accidentally shrank.
 
-A few things, in my opinion as someone who spends a genuinely alarming amount of time thinking about this:
+The personalisation needs to feel considered, not slapped on. Our [Personalised Year Sweatshirts](https://rockonruby.co.uk) have sold over 450 times for exactly this reason. People see them and go "oh that's her." That's the whole point.
 
-It has to actually say something. "Good vibes only" says nothing. "Always Time for a Good Time" says everything.
+And sizing. For the love of all things, check the sizing. Most women buying for a friend want something that feels cosy and oversized — not a fitted PE top. Our hoodies run the right side of generous.
 
-The quality has to be there. A slogan sweatshirt that goes bobbly after two washes is just a joke with bad timing.
+**The birthday hoodie panic is real**
 
-And it helps if it doesn't look like twelve thousand other people are wearing the exact same one. Which is why personalised slogan sweatshirts have become such a thing — you get to make it yours, with your words, your name, your year.
+Let me be honest with you. Most people find us at 11pm, three days before the party, mildly panicking. That's fine. We're used to it. We make it work.
 
-**That's kind of what we do here at Rock On Ruby.**
+But the people who get the BEST results? They give themselves a week. Personalisation takes a little extra time, and you want it to arrive looking good, not slightly damp from an express delivery van.
 
-We're based in Bury, Manchester — it's me (Holly) and Graham — and we make personalised clothing that people actually want to wear. Our [Personalised Year Sweatshirts](https://rockonruby.co.uk/collections/personalised-sweatshirts) are our bestsellers for a reason. People buy them as birthday gifts, as Christmas presents, as "just because" treats for someone they love.
+If you're reading this ahead of time: well done. You are the organised friend. Cherish that.
 
-And yes, occasionally for themselves. Which is absolutely fine. Encouraged, even.
+**The bit where I tell you where to look**
 
-**If you're after slogan sweatshirts in the UK that have a bit of personality about them**, you're in the right place.
+Our personalised hoodies collection has options for every kind of birthday — whether she's turning 30, 40, 50, or some age she's refusing to admit to. You can add her year, her name, a phrase that only your friend group will get.
 
-Have a browse at [rockonruby.co.uk/collections/slogan-sweatshirts](https://rockonruby.co.uk/collections/slogan-sweatshirts) — and if you want something completely bespoke, we do that too at [rockonruby.co.uk/collections/custom-slogan](https://rockonruby.co.uk/collections/custom-slogan).
+Have a look at what we've got and see if something feels like her.
 
-Life's too short for beige.
+[Shop personalised birthday hoodies at rockonruby.co.uk](https://rockonruby.co.uk/collections/personalised-hoodies)
+
+See ya!
 
 ---
 
 ## BLOG POST 2
 
-# Yes, You Can Get a Piña Colada Cap — And It's Everything
+# Leopard Print Fashion UK: Why It Never Actually Goes Away
 
-Picture this. It's a Friday evening. You've had a week. Not a dramatic week, not a made-for-TV week, just a long, relentless, full-inbox, everyone-needs-something kind of week. You are sitting in the garden — or at the kitchen table pretending you're in a garden — with a drink, and somewhere in the background Rupert Holmes is asking if you like piña coladas.
+I was in a cafe in Bury last autumn. Three women walked in separately, didn't know each other. All wearing leopard print. Different ages, different styles — one a leopard scarf, one a full coat, one a cap pulled down over her ponytail.
 
-And the answer is yes. Obviously yes.
+They clocked each other and all smiled. No words needed.
 
-**The piña colada is not just a drink. It is a whole mood.**
+That's what leopard print does. It's not a trend. It's a personality test.
 
-It's the holiday you're planning in your head. It's the version of you that exists on Saturday afternoon when there's nothing that urgently needs doing. It's fun, it's a bit retro, and it's unapologetically cheerful.
+**The myth about leopard print fashion**
 
-So naturally — obviously — it needed to be on a cap.
+Every few years someone in the fashion press writes the piece. "Is leopard print over?" they ask, from what I can only imagine is a very beige office. And then the next season, there it is again. On the coats, the bags, the accessories. On women who've been wearing it since before that journalist was born.
 
-**Here's where I think accessories get interesting.**
+Leopard print in the UK has never really gone anywhere. It's just that some people notice it and some people have been quietly living in it all along.
 
-A plain cap is a cap. Fine. Functional. But a cap with something to say? That's a conversation starter. That's the thing someone clocks across a pub garden and grins at. That's the thing you wear on holiday and someone in the queue for the pool bar says "love that."
+If you're the second type — hello. You're our people.
 
-A piña colada cap taps into something very specific: the person who knows that life is better with a bit of humour in it. Not the kind that's trying too hard — the kind that just makes you smile.
+**Why leopard print works harder than you think**
 
-**We've been making embroidered caps at Rock On Ruby for a while now.**
+Here's what I love about it. It does a lot of the talking for you.
 
-And what we've learned is that the best ones are specific. Not generic. Not "good times ahead" or "summer vibes." The ones that really land are the ones that say an actual thing — like, for example, that you are someone who genuinely, sincerely enjoys a piña colada and you want everyone to know about it.
+You can wear the most basic outfit — jeans, white tee, trainers — and add a leopard print bag and suddenly you look like you made a decision. Like you woke up that morning and chose something. That's a lot of power for an accessory.
 
-Our [Slogan Caps](https://rockonruby.co.uk/collections/slogan-caps) are embroidered, not printed — which means they actually last. No peeling, no cracking, no sad faded words after six washes. Just clean, sharp embroidery that looks as good on holiday number four as it did when you first pulled it out of the packaging.
+And UK women, in my completely unscientific experience, are very good at this. Not in a "trying too hard" way. More in a "I know exactly who I am and this bag is proof" way.
 
-**They also make brilliant gifts.**
+**The Rock On Ruby approach to leopard print**
 
-If you've got a friend who makes a piña colada every single summer, who hums along whenever the song comes on, who is basically the human embodiment of a Friday afternoon — this is the gift. Not a spa voucher she'll forget to use. Not another candle. A cap that says exactly who she is.
+We didn't set out to build a whole leopard print world. It sort of happened. Our customers kept going back for more, kept tagging us, kept buying the next one.
 
-That's what we're here for at Rock On Ruby. Gifts — and honestly, things for yourself — that feel like they were made with someone specific in mind. Because they were.
+So now we've got a proper collection. And it's not all matching in a matchy way. It's pieces that work together if you want them to, or stand alone if you don't.
 
-Personalised, embroidered, made with care in Bury, Manchester. By me and Graham, who is significantly more organised than I am.
+The [Coffee Please Leopard Print Shopping Bag](https://rockonruby.co.uk/products/coffee-please-leopard-print-shopping-bag) (£24) gets ridiculous engagement every time we post it. Because it's funny, it's useful, and it's a bit of a statement all at once. That's the sweet spot.
 
-If you fancy having a look at what we've got, head over to [rockonruby.co.uk/collections/slogan-caps](https://rockonruby.co.uk/collections/slogan-caps).
+The [Not Today Leopard Print Cap](https://rockonruby.co.uk/products/not-today-leopard-print-cap) (£24) is doing a lot of the same work. It says something. Without you having to say anything.
 
-Because yes. You like piña coladas. Own it.
+And if you want to go full committed, the [Oversized Personalised Initial Leopard Print Tote Bag](https://rockonruby.co.uk/products/oversized-personalised-initial-leopard-print-tote-bag) (£26) has your initial on it. Your leopard print. Your bag. Nobody's borrowing that.
+
+**This is not a trend piece**
+
+I'm not going to tell you leopard print is having a moment. It doesn't need a moment. It IS the moment.
+
+If you're already a convert, come and have a look. If you're leopard-curious, start small — a bag, a cap, a makeup pouch. You'll know within about forty seconds if it's for you.
+
+It usually is.
+
+[Explore the full leopard print collection at rockonruby.co.uk](https://rockonruby.co.uk/collections/leopard-print-lover)
+
+Love Team ROR x
 
 ---
 
 ## SOCIAL CAPTIONS
 
-**Caption 1 — Slogan Sweatshirt UK**
+**Caption 1 — Birthday Hoodie UK**
 
-The high street has been doing beige for three years now and honestly, enough.
+Your mate deserves better than a candle and a card.
 
-This is your sign to wear something that actually says something.
+A personalised hoodie with her year on it? That's a gift she'll actually wear. Every Sunday. For years.
 
-Funny slogans, personalised years, custom text — all embroidered, all made to order.
+We've done hundreds of these and they land every single time.
 
-Link in bio 👇
+Link in bio to find hers before the panic sets in.
 
-[Visual note: flat lay of the Bourbon Biscuit Fan Club Sweatshirt or 9pm Bedtime Club on a simple background — slightly scrappy, natural light, no over-styling]
+[Visual note: Flat lay of a folded personalised year hoodie on a neutral background, with a birthday card tucked next to it — scrappy and real, not styled within an inch of its life]
 
-#slogansweatshirt #personalisedclothing #ukgifts #sweatshirtuk #rockonruby
+#BirthdayHoodieUK #PersonalisedHoodie #BirthdayGiftIdeas #RockOnRuby #GiftsForHer
 
 ---
 
-**Caption 2 — Piña Colada Cap**
+**Caption 2 — Leopard Print Fashion UK**
 
-If she likes piña coladas, she needs this cap. It's just facts.
+Three women walked into a cafe. All in leopard print. All strangers. All immediately friends.
 
-Embroidered. Lasts longer than the drink. Way more portable.
+That's the power of it.
 
-Perfect for holidays, festivals, or just the back garden on a Friday night when you've earned it.
+We've got bags, caps, totes — all doing the talking for you.
 
-[Visual note: cap laid flat on a bright, summery background — maybe next to a bright drink or some sunglasses. Real and fun, not overly styled]
+Link in bio for the full leopard print collection.
 
-#pinacolada #slogancap #summergifts #embroideredcap #rockonruby
+[Visual note: Flat lay or close-up of the Coffee Please Leopard Print Shopping Bag on a cafe table — ideally with an actual coffee in shot, natural light, not too posed]
+
+#LeopardPrintFashionUK #LeopardPrint #RockOnRuby #LeopardPrintBag #UKFashion
 
 ---
 
 ## EMAIL DESIGN PROMPT 1
 
-**Subject:** Your sweatshirt drawer is lying to you
-**Preview text:** It says you've got loads to wear. You haven't.
+**Subject:** Her birthday's coming. Skip the boring gift this time.
+**Preview text:** We've got something she'll actually wear.
 
-**Story angle:** Holly opens her wardrobe, pulls out three perfectly adequate sweatshirts, and feels absolutely nothing about any of them. They're fine. They're all fine. And that's the problem.
-
-**Tension/friction:** She has a drawer full of clothes but nothing that feels like *her*. She wants to wear something that makes her smile — or makes someone laugh — but the high street keeps offering the same safe, personality-free options. The decision is: keep settling for fine, or find something that actually says something.
-
-**Shift:** Before — a wardrobe full of beige, forgettable basics that she bought out of necessity and never really loved. After — a slogan sweatshirt that gets a comment every single time she wears it, that feels like it was made for her (because it was).
-
-**Reason to care:** Clothes aren't just practical. The right thing to wear in the morning genuinely changes how you feel about your day. A slogan sweatshirt that makes you grin when you pull it out of the drawer is a small thing — but it's not nothing.
+**Story angle:** It's the week before a big birthday. Holly's standing in a group chat watching sixteen women argue about a voucher nobody actually wants to give. The deflation is real and deeply relatable.
+**Tension/friction:** She wants to give something personal and thoughtful but doesn't know where to start — and she's worried she's left it too late. The high street feels generic and Amazon feels lazy.
+**Shift:** She finds the Personalised Hoodies collection at Rock On Ruby and realises she can have something that's genuinely made for her mate — delivered in time, without the panic.
+**Reason to care:** Because a good birthday gift says "I know you." A voucher says "I forgot." She doesn't want to be the person who forgot.
 
 **Email structure:**
-- Opening (Hey [name]) — Open with the wardrobe moment. Two sentences, warm and funny, self-deprecating. Something like: "I opened my wardrobe this week and stared at seven perfectly adequate sweatshirts and felt absolutely nothing. Turns out having lots of clothes and having things you actually want to wear are not the same thing."
-- Section 1 — Introduce the idea that slogan sweatshirts done well aren't cheesy — they're personality. Reference the 9pm Bedtime Club Sweatshirt and Bourbon Biscuit Fan Club Sweatshirt as examples of sweatshirts that say something real. Keep it conversational — one product per sentence, no hard sell.
-- Section 2 — Shift to the personalised angle. Explain that for birthdays, the Personalised Year Sweatshirt is the bestseller for a reason — people want something that feels made for them. Link to the personalised sweatshirts collection. Keep it short — two or three sentences max.
-- CTA — **Shop Slogan Sweatshirts** linking to rockonruby.co.uk/collections/slogan-sweatshirts
-- PS — "If you want something completely your own — your words, your slogan — we do custom too. rockonruby.co.uk/collections/custom-slogan"
+- Opening (Hey [name]) — Open with the group chat moment. Keep it short, funny, relatable. Two sentences max that make her laugh and think "yes, that's me."
+- Section 1 — Explain why a personalised birthday hoodie works better than any generic gift. Focus on the emotional payoff — she'll wear it, she'll remember it, it means something. Reference that 450 people have already bought our Personalised Year Sweatshirt and loved it.
+- Section 2 — Reassure her about timing, sizing, and personalisation. Tell her what to look for in a good personalised hoodie (quality, fit, something that feels considered). Gently remind her that ordering a few days ahead is better than the night before.
+- CTA — **Find her birthday hoodie** linking to rockonruby.co.uk/collections/personalised-hoodies
+- PS — "P.S. If her birthday IS in three days — drop us a message. We'll do what we can. We're not miracle workers but we're close."
 
 **Holly's voice notes for this email:**
-1. Stay in the wardrobe moment — keep coming back to it. The humour comes from the relatability, not from trying to be funny.
-2. Never list products like a catalogue. Mention them the way you'd mention them to a mate — in passing, with context, like "you know the one."
-3. No hard sell, no urgency language. The CTA is casual, like a recommendation from a friend.
+1. Write to one woman — Holly's slightly chaotic, thoughtful mate who buys good gifts but always cuts it a bit fine. Not a crowd, not a segment.
+2. No hard sell. The email should feel like Holly texting a tip to a friend, not a brand announcing a promotion.
+3. Keep paragraphs short. One thought, one paragraph. If it's feeling like an essay, break it up.
 
 **Image suggestions:**
-1. Flat lay of the Bourbon Biscuit Fan Club Sweatshirt — clean but not over-styled, natural light
-2. Behind-the-scenes embroidery machine shot — always performs well, feels real and honest
-3. Customer photo repost of a Personalised Year Sweatshirt if available — real person, real reaction
+- Flat lay of a folded personalised year hoodie on a plain surface, with maybe a birthday balloon half in shot — real and slightly scrappy, not a studio shoot
+- Close-up of the embroidery/print detail so she can see the quality
+- Customer repost photo if available — real person wearing it is always better than a product shot alone
 
 **Ready-to-paste Claude prompt:**
-"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a personalised print-on-demand clothing brand based in Bury, Manchester, co-owned by Holly (brand voice) and Graham. The customer is a UK woman, 30–50, warm, funny, slightly chaotic, a thoughtful gift buyer. Holly's voice is short paragraphs, conversational, warm, self-deprecating humour, never corporate, never hard sell. Start with 'Hey [name]'. End with 'Love Team ROR x'. Never use the words: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, girlboss, empower, excited to share, boss babe. No swearing. Write to one person — like Holly's sister.
+"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing brand based in Bury, Manchester. Holly co-owns it with Graham and writes all the brand copy — she's warm, funny, straight-talking, and sounds like a Manchester woman texting her mate, never a brand talking at a customer.
 
-The email opens with a real moment: Holly opens her wardrobe, stares at seven perfectly adequate sweatshirts, and feels nothing about any of them. They're fine. All fine. And that's the problem. The tension is having loads of clothes but nothing that feels like her — the high street keeps offering safe, personality-free options. The shift is: before — forgettable basics she never really loved. After — a slogan sweatshirt she grins at every time she pulls it out of the drawer.
+The email is targeting women aged 30–50 who are buying a birthday gift for a friend and want something personal and thoughtful instead of the usual boring high street option.
 
-Section 1 should introduce the idea that slogan sweatshirts done well aren't cheesy — mention the 9pm Bedtime Club Sweatshirt (rockonruby.co.uk/products/9pm-bedtime-club-sweatshirt, £38) and the Bourbon Biscuit Fan Club Sweatshirt (rockonruby.co.uk/products/bourbon-biscuit-fan-club-sweatshirt, £38) as examples. Conversational, no listing.
+Open with: The group chat moment. Sixteen women. Someone suggests a voucher. The chat goes quiet. That's the tension. Keep it short and funny — two sentences at most.
 
-Section 2 should mention that for birthdays, the Personalised Year Sweatshirt is the bestseller and link to the personalised sweatshirts collection at rockonruby.co.uk/collections/personalised-sweatshirts.
+Section 1: Make the case for a personalised birthday hoodie. Not in a salesy way — in a 'here's why this actually works' way. Mention that our Personalised Year Sweatshirt has had over 450 orders and that it's the kind of gift people wear every Sunday for years. Emotional, warm, no hard sell.
 
-CTA button text: 'Shop Slogan Sweatshirts' — link: rockonruby.co.uk/collections/slogan-sweatshirts.
+Section 2: Practical reassurance. What makes a good personalised hoodie (quality, fit, personalisation that feels considered, not slapped on). Gently tell her the earlier she orders the better — but don't panic her.
 
-PS: A casual mention of the custom slogan option at rockonruby.co.uk/collections/custom-slogan.
+CTA button text: Find her birthday hoodie — link to rockonruby.co.uk/collections/personalised-hoodies
 
-Keep it around 250–300 words. Warm, funny, real. Like a mate who happens to run a brilliant clothing brand."
+End with a PS: Something warm and funny about three-day panics — 'we're not miracle workers but we're close.'
+
+Voice rules — stick to these exactly:
+- Start with Hey [name]
+- Short paragraphs, one idea each
+- No swearing
+- Never sound corporate or like AI wrote it
+- No words: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, honestly, girlboss, empower, excited to share, boss babe
+- End with Love Team ROR x
+- Funny but never forced — warm and self-deprecating, not try-hard
+- Write to ONE person, not a crowd""
 
 ---
 
 ## EMAIL DESIGN PROMPT 2
 
-**Subject:** She likes piña coladas. We've got the cap for that.
-**Preview text:** Embroidered. Cheerful. Better than a spa voucher.
+**Subject:** Leopard print is not a phase. (It never was.)
+**Preview text:** Come and see what we've been building.
 
-**Story angle:** It's a warm Friday evening, Rupert Holmes is on somewhere in the background, and someone — maybe you, maybe your mate — is making a piña colada and feeling extremely good about that decision. It's a whole vibe. And it absolutely should be on a cap.
-
-**Tension/friction:** She needs a gift for a friend who is impossible to buy for — not because she doesn't have taste, but because the obvious stuff (candles, vouchers, wine) feels lazy and forgettable. She wants something specific, something funny, something that says "I actually know you." The decision: another generic present, or something that'll make her laugh out loud when she opens it.
-
-**Shift:** Before — another gift that's perfectly fine and will be forgotten by February. After — a cap that becomes a running joke, a holiday essential, a thing she actually wears and tells people about.
-
-**Reason to care:** The best gifts are the ones that say "I saw this and thought of you immediately." That's not something you can replicate with an Amazon voucher. A piña colada cap is small, specific, and completely joyful — exactly the kind of thing that makes someone feel properly seen.
+**Story angle:** Holly clocks three women walking into a cafe separately, all in leopard print, all strangers, all immediately clocking each other with a smile. No words. Just knowing. That's the whole email.
+**Tension/friction:** She loves leopard print but the high street does it badly — cheap, try-hard, or so fast-fashion it falls apart. She wants pieces that are actually worth buying.
+**Shift:** Rock On Ruby's leopard print collection is funny, wearable, personal and built for women who wear it because they love it — not because a magazine told them to.
+**Reason to care:** Because leopard print is a personality, not a trend. And she deserves pieces that actually reflect that — not a throwaway scarf from a shop that'll stop stocking it next season.
 
 **Email structure:**
-- Opening (Hey [name]) — Set the scene: Friday evening, that song, the drink. Two sentences, warm and vivid, like Holly's describing her own evening. No need to mention the brand immediately — let the moment land first.
-- Section 1 — Make the case for the cap as a gift. Funny, specific, low pressure. Why a cap with an embroidered piña colada reference beats every safe gift option she's been considering. Mention that it's embroidered (not printed) so it actually lasts.
-- Section 2 — Widen slightly to the slogan caps collection. Mention that there are loads of options for people with very specific personalities — because that's kind of the whole point. Link to the slogan caps collection.
-- CTA — **See the Slogan Caps** linking to rockonruby.co.uk/collections/slogan-caps
-- PS — "And if you want something completely bespoke — her actual words, her actual slogan — we do custom too. rockonruby.co.uk/collections/custom-slogan"
+- Opening (Hey [name]) — The cafe story. Three women, all leopard print, all strangers, all smiling. Two sentences. Sets the whole tone.
+- Section 1 — Make the point that leopard print in the UK never actually goes away. It just gets written about badly. This section is about belonging — she already knows if she's a leopard print woman. This email is for her.
+- Section 2 — Introduce the Rock On Ruby leopard print collection. Feature specific products with prices and real URLs: Coffee Please Leopard Print Shopping Bag (£24) — rockonruby.co.uk/products/coffee-please-leopard-print-shopping-bag, Not Today Leopard Print Cap (£24) — rockonruby.co.uk/products/not-today-leopard-print-cap, Oversized Personalised Initial Leopard Print Tote Bag (£26) — rockonruby.co.uk/products/oversized-personalised-initial-leopard-print-tote-bag. Keep it warm and specific — what does each one DO for her?
+- CTA — **See the full leopard print collection** linking to rockonruby.co.uk/collections/leopard-print-lover
+- PS — "P.S. If you're leopard-curious rather than fully committed — start with a bag. You'll know within forty seconds."
 
 **Holly's voice notes for this email:**
-1. The piña colada is a *mood* — keep that energy throughout. Light, cheerful, Friday-afternoon-in-the-garden. Don't let it get serious.
-2. The gift angle is key here — she's buying this for someone specific. Write to that instinct. "You know exactly who this is for" is the energy.
-3. The product detail (embroidered, not printed) should be dropped in casually — like you'd mention it to a mate — not listed as a feature.
+1. This is not a trend email. Don't write it like a seasonal push. Write it like leopard print is just a fact of life for these women — because it is.
+2. Let the products do the talking through specifics — what's funny about the slogan, what's useful about the bag, what's clever about the personalisation. Not features. Feelings.
+3. Keep it conversational and slightly wry. Holly's the woman at the cafe table clocking the leopard print situation with quiet delight. That's the energy throughout.
 
 **Image suggestions:**
-1. Cap flat lay on a bright, summery background — near sunglasses or a colourful drink, natural and fun, not polished
-2. Close-up of embroidery detail on the cap — shows quality without needing to say "quality"
-3. Lifestyle shot of someone wearing the cap outdoors — scrappy and real, not studio
+- The Coffee Please Leopard Print Shopping Bag on a cafe table with an actual coffee in frame — natural light, slightly messy, real
+- Flat lay of two or three leopard print pieces together — bag, cap, tote — showing the collection without being too styled
+- Close-up of the Not Today Leopard Print Cap on someone's head, candid-feeling, outdoors
 
 **Ready-to-paste Claude prompt:**
-"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a personalised print-on-demand clothing brand based in Bury, Manchester, co-owned by Holly (brand voice) and Graham. The customer is a UK woman, 30–50, warm, funny, slightly chaotic, a thoughtful gift buyer. Holly's voice is short paragraphs, conversational, warm, self-deprecating humour, never corporate, never hard sell. Start with 'Hey [name]'. End with 'Love Team ROR x'. Never use the words: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, girlboss, empower, excited to share, boss babe. No swearing. Write to one person — like Holly's sister.
+"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing and accessories brand based in Bury, Manchester. Holly is warm, funny, Manchester through and through — she writes like she's texting a mate, never like a brand doing a campaign.
 
-The email opens with a warm scene: Friday evening, Rupert Holmes playing somewhere, someone making a piña colada and feeling very good about it. It's a whole mood. The tension is the gift problem: she needs something for a friend who is impossible to buy for — not because she has no taste, but because the obvious stuff feels lazy. The shift is: before — another forgettable present. After — a cap that makes her laugh out loud, that she'll actually wear, that screams 'I know you.'
+This email is about leopard print fashion. The customer is a UK woman, 30–50, who has always loved leopard print and doesn't need convincing — she just needs to know we've got good stuff worth buying.
 
-Section 1 should make the case for the piña colada cap as the perfect specific gift. Mention that it's embroidered (not printed) and actually lasts — drop this in casually, not as a feature list.
+Open with: Three women walked into a cafe. All strangers. All in leopard print. All smiled at each other immediately. That's the whole vibe. Two sentences, warm, slightly funny, sets the tone for the whole email.
 
-Section 2 should widen to the slogan caps collection at rockonruby.co.uk/collections/slogan-caps — mention there are options for people with very specific personalities, because that's the whole point.
+Section 1: Make the point that leopard print never goes away in the UK — it just gets written about badly every few years by people in beige offices. This section is about belonging. She's already a leopard print woman. This email is for her.
 
-CTA button text: 'See the Slogan Caps' — link: rockonruby.co.uk/collections/slogan-caps.
+Section 2: Introduce the Rock On Ruby leopard print collection with these specific products and URLs:
+- Coffee Please Leopard Print Shopping Bag, £24 — rockonruby.co.uk/products/coffee-please-leopard-print-shopping-bag
+- Not Today Leopard Print Cap, £24 — rockonruby.co.uk/products/not-today-leopard-print-cap
+- Oversized Personalised Initial Leopard Print Tote Bag, £26 — rockonruby.co.uk/products/oversized-personalised-initial-leopard-print-tote-bag
+For each one, say what it DOES — the feeling, the statement, the usefulness. Not just what it is.
 
-PS: Casual mention of the custom slogan option for bespoke caps at rockonruby.co.uk/collections/custom-slogan.
+CTA button text: See the full leopard print collection — link to rockonruby.co.uk/collections/leopard-print-lover
 
-Keep it around 250–300 words. Warm, funny, summery. Like a mate who's had a very good Friday evening and wants you to have one too."
+End with a PS: Something warm and funny for the leopard-curious — 'start with a bag, you'll know within forty seconds.'
+
+Voice rules — stick to these exactly:
+- Start with Hey [name]
+- Short paragraphs, one idea each
+- No swearing
+- Never sound corporate or like AI wrote it
+- No words: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, honestly, girlboss, empower, excited to share, boss babe
+- End with Love Team ROR x
+- Funny but never forced — warm, wry, self-aware
+- Write to ONE person, not a crowd""
 
 ---
 
 ## PRODUCT DESCRIPTIONS
 
-**Custom Slogan — for 'slogan sweatshirt uk'**
+**Personalised Hoodies — Birthday Hoodie UK**
 
-Got something to say? Say it on a sweatshirt. Our custom slogan sweatshirts are made to order — your words, your font, your vibe — embroidered properly so they actually last. Whether it's a running joke, a birthday message, or something that'll make your mate snort-laugh when she opens it, we'll put it on a sweatshirt. No beige. No boring. Just something that's actually, properly yours.
+Stop buying gifts that end up in a drawer. Our personalised hoodies are made to be actually worn — on the sofa, on the school run, on days when comfort is the whole plan. Add her year, make it hers, and watch it become the thing she reaches for every single Sunday. Heavyweight, properly made, and nothing like anything she'd find on the high street.
+
+[rockonruby.co.uk/collections/personalised-hoodies](https://rockonruby.co.uk/collections/personalised-hoodies)
 
 ---
 
-**Embroidered Yes I Like Piña Coladas T-shirt — for 'pina colada cap'**
+**Leopard Print Lover Collection — Leopard Print Fashion UK**
 
-For the person who hears that song and immediately raises their hand. This t-shirt does exactly what it says — announces your piña colada allegiance to anyone within reading distance. Embroidered (not printed, so it won't give up on you after three washes), comfortable, and genuinely excellent holiday packing. Wear it to the pool bar. Wear it at home. Wear it whenever Friday arrives and you've earned a drink.
+For the woman who's been wearing leopard print since before it was "having a moment" (again). This collection is bags, caps and accessories for women who wear it because they love it — not because a magazine said so. Funny slogans, personalised options, built to last. Start with one piece and see how quickly your basket fills up. We've seen it happen.
+
+[rockonruby.co.uk/collections/leopard-print-lover](https://rockonruby.co.uk/collections/leopard-print-lover)
 
 ---
 *Generated by ROR Content Generator · rockonruby.co.uk*
