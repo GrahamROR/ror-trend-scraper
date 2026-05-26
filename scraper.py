@@ -411,7 +411,7 @@ def pytrends_interest_over_time(term: str) -> dict:
                 cleaned = cleaned[: -len(suffix)].strip()
                 break
         if cleaned != term:
-            time.sleep(random.uniform(1.0, 1.8))
+            time.sleep(random.uniform(10.0, 13.0))
             result = _trends_query(cleaned)
             if result:
                 return result
@@ -476,22 +476,33 @@ def serper_people_also_ask(term: str) -> list[str]:
 
 
 def fetch_related_queries_weekly(term: str, gprop: str = "") -> dict[str, list[str]]:
-    """Fetch related queries for a term, past 7 days. gprop='' for web, 'youtube' for YouTube."""
+    """Fetch related queries for a term, past 7 days. gprop='' for web, 'youtube' for YouTube.
+    Retries up to 3 times with a 30-second wait on 429 rate-limit errors."""
     out: dict[str, list[str]] = {"rising": [], "top": []}
-    try:
-        _PT.build_payload([term], cat=0, timeframe="now 7-d", geo=GEO, gprop=gprop)
-        related = _PT.related_queries()
-        if not related or term not in related:
+    MAX_RETRIES = 3
+    RETRY_WAIT  = 30  # seconds
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            _PT.build_payload([term], cat=0, timeframe="now 7-d", geo=GEO, gprop=gprop)
+            related = _PT.related_queries()
+            if not related or term not in related:
+                return out
+            term_data = related[term]
+            rising_df = term_data.get("rising")
+            if rising_df is not None and not rising_df.empty and "query" in rising_df.columns:
+                out["rising"] = [str(r["query"]) for _, r in rising_df.head(10).iterrows() if r.get("query")]
+            top_df = term_data.get("top")
+            if top_df is not None and not top_df.empty and "query" in top_df.columns:
+                out["top"] = [str(r["query"]) for _, r in top_df.head(10).iterrows() if r.get("query")]
             return out
-        term_data = related[term]
-        rising_df = term_data.get("rising")
-        if rising_df is not None and not rising_df.empty and "query" in rising_df.columns:
-            out["rising"] = [str(r["query"]) for _, r in rising_df.head(10).iterrows() if r.get("query")]
-        top_df = term_data.get("top")
-        if top_df is not None and not top_df.empty and "query" in top_df.columns:
-            out["top"] = [str(r["query"]) for _, r in top_df.head(10).iterrows() if r.get("query")]
-    except Exception as e:
-        print(f"    Weekly trends error '{term}' (gprop={gprop or 'web'}): {e}")
+        except Exception as e:
+            err_str = str(e)
+            if "429" in err_str and attempt < MAX_RETRIES:
+                print(f"    429 rate limit — waiting {RETRY_WAIT}s then retrying (attempt {attempt}/{MAX_RETRIES})")
+                time.sleep(RETRY_WAIT)
+            else:
+                print(f"    Weekly trends error '{term}' (gprop={gprop or 'web'}): {e}")
+                return out
     return out
 
 
@@ -499,7 +510,10 @@ def fetch_trending_queries_uk(all_groups: list[dict]) -> dict:
     """
     Fetch UK trending + rising queries, past 7 days, web and YouTube.
     Uses the top 3 scoring terms to pull related query data via pytrends.
-    Returns {"web": {"top": [...], "rising": [...]}, "youtube": {"top": [...], "rising": [...]}}.
+    Returns {"web": {"top": [...], "rising": [...]}, "youtube": {"top": [...], "rising": [...]},
+             "fallback": bool}.
+    If the 7-day endpoint fails for all terms, falls back to trending_searches() for today's top UK
+    searches and sets "fallback": True.
     """
     all_results = [r for g in all_groups for r in g["results"]]
     top_terms   = [r["term"] for r in sorted(all_results, key=lambda r: -r["score"])[:3]]
@@ -524,7 +538,7 @@ def fetch_trending_queries_uk(all_groups: list[dict]) -> dict:
         for q in web["rising"]:
             if q not in seen_wr:
                 seen_wr.add(q); web_rising.append(q)
-        time.sleep(random.uniform(1.5, 2.5))
+        time.sleep(random.uniform(10.0, 13.0))
 
         print(f"  → Weekly YouTube trends: {term}")
         yt = fetch_related_queries_weekly(term, "youtube")
@@ -534,11 +548,30 @@ def fetch_trending_queries_uk(all_groups: list[dict]) -> dict:
         for q in yt["rising"]:
             if q not in seen_yr:
                 seen_yr.add(q); yt_rising.append(q)
-        time.sleep(random.uniform(1.5, 2.5))
+        time.sleep(random.uniform(10.0, 13.0))
+
+    # If we got any weekly data, return it normally
+    if web_top or web_rising or yt_top or yt_rising:
+        return {
+            "web":      {"top": web_top[:10],  "rising": web_rising[:10]},
+            "youtube":  {"top": yt_top[:10],   "rising": yt_rising[:10]},
+            "fallback": False,
+        }
+
+    # ── Fallback: weekly 7-day endpoint failed — use trending_searches() instead ──
+    print("  Weekly trends unavailable — falling back to today's trending searches (UK)")
+    try:
+        df = _PT.trending_searches(pn="united_kingdom")
+        today_top = df.iloc[:, 0].dropna().tolist()[:10]
+        today_top = [str(t) for t in today_top]
+    except Exception as e:
+        print(f"  Fallback trending_searches() also failed: {e}")
+        today_top = []
 
     return {
-        "web":     {"top": web_top[:10],     "rising": web_rising[:10]},
-        "youtube": {"top": yt_top[:10],      "rising": yt_rising[:10]},
+        "web":      {"top": today_top, "rising": []},
+        "youtube":  {"top": [],        "rising": []},
+        "fallback": True,
     }
 
 
@@ -570,7 +603,7 @@ def fetch_all(cached: bool = False) -> tuple[list[dict], dict]:
         for term in terms:
             print(f"  → Trends: {term}")
             ts_data[term] = pytrends_interest_over_time(term)
-            time.sleep(random.uniform(1.5, 2.5))
+            time.sleep(random.uniform(10.0, 13.0))
 
         # ── 2. Related queries (pytrends, includes breakout detection) ──
         related_data = {}
@@ -579,7 +612,7 @@ def fetch_all(cached: bool = False) -> tuple[list[dict], dict]:
             related_data[term] = pytrends_related_queries(term)
             if related_data[term].get("breakout"):
                 print(f"    🚨 BREAKOUT detected in related: {related_data[term]['breakout']}")
-            time.sleep(random.uniform(1.5, 2.5))
+            time.sleep(random.uniform(10.0, 13.0))
 
         # ── 3. PAA via Serper.dev — only for terms scoring 6+ ──
         paa_data = {}
@@ -630,7 +663,7 @@ def fetch_all(cached: bool = False) -> tuple[list[dict], dict]:
 
         all_groups.append({"label": label, "results": results})
         if g_idx < total_groups - 1:
-            pause = random.uniform(2.0, 3.5)
+            pause = random.uniform(10.0, 15.0)
             print(f"  Pausing {pause:.1f}s...")
             time.sleep(pause)
 
@@ -1030,6 +1063,7 @@ def build_trending_section(trending_data: dict) -> str:
     if not trending_data:
         return ""
 
+    is_fallback = trending_data.get("fallback", False)
     web = trending_data.get("web", {})
     yt  = trending_data.get("youtube", {})
 
@@ -1067,17 +1101,29 @@ def build_trending_section(trending_data: dict) -> str:
   </tbody>
 </table>"""
 
+    if is_fallback:
+        title    = "UK Trending Searches — Today"
+        sub      = "Showing today&#39;s trending searches — weekly data temporarily unavailable"
+        sub_note = f' &nbsp;<span style="color:var(--yellow);font-size:.75rem">({sub})</span>'
+        top_heading    = "Top Searches UK — Today"
+        rising_heading = "Rising Searches UK — Today"
+    else:
+        sub_note       = ""
+        title          = "UK Trending Searches — Past Week"
+        top_heading    = "Top Searches UK — Past Week"
+        rising_heading = "Rising Searches UK — Past Week"
+
     return f"""
 <section class="trending-section">
-  <h2 class="trending-title">UK Trending Searches — Past Week</h2>
-  <p class="trending-sub">Raw data from Google Trends via pytrends &nbsp;·&nbsp; Web &amp; YouTube &nbsp;·&nbsp; UK &nbsp;·&nbsp; Past 7 days</p>
+  <h2 class="trending-title">{title}</h2>
+  <p class="trending-sub">Raw data from Google Trends via pytrends &nbsp;·&nbsp; Web &amp; YouTube &nbsp;·&nbsp; UK &nbsp;·&nbsp; Past 7 days{sub_note}</p>
   <div class="trending-tables">
     <div class="trending-table-wrap">
-      <h3>Top Searches UK — Past Week</h3>
+      <h3>{top_heading}</h3>
       {render_table(top_rows)}
     </div>
     <div class="trending-table-wrap">
-      <h3>Rising Searches UK — Past Week</h3>
+      <h3>{rising_heading}</h3>
       {render_table(rising_rows)}
     </div>
   </div>
