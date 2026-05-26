@@ -475,16 +475,85 @@ def serper_people_also_ask(term: str) -> list[str]:
         return []
 
 
+def fetch_related_queries_weekly(term: str, gprop: str = "") -> dict[str, list[str]]:
+    """Fetch related queries for a term, past 7 days. gprop='' for web, 'youtube' for YouTube."""
+    out: dict[str, list[str]] = {"rising": [], "top": []}
+    try:
+        _PT.build_payload([term], cat=0, timeframe="now 7-d", geo=GEO, gprop=gprop)
+        related = _PT.related_queries()
+        if not related or term not in related:
+            return out
+        term_data = related[term]
+        rising_df = term_data.get("rising")
+        if rising_df is not None and not rising_df.empty and "query" in rising_df.columns:
+            out["rising"] = [str(r["query"]) for _, r in rising_df.head(10).iterrows() if r.get("query")]
+        top_df = term_data.get("top")
+        if top_df is not None and not top_df.empty and "query" in top_df.columns:
+            out["top"] = [str(r["query"]) for _, r in top_df.head(10).iterrows() if r.get("query")]
+    except Exception as e:
+        print(f"    Weekly trends error '{term}' (gprop={gprop or 'web'}): {e}")
+    return out
+
+
+def fetch_trending_queries_uk(all_groups: list[dict]) -> dict:
+    """
+    Fetch UK trending + rising queries, past 7 days, web and YouTube.
+    Uses the top 3 scoring terms to pull related query data via pytrends.
+    Returns {"web": {"top": [...], "rising": [...]}, "youtube": {"top": [...], "rising": [...]}}.
+    """
+    all_results = [r for g in all_groups for r in g["results"]]
+    top_terms   = [r["term"] for r in sorted(all_results, key=lambda r: -r["score"])[:3]]
+    if not top_terms:
+        return {}
+
+    web_top:    list[str] = []
+    web_rising: list[str] = []
+    yt_top:     list[str] = []
+    yt_rising:  list[str] = []
+    seen_wt: set[str] = set()
+    seen_wr: set[str] = set()
+    seen_yt: set[str] = set()
+    seen_yr: set[str] = set()
+
+    for term in top_terms:
+        print(f"  → Weekly web trends: {term}")
+        web = fetch_related_queries_weekly(term, "")
+        for q in web["top"]:
+            if q not in seen_wt:
+                seen_wt.add(q); web_top.append(q)
+        for q in web["rising"]:
+            if q not in seen_wr:
+                seen_wr.add(q); web_rising.append(q)
+        time.sleep(random.uniform(1.5, 2.5))
+
+        print(f"  → Weekly YouTube trends: {term}")
+        yt = fetch_related_queries_weekly(term, "youtube")
+        for q in yt["top"]:
+            if q not in seen_yt:
+                seen_yt.add(q); yt_top.append(q)
+        for q in yt["rising"]:
+            if q not in seen_yr:
+                seen_yr.add(q); yt_rising.append(q)
+        time.sleep(random.uniform(1.5, 2.5))
+
+    return {
+        "web":     {"top": web_top[:10],     "rising": web_rising[:10]},
+        "youtube": {"top": yt_top[:10],      "rising": yt_rising[:10]},
+    }
+
+
 # ── Fetch all data ────────────────────────────────────────────────────────────
 
-def fetch_all(cached: bool = False) -> list[dict]:
+def fetch_all(cached: bool = False) -> tuple[list[dict], dict]:
     """
-    Fetch or load all data. Returns list of group dicts ready for report.
+    Fetch or load all data. Returns (all_groups, trending_data) tuple.
     """
     if cached and CACHE_FILE.exists():
         print("  Loading from cache...")
         raw = json.loads(CACHE_FILE.read_text())
-        return raw
+        if isinstance(raw, list):
+            return raw, {}
+        return raw.get("groups", []), raw.get("trending", {})
 
     all_groups = []
     total_groups = len(TERM_GROUPS)
@@ -565,10 +634,13 @@ def fetch_all(cached: bool = False) -> list[dict]:
             print(f"  Pausing {pause:.1f}s...")
             time.sleep(pause)
 
+    print("\n── Trending Queries UK (past week) ──")
+    trending_data = fetch_trending_queries_uk(all_groups)
+
     # Cache results
-    CACHE_FILE.write_text(json.dumps(all_groups, indent=2))
+    CACHE_FILE.write_text(json.dumps({"groups": all_groups, "trending": trending_data}, indent=2))
     print(f"\nCached to: {CACHE_FILE}")
-    return all_groups
+    return all_groups, trending_data
 
 
 # ── SEO Keyword Export ────────────────────────────────────────────────────────
@@ -927,6 +999,91 @@ SEO_CSS = """
 """
 
 
+TRENDING_CSS = """
+  .trending-section { padding: 0 2rem 2.5rem; max-width: 1440px; margin: 0 auto; }
+  .trending-title { font-size: 1.2rem; color: var(--pink); padding-bottom: .7rem;
+                    border-bottom: 2px solid rgba(233,30,140,.25); margin-bottom: .5rem; }
+  .trending-sub { font-size: .8rem; color: var(--muted); margin-bottom: 1.4rem; }
+  .trending-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .trending-table-wrap h3 { font-size: .9rem; color: var(--text); margin-bottom: .8rem; font-weight: 600; }
+  .tq-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  .tq-table th { padding: .5rem .7rem; text-align: left; color: var(--muted);
+                 font-size: .72rem; text-transform: uppercase; letter-spacing: .05em;
+                 border-bottom: 1px solid rgba(255,255,255,.1); }
+  .tq-table td { padding: .45rem .7rem; border-bottom: 1px solid rgba(255,255,255,.04); vertical-align: middle; }
+  .tq-table tr:hover td { background: rgba(255,255,255,.03); }
+  .tq-num { color: var(--muted); font-size: .75rem; width: 28px; }
+  .tq-query { color: #fff; font-weight: 500; }
+  .tq-src { display: inline-block; font-size: .72rem; padding: .1rem .4rem;
+            border-radius: 10px; white-space: nowrap; }
+  .tq-web { background: rgba(116,185,255,.12); color: var(--blue); }
+  .tq-yt  { background: rgba(233,30,140,.12); color: var(--pink); }
+  @media (max-width: 640px) {
+    .trending-tables { grid-template-columns: 1fr; }
+    .trending-section { padding-left: 1rem; padding-right: 1rem; }
+  }
+"""
+
+
+def build_trending_section(trending_data: dict) -> str:
+    """Return an HTML string for the UK Trending Queries section."""
+    if not trending_data:
+        return ""
+
+    web = trending_data.get("web", {})
+    yt  = trending_data.get("youtube", {})
+
+    def merge_rows(web_list: list[str], yt_list: list[str]) -> list[tuple[str, str]]:
+        rows: list[tuple[str, str]] = []
+        seen: set[str] = set()
+        for q in web_list:
+            if q not in seen:
+                seen.add(q); rows.append((q, "Web"))
+        for q in yt_list:
+            if q not in seen:
+                seen.add(q); rows.append((q, "YouTube"))
+        return rows[:10]
+
+    top_rows    = merge_rows(web.get("top", []),    yt.get("top", []))
+    rising_rows = merge_rows(web.get("rising", []), yt.get("rising", []))
+    if not top_rows and not rising_rows:
+        return ""
+
+    def render_table(rows: list[tuple[str, str]]) -> str:
+        if not rows:
+            return "<p style='color:var(--muted);font-size:.8rem'>No data captured this run.</p>"
+        trs = ""
+        for i, (query, src) in enumerate(rows, 1):
+            src_cls = "tq-web" if src == "Web" else "tq-yt"
+            trs += f"""
+<tr>
+  <td class="tq-num">{i}</td>
+  <td class="tq-query">{query}</td>
+  <td><span class="tq-src {src_cls}">{src}</span></td>
+</tr>"""
+        return f"""<table class="tq-table">
+  <thead><tr><th>#</th><th>Query</th><th>Source</th></tr></thead>
+  <tbody>{trs}
+  </tbody>
+</table>"""
+
+    return f"""
+<section class="trending-section">
+  <h2 class="trending-title">UK Trending Searches — Past Week</h2>
+  <p class="trending-sub">Raw data from Google Trends via pytrends &nbsp;·&nbsp; Web &amp; YouTube &nbsp;·&nbsp; UK &nbsp;·&nbsp; Past 7 days</p>
+  <div class="trending-tables">
+    <div class="trending-table-wrap">
+      <h3>Top Searches UK — Past Week</h3>
+      {render_table(top_rows)}
+    </div>
+    <div class="trending-table-wrap">
+      <h3>Rising Searches UK — Past Week</h3>
+      {render_table(rising_rows)}
+    </div>
+  </div>
+</section>"""
+
+
 # ── HTML Report ───────────────────────────────────────────────────────────────
 
 HTML_TEMPLATE = """<!DOCTYPE html>
@@ -1041,6 +1198,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
           border-radius: 4px; font-family: monospace; font-size: .85em; }}
 
   {seo_css}
+  {trending_css}
   @media (max-width: 640px) {{
     header h1 {{ font-size: 1.4rem; }}
     .cards {{ grid-template-columns: 1fr; }}
@@ -1083,6 +1241,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 {bestseller_section}
 
 <main>
+{trending_section}
 {groups_html}
 </main>
 
@@ -1167,7 +1326,7 @@ def render_card(r: dict) -> str:
 </div>"""
 
 
-def build_report(all_groups: list[dict]) -> None:
+def build_report(all_groups: list[dict], trending_data: dict | None = None) -> None:
     all_results  = [r for g in all_groups for r in g["results"]]
     total        = len(all_results)
     hot          = sum(1 for r in all_results if r["score"] >= 8)
@@ -1188,11 +1347,13 @@ def build_report(all_groups: list[dict]) -> None:
         cards = "".join(render_card(r) for r in sorted(g["results"], key=lambda x: -x["score"]))
         groups_html += f'<div class="group"><h2>{g["label"]}</h2><div class="cards">{cards}</div></div>\n'
 
-    seo_section        = build_seo_section(all_groups)
-    breakout_section   = build_breakout_section(all_groups)
-    gaps_section       = build_gaps_section(all_groups)
-    bestseller_section = build_bestseller_demand_section(all_groups)
-    seo_css_clean      = SEO_CSS.strip()
+    seo_section           = build_seo_section(all_groups)
+    breakout_section      = build_breakout_section(all_groups)
+    gaps_section          = build_gaps_section(all_groups)
+    bestseller_section    = build_bestseller_demand_section(all_groups)
+    seo_css_clean         = SEO_CSS.strip()
+    trending_section_html = build_trending_section(trending_data or {})
+    trending_css_clean    = TRENDING_CSS.strip()
 
     date_str = datetime.now().strftime("%d %B %Y, %H:%M")
     html = HTML_TEMPLATE.format(
@@ -1203,6 +1364,8 @@ def build_report(all_groups: list[dict]) -> None:
         breakout_section=breakout_section,
         gaps_section=gaps_section,
         bestseller_section=bestseller_section,
+        trending_section=trending_section_html,
+        trending_css=trending_css_clean,
     )
     REPORT_FILE.write_text(html, encoding="utf-8")
     print(f"Report → {REPORT_FILE}")
@@ -1221,8 +1384,8 @@ if __name__ == "__main__":
         print(f"Groups: {len(TERM_GROUPS)}  ·  Terms: {total_terms}")
         print(f"pytrends calls: ~{total_terms * 2} (interest + related per term) · PAA: Serper.dev (score≥6 only)\n")
 
-    all_groups = fetch_all(cached=cached)
-    build_report(all_groups)
+    all_groups, trending_data = fetch_all(cached=cached)
+    build_report(all_groups, trending_data)
 
     all_results = [r for g in all_groups for r in g["results"]]
     hot    = sorted([r for r in all_results if r["score"] >= 8], key=lambda x: -x["score"])

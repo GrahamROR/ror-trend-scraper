@@ -58,6 +58,52 @@ BLOG/SEO RULES:
 """.strip()
 
 
+WRITING_RULES = """
+WRITING RULES — apply to every piece of content without exception:
+
+PUNCTUATION:
+Never use em dashes (—) or en dashes (–). Use a comma, full stop, or rewrite the sentence instead.
+No ellipsis for dramatic effect (...). Only where a trailing thought genuinely needs it, and even then sparingly.
+No semicolons.
+Exclamation marks: maximum one per piece of content. Earned, not scattered.
+No brackets for asides. Rewrite as a natural part of the sentence.
+
+SENTENCE STRUCTURE:
+Vary sentence length constantly. Short sentences land harder. Longer ones give context and rhythm and feel more like someone actually talking.
+Never start three consecutive sentences with the same word.
+Avoid starting sentences with 'It is', 'There are', 'This is'. These are filler openings that add nothing.
+No rhetorical questions as filler (e.g. 'Sound familiar?', 'Want to know more?'). Only use a question if it genuinely adds something.
+Contractions always. It's not 'it is'. It's not 'you are'. Write how people actually speak.
+
+WORD CHOICE:
+Never use: elevated, curated, intentional, journey, seamless, effortless, nestled, delve, game-changer, leverage, cutting-edge, innovative, perfect, simply, just, very, really, amazing, incredible, stunning, beautiful, ensure.
+Never use corporate filler: 'at the end of the day', 'in terms of', 'moving forward', 'it goes without saying', 'needless to say'.
+Never use ChatGPT giveaway phrases: 'in a world where', 'picture this', 'imagine a', "it's no secret that", 'the truth is', "let's be honest", 'look no further'.
+Use the word a normal person would use in conversation, not the fancier version.
+
+STRUCTURE:
+No bullet points in blog copy or captions. Work information into natural sentences instead.
+No bold text for emphasis mid-paragraph.
+Paragraphs: maximum 3 sentences for captions and emails, 4 for blogs.
+Never summarise what you just said at the end of a section. Say it once, say it well, move on.
+
+TONE:
+Write like Holly is WhatsApping her mate, not presenting to a boardroom.
+Self-deprecating is good. Overly earnest is not.
+If a joke does not land naturally, cut it. Forced humour reads as AI immediately.
+UK spelling always: personalised, colour, favourite.
+Read every sentence back as if saying it out loud. If it sounds like something a human would never actually say, rewrite it.
+
+FINAL CHECK — before outputting any content, scan for:
+Any em dash or en dash: replace immediately.
+Any banned word from the list above: replace immediately.
+Any sentence starting with a filler opening (It is / There are / This is): rewrite immediately.
+Any bullet point in blog or caption copy: convert to prose immediately.
+Any exclamation mark beyond the first in a piece: remove immediately.
+If the content could have been written by ChatGPT, rewrite it until it could not.
+""".strip()
+
+
 # ── History tracking ──────────────────────────────────────────────────────────
 
 def load_history() -> dict:
@@ -152,7 +198,8 @@ def pick_seo_terms(all_groups: list[dict], history: dict, cap: int = 10) -> list
 # ── Prompt builder ────────────────────────────────────────────────────────────
 
 def build_prompt(layer_terms: dict[int, list[dict]], seo_terms: list[dict], all_groups: list[dict],
-                 catalogue: dict | None = None, instagram: dict | None = None) -> str:
+                 catalogue: dict | None = None, instagram: dict | None = None,
+                 trending_data: dict | None = None) -> str:
     today = datetime.now().strftime("%d %B %Y")
 
     # Flatten all selected terms for context
@@ -366,6 +413,34 @@ Trending on our account right now: {trending_own}
 What is NOT working: {not_working}
 """
 
+    # Build the trending queries block
+    if trending_data:
+        web = trending_data.get("web", {})
+        yt  = trending_data.get("youtube", {})
+        web_top    = ", ".join(web.get("top", [])) or "none captured"
+        web_rising = ", ".join(web.get("rising", [])) or "none captured"
+        yt_top     = ", ".join(yt.get("top", [])) or "none captured"
+        yt_rising  = ", ".join(yt.get("rising", [])) or "none captured"
+        trending_block = f"""
+UK TRENDING QUERIES — PAST 7 DAYS (raw from Google Trends, UK):
+Web — Top Searches:    {web_top}
+Web — Rising Searches: {web_rising}
+YouTube — Top:         {yt_top}
+YouTube — Rising:      {yt_rising}"""
+    else:
+        trending_block = "\nUK TRENDING QUERIES — PAST 7 DAYS: not available this run."
+
+    opportunity_section = f"""
+## WEEKLY OPPORTUNITY NOTES
+
+Scan the UK Trending Queries above. For each query where a connection to an ROR product exists (however loose — topic, occasion, culture, humour angle), write one line for Bethan.
+Format: [trending query] is trending — [specific, concrete suggestion tied to an ROR product or content angle].
+Examples: "World Cup is trending — consider year tops in football colours this week"
+          "Great British Bake Off is trending — push the biscuit range on Stories this week"
+Only write a note where a real connection exists. Do not force it.
+Output as a numbered list. If no connections exist, write: No strong trending connections this week.
+"""
+
     return f"""
 {BRAND_CONTEXT}
 {catalogue_ctx}
@@ -375,10 +450,12 @@ TODAY'S DATE: {today}
 
 TOP TRENDING TERMS THIS RUN:
 {chr(10).join(term_lines)}
+{trending_block}
 
 ---
 Generate the following content for Rock On Ruby. Return EXACTLY the sections below,
 each starting with the exact markdown heading shown. No preamble, no commentary after.
+{opportunity_section}
 {blog_sections}
 {social_section}
 {email_section}
@@ -390,7 +467,7 @@ each starting with the exact markdown heading shown. No preamble, no commentary 
 
 # ── Main generator ────────────────────────────────────────────────────────────
 
-def generate_content(all_groups: list[dict] | None = None) -> bool:
+def generate_content(all_groups: list[dict] | None = None, trending_data: dict | None = None) -> bool:
     api_key = os.environ.get("ANTHROPIC_API_KEY", "")
     if not api_key:
         print("\nANTHROPIC_API_KEY not set — skipping content generation.")
@@ -401,7 +478,12 @@ def generate_content(all_groups: list[dict] | None = None) -> bool:
         if not CACHE_FILE.exists():
             print("\ntrend_cache.json not found — run scraper first.")
             return False
-        all_groups = json.loads(CACHE_FILE.read_text())
+        raw = json.loads(CACHE_FILE.read_text())
+        if isinstance(raw, dict) and "groups" in raw:
+            all_groups    = raw["groups"]
+            trending_data = raw.get("trending", {})
+        else:
+            all_groups = raw
 
     history   = load_history()
     catalogue = {}
@@ -419,7 +501,7 @@ def generate_content(all_groups: list[dict] | None = None) -> bool:
 
     layer_terms = pick_terms_by_layer(all_groups, history)
     seo_terms   = pick_seo_terms(all_groups, history)
-    prompt      = build_prompt(layer_terms, seo_terms, all_groups, catalogue, instagram)
+    prompt      = build_prompt(layer_terms, seo_terms, all_groups, catalogue, instagram, trending_data)
 
     print("\n-- Content Generation (Claude API) --")
     all_selected = [r for terms in layer_terms.values() for r in terms]
@@ -435,7 +517,8 @@ def generate_content(all_groups: list[dict] | None = None) -> bool:
             system=(
                 "You are a copywriter for Rock On Ruby, a print-on-demand personalised clothing brand "
                 "based in Bury, Manchester. You write in Holly's voice — warm, funny, straight-talking, "
-                "never corporate. Follow the brand guide exactly."
+                "never corporate. Follow the brand guide exactly.\n\n"
+                f"{WRITING_RULES}"
             ),
             messages=[{"role": "user", "content": prompt}],
         )
