@@ -29,9 +29,11 @@ CACHE_FILE   = OUTPUT_DIR / "trend_cache.json"
 FOCUS_FILE   = OUTPUT_DIR / "ror_focus.json"
 LAYER4_CACHE = OUTPUT_DIR / "layer4_expanded.json"
 
-GEO            = "GB"
-TIMEFRAME      = "today 3-m"
-CATALOGUE_FILE = OUTPUT_DIR / "shopify_catalogue.json"
+GEO              = "GB"
+TIMEFRAME        = "today 3-m"
+CATALOGUE_FILE   = OUTPUT_DIR / "shopify_catalogue.json"
+TIMEOUT_SECONDS  = 480   # 8-minute hard cap — save & report with whatever was collected
+RATE_LIMIT_WAIT  = 15    # seconds to pause after a 429 before retrying
 
 _PT        = TrendReq(hl="en-GB", tz=0, retries=3, backoff_factor=0.5)
 _CATALOGUE: dict = {}
@@ -375,12 +377,22 @@ def score_term(avg: int, trend: str, term: str) -> int:
 # ── Trends + PAA data fetches ─────────────────────────────────────────────────
 
 def _trends_query(q: str) -> dict:
-    """Single pytrends interest-over-time call. Returns parsed dict or {}."""
+    """Single pytrends interest-over-time call. Returns parsed dict or {}.
+    Retries once after RATE_LIMIT_WAIT seconds if a 429 is returned."""
     try:
         _PT.build_payload([q], cat=0, timeframe=TIMEFRAME, geo=GEO)
         df = _PT.interest_over_time()
-    except Exception:
-        return {}
+    except Exception as e:
+        if "429" in str(e):
+            print(f"    429 — waiting {RATE_LIMIT_WAIT}s before retry")
+            time.sleep(RATE_LIMIT_WAIT)
+            try:
+                _PT.build_payload([q], cat=0, timeframe=TIMEFRAME, geo=GEO)
+                df = _PT.interest_over_time()
+            except Exception:
+                return {}
+        else:
+            return {}
     if df is None or df.empty or q not in df.columns:
         return {}
     values = [int(v) for v in df[q].tolist() if isinstance(v, (int, float))]
@@ -411,7 +423,7 @@ def pytrends_interest_over_time(term: str) -> dict:
                 cleaned = cleaned[: -len(suffix)].strip()
                 break
         if cleaned != term:
-            time.sleep(random.uniform(10.0, 13.0))
+            time.sleep(random.uniform(1.5, 2.5))
             result = _trends_query(cleaned)
             if result:
                 return result
@@ -426,32 +438,48 @@ def pytrends_related_queries(term: str) -> dict[str, list[str]]:
     Rising + top + breakout related queries via pytrends.
     Breakout = Google marks the rising value as 'Breakout' (>5000% increase).
     Returns {"rising": [...], "top": [...], "breakout": [...]}.
+    Retries once after RATE_LIMIT_WAIT seconds on a 429.
     """
     out = {"rising": [], "top": [], "breakout": []}
-    try:
+
+    def _do_call():
         _PT.build_payload([term], cat=0, timeframe=TIMEFRAME, geo=GEO)
-        related   = _PT.related_queries()
-        if not related or term not in related:
-            return out
-        term_data = related[term]
+        return _PT.related_queries()
 
-        rising_df = term_data.get("rising")
-        if rising_df is not None and not rising_df.empty and "query" in rising_df.columns:
-            for _, row in rising_df.head(6).iterrows():
-                q = str(row.get("query", ""))
-                v = row.get("value", 0)
-                if not q:
-                    continue
-                if str(v).lower() == "breakout" or (isinstance(v, (int, float)) and v >= 5000):
-                    out["breakout"].append(q)
-                else:
-                    out["rising"].append(q)
-
-        top_df = term_data.get("top")
-        if top_df is not None and not top_df.empty and "query" in top_df.columns:
-            out["top"] = [str(r["query"]) for _, r in top_df.head(6).iterrows() if r.get("query")]
+    try:
+        related = _do_call()
     except Exception as e:
-        print(f"    Related queries error for '{term}': {e}")
+        if "429" in str(e):
+            print(f"    429 — waiting {RATE_LIMIT_WAIT}s before retry")
+            time.sleep(RATE_LIMIT_WAIT)
+            try:
+                related = _do_call()
+            except Exception as e2:
+                print(f"    Related queries error for '{term}': {e2}")
+                return out
+        else:
+            print(f"    Related queries error for '{term}': {e}")
+            return out
+
+    if not related or term not in related:
+        return out
+    term_data = related[term]
+
+    rising_df = term_data.get("rising")
+    if rising_df is not None and not rising_df.empty and "query" in rising_df.columns:
+        for _, row in rising_df.head(6).iterrows():
+            q = str(row.get("query", ""))
+            v = row.get("value", 0)
+            if not q:
+                continue
+            if str(v).lower() == "breakout" or (isinstance(v, (int, float)) and v >= 5000):
+                out["breakout"].append(q)
+            else:
+                out["rising"].append(q)
+
+    top_df = term_data.get("top")
+    if top_df is not None and not top_df.empty and "query" in top_df.columns:
+        out["top"] = [str(r["query"]) for _, r in top_df.head(6).iterrows() if r.get("query")]
     return out
 
 
@@ -477,10 +505,9 @@ def serper_people_also_ask(term: str) -> list[str]:
 
 def fetch_related_queries_weekly(term: str, gprop: str = "") -> dict[str, list[str]]:
     """Fetch related queries for a term, past 7 days. gprop='' for web, 'youtube' for YouTube.
-    Retries up to 3 times with a 30-second wait on 429 rate-limit errors."""
+    Retries up to 3 times with a 15-second wait on 429 rate-limit errors."""
     out: dict[str, list[str]] = {"rising": [], "top": []}
     MAX_RETRIES = 3
-    RETRY_WAIT  = 30  # seconds
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             _PT.build_payload([term], cat=0, timeframe="now 7-d", geo=GEO, gprop=gprop)
@@ -496,49 +523,73 @@ def fetch_related_queries_weekly(term: str, gprop: str = "") -> dict[str, list[s
                 out["top"] = [str(r["query"]) for _, r in top_df.head(10).iterrows() if r.get("query")]
             return out
         except Exception as e:
-            err_str = str(e)
-            if "429" in err_str and attempt < MAX_RETRIES:
-                print(f"    429 rate limit — waiting {RETRY_WAIT}s then retrying (attempt {attempt}/{MAX_RETRIES})")
-                time.sleep(RETRY_WAIT)
+            if "429" in str(e) and attempt < MAX_RETRIES:
+                print(f"    429 rate limit — waiting {RATE_LIMIT_WAIT}s then retrying (attempt {attempt}/{MAX_RETRIES})")
+                time.sleep(RATE_LIMIT_WAIT)
             else:
                 print(f"    Weekly trends error '{term}' (gprop={gprop or 'web'}): {e}")
                 return out
     return out
 
 
-def fetch_trending_queries_uk(all_groups: list[dict]) -> dict:
+def fetch_trending_queries_uk(all_groups: list[dict], run_start: float | None = None) -> dict:
     """
-    Fetch UK trending + rising queries, past 7 days, web and YouTube.
-    Uses the top 3 scoring terms to pull related query data via pytrends.
-    Returns {"web": {"top": [...], "rising": [...]}, "youtube": {"top": [...], "rising": [...]},
-             "fallback": bool}.
-    If the 7-day endpoint fails for all terms, falls back to trending_searches() for today's top UK
-    searches and sets "fallback": True.
+    Fetch UK trending data for the dashboard.
+
+    Primary (always): trending_searches() — today's top UK topics, fast and rate-limit-free.
+    Secondary (if time allows): weekly related queries for the top 3 scoring terms.
+
+    Returns {
+        "web":     {"top": [...today's trending...], "rising": [...weekly rising if available...]},
+        "youtube": {"top": [...], "rising": [...]},
+        "weekly_ok": bool,   # True when weekly queries were also fetched
+    }
     """
+    # ── Primary: today's trending searches — always fast ──────────────────────
+    today_top: list[str] = []
+    try:
+        df = _PT.trending_searches(pn="united_kingdom")
+        today_top = [str(t) for t in df.iloc[:, 0].dropna().tolist()[:10]]
+        print(f"  Today's trending: {len(today_top)} topics fetched")
+    except Exception as e:
+        print(f"  trending_searches() failed: {e}")
+
+    # ── Secondary: weekly related queries (only if enough time remains) ───────
+    elapsed = time.monotonic() - run_start if run_start is not None else TIMEOUT_SECONDS
+    time_left = TIMEOUT_SECONDS - elapsed
+    # Need at least 90s to make the weekly calls worthwhile
+    if time_left < 90:
+        print(f"  Skipping weekly queries — only {time_left:.0f}s remaining")
+        return {
+            "web":      {"top": today_top, "rising": []},
+            "youtube":  {"top": [],        "rising": []},
+            "weekly_ok": False,
+        }
+
     all_results = [r for g in all_groups for r in g["results"]]
     top_terms   = [r["term"] for r in sorted(all_results, key=lambda r: -r["score"])[:3]]
-    if not top_terms:
-        return {}
 
-    web_top:    list[str] = []
     web_rising: list[str] = []
     yt_top:     list[str] = []
     yt_rising:  list[str] = []
-    seen_wt: set[str] = set()
     seen_wr: set[str] = set()
     seen_yt: set[str] = set()
     seen_yr: set[str] = set()
 
     for term in top_terms:
+        if time.monotonic() - run_start > TIMEOUT_SECONDS - 10:
+            print(f"  Timeout — stopping weekly queries early")
+            break
+
         print(f"  → Weekly web trends: {term}")
         web = fetch_related_queries_weekly(term, "")
-        for q in web["top"]:
-            if q not in seen_wt:
-                seen_wt.add(q); web_top.append(q)
         for q in web["rising"]:
             if q not in seen_wr:
                 seen_wr.add(q); web_rising.append(q)
-        time.sleep(random.uniform(10.0, 13.0))
+        time.sleep(random.uniform(1.5, 2.5))
+
+        if time.monotonic() - run_start > TIMEOUT_SECONDS - 10:
+            break
 
         print(f"  → Weekly YouTube trends: {term}")
         yt = fetch_related_queries_weekly(term, "youtube")
@@ -548,30 +599,12 @@ def fetch_trending_queries_uk(all_groups: list[dict]) -> dict:
         for q in yt["rising"]:
             if q not in seen_yr:
                 seen_yr.add(q); yt_rising.append(q)
-        time.sleep(random.uniform(10.0, 13.0))
-
-    # If we got any weekly data, return it normally
-    if web_top or web_rising or yt_top or yt_rising:
-        return {
-            "web":      {"top": web_top[:10],  "rising": web_rising[:10]},
-            "youtube":  {"top": yt_top[:10],   "rising": yt_rising[:10]},
-            "fallback": False,
-        }
-
-    # ── Fallback: weekly 7-day endpoint failed — use trending_searches() instead ──
-    print("  Weekly trends unavailable — falling back to today's trending searches (UK)")
-    try:
-        df = _PT.trending_searches(pn="united_kingdom")
-        today_top = df.iloc[:, 0].dropna().tolist()[:10]
-        today_top = [str(t) for t in today_top]
-    except Exception as e:
-        print(f"  Fallback trending_searches() also failed: {e}")
-        today_top = []
+        time.sleep(random.uniform(1.5, 2.5))
 
     return {
-        "web":      {"top": today_top, "rising": []},
-        "youtube":  {"top": [],        "rising": []},
-        "fallback": True,
+        "web":      {"top": today_top,          "rising": web_rising[:10]},
+        "youtube":  {"top": yt_top[:10],        "rising": yt_rising[:10]},
+        "weekly_ok": bool(web_rising or yt_top or yt_rising),
     }
 
 
@@ -580,6 +613,7 @@ def fetch_trending_queries_uk(all_groups: list[dict]) -> dict:
 def fetch_all(cached: bool = False) -> tuple[list[dict], dict]:
     """
     Fetch or load all data. Returns (all_groups, trending_data) tuple.
+    Hard cap of TIMEOUT_SECONDS — saves whatever has been collected and exits.
     """
     if cached and CACHE_FILE.exists():
         print("  Loading from cache...")
@@ -588,31 +622,52 @@ def fetch_all(cached: bool = False) -> tuple[list[dict], dict]:
             return raw, {}
         return raw.get("groups", []), raw.get("trending", {})
 
-    all_groups = []
+    run_start    = time.monotonic()
+    all_groups   = []
     total_groups = len(TERM_GROUPS)
+    timed_out    = False
+
+    def _elapsed() -> float:
+        return time.monotonic() - run_start
+
+    def _time_ok(reserve: float = 0) -> bool:
+        return _elapsed() < TIMEOUT_SECONDS - reserve
 
     for g_idx, group in enumerate(TERM_GROUPS):
+        if not _time_ok(reserve=30):
+            print(f"\n⏱ {TIMEOUT_SECONDS//60}-min timeout reached — stopping after {g_idx}/{total_groups} groups")
+            timed_out = True
+            break
+
         label     = group["label"]
         term_list = [(t[0], t[1], t[2]) for t in group["terms"]]
         terms     = [t[0] for t in term_list]
 
-        print(f"\n[{g_idx+1}/{total_groups}] {label}")
+        print(f"\n[{g_idx+1}/{total_groups}] {label}  (elapsed {_elapsed():.0f}s)")
 
         # ── 1. Trends timeseries (pytrends, 1 call per term) ──
         ts_data = {}
         for term in terms:
+            if not _time_ok(reserve=60):
+                print(f"  ⏱ Timeout — skipping remaining timeseries calls")
+                timed_out = True
+                break
             print(f"  → Trends: {term}")
             ts_data[term] = pytrends_interest_over_time(term)
-            time.sleep(random.uniform(10.0, 13.0))
+            time.sleep(random.uniform(1.5, 2.5))
 
         # ── 2. Related queries (pytrends, includes breakout detection) ──
         related_data = {}
         for term in terms:
+            if not _time_ok(reserve=60):
+                print(f"  ⏱ Timeout — skipping remaining related-query calls")
+                timed_out = True
+                break
             print(f"  → Related queries: {term}")
             related_data[term] = pytrends_related_queries(term)
             if related_data[term].get("breakout"):
                 print(f"    🚨 BREAKOUT detected in related: {related_data[term]['breakout']}")
-            time.sleep(random.uniform(10.0, 13.0))
+            time.sleep(random.uniform(1.5, 2.5))
 
         # ── 3. PAA via Serper.dev — only for terms scoring 6+ ──
         paa_data = {}
@@ -629,10 +684,10 @@ def fetch_all(cached: bool = False) -> tuple[list[dict], dict]:
         # ── Build result dicts ──
         results = []
         for term, seed_avg, seed_trend in term_list:
-            live   = ts_data.get(term, {})
-            avg    = live.get("avg", seed_avg)
-            peak   = live.get("peak", 0)
-            trend  = live.get("trend", seed_trend)
+            live    = ts_data.get(term, {})
+            avg     = live.get("avg", seed_avg)
+            peak    = live.get("peak", 0)
+            trend   = live.get("trend", seed_trend)
             is_live = bool(live)
 
             rising_q   = related_data.get(term, {}).get("rising", [])
@@ -662,17 +717,22 @@ def fetch_all(cached: bool = False) -> tuple[list[dict], dict]:
             })
 
         all_groups.append({"label": label, "results": results})
-        if g_idx < total_groups - 1:
-            pause = random.uniform(10.0, 15.0)
+
+        if timed_out:
+            break
+
+        if g_idx < total_groups - 1 and _time_ok(reserve=30):
+            pause = random.uniform(2.0, 3.5)
             print(f"  Pausing {pause:.1f}s...")
             time.sleep(pause)
 
-    print("\n── Trending Queries UK (past week) ──")
-    trending_data = fetch_trending_queries_uk(all_groups)
+    print(f"\n── Trending Queries UK  (elapsed {_elapsed():.0f}s) ──")
+    trending_data = fetch_trending_queries_uk(all_groups, run_start=run_start)
 
     # Cache results
     CACHE_FILE.write_text(json.dumps({"groups": all_groups, "trending": trending_data}, indent=2))
-    print(f"\nCached to: {CACHE_FILE}")
+    total_elapsed = _elapsed()
+    print(f"\nCached to: {CACHE_FILE}  ({total_elapsed:.0f}s total)")
     return all_groups, trending_data
 
 
@@ -1063,11 +1123,13 @@ def build_trending_section(trending_data: dict) -> str:
     if not trending_data:
         return ""
 
-    is_fallback = trending_data.get("fallback", False)
+    weekly_ok = trending_data.get("weekly_ok", False)
     web = trending_data.get("web", {})
     yt  = trending_data.get("youtube", {})
 
-    def merge_rows(web_list: list[str], yt_list: list[str]) -> list[tuple[str, str]]:
+    today_rows: list[tuple[str, str]] = [(q, "Web") for q in web.get("top", [])]
+
+    def merge_weekly(web_list: list[str], yt_list: list[str]) -> list[tuple[str, str]]:
         rows: list[tuple[str, str]] = []
         seen: set[str] = set()
         for q in web_list:
@@ -1078,14 +1140,14 @@ def build_trending_section(trending_data: dict) -> str:
                 seen.add(q); rows.append((q, "YouTube"))
         return rows[:10]
 
-    top_rows    = merge_rows(web.get("top", []),    yt.get("top", []))
-    rising_rows = merge_rows(web.get("rising", []), yt.get("rising", []))
-    if not top_rows and not rising_rows:
+    weekly_rows = merge_weekly(web.get("rising", []), yt.get("rising", []) + yt.get("top", []))
+
+    if not today_rows and not weekly_rows:
         return ""
 
-    def render_table(rows: list[tuple[str, str]]) -> str:
+    def render_table(rows: list[tuple[str, str]], empty_msg: str = "No data captured this run.") -> str:
         if not rows:
-            return "<p style='color:var(--muted);font-size:.8rem'>No data captured this run.</p>"
+            return f"<p style='color:var(--muted);font-size:.8rem'>{empty_msg}</p>"
         trs = ""
         for i, (query, src) in enumerate(rows, 1):
             src_cls = "tq-web" if src == "Web" else "tq-yt"
@@ -1101,30 +1163,21 @@ def build_trending_section(trending_data: dict) -> str:
   </tbody>
 </table>"""
 
-    if is_fallback:
-        title    = "UK Trending Searches — Today"
-        sub      = "Showing today&#39;s trending searches — weekly data temporarily unavailable"
-        sub_note = f' &nbsp;<span style="color:var(--yellow);font-size:.75rem">({sub})</span>'
-        top_heading    = "Top Searches UK — Today"
-        rising_heading = "Rising Searches UK — Today"
-    else:
-        sub_note       = ""
-        title          = "UK Trending Searches — Past Week"
-        top_heading    = "Top Searches UK — Past Week"
-        rising_heading = "Rising Searches UK — Past Week"
+    weekly_note = "" if weekly_ok else \
+        ' &nbsp;<span style="color:var(--yellow);font-size:.75rem">(Showing today\'s trending searches — weekly data temporarily unavailable)</span>'
 
     return f"""
 <section class="trending-section">
-  <h2 class="trending-title">{title}</h2>
-  <p class="trending-sub">Raw data from Google Trends via pytrends &nbsp;·&nbsp; Web &amp; YouTube &nbsp;·&nbsp; UK &nbsp;·&nbsp; Past 7 days{sub_note}</p>
+  <h2 class="trending-title">UK Trending Searches</h2>
+  <p class="trending-sub">Google Trends via pytrends &nbsp;·&nbsp; UK &nbsp;·&nbsp; Today&#39;s top topics + weekly rising queries{weekly_note}</p>
   <div class="trending-tables">
     <div class="trending-table-wrap">
-      <h3>{top_heading}</h3>
-      {render_table(top_rows)}
+      <h3>Trending in the UK — Today</h3>
+      {render_table(today_rows)}
     </div>
     <div class="trending-table-wrap">
-      <h3>{rising_heading}</h3>
-      {render_table(rising_rows)}
+      <h3>Weekly Rising Searches</h3>
+      {render_table(weekly_rows, "Weekly data not fetched this run — today&#39;s trending shown left.")}
     </div>
   </div>
 </section>"""
