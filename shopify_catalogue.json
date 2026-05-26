@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-05-25T11:14:02.923092+00:00",
+  "synced_at": "2026-05-26T14:43:17.637255+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -867,7 +867,7 @@
         "Personalised Accessories",
         "Personalised Caps"
       ],
-      "price": 24.0
+      "price": 19.0
     },
     {
       "title": "Children's Personalised College Initial Sweatshirt",
@@ -1222,6 +1222,7 @@
       "url": "rockonruby.co.uk/products/custard-cream-connoisseur-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "DTF",
         "Gifts For Mum",
@@ -2254,7 +2255,6 @@
       "url": "rockonruby.co.uk/products/embroidered-yes-i-like-pina-coladas-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "Collections",
         "Embroidered",
@@ -2425,7 +2425,6 @@
       "url": "rockonruby.co.uk/products/happy-hour-slogan-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Christmas T Shirt",
         "Christmas Tops",
         "Clothing",
@@ -2745,7 +2744,6 @@
       "url": "rockonruby.co.uk/products/jadore-parties-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "DTF",
         "Gifts Under \u00a330",
         "Slogan T-shirts",
@@ -3323,6 +3321,7 @@
       "url": "rockonruby.co.uk/products/my-other-job-is-a-dallas-cowboys-cheerleader-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "DTF",
         "New in",
@@ -3840,7 +3839,7 @@
         "Personalised Accessories",
         "Personalised Caps"
       ],
-      "price": 36.0
+      "price": 42.0
     },
     {
       "title": "Personalised 'Only Here For...' Cap",
@@ -4667,6 +4666,7 @@
       "url": "rockonruby.co.uk/products/personalised-legend-year-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "DTF",
         "Gifts for Dad",
         "Gifts For Him",
@@ -6200,6 +6200,7 @@
       "url": "rockonruby.co.uk/products/tea-please-sweatshirt-ror",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "Debenhams_Women",
         "DTF",
@@ -6712,14 +6713,14 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 425,
-      "revenue": 15015.0
+      "orders": 420,
+      "revenue": 14840.0
     },
     {
       "title": "Personalised Year Unisex T-shirt",
       "handle": "",
-      "orders": 91,
-      "revenue": 2444.0
+      "orders": 93,
+      "revenue": 2496.0
     },
     {
       "title": "Personalised Varsity Year Leopard Print Tote Bag",
@@ -6730,14 +6731,14 @@
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 42,
-      "revenue": 1032.0
+      "orders": 44,
+      "revenue": 1080.0
     },
     {
       "title": "Personalisation on the back of the neck (+\u00a34.95)",
       "handle": "",
-      "orders": 142,
-      "revenue": 702.9
+      "orders": 144,
+      "revenue": 712.8
     },
     {
       "title": "Happy Hour Slogan Sweatshirt",
@@ -6764,22 +6765,16 @@
       "revenue": 532.0
     },
     {
-      "title": "Embroidered Personalised Cuff Sweatshirt",
-      "handle": "",
-      "orders": 11,
-      "revenue": 520.0
-    },
-    {
       "title": "Tea Please Sweatshirt",
       "handle": "",
       "orders": 14,
       "revenue": 490.0
     },
     {
-      "title": "Men's Personalised Year Sweatshirt",
+      "title": "Embroidered Personalised Cuff Sweatshirt",
       "handle": "",
-      "orders": 14,
-      "revenue": 490.0
+      "orders": 10,
+      "revenue": 480.0
     },
     {
       "title": "Personalised Varsity Year Leopard print Makeup Bag",
@@ -6791,6 +6786,12 @@
       "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
       "handle": "",
       "orders": 12,
+      "revenue": 455.0
+    },
+    {
+      "title": "Men's Personalised Year Sweatshirt",
+      "handle": "",
+      "orders": 13,
       "revenue": 455.0
     },
     {
@@ -6812,6 +6813,12 @@
       "revenue": 364.0
     },
     {
+      "title": "Rock On Ruby Branded Tote Bag",
+      "handle": "",
+      "orders": 22,
+      "revenue": 352.37
+    },
+    {
       "title": "Note To Self Sleeve Sweatshirt",
       "handle": "",
       "orders": 9,
@@ -6822,12 +6829,6 @@
       "handle": "",
       "orders": 9,
       "revenue": 342.0
-    },
-    {
-      "title": "Custard Cream Connoisseur T-Shirt",
-      "handle": "",
-      "orders": 13,
-      "revenue": 338.0
     }
   ]
 }
