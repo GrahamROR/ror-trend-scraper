@@ -1,278 +1,252 @@
 # Rock On Ruby — Content Drafts
-Generated: 25 May 2026, 11:10
+Generated: 27 May 2026, 10:56
 Run `python3 content_generator.py` to regenerate with cached trend data.
 
 ---
 
 > **Layer 4 (bestsellers) terms this run:** none
-> **Top terms this run:** birthday hoodie uk, leopard print fashion uk
-> **SEO content pieces:** 0
+> **Top terms this run:** fathers day gifts uk, personalised 40th birthday sweatshirt
+> **SEO content pieces:** 5
+
+---
+
+## WEEKLY OPPORTUNITY NOTES
+
+No strong trending connections this week.
 
 ---
 
 ## BLOG POST 1
 
-# The Best Birthday Hoodie in the UK (That Actually Means Something)
+# Father's Day Gifts in the UK That He'll Actually Want to Keep
 
-It started with a group chat.
+Every year, around this time, the same panic sets in. Father's Day is coming, the high street is full of the same sad selection of novelty socks and "World's Best Dad" mugs, and you're stood in a shop aisle genuinely wondering if your dad deserves better than a gift set that smells like a hotel lobby.
 
-Someone's 40th was coming up. Sixteen women trying to agree on a gift. Forty-seven messages in, someone suggested a voucher. The chat went quiet. Not the good quiet. The deflated kind.
+He does. You know he does.
 
-Sound familiar?
+The problem with Father's Day in the UK isn't that people don't care. It's that the options are boring. Generic. The kind of thing you'd buy if you'd given up. And most of us haven't given up, we're just short on time and running out of ideas that feel like they mean something.
 
-Here's the thing about birthdays. The older we get, the more they matter. Not in a dramatic way — just in a "she deserves something that's actually for HER" kind of way. A voucher says "I ran out of ideas." A personalised birthday hoodie says "I thought about you."
+That's where personalised gifts come in, and not in the cheesy way. Not the kind with a Comic Sans font and a clip-art heart. The kind that actually makes someone laugh, or feel seen, or wear the thing out in public without embarrassment.
 
-And that difference? It lands.
+At Rock On Ruby, we make personalised clothing from Bury in Manchester, and Father's Day is one of our favourite times of year to get creative. Our Personalised Year Sweatshirt is one of our bestsellers for a reason. You put his birth year on it, pick a colour he'd actually wear, and suddenly you've got a gift that feels personal without being sentimental in a way that makes him uncomfortable.
 
-**Why a birthday hoodie actually works**
+Dads are funny creatures. Most of them will say they don't want anything. They'll tell you not to bother. Then they'll wear that sweatshirt every weekend for the next three years and call it "the comfy one."
 
-A hoodie isn't a boring gift. It's the thing someone reaches for on a Sunday morning. The thing they pull on after a long week. It goes everywhere — school runs, sofa evenings, walks with the dog, that camping trip they keep meaning to book.
+If he's more of a cap man, our Vintage Style Denim Personalised Slogan Cap goes down a treat. Personalised with whatever you want, worn pulled down over his eyes while he pretends to watch the football. Dad culture, captured in an accessory.
 
-Make it personal — her year, her name, something that's specific to her — and suddenly it's not just a hoodie. It's a thing she keeps. A thing she shows people. A thing she actually wears, not shoves in a drawer next to the bath salts nobody asked for.
+For the dad who's hard to buy for because he already has everything, a personalised tote bag sounds too small until you're watching him use it for his allotment trips and realising it's become his whole personality. Our Personalised Varsity Year Leopard Print Tote Bag is one we didn't expect dads to love, and yet here we are.
 
-**What makes a good personalised birthday hoodie**
+The other thing worth saying is the price. Father's Day gifts don't need to cost a fortune to feel like proper effort. Most of our gifts sit well under £30, and the personalisation is included, so you're not getting hit with hidden extras at checkout.
 
-Not all personalised hoodies are the same. Here's what to look for.
+Father's Day in the UK is on 15 June this year. Order deadlines creep up faster than you think, especially when personalisation is involved.
 
-The print quality has to hold up. There's nothing worse than a hoodie that's crispy-looking after three washes. At Rock On Ruby, we embroider or print on heavyweight blanks that feel like something, not like a supermarket own-brand that accidentally shrank.
-
-The personalisation needs to feel considered, not slapped on. Our [Personalised Year Sweatshirts](https://rockonruby.co.uk) have sold over 450 times for exactly this reason. People see them and go "oh that's her." That's the whole point.
-
-And sizing. For the love of all things, check the sizing. Most women buying for a friend want something that feels cosy and oversized — not a fitted PE top. Our hoodies run the right side of generous.
-
-**The birthday hoodie panic is real**
-
-Let me be honest with you. Most people find us at 11pm, three days before the party, mildly panicking. That's fine. We're used to it. We make it work.
-
-But the people who get the BEST results? They give themselves a week. Personalisation takes a little extra time, and you want it to arrive looking good, not slightly damp from an express delivery van.
-
-If you're reading this ahead of time: well done. You are the organised friend. Cherish that.
-
-**The bit where I tell you where to look**
-
-Our personalised hoodies collection has options for every kind of birthday — whether she's turning 30, 40, 50, or some age she's refusing to admit to. You can add her year, her name, a phrase that only your friend group will get.
-
-Have a look at what we've got and see if something feels like her.
-
-[Shop personalised birthday hoodies at rockonruby.co.uk](https://rockonruby.co.uk/collections/personalised-hoodies)
-
-See ya!
+If you want something that actually feels like you thought about it, even if you started thinking about it today, browse the full Father's Day collection at rockonruby.co.uk/collections/fathers-day-gifts and find something he'd genuinely choose for himself.
 
 ---
 
 ## BLOG POST 2
 
-# Leopard Print Fashion UK: Why It Never Actually Goes Away
+# Why a Personalised 40th Birthday Sweatshirt Is the Gift That Lands Every Time
 
-I was in a cafe in Bury last autumn. Three women walked in separately, didn't know each other. All wearing leopard print. Different ages, different styles — one a leopard scarf, one a full coat, one a cap pulled down over her ponytail.
+Forty is one of those birthdays that comes loaded with feelings. For some people it's champagne and a big party. For others it's a quiet existential moment at the bathroom mirror wondering where the last decade went. Most people it's both, sometimes in the same afternoon.
 
-They clocked each other and all smiled. No words needed.
+Whatever camp your person falls into, a 40th birthday deserves a gift that matches the occasion. Not a scented candle. Not a spa day voucher stuffed in an envelope. Something that says you actually thought about them specifically, not just about "someone turning 40."
 
-That's what leopard print does. It's not a trend. It's a personality test.
+A personalised 40th birthday sweatshirt does exactly that.
 
-**The myth about leopard print fashion**
+The reason our Personalised Year Sweatshirt sells the way it does, and we're talking over 420 orders, is because it works. You choose the birth year, pick your colours, and it becomes something genuinely theirs. Not a gift that gets shoved in a drawer. A sweatshirt they reach for on a Sunday morning and feel good in.
 
-Every few years someone in the fashion press writes the piece. "Is leopard print over?" they ask, from what I can only imagine is a very beige office. And then the next season, there it is again. On the coats, the bags, the accessories. On women who've been wearing it since before that journalist was born.
+There's something about a year on clothing that hits differently to other personalised gifts. A name on a keyring feels throwaway. A birth year on a sweatshirt feels like a statement. Like they're claiming the year they came into the world, owning it a bit.
 
-Leopard print in the UK has never really gone anywhere. It's just that some people notice it and some people have been quietly living in it all along.
+For a 40th, that matters. Forty can feel like a lot of things, and some of them aren't entirely positive. A sweatshirt that basically says "1985 was a cracking year and I'm proof" reframes the whole thing.
 
-If you're the second type — hello. You're our people.
+We make ours in Bury, they're good quality and they're worn by people who actually live in them. Not a special occasion piece that comes out once. An everyday thing that's been made for one specific person.
 
-**Why leopard print works harder than you think**
+If the person you're buying for isn't a sweatshirt person, we've got options. The Personalised Year Unisex T-shirt gives you the same personalised hit in a lighter weight, and the Personalised Varsity Year Leopard Print Tote Bag is one of those gifts that sounds too small for a 40th until you see it and realise it's genuinely brilliant.
 
-Here's what I love about it. It does a lot of the talking for you.
+For anyone looking to build out a gift that feels like a proper celebration, pairing the sweatshirt with a cap from our personalised accessories range is an easy way to make it feel like a set without spending a fortune. Everything can be personalised to match, which makes it feel considered without requiring a lot of effort on your end.
 
-You can wear the most basic outfit — jeans, white tee, trainers — and add a leopard print bag and suddenly you look like you made a decision. Like you woke up that morning and chose something. That's a lot of power for an accessory.
+The 40th only happens once. You don't want to be the person who turned up with something forgettable.
 
-And UK women, in my completely unscientific experience, are very good at this. Not in a "trying too hard" way. More in a "I know exactly who I am and this bag is proof" way.
+Orders with personalisation do need a bit of lead time, so if the birthday's coming up soon, it's worth getting in sooner rather than later.
 
-**The Rock On Ruby approach to leopard print**
-
-We didn't set out to build a whole leopard print world. It sort of happened. Our customers kept going back for more, kept tagging us, kept buying the next one.
-
-So now we've got a proper collection. And it's not all matching in a matchy way. It's pieces that work together if you want them to, or stand alone if you don't.
-
-The [Coffee Please Leopard Print Shopping Bag](https://rockonruby.co.uk/products/coffee-please-leopard-print-shopping-bag) (£24) gets ridiculous engagement every time we post it. Because it's funny, it's useful, and it's a bit of a statement all at once. That's the sweet spot.
-
-The [Not Today Leopard Print Cap](https://rockonruby.co.uk/products/not-today-leopard-print-cap) (£24) is doing a lot of the same work. It says something. Without you having to say anything.
-
-And if you want to go full committed, the [Oversized Personalised Initial Leopard Print Tote Bag](https://rockonruby.co.uk/products/oversized-personalised-initial-leopard-print-tote-bag) (£26) has your initial on it. Your leopard print. Your bag. Nobody's borrowing that.
-
-**This is not a trend piece**
-
-I'm not going to tell you leopard print is having a moment. It doesn't need a moment. It IS the moment.
-
-If you're already a convert, come and have a look. If you're leopard-curious, start small — a bag, a cap, a makeup pouch. You'll know within about forty seconds if it's for you.
-
-It usually is.
-
-[Explore the full leopard print collection at rockonruby.co.uk](https://rockonruby.co.uk/collections/leopard-print-lover)
-
-Love Team ROR x
+Browse the full range at rockonruby.co.uk/collections/gifts-for-her or rockonruby.co.uk/collections/gifts-for-him depending on who you're buying for. The right gift is in there.
 
 ---
 
 ## SOCIAL CAPTIONS
 
-**Caption 1 — Birthday Hoodie UK**
+**Caption 1 — Father's Day Gifts UK**
 
-Your mate deserves better than a candle and a card.
+Dad says he doesn't want anything. Dad is lying.
 
-A personalised hoodie with her year on it? That's a gift she'll actually wear. Every Sunday. For years.
+Get him something he'll actually wear, with his year on it, made properly, not grabbed off a shelf on 14 June in a mild panic.
 
-We've done hundreds of these and they land every single time.
+Our personalised sweatshirts and caps are some of the most gifted things we make, and there's a reason for that.
 
-Link in bio to find hers before the panic sets in.
+Link in bio. Father's Day is 15 June. Don't say we didn't warn you.
 
-[Visual note: Flat lay of a folded personalised year hoodie on a neutral background, with a birthday card tucked next to it — scrappy and real, not styled within an inch of its life]
+[Visual: flat lay of the Personalised Year Sweatshirt in a warm colourway, folded neatly, maybe a card alongside it. Natural light, no props that feel too styled. Phone photo energy works here.]
 
-#BirthdayHoodieUK #PersonalisedHoodie #BirthdayGiftIdeas #RockOnRuby #GiftsForHer
+#FathersDayGiftsUK #PersonalisedGifts #FathersDayIdeas #RockOnRuby #GiftsForDad
 
 ---
 
-**Caption 2 — Leopard Print Fashion UK**
+**Caption 2 — Personalised 40th Birthday Sweatshirt**
 
-Three women walked into a cafe. All in leopard print. All strangers. All immediately friends.
+Turning 40 deserves better than a candle and an apology card.
 
-That's the power of it.
+A sweatshirt with their actual birth year on it, in colours they'd choose themselves, made to be worn every single weekend. That's the gift.
 
-We've got bags, caps, totes — all doing the talking for you.
+Over 420 people have ordered ours. We're not saying it's the best thing we make, but we're also not not saying that.
 
-Link in bio for the full leopard print collection.
+Find it at rockonruby.co.uk.
 
-[Visual note: Flat lay or close-up of the Coffee Please Leopard Print Shopping Bag on a cafe table — ideally with an actual coffee in shot, natural light, not too posed]
+[Visual: close-up of the year embroidery on the Personalised Year Sweatshirt, slightly cropped so the full design isn't visible, creates intrigue. Real texture, no flat white background.]
 
-#LeopardPrintFashionUK #LeopardPrint #RockOnRuby #LeopardPrintBag #UKFashion
+#Personalised40thBirthday #40thBirthdayGift #PersonalisedSweatshirt #BirthdayGiftsUK #RockOnRuby
 
 ---
 
 ## EMAIL DESIGN PROMPT 1
 
-**Subject:** Her birthday's coming. Skip the boring gift this time.
-**Preview text:** We've got something she'll actually wear.
+**Subject:** Dad says he doesn't want anything (he's wrong)
+**Preview text:** Father's Day sorted, we promise.
 
-**Story angle:** It's the week before a big birthday. Holly's standing in a group chat watching sixteen women argue about a voucher nobody actually wants to give. The deflation is real and deeply relatable.
-**Tension/friction:** She wants to give something personal and thoughtful but doesn't know where to start — and she's worried she's left it too late. The high street feels generic and Amazon feels lazy.
-**Shift:** She finds the Personalised Hoodies collection at Rock On Ruby and realises she can have something that's genuinely made for her mate — delivered in time, without the panic.
-**Reason to care:** Because a good birthday gift says "I know you." A voucher says "I forgot." She doesn't want to be the person who forgot.
+**Story angle:** Holly clocks that it's two weeks to Father's Day and the high street is already full of the same tired offerings it produces every single year. She's been here before, and so has everyone reading this.
+
+**Tension/friction:** The reader wants to get her dad something that feels like effort, but the options in front of her feel either too generic or too over-the-top. She doesn't have hours to spend on it, she just wants something that lands.
+
+**Shift:** Before: scrolling aimlessly, picking up a gift set, feeling slightly guilty. After: ordering something personalised with his year on it, knowing it's going to get worn every weekend from here until Christmas.
+
+**Reason to care:** Dads are famously bad at telling you what they want. This is a gift that bypasses that entirely because it's already about him specifically. No guessing, no generic gesture.
 
 **Email structure:**
-- Opening (Hey [name]) — Open with the group chat moment. Keep it short, funny, relatable. Two sentences max that make her laugh and think "yes, that's me."
-- Section 1 — Explain why a personalised birthday hoodie works better than any generic gift. Focus on the emotional payoff — she'll wear it, she'll remember it, it means something. Reference that 450 people have already bought our Personalised Year Sweatshirt and loved it.
-- Section 2 — Reassure her about timing, sizing, and personalisation. Tell her what to look for in a good personalised hoodie (quality, fit, something that feels considered). Gently remind her that ordering a few days ahead is better than the night before.
-- CTA — **Find her birthday hoodie** linking to rockonruby.co.uk/collections/personalised-hoodies
-- PS — "P.S. If her birthday IS in three days — drop us a message. We'll do what we can. We're not miracle workers but we're close."
+- Opening (Hey [name]) — Open with the shared experience of Father's Day shopping dread. Two sentences, warm and a bit self-aware, like Holly is texting a mate who she knows is in the same boat.
+- Section 1 — Introduces the Personalised Year Sweatshirt as the answer. Explains why a birth year on a sweatshirt feels personal in a way that other gifts don't. Mentions it's made properly, not mass-produced nonsense. Links to rockonruby.co.uk/collections/fathers-day-gifts.
+- Section 2 — Widens the view to include the cap options for the dad who's more of a hat person. Mentions the Vintage Style Denim Personalised Slogan Cap and the Embroidered Unisex Personalised Slogan Cap as alternatives that work for the same occasion with a slightly different personality. Keeps it light and specific, no hard sell.
+- CTA — "Shop Father's Day Gifts" linking to rockonruby.co.uk/collections/fathers-day-gifts
+- PS — Remind her that Father's Day is 15 June and personalised orders need a little lead time. Keep it practical, not scary.
 
 **Holly's voice notes for this email:**
-1. Write to one woman — Holly's slightly chaotic, thoughtful mate who buys good gifts but always cuts it a bit fine. Not a crowd, not a segment.
-2. No hard sell. The email should feel like Holly texting a tip to a friend, not a brand announcing a promotion.
-3. Keep paragraphs short. One thought, one paragraph. If it's feeling like an essay, break it up.
+1. Write to one woman, not a list. She's buying for her dad specifically, not "dads in general." Keep it personal and a bit conspiratorial.
+2. The humour lives in the observation, not in forced jokes. "Dad says he doesn't want anything" is funny because it's true, not because someone wrote "LOL" next to it.
+3. No hard sell anywhere. The products sell themselves if the copy makes the reader feel understood first.
 
 **Image suggestions:**
-- Flat lay of a folded personalised year hoodie on a plain surface, with maybe a birthday balloon half in shot — real and slightly scrappy, not a studio shoot
-- Close-up of the embroidery/print detail so she can see the quality
-- Customer repost photo if available — real person wearing it is always better than a product shot alone
+- The Personalised Year Sweatshirt folded on a neutral surface, year visible, no fussy styling
+- A flat lay including the cap alongside the sweatshirt, suggesting a gift pairing without spelling it out
+- A candid-style photo of someone actually wearing the sweatshirt, not posed, real life energy
 
 **Ready-to-paste Claude prompt:**
-"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing brand based in Bury, Manchester. Holly co-owns it with Graham and writes all the brand copy — she's warm, funny, straight-talking, and sounds like a Manchester woman texting her mate, never a brand talking at a customer.
+"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing brand based in Bury, Manchester, co-owned by Holly (brand voice) and Graham (strategy). Holly's voice is warm, funny, straight-talking, like she's texting her mate, never corporate. UK spelling throughout. No em dashes. No ellipsis for drama. No exclamation marks except one maximum. No bullet points. Contractions always. Never use: perfect, simply, just, very, really, amazing, incredible, stunning, beautiful, ensure, seamless, effortless, curated, intentional, journey, game-changer.
 
-The email is targeting women aged 30–50 who are buying a birthday gift for a friend and want something personal and thoughtful instead of the usual boring high street option.
+Write a Father's Day email. The story opens with the shared experience of Father's Day shopping being the same every year, the high street failing us, the panic setting in. The tension is that she wants to get her dad something that feels like genuine thought went into it, not a grab-and-go gift set. The shift is discovering that a personalised sweatshirt with his birth year on it bypasses the whole problem because it's already about him. The reason to care is that dads never tell you what they want, and this removes the guesswork.
 
-Open with: The group chat moment. Sixteen women. Someone suggests a voucher. The chat goes quiet. That's the tension. Keep it short and funny — two sentences at most.
-
-Section 1: Make the case for a personalised birthday hoodie. Not in a salesy way — in a 'here's why this actually works' way. Mention that our Personalised Year Sweatshirt has had over 450 orders and that it's the kind of gift people wear every Sunday for years. Emotional, warm, no hard sell.
-
-Section 2: Practical reassurance. What makes a good personalised hoodie (quality, fit, personalisation that feels considered, not slapped on). Gently tell her the earlier she orders the better — but don't panic her.
-
-CTA button text: Find her birthday hoodie — link to rockonruby.co.uk/collections/personalised-hoodies
-
-End with a PS: Something warm and funny about three-day panics — 'we're not miracle workers but we're close.'
-
-Voice rules — stick to these exactly:
-- Start with Hey [name]
-- Short paragraphs, one idea each
-- No swearing
-- Never sound corporate or like AI wrote it
-- No words: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, honestly, girlboss, empower, excited to share, boss babe
-- End with Love Team ROR x
-- Funny but never forced — warm and self-deprecating, not try-hard
-- Write to ONE person, not a crowd""
+Structure: open with Hey [name], then a warm 2-sentence opener about the shared Father's Day dread. Section 1 introduces the Personalised Year Sweatshirt and why a birth year on clothing feels different to other personalised gifts. Link to rockonruby.co.uk/collections/fathers-day-gifts. Section 2 mentions cap options for the more cap-leaning dad: the Vintage Style Denim Personalised Slogan Cap and the Embroidered Unisex Personalised Slogan Cap. CTA button text: 'Shop Father's Day Gifts', URL: rockonruby.co.uk/collections/fathers-day-gifts. PS: a practical note that Father's Day is 15 June and personalised orders need a little lead time. Sign off: Love Team ROR x. Keep the whole email feeling like a helpful nudge from a mate, not a sales email."
 
 ---
 
 ## EMAIL DESIGN PROMPT 2
 
-**Subject:** Leopard print is not a phase. (It never was.)
-**Preview text:** Come and see what we've been building.
+**Subject:** Forty deserves better than a candle
+**Preview text:** A 40th gift they'll actually wear.
 
-**Story angle:** Holly clocks three women walking into a cafe separately, all in leopard print, all strangers, all immediately clocking each other with a smile. No words. Just knowing. That's the whole email.
-**Tension/friction:** She loves leopard print but the high street does it badly — cheap, try-hard, or so fast-fashion it falls apart. She wants pieces that are actually worth buying.
-**Shift:** Rock On Ruby's leopard print collection is funny, wearable, personal and built for women who wear it because they love it — not because a magazine told them to.
-**Reason to care:** Because leopard print is a personality, not a trend. And she deserves pieces that actually reflect that — not a throwaway scarf from a shop that'll stop stocking it next season.
+**Story angle:** Holly thinks about the moment someone she knows turns 40 and the usual scramble for a gift that matches how significant the birthday feels. Most of the obvious options don't quite get there.
+
+**Tension/friction:** The reader is buying for someone turning 40 and feels the weight of the occasion. She doesn't want to undershoot it with something throwaway, but she also doesn't want to overthink it into a £200 present. She wants something that feels considered without being a whole project.
+
+**Shift:** Before: overwhelmed by options that feel either too generic or too extravagant. After: ordering a personalised sweatshirt with their birth year on it, knowing it's going to become their favourite thing to reach for on a Sunday morning.
+
+**Reason to care:** A 40th is a milestone that deserves to be marked with something that's actually about the person. Not a generic luxury gift, something specific to them, that they'd have chosen themselves.
 
 **Email structure:**
-- Opening (Hey [name]) — The cafe story. Three women, all leopard print, all strangers, all smiling. Two sentences. Sets the whole tone.
-- Section 1 — Make the point that leopard print in the UK never actually goes away. It just gets written about badly. This section is about belonging — she already knows if she's a leopard print woman. This email is for her.
-- Section 2 — Introduce the Rock On Ruby leopard print collection. Feature specific products with prices and real URLs: Coffee Please Leopard Print Shopping Bag (£24) — rockonruby.co.uk/products/coffee-please-leopard-print-shopping-bag, Not Today Leopard Print Cap (£24) — rockonruby.co.uk/products/not-today-leopard-print-cap, Oversized Personalised Initial Leopard Print Tote Bag (£26) — rockonruby.co.uk/products/oversized-personalised-initial-leopard-print-tote-bag. Keep it warm and specific — what does each one DO for her?
-- CTA — **See the full leopard print collection** linking to rockonruby.co.uk/collections/leopard-print-lover
-- PS — "P.S. If you're leopard-curious rather than fully committed — start with a bag. You'll know within forty seconds."
+- Opening (Hey [name]) — Open with the specific dilemma of buying for a 40th and how it has its own particular pressure. Two sentences, warm, a bit knowing, like Holly has been through this herself.
+- Section 1 — Introduces the Personalised Year Sweatshirt as the answer for the 40th. Explains why the birth year format works so well for a milestone birthday specifically. Brings in the stat that over 420 people have ordered this, which lands as social proof without feeling like a sales tactic. Links to rockonruby.co.uk/collections/gifts-for-her or gifts-for-him.
+- Section 2 — Introduces the idea of pairing the sweatshirt with something from the personalised accessories range to make it feel like a proper gift rather than one item. Mentions the Personalised Varsity Year Leopard Print Tote Bag or a personalised cap as companions. Links to rockonruby.co.uk/collections/personalised-accessories.
+- CTA — "Find the 40th Gift" linking to rockonruby.co.uk/collections/gifts-for-her
+- PS — A light note that if the birthday is soon, she should order sooner rather than later because personalised orders take a little more time than a same-day Amazon purchase.
 
 **Holly's voice notes for this email:**
-1. This is not a trend email. Don't write it like a seasonal push. Write it like leopard print is just a fact of life for these women — because it is.
-2. Let the products do the talking through specifics — what's funny about the slogan, what's useful about the bag, what's clever about the personalisation. Not features. Feelings.
-3. Keep it conversational and slightly wry. Holly's the woman at the cafe table clocking the leopard print situation with quiet delight. That's the energy throughout.
+1. The tone here is empathetic first. She's not looking for a product, she's looking for reassurance that she's going to get this right for someone she loves. Meet her there.
+2. The "over 420 orders" detail should land as comfort, not a sales pitch. Phrase it like Holly is just mentioning it in passing, not leading with it.
+3. Keep the 40th framing grounded and a bit warm rather than over-the-top celebratory. Not everyone loves making a big deal of forty. The copy should acknowledge that quietly.
 
 **Image suggestions:**
-- The Coffee Please Leopard Print Shopping Bag on a cafe table with an actual coffee in frame — natural light, slightly messy, real
-- Flat lay of two or three leopard print pieces together — bag, cap, tote — showing the collection without being too styled
-- Close-up of the Not Today Leopard Print Cap on someone's head, candid-feeling, outdoors
+- Close-up of the year embroidery on the Personalised Year Sweatshirt, showing the quality of the stitch work, slightly cropped
+- Flat lay of the sweatshirt next to a tote bag or cap, suggesting a gift pairing naturally
+- A worn, lived-in shot of the sweatshirt on someone, not a model pose, real and relaxed
 
 **Ready-to-paste Claude prompt:**
-"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing and accessories brand based in Bury, Manchester. Holly is warm, funny, Manchester through and through — she writes like she's texting a mate, never like a brand doing a campaign.
+"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a print-on-demand personalised clothing brand based in Bury, Manchester, co-owned by Holly (brand voice) and Graham (strategy). Holly's voice is warm, funny, straight-talking, like she's texting her mate, never corporate. UK spelling throughout. No em dashes. No ellipsis for drama. No exclamation marks except one maximum. No bullet points. Contractions always. Never use: perfect, simply, just, very, really, amazing, incredible, stunning, beautiful, ensure, seamless, effortless, curated, intentional, journey, game-changer.
 
-This email is about leopard print fashion. The customer is a UK woman, 30–50, who has always loved leopard print and doesn't need convincing — she just needs to know we've got good stuff worth buying.
+Write a personalised 40th birthday gift email. The story opens with the specific pressure of buying for a 40th, where a candle or a voucher feels like it's undershooting the moment. The tension is that she wants something that feels genuinely thought about and personal, without it becoming a massive project or a huge spend. The shift is realising that a personalised sweatshirt with their birth year on it does exactly that. It's specific to them, it's wearable, and it's something they'd actually choose themselves. The reason to care is that a milestone birthday deserves to be marked with something that's actually about the person.
 
-Open with: Three women walked into a cafe. All strangers. All in leopard print. All smiled at each other immediately. That's the whole vibe. Two sentences, warm, slightly funny, sets the tone for the whole email.
-
-Section 1: Make the point that leopard print never goes away in the UK — it just gets written about badly every few years by people in beige offices. This section is about belonging. She's already a leopard print woman. This email is for her.
-
-Section 2: Introduce the Rock On Ruby leopard print collection with these specific products and URLs:
-- Coffee Please Leopard Print Shopping Bag, £24 — rockonruby.co.uk/products/coffee-please-leopard-print-shopping-bag
-- Not Today Leopard Print Cap, £24 — rockonruby.co.uk/products/not-today-leopard-print-cap
-- Oversized Personalised Initial Leopard Print Tote Bag, £26 — rockonruby.co.uk/products/oversized-personalised-initial-leopard-print-tote-bag
-For each one, say what it DOES — the feeling, the statement, the usefulness. Not just what it is.
-
-CTA button text: See the full leopard print collection — link to rockonruby.co.uk/collections/leopard-print-lover
-
-End with a PS: Something warm and funny for the leopard-curious — 'start with a bag, you'll know within forty seconds.'
-
-Voice rules — stick to these exactly:
-- Start with Hey [name]
-- Short paragraphs, one idea each
-- No swearing
-- Never sound corporate or like AI wrote it
-- No words: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple, perfect for any occasion, treat yourself, honestly, girlboss, empower, excited to share, boss babe
-- End with Love Team ROR x
-- Funny but never forced — warm, wry, self-aware
-- Write to ONE person, not a crowd""
+Structure: open with Hey [name], then a warm 2-sentence opener about the weight of buying for a 40th. Section 1 introduces the Personalised Year Sweatshirt and explains why the birth year works especially well for a milestone birthday. Mention naturally that over 420 people have ordered this one, framed as a passing observation not a hard sell. Link to rockonruby.co.uk/collections/gifts-for-her. Section 2 suggests pairing the sweatshirt with something from the personalised accessories range, mentioning the Personalised Varsity Year Leopard Print Tote Bag or a personalised cap as options that make the gift feel like a set. Link to rockonruby.co.uk/collections/personalised-accessories. CTA button text: 'Find the 40th Gift', URL: rockonruby.co.uk/collections/gifts-for-her. PS: a light practical note that personalised orders take a bit more time than a next-day delivery, so ordering sooner is worth it. Sign off: Love Team ROR x. Keep the whole email feeling like a thoughtful nudge, not a pitch."
 
 ---
 
 ## PRODUCT DESCRIPTIONS
 
-**Personalised Hoodies — Birthday Hoodie UK**
+**Father's Day Gifts — rockonruby.co.uk/collections/fathers-day-gifts**
 
-Stop buying gifts that end up in a drawer. Our personalised hoodies are made to be actually worn — on the sofa, on the school run, on days when comfort is the whole plan. Add her year, make it hers, and watch it become the thing she reaches for every single Sunday. Heavyweight, properly made, and nothing like anything she'd find on the high street.
-
-[rockonruby.co.uk/collections/personalised-hoodies](https://rockonruby.co.uk/collections/personalised-hoodies)
+Dad will tell you he doesn't want anything. Get him this anyway. Our personalised sweatshirts and caps are made to be worn, not displayed on a shelf, and because they've got his year or his words on them, they're already about him specifically. No guessing, no generic gesture, no sad gift set from the petrol station. Something he'll actually reach for.
 
 ---
 
-**Leopard Print Lover Collection — Leopard Print Fashion UK**
+**Personalised Accessories — rockonruby.co.uk/collections/personalised-accessories**
 
-For the woman who's been wearing leopard print since before it was "having a moment" (again). This collection is bags, caps and accessories for women who wear it because they love it — not because a magazine said so. Funny slogans, personalised options, built to last. Start with one piece and see how quickly your basket fills up. We've seen it happen.
+The accessories that don't feel like an afterthought. A personalised cap or a tote bag with the right year or slogan on it can carry a whole birthday or occasion without trying. These are the things people keep using long after the wrapping paper's in the bin, because they were made for them, not just for anyone.
 
-[rockonruby.co.uk/collections/leopard-print-lover](https://rockonruby.co.uk/collections/leopard-print-lover)
+---
+
+## SEO CONTENT — COLLECTION PAGE COPY
+
+**Keyword: personalised 40th birthday sweatshirt**
+
+A 40th birthday is one of those occasions where a generic gift genuinely won't cut it. Our personalised 40th birthday sweatshirts are made with the specific person in mind, because that's what a milestone birthday deserves. Choose their birth year, pick colours they'd actually wear, and you've got something that goes well beyond the usual options.
+
+Our Personalised Year Sweatshirt has been ordered over 420 times, and the reason people keep coming back to it is straightforward. A birth year on a sweatshirt feels different to a name on a keyring. It feels like a claim. Like they're owning the year they arrived, which at forty, feels about right.
+
+Every sweatshirt is personalised to order and made to be worn every week, not saved for best. From Bury, Manchester, with a bit of care put into it.
+
+Browse the full range and find the one that's right for them.
+
+**Image references:**
+- Close-up of the year embroidery on a folded sweatshirt, warm colourway, showing stitch texture clearly
+- A worn, relaxed lifestyle shot of the sweatshirt on someone in their forties, weekend energy, not a studio pose
+
+---
+
+**Keyword: 50th birthday gift ideas uk**
+
+Fifty is a big one. The pressure to get it right is real, and the usual suspects, the spa days, the wine hampers, the "over the hill" nonsense, tend to miss the mark for someone who's actually brilliant and deserves to know it.
+
+Personalised clothing makes sense for a 50th because it's specific. A sweatshirt with their birth year on it, made in colours they'd choose themselves, is something they'll wear for years. Not a special occasion piece. An everyday thing that started as a gift and became a favourite.
+
+At Rock On Ruby we make personalised sweatshirts, tees, caps and tote bags in Bury, Manchester. Everything is made to order and personalised for one person, which is exactly how a 50th gift should feel. Whether you're buying for a close friend, a sibling, or a partner, there's something here that'll land the way you want it to.
+
+Delivery lead times apply on personalised orders, so give yourself a bit of time before the big day.
+
+**Image references:**
+- Flat lay of a personalised sweatshirt and a tote bag together, suggesting a gift pairing, neutral surface, natural light
+- A birthday occasion shot with the sweatshirt as the focal point, unwrapping or holding it up, candid rather than posed
+
+---
+
+**Keyword: 30th birthday personalised hoodie**
+
+Thirty gets its own kind of pressure. Some people love it. Some people need a sit-down and a strong cup of tea. Either way, a personalised hoodie with their birth year on it is a gift that meets the moment without making a massive song and dance about it.
+
+At Rock On Ruby we make personalised clothing from Bury, Manchester. Our sweatshirts and hoodies are the things people actually wear, the ones that end up being the first thing you reach for on a cold Saturday morning. When it's got your year on it, that's not a coincidence. That's the point.
+
+A 30th birthday personalised hoodie works because it's built around the person, not around a general idea of what someone turning 30 might want. Pick the year, pick the colours, and it becomes theirs before they've even put it on.
+
+Made to order, personalised at no extra charge, and shipped from Manchester with a bit of Northern warmth built in.
+
+**Image references:**
+- Lifestyle shot of a personalised hoodie being worn on a walk or in a casual setting, real and relaxed, no studio lighting
+- A close-up of the personalisation detail on the front or chest of the hoodie, year clearly visible, showing the quality of the finish
 
 ---
 *Generated by ROR Content Generator · rockonruby.co.uk*
