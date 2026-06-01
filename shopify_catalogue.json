@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-06-01T12:41:37.877856+00:00",
+  "synced_at": "2026-06-01T15:55:20.565545+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -6713,14 +6713,14 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 402,
-      "revenue": 14210.0
+      "orders": 401,
+      "revenue": 14175.0
     },
     {
       "title": "Personalised Year Unisex T-shirt",
       "handle": "",
-      "orders": 103,
-      "revenue": 2756.0
+      "orders": 104,
+      "revenue": 2782.0
     },
     {
       "title": "Personalised Varsity Year Leopard Print Tote Bag",
@@ -6731,8 +6731,8 @@
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 51,
-      "revenue": 1248.0
+      "orders": 52,
+      "revenue": 1272.0
     },
     {
       "title": "Embroidered Unisex Personalised Slogan Cap",
@@ -6819,16 +6819,16 @@
       "revenue": 364.0
     },
     {
+      "title": "Personalised Slogan T-shirt",
+      "handle": "",
+      "orders": 13,
+      "revenue": 364.0
+    },
+    {
       "title": "Tea Please T-shirt",
       "handle": "",
       "orders": 14,
       "revenue": 364.0
-    },
-    {
-      "title": "Note To Self Sleeve Sweatshirt",
-      "handle": "",
-      "orders": 9,
-      "revenue": 343.22
     }
   ]
 }
