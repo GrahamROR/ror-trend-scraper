@@ -1,11 +1,11 @@
 # Rock On Ruby — Content Drafts
-Generated: 31 May 2026, 09:47
+Generated: 01 June 2026, 12:36
 Run `python3 content_generator.py` to regenerate with cached trend data.
 
 ---
 
 > **Layer 4 (bestsellers) terms this run:** none
-> **Top terms this run:** personalised year sweatshirt, personalised year hoodie
+> **Top terms this run:** personalised year t-shirt, milestone birthday gift uk
 > **SEO content pieces:** 0
 
 ---
@@ -18,165 +18,185 @@ No strong trending connections this week.
 
 ## BLOG POST 1
 
-# Why a Personalised Year Sweatshirt Makes the Birthday Gift Nobody Saw Coming
+# Why a Personalised Year T-Shirt Makes a Better Birthday Gift Than Anything You'll Find on the High Street
 
-My mate texted me three days before her sister's 40th. Full panic. The usual suspects had been ruled out, a spa voucher felt impersonal, a bottle of prosecco felt lazy, and she'd already bought the card. She needed something that actually meant something, and she needed it fast.
+My mate turned 40 last year and I did what most of us do. I panicked, opened four tabs, closed three of them, and ended up scrolling through the same generic "treat yourself" candles and wine glass sets that every woman over 35 seems to get at every milestone, forever, until the end of time.
 
-Sound like a situation you've been in? Because honestly, it's most of us.
+She deserved better than that. We all do.
 
-Here's the thing about milestone birthdays. They carry weight. Forty isn't the same as any other Thursday, and the person turning it knows that. A gift that acknowledges the specific year they were born, the year that started everything, lands differently to something grabbed off a shelf. A personalised year sweatshirt does exactly that. Your birth year, printed or embroidered on something they'll actually wear. Not framed. Not in a box. On a sweatshirt they'll pull on for a Sunday morning walk or a night in with a bottle of red.
+Here's the thing about a big birthday. A 30th, a 40th, a 50th. These aren't just another lap around the sun. They're a whole moment. And the gift should feel like you actually clocked that.
 
-The Personalised Year Sweatshirt at Rock On Ruby has become our biggest seller, and I don't think that's an accident. It works because it's specific without being sentimental in a way that makes people cringe. The year does the heavy lifting. You don't need a long message or a soppy quote. The number says it all.
+That's where a personalised year t-shirt comes in, and why, honestly, I'm still a bit smug about the one I eventually got her.
 
-What makes it work as a gift is the personalisation, but also the fact that it's genuinely something people want to wear. We're not talking novelty territory here. The sweatshirt itself is a proper quality piece, the kind you'd buy for yourself without the personalisation on it. That matters. Nobody wants to wear a gift that looks like a gift.
+The idea is dead simple. You take the year someone was born, slap it across the front of a good quality tee, and suddenly you've got something that says "I thought about you specifically" rather than "I grabbed this at the Trafford Centre twenty minutes before your party." The year means something. It's hers. Nobody else in the room is wearing 1984, or 1976, or whatever the magic number is.
 
-Sizing is worth thinking about. Our customers tend to go a size up when buying as a gift, which makes sense. A slightly oversized sweatshirt feels cosy rather than clinical, and if you're not 100% sure of someone's size, it's the safer call. We do sizes from XS up to 5XL, so there's room for everyone.
+At Rock On Ruby we do this on a unisex tee that actually fits like a proper t-shirt, not a crisp white afterthought. You pick the year, we do the rest. Orders come through fast too, which matters when you've left it a bit later than you meant to.
 
-If you're buying for a 30th, 40th, 50th or 60th, the year sweatshirt works for all of them. It's not age-specific in the way some birthday gifts are. Whether they're born in the 70s, 80s or 90s, the format is the same and the result is always something that feels considered. That word gets overused, but here it genuinely applies. Someone took the time to personalise this. That shows.
+What I love most about this as a gift is that it travels well. She can wear it on her birthday weekend away, at her party, on a dog walk the following Tuesday when she's still riding the high of being newly 40 and loving it. A candle gets burned. A t-shirt gets worn and remembered.
 
-We ship from Bury, we make everything to order, and we're not Amazon. Ordering a few days before the birthday is fine. Leaving it to the day before is not fine, but we've all been there and we understand.
+We've sold over 90 of these personalised year t-shirts now, and the messages people leave when they order are genuinely lovely. "For my mum's 60th." "My best friend's 30th." "My sister, who is going to hate this and love it at the same time." That last one is my favourite kind of customer.
 
-If you're stuck on a birthday gift and you want something that won't end up in a drawer, start at rockonruby.co.uk and take a look at the Personalised Year collection. Your mate's sister will thank you.
+The price sits at £26, which is less than most birthday meals out and significantly more thoughtful than whatever's on the first page of Amazon. If you want to go bigger, our Personalised Year Sweatshirt does the same thing with more fabric and more wow factor, and has been one of our most popular gifts since we launched it.
+
+So if you've got a milestone birthday coming up and you want to give something that actually reflects the occasion, a personalised year t-shirt is worth a look. Nothing fussy, nothing forgettable. Just something that feels like you meant it.
+
+Browse the full range at rockonruby.co.uk/collections/gifts-for-her and find the one that's right for whoever you're celebrating.
 
 ---
 
 ## BLOG POST 2
 
-# The Personalised Year Hoodie That Finally Solved My Birthday Gift Problem
+# How to Find a Milestone Birthday Gift in the UK Without Losing the Will to Live
 
-My mum turns 60 this year. I've known this for, at a conservative estimate, sixty years. And yet every time a milestone birthday rolls around in our family, I find myself standing in the middle of a shop two weeks before the date with absolutely no idea what I'm doing.
+Someone you love is turning 30, 40, 50, or 60. A proper, significant, once-a-decade kind of birthday. And you want to get them something that actually matches the occasion, not something that looks like it was picked up in a panic from a gift shop near a train station.
 
-The candle? She has candles. The dressing gown? Already bought one last Christmas. The jewellery? She's particular about jewellery and I always get it wrong.
+We've all been there. The browser tabs pile up. You've looked at experience days, spa vouchers, engraved keyrings. Everything either costs a fortune, arrives in six to eight weeks, or feels like it could have been for literally anyone.
 
-What actually worked, and what I wish I'd found years earlier, was a personalised year hoodie. Not a gift bag of bits. Not a hamper. A single, proper thing with her birth year on it. Hers. Specific to her. That's the whole point.
+Milestone birthdays are hard to shop for precisely because the stakes feel higher. A 40th isn't just a birthday. It's a marker. A proper well-done-you-survived-four-decades moment. The gift needs to carry a bit of weight without being so serious that it kills the vibe.
 
-A personalised year hoodie takes the year someone was born and puts it on something they'll genuinely wear on a Tuesday. No fuss, no overthinking on their part, just a hoodie with a number on it that means something because of whose number it is. We do them at Rock On Ruby in a range of colours, sizes from XS to 5XL, and the quality is the kind where you're genuinely tempted to keep it for yourself when it arrives.
+What actually works, in my experience, is something personalised and something wearable. Not because it's on trend or whatever, but because it gets used. A personalised year sweatshirt with their birth year across the front goes to parties, pub lunches, lazy Sunday mornings. A personalised year t-shirt does the same in warmer weather. People wear these things constantly because they feel like theirs, not like a generic milestone gift bought under pressure.
 
-The hoodie format works especially well for this because hoodies carry a different energy to sweatshirts. They're slightly more casual, slightly more cosy. If the person you're buying for is the type to live in a hoodie from October to April, which is most of us in the North, this will become a proper favourite. I say that knowing it sounds like something I'm supposed to say, but we get messages from customers months later telling us the year hoodie is still in regular rotation.
+At Rock On Ruby we've made a lot of birthday gifts for a lot of milestone birthdays, and the orders that make us happiest are the ones where someone has thought it through. They know the person. They've picked the right year, the right colour, maybe added the right slogan. That extra five minutes of thought is what separates a good gift from a forgettable one.
 
-Milestone birthdays are the obvious occasion for this. Thirtieth, fortieth, fiftieth, sixtieth. But honestly, any birthday works. The year someone was born doesn't get less meaningful just because they're turning 32 rather than 40. A good gift is a good gift at any age.
+If budget's a factor, which it usually is, our gifts under £30 range at rockonruby.co.uk/collections/gifts-under-30 has plenty that feel generous without requiring a sit-down conversation with your bank. And if you want to go a bit bigger for a 50th or 60th, the sweatshirt is a proper gift. Solid quality, something they'll actually reach for.
 
-The other thing worth saying is that personalised doesn't mean complicated to order. You pick your colour, your size, your year, and that's it. We handle the rest from our studio in Bury. Every order is made fresh, which means we're not sitting on stock and hoping for the best. It's made for that person.
+We're based in Bury, Manchester, so everything ships from here, not from a warehouse the size of a small country with a three-week lead time. That matters when you've remembered the birthday with less notice than you'd like.
 
-Lead times are reasonable, but don't leave it the night before. A few days is fine. A couple of weeks is even better if you want the full range of colour options.
+The best milestone birthday gifts in the UK aren't necessarily the most expensive ones. They're the ones that land and feel considered. A bit of personalisation goes a long way when someone's hitting a number that actually means something.
 
-If you've been going around in circles on what to buy someone for a birthday this year, the personalised year hoodie is worth five minutes of your time. Head over to rockonruby.co.uk/collections/personalised-year and have a look. Worst case, you come away with nothing. Best case, you've sorted it and you can stop thinking about it.
+Have a look at the full gifting range at rockonruby.co.uk/collections/gifting and see what feels right. If you're still stuck, the year sweatshirt is always a winner. Six years of birthday orders can't be wrong.
 
 ---
 
 ## SOCIAL CAPTIONS
 
-**Caption 1, targeting: personalised year sweatshirt**
+**Caption 1 — targeting: personalised year t-shirt**
 
-Born in '89 and still not over it.
+The birthday gift that took me two minutes to order and made her cry happy tears at the party.
 
-Our personalised year sweatshirt is the birthday gift people actually wear after the party, not the one that ends up in the cupboard next to the fondue set nobody asked for.
+A personalised year t-shirt with her birth year on the front. That's it. That's the gift.
 
-Your birth year. A proper sweatshirt. Done.
+No panic buying, no generic nonsense, no "I didn't know what to get you" energy.
 
-Link in bio to shop the full personalised year collection at rockonruby.co.uk
+We've got the year. You've got the mate. Let's sort this.
 
-[Visual note: flat lay of the year sweatshirt on a neutral background, slightly rumpled, not overly styled. Natural light. The year printed clearly and centred in shot.]
+Shop at rockonruby.co.uk
 
-#personalisedyearsweatshirt #birthdaygiftideas #personalisedgifts #rocksonruby #burymanchesteruk
+[Visual: flat lay of the personalised year t-shirt on a light background, birth year clearly visible, maybe a birthday card tucked alongside. Real and unfussy, no heavy styling.]
+
+#personalisedtshirt #milestonebirthdaygift #birthdaygiftideas #giftsforher #rockonruby
 
 ---
 
-**Caption 2, targeting: personalised year hoodie**
+**Caption 2 — targeting: milestone birthday gift uk**
 
-The birthday gift that doesn't require a single scented candle.
+40 deserves more than a candle and a card from the petrol station.
 
-A personalised year hoodie with their birth year on it. Cosy, specific, and a million miles from anything they've already got.
+If someone you love is hitting a big one this year, get them something that actually says you noticed.
 
-We make every order fresh from our studio in Bury, so it's actually theirs.
+Our personalised year sweatshirts and tees have been to more 40ths, 50ths, and 60ths than we can count, and the feedback is always the same. They loved it.
 
-Shop the personalised year collection via the link in bio.
+Find yours at rockonruby.co.uk/collections/gifts-for-her
 
-[Visual note: someone wearing the hoodie, relaxed and candid, mug in hand, morning light. Real and unposed. Not a campaign shot.]
+[Visual: customer-style photo or repost of someone actually wearing the year sweatshirt, preferably at a birthday gathering or just looking happy. Real over polished, every time.]
 
-#personalisedyearhoodie #birthdaygiftuk #personalisedclothing #rockonruby #giftsforher
+#milestonebirthdaygift #40thbirthday #personalisedgifts #birthdaygiftideasuk #rockonruby
 
 ---
 
 ## EMAIL DESIGN PROMPT 1
 
-**Subject:** The birthday gift that's already sold 420 times this year
-**Preview text:** (and we're only halfway through it)
+**Subject:** The birthday gift that made her actually cry (in a good way)
+**Preview text:** A personalised year tee. Two minutes to order.
 
-**Story angle:** Someone always leaves a birthday too late. Not because they don't care, but because life gets in the way and suddenly it's ten days out and the options are looking grim. The personalised year sweatshirt exists for exactly this moment.
+**Story angle:** Holly ordered a personalised year t-shirt for her mate's 40th after the usual panic-and-tabs spiral, and it landed harder than anything she'd bought in years. The year meant something. That's what made it work.
 
-**Tension/friction:** She wants to buy something that feels like she thought about it, not something that looks like she panic-ordered it. Generic gifts are everywhere. Something with their actual birth year on it is not.
+**Tension/friction:** She's got a big birthday coming up in the group, and she wants to get something that feels considered, not cobbled together. She's short on time and shorter on ideas that don't feel boring.
 
-**Shift:** Before: scrolling Amazon at midnight, feeling like a bad friend. After: ordered something personalised, made fresh, shipped from Bury, sorted.
+**Shift:** Before: scrolling through the same tired gift sets wondering if a nice candle is enough. After: two minutes on rockonruby.co.uk, order placed, done, and actually excited to hand it over.
 
-**Reason to care:** A milestone birthday deserves more than a voucher. This is a gift that references the year they started, which is a lovely thing without being soppy about it. She'll wear it. That matters.
+**Reason to care:** Milestone birthdays feel significant to the person having them. A gift that reflects that, something with their actual year on it, tells them you noticed. That matters.
 
 **Email structure:**
-- Opening (Hey [name]) — Open with the late-birthday-panic feeling, the moment everyone recognises. Keep it warm and self-aware, two sentences max.
-- Section 1 — Introduce the Personalised Year Sweatshirt as the fix. Talk about what it actually is, why the birth year format works, and why it doesn't feel like a novelty gift. No waffle.
-- Section 2 — Practical details: sizes XS to 5XL, made to order in Bury, a few days lead time if they need it. Keep this light, not a spec sheet.
-- CTA — "Shop Personalised Year" linking to rockonruby.co.uk/collections/personalised-year
-- PS — Something like: "420 people have already bought one this year. Your mate deserves one too."
+- Opening (Hey [name]) — Open with Holly admitting she used to be a last-minute gift buyer who defaulted to candles and wine. Keep it warm and self-deprecating, one or two sentences that feel like a confession.
+- Section 1 — Introduce the personalised year t-shirt. Explain what it is, why the year makes it feel personal rather than generic, and how fast and easy the ordering process is. Keep it conversational, no features-first language.
+- Section 2 — Mention the Personalised Year Sweatshirt as the bigger-gift option for really significant milestones. Point to the gifts-for-her collection for anyone who wants to browse around.
+- CTA — "Find her year" linking to rockonruby.co.uk/collections/gifts-for-her
+- PS — "P.S. If her birthday is soon and you're reading this at 10pm, don't worry. We've got you."
 
 **Holly's voice notes for this email:**
-1. Write to one person. Holly's sister. Not a list, not a demographic, one woman who's a bit frazzled and needs a gift.
-2. No exclamation marks beyond one if absolutely earned. Warmth comes from the words, not the punctuation.
-3. Don't oversell. The product is good. Let the story do the work and trust the reader to click.
+1. Write to one person, the woman who's trying to be a thoughtful friend but is also busy and a bit frazzled. Not a crowd.
+2. Self-deprecating is the move here. Holly admitting she's been the lazy gift-buyer before is what makes this land. Don't let it tip into earnest.
+3. No hard sell. The product sells itself once she understands what it is. The email's job is to make her feel seen, not to list product features.
 
 **Image suggestions:**
-- Flat lay of the year sweatshirt, year clearly visible, simple background, no props.
-- A customer-style photo of someone wearing it, casual, not posed.
-- Close-up of the personalisation itself, the year printed large and clear.
+- Flat lay of the personalised year t-shirt, year clearly visible, on a plain or textured background. Simple and clean.
+- A real or customer-style photo of someone wearing the tee, candid, not posed.
+- The year sweatshirt folded nicely next to something that suggests a birthday, a card, a balloon, kept low-key.
 
 **Ready-to-paste Claude prompt:**
-"You are writing an email for Rock On Ruby in Holly's voice. Holly is a warm, funny, straight-talking woman from Bury, Manchester who co-owns a print-on-demand personalised clothing brand with Graham. She writes like she's texting her mate, never like she's presenting to a boardroom. The email is for the Personalised Year Sweatshirt, Rock On Ruby's bestselling product with over 420 orders. Open with 'Hey [name]' and write to one person, not a crowd. Start with the relatable moment of leaving a birthday gift too late and not wanting to buy something boring. Move into the Personalised Year Sweatshirt as the answer. Explain that it has the recipient's birth year on it, that it's made to order in Bury, comes in sizes XS to 5XL, and feels like a proper thoughtful gift without being sentimental in a cringeworthy way. Keep it warm and funny. No hard sell. No corporate language. No exclamation marks beyond one if absolutely needed. No em dashes, no ellipsis for effect, no bullet points, no banned words including: perfect, simply, just, very, really, amazing, incredible, stunning, beautiful, ensure, curated, intentional, seamless, effortless. End with a CTA button that says 'Shop Personalised Year' linking to rockonruby.co.uk/collections/personalised-year. Add a PS about 420 orders already placed this year. Sign off: Love Team ROR x. UK spelling throughout."
+"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a personalised print-on-demand clothing brand based in Bury, Manchester. Holly is co-owner, warm, funny, self-deprecating, never corporate. She writes like she's WhatsApping a mate, not presenting to a boardroom. The email is targeting women aged 30 to 50 who are looking for a birthday gift for a friend or family member hitting a milestone age.
+
+The email should open with Hey [name]. Start with Holly admitting she used to be a panic-buyer who defaulted to candles. Keep it warm and a bit rueful, one or two sentences. Move into talking about the Personalised Year T-Shirt at rockonruby.co.uk, priced at £26. Explain that the year makes it feel specific and considered, not generic. It's easy to order and ships from Bury. Then mention the Personalised Year Sweatshirt as the step-up option for bigger milestones. Point to the gifts for her collection at rockonruby.co.uk/collections/gifts-for-her. CTA button text: 'Find her year'. End with See ya or Love Team ROR x. Add a PS that reassures anyone reading late at night that there's still time to order.
+
+Voice rules: contractions always, no exclamation marks beyond one in the whole email, no bullet points, no em dashes or en dashes, no banned words including perfect, amazing, beautiful, stunning, ensure, seamless, effortless, curated, elevated, or intentional. UK spelling throughout. Max 3 sentences per paragraph. Never summarise what you just said. Read it back out loud. If it sounds like AI wrote it, rewrite it."
 
 ---
 
 ## EMAIL DESIGN PROMPT 2
 
-**Subject:** She's turning 60. You've known since the beginning.
-**Preview text:** Here's the gift that gets it right
+**Subject:** 40 deserves better than another candle
+**Preview text:** Here's what actually makes a milestone gift land.
 
-**Story angle:** Milestone birthdays feel like they deserve something that matches the occasion, but finding that thing is harder than it sounds. The personalised year hoodie puts their birth year on something they'll actually live in, which is a better starting point than most.
+**Story angle:** The moment you realise someone you love is turning 40 or 50 and the usual gift ideas feel completely inadequate. Holly knows this feeling. She's been on both sides of it.
 
-**Tension/friction:** The reader wants a gift that feels considered without being fussy or over the top. She doesn't want to spend a fortune but she also doesn't want to look like she didn't try. A personalised hoodie sits right in that gap.
+**Tension/friction:** Milestone birthdays feel high-stakes. She wants to get it right, but everything she's found online either costs loads, takes ages to arrive, or could have been bought for anyone. Personalisation sounds like the answer but she doesn't know where to start.
 
-**Shift:** Before: staring at the same gift options she's bought before, knowing none of them are quite right. After: ordered something with meaning baked in, made fresh, ships from Bury, and costs less than a spa day that probably wouldn't get booked anyway.
+**Shift:** Before: overwhelmed by generic options, worried she's going to let her friend down. After: she's found something with the person's actual birth year on it, ordered it in under five minutes, and feels like a genuinely good friend.
 
-**Reason to care:** The year someone was born is theirs. Putting it on a hoodie they'll wear every week is a quiet way of saying you remembered what made them them. That's worth more than a hamper of stuff they didn't choose.
+**Reason to care:** When someone hits a milestone birthday, they're noticing it too. A gift that acknowledges the specific year, the actual number, tells them the person giving it was paying attention. That's what people remember.
 
 **Email structure:**
-- Opening (Hey [name]) — Start with the milestone birthday problem: we all know it's coming and we still somehow end up stuck. Warm, wry, two sentences.
-- Section 1 — Introduce the Personalised Year Hoodie. What it is, why the birth year format does the heavy lifting, why it works for any milestone from a 30th to a 60th. Mention that it's the kind of hoodie they'd buy themselves without the personalisation on it.
-- Section 2 — Practical warmth: sizes XS to 5XL, made to order in their studio in Bury, worth ordering a few days ahead. Mention that cosy and wearable beats novelty every time.
-- CTA — "Shop Personalised Year Hoodies" linking to rockonruby.co.uk/collections/personalised-year
-- PS — Something like: "If you're stuck between a hoodie and a sweatshirt, both are brilliant. Have a look at the full year collection and see what feels right."
+- Opening (Hey [name]) — Open with Holly acknowledging that milestone birthdays are genuinely hard to shop for, and that the pressure to get it right is real. One or two sentences, warm and knowing, not dramatic.
+- Section 1 — Talk about personalised year gifts as the answer. Introduce the Personalised Year Sweatshirt as the flagship milestone gift and the Personalised Year T-Shirt as the lighter option. Explain the year angle, why it works, how it feels different from generic gifts.
+- Section 2 — Mention that Rock On Ruby is based in Bury, ships quickly, and that the gifts-under-30 collection is a good place to start if budget's on her mind. Keep this light and practical, not a list.
+- CTA — "Shop milestone birthday gifts" linking to rockonruby.co.uk/collections/gifting
+- PS — "P.S. The year sweatshirt is our most-ordered birthday gift. There's a reason for that."
 
 **Holly's voice notes for this email:**
-1. The tone is warm but not gushing. Holly doesn't write like a greeting card. She writes like a friend who's been there.
-2. Milestone birthdays carry weight, acknowledge that without being heavy about it. Light touch.
-3. Keep sentences varied. Short ones land. Longer ones give breathing room. Read it back out loud before considering it done.
+1. The tone here should feel like a friend who's already figured this out passing the tip on. Not a brand selling at her.
+2. Mention Bury naturally. It grounds the brand, makes it feel real and human, not a faceless operation.
+3. Don't oversell the emotion. The fact that a birth year is personal is enough. Say it once, let it do the work.
 
 **Image suggestions:**
-- Someone wearing the hoodie in a relaxed, candid setting. Morning, kitchen, mug in hand. Cosy and real.
-- Flat lay with the birth year clearly visible, clean background, no clutter.
-- A before-and-after style shot if possible: blank hoodie next to the finished personalised version.
+- The Personalised Year Sweatshirt folded or flat laid, year clearly visible, nothing fussy around it.
+- A candid or customer-style photo of someone wearing the sweatshirt at what looks like a birthday gathering.
+- A side-by-side of the sweatshirt and the t-shirt in complementary colours, showing the range without needing a caption.
 
 **Ready-to-paste Claude prompt:**
-"You are writing an email for Rock On Ruby in Holly's voice. Holly is a warm, funny, straight-talking woman from Bury, Manchester who co-owns a print-on-demand personalised clothing brand. She writes like she's texting her mate. The email is about the Personalised Year Hoodie, part of Rock On Ruby's bestselling personalised year range. Open with 'Hey [name]'. Write to one person, not a crowd. Start with the relatable frustration of milestone birthday gift buying: you've known it was coming, you still don't know what to get. Move into the Personalised Year Hoodie as the answer. Explain that it features the recipient's birth year, that it's made to order in Bury, comes in sizes XS to 5XL, and feels cosy and wearable rather than novelty. Tone is warm, self-aware, never overselling. Works for any milestone birthday from 30th to 60th. No hard sell. No corporate language. No em dashes, no semicolons, no ellipsis for effect, no bullet points, no exclamation marks beyond one if absolutely necessary. No banned words including: perfect, simply, just, very, really, amazing, incredible, stunning, beautiful, ensure, curated, intentional, seamless, effortless, elevated, wardrobe staple. End with a CTA button that says 'Shop Personalised Year Hoodies' linking to rockonruby.co.uk/collections/personalised-year. Add a PS suggesting they look at the sweatshirt version too if they're torn. Sign off: Love Team ROR x. UK spelling throughout."
+"You are writing an email for Rock On Ruby in Holly's voice. Rock On Ruby is a personalised print-on-demand clothing brand based in Bury, Manchester. Holly is co-owner, warm, funny, self-deprecating, never corporate. She writes like she's WhatsApping a mate, not presenting to a boardroom. The email targets women aged 30 to 50 who need a gift for a friend or family member's milestone birthday, a 30th, 40th, 50th, or 60th.
+
+Open with Hey [name]. Start with Holly acknowledging that milestone birthdays are hard to shop for and the pressure to nail it is real. Warm and knowing, not overdone. Introduce the Personalised Year Sweatshirt as the go-to milestone birthday gift, and mention the Personalised Year T-Shirt at £26 as the lighter option. Explain that the birth year is what makes it land, it's specific to them, nobody else at the party is wearing 1976 or 1984. Mention that Rock On Ruby is based in Bury and ships quickly. Reference the gifts-under-30 collection at rockonruby.co.uk/collections/gifts-under-30 for anyone keeping an eye on budget. CTA button text: 'Shop milestone birthday gifts' linking to rockonruby.co.uk/collections/gifting. End with See ya or Love Team ROR x. Add a PS that calls out the year sweatshirt as the most-ordered birthday gift and lets that fact do the talking.
+
+Voice rules: contractions always, no exclamation marks beyond one in the whole email, no bullet points, no em dashes or en dashes, no banned words including perfect, amazing, beautiful, stunning, ensure, seamless, effortless, curated, elevated, or intentional. UK spelling throughout. Max 3 sentences per paragraph. Never summarise at the end of a section. Read it back out loud. If it sounds like AI wrote it, rewrite it."
 
 ---
 
 ## PRODUCT DESCRIPTIONS
 
-**Personalised Year Sweatshirt**
+**Christmas T-Shirts (angle: personalised year t-shirt)**
 
-Your birth year on a sweatshirt that's actually worth wearing. Not a novelty. Not a joke gift. A proper, cosy sweatshirt made to order with your year printed right there, front and centre. It's the kind of thing that looks like you spent ages thinking about it, even if you found us three days before the birthday. Sizes XS to 5XL. Made fresh in Bury.
+Your birth year on a Christmas tee. That's a gift that nobody else in the room is wearing, and that's kind of the whole point. These are the ones that get photographed, shared, and worn every December until they fall apart. Comfortable enough to eat a full roast in, which, let's be honest, is the only real measure of a Christmas top.
 
-**Personalised Year Hoodie**
+Browse Christmas t-shirts at rockonruby.co.uk/collections/christmas-t-shirts.
 
-The birthday gift for the person who lives in a hoodie from September to June, which is most of us. Their birth year, on a hoodie they'd have chosen for themselves anyway. Made to order, ships from Bury, and works for a 30th, 50th or anything in between. Cosy without being cutesy. That's the whole point.
+---
+
+**Father's Day Gifts (angle: milestone birthday gift uk)**
+
+If your dad's hitting a milestone birthday around Father's Day, or you've left it late and need something that actually feels considered, this is the range. Personalised, wearable, and nothing like the novelty mug you panic-bought last year. We're based in Bury, we ship fast, and we've yet to have a dad who didn't wear his.
+
+Browse Father's Day gifts at rockonruby.co.uk/collections/fathers-day-gifts.
 
 ---
 *Generated by ROR Content Generator · rockonruby.co.uk*
