@@ -1,5 +1,5 @@
 """
-Rock On Ruby — AI Content Generator
+Rock On Ruby - AI Content Generator
 Reads trend_cache.json and content_history.json, generates content via Claude,
 updates history so each run produces fresh topics. Called by the content workflow.
 
@@ -28,11 +28,11 @@ CATALOGUE_FILE   = OUTPUT_DIR / "shopify_catalogue.json"
 INSTAGRAM_FILE   = OUTPUT_DIR / "instagram_insights.json"
 
 BRAND_CONTEXT = """
-BRAND: Rock On Ruby — print-on-demand personalised clothing and accessories.
+BRAND: Rock On Ruby, print-on-demand personalised clothing and accessories.
 Based in Bury, Manchester. Co-owned by Holly (brand voice) and Graham (strategy).
 
 PRODUCTS: Personalised embroidered caps, sweatshirts, hoodies, tees, tote bags, slogan clothing.
-CUSTOMER: UK women, 30–50. Busy. Thoughtful gift-buyer. Warm, funny, slightly chaotic.
+CUSTOMER: UK women, 30-50. Busy. Thoughtful gift-buyer. Warm, funny, slightly chaotic.
 POSITIONING: Anti-boring high street. The antidote to the Amazon last-minute lazy gift.
 WEBSITE: rockonruby.co.uk
 
@@ -47,22 +47,22 @@ HOLLY'S VOICE RULES:
   perfect for any occasion, treat yourself, honestly, girlboss, empower, excited to share,
   boss babe
 - NEVER sound like AI wrote it. No corporate language. No hard sell.
-- Always write to ONE person — Holly's sister. Never to a crowd.
+- Always write to ONE person, Holly's sister. Never to a crowd.
 
 BLOG/SEO RULES:
 - Lead with target keyword naturally in first sentence and H1
 - Human first, search engine second
 - 500 words for blog posts
 - Always end with a natural CTA
-- Storytelling structure: real moment → tension → shift → reason to care → gentle CTA
+- Storytelling structure: real moment to tension to shift to reason to care to gentle CTA
 """.strip()
 
 
 WRITING_RULES = """
-WRITING RULES — apply to every piece of content without exception:
+WRITING RULES, apply to every piece of content without exception:
 
 PUNCTUATION:
-Never use em dashes (—) or en dashes (–). Use a comma, full stop, or rewrite the sentence instead.
+Never use em dashes or en dashes. Use a comma, full stop, or rewrite the sentence instead.
 No ellipsis for dramatic effect (...). Only where a trailing thought genuinely needs it, and even then sparingly.
 No semicolons.
 Exclamation marks: maximum one per piece of content. Earned, not scattered.
@@ -94,7 +94,7 @@ If a joke does not land naturally, cut it. Forced humour reads as AI immediately
 UK spelling always: personalised, colour, favourite.
 Read every sentence back as if saying it out loud. If it sounds like something a human would never actually say, rewrite it.
 
-FINAL CHECK — before outputting any content, scan for:
+FINAL CHECK, before outputting any content, scan for:
 Any em dash or en dash: replace immediately.
 Any banned word from the list above: replace immediately.
 Any sentence starting with a filler opening (It is / There are / This is): rewrite immediately.
@@ -210,7 +210,7 @@ def build_prompt(layer_terms: dict[int, list[dict]], seo_terms: list[dict], all_
         rq_str  = f" | Rising: {', '.join(r['rising_queries'][:2])}" if r.get("rising_queries") else ""
         bo_str  = f" | BREAKOUT: {', '.join(r['breakout_queries'])}" if r.get("breakout_queries") else ""
         term_lines.append(
-            f"- '{r['term']}' — avg {r['avg_interest']}/100, {r['trend']}, "
+            f"- '{r['term']}', avg {r['avg_interest']}/100, {r['trend']}, "
             f"score {r['score']}/10, layer {r.get('layer',3)}, gap={not bool(r['ror_existing'])}"
             f"{rq_str}{paa_str}{bo_str}"
         )
@@ -246,10 +246,10 @@ def build_prompt(layer_terms: dict[int, list[dict]], seo_terms: list[dict], all_
 
 Write a 500-word blog post targeting the keyword '{r['term']}'.
 - H1 must contain the keyword naturally
-- Storytelling structure: real moment → tension → shift → reason to care → CTA
-- Holly's voice throughout — warm, funny, Manchester woman running a business
+- Storytelling structure: real moment to tension to shift to reason to care to CTA
+- Holly's voice throughout, warm, funny, Manchester woman running a business
 - End CTA links to rockonruby.co.uk
-- Written for Google and AI search — answer the topic completely and naturally
+- Written for Google and AI search, answer the topic completely and naturally
 """
 
     # Build social captions section
@@ -260,7 +260,7 @@ Write 2 social media captions (Instagram/TikTok format) targeting: {', '.join("'
 Each caption must:
 - Open with a strong hook (first line = the scroll-stopper)
 - Be 3-6 lines total, sound like Holly texting her mate
-- Include a suggested visual note in [brackets] at the end
+- Add one final production line starting "Visual note:" after the caption
 - 3-5 hashtags at the very end only
 """
 
@@ -273,20 +273,20 @@ Each caption must:
 For the keyword '{r['term']}', produce a full email design prompt that Bethan can paste into Claude to write the complete email.
 Format EXACTLY as follows:
 
-**Subject:** [subject line — punchy, Holly's voice, no corporate language]
-**Preview text:** [45 characters max — completes the subject naturally]
+**Subject:** [subject line, punchy, Holly's voice, no corporate language]
+**Preview text:** [45 characters max, completes the subject naturally]
 
-**Story angle:** [2 sentences — the real moment or observation that opens the email]
+**Story angle:** [2 sentences, the real moment or observation that opens the email]
 **Tension/friction:** [what's the problem or decision the reader faces]
-**Shift:** [the before → after]
+**Shift:** [the before to after]
 **Reason to care:** [why does this matter emotionally to her]
 
 **Email structure:**
-- Opening (Hey [name]) — [2-sentence instruction for opening]
-- Section 1 — [what this section does and says]
-- Section 2 — [what this section does and says]
-- CTA — [exact button text] linking to [URL path on rockonruby.co.uk]
-- PS — [optional PS idea]
+- Opening (Hey [name]), [2-sentence instruction for opening]
+- Section 1, [what this section does and says]
+- Section 2, [what this section does and says]
+- CTA, [exact button text] linking to [URL path on rockonruby.co.uk]
+- PS, [optional PS idea]
 
 **Holly's voice notes for this email:** [3 specific voice reminders relevant to this topic]
 
@@ -302,16 +302,16 @@ Format EXACTLY as follows:
         prod_section = f"""
 ## PRODUCT DESCRIPTIONS
 
-For each product below write a 60-word description in Holly's voice — warm, funny, specific.
+For each product below write a 60-word description in Holly's voice, warm, funny, specific.
 Lead with the product benefit, not features:
-{chr(10).join(f"- '{r['term']}' → {r['ror_existing']}" for r in prod_terms)}
+{chr(10).join(f"- '{r['term']}' to {r['ror_existing']}" for r in prod_terms)}
 """
 
     # Build SEO content section
     seo_section = ""
     if blog_seo:
         seo_section += f"""
-## SEO CONTENT — BLOG DRAFTS
+## SEO CONTENT, BLOG DRAFTS
 
 For each keyword below write a full 500-word blog post draft:
 {chr(10).join(f"- '{r['term']}' (score {r['score']}/10, {r['trend']})" for r in blog_seo)}
@@ -325,7 +325,7 @@ Each post:
 
     if product_seo:
         seo_section += f"""
-## SEO CONTENT — PRODUCT PAGE BRIEFS
+## SEO CONTENT, PRODUCT PAGE BRIEFS
 
 For each keyword write a product page brief (title, 80-word description, meta title, meta description):
 {chr(10).join(f"- '{r['term']}'" for r in product_seo)}
@@ -333,7 +333,7 @@ For each keyword write a product page brief (title, 80-word description, meta ti
 
     if collect_seo:
         seo_section += f"""
-## SEO CONTENT — COLLECTION PAGE COPY
+## SEO CONTENT, COLLECTION PAGE COPY
 
 For each keyword write updated collection page copy (150 words) + 2 image reference suggestions:
 {chr(10).join(f"- '{r['term']}'" for r in collect_seo)}
@@ -362,7 +362,7 @@ Answer in the first sentence, then add context. Mention Rock On Ruby naturally i
                 f"  - {b['title']} (£{b['revenue']:,.0f} revenue, {b['orders']} orders)"
                 for b in top_sellers
             )
-            catalogue_ctx += f"\nTOP BESTSELLERS — link to these wherever relevant:\n{seller_lines}\n"
+            catalogue_ctx += f"\nTOP BESTSELLERS, link to these wherever relevant:\n{seller_lines}\n"
 
         # Relevant collections matched against today's selected terms
         all_words = set()
@@ -373,7 +373,7 @@ Answer in the first sentence, then add context. Mention Rock On Ruby naturally i
             if any(w in c["title"].lower() for w in all_words)
         ][:10]
         if matched_collections:
-            coll_lines = "\n".join(f"  - {c['title']} → {c['url']}" for c in matched_collections)
+            coll_lines = "\n".join(f"  - {c['title']} to {c['url']}" for c in matched_collections)
             catalogue_ctx += f"\nMATCHING ROR COLLECTION URLS (use exact URLs in all CTAs and internal links):\n{coll_lines}\n"
 
         # Relevant products for today's terms
@@ -386,7 +386,7 @@ Answer in the first sentence, then add context. Mention Rock On Ruby naturally i
                 break
         if matched_products:
             prod_lines = "\n".join(
-                f"  - {p['title']} — {p['url']}" + (f" (£{p['price']:.0f})" if p.get("price") else "")
+                f"  - {p['title']} to {p['url']}" + (f" (£{p['price']:.0f})" if p.get("price") else "")
                 for p in matched_products
             )
             catalogue_ctx += f"\nMATCHING ROR PRODUCTS (use real URLs, not guessed slugs):\n{prod_lines}\n"
@@ -398,7 +398,7 @@ Answer in the first sentence, then add context. Mention Rock On Ruby naturally i
         if posts:
             post_lines = "\n".join(
                 f"  - {p['topic']} ({p.get('content_type', '')}): {p.get('engagement', '')} engagement"
-                + (f" — {p['notes']}" if p.get("notes") else "")
+                + (f", {p['notes']}" if p.get("notes") else "")
                 for p in posts
             )
             top_formats  = ", ".join(instagram.get("top_formats", []))
@@ -417,32 +417,41 @@ What is NOT working: {not_working}
     if trending_data:
         web = trending_data.get("web", {})
         yt  = trending_data.get("youtube", {})
-        web_top    = ", ".join(web.get("top", [])) or "none captured"
-        web_rising = ", ".join(web.get("rising", [])) or "none captured"
-        yt_top     = ", ".join(yt.get("top", [])) or "none captured"
-        yt_rising  = ", ".join(yt.get("rising", [])) or "none captured"
+        source_note = trending_data.get("source_note", "")
+        web_top    = "\n".join(f"{i}. {q} [Web]" for i, q in enumerate(web.get("top", [])[:10], 1)) or "none captured"
+        yt_top     = "\n".join(f"{i}. {q} [YouTube]" for i, q in enumerate(yt.get("top", [])[:10], 1)) or "none captured"
+        web_rising = "\n".join(f"{i}. {q} [Web]" for i, q in enumerate(web.get("rising", [])[:10], 1)) or "none captured"
+        yt_rising  = "\n".join(f"{i}. {q} [YouTube]" for i, q in enumerate(yt.get("rising", [])[:10], 1)) or "none captured"
         trending_block = f"""
-UK TRENDING QUERIES — PAST 7 DAYS (raw from Google Trends, UK):
-Web — Top Searches:    {web_top}
-Web — Rising Searches: {web_rising}
-YouTube — Top:         {yt_top}
-YouTube — Rising:      {yt_rising}"""
+UK TRENDING QUERIES, PAST 7 DAYS, RAW GOOGLE DATA:
+Use these only as inspiration. Do not filter, score, rewrite or force them into content.
+Where a loose ROR product connection exists, use it naturally. Where no connection exists, ignore it.
+Source note: {source_note or "not supplied"}
+
+Top Searches UK, Past Week:
+{web_top}
+{yt_top}
+
+Rising Searches UK, Past Week:
+{web_rising}
+{yt_rising}"""
     else:
-        trending_block = "\nUK TRENDING QUERIES — PAST 7 DAYS: not available this run."
+        trending_block = "\nUK TRENDING QUERIES, PAST 7 DAYS: not available this run."
 
     opportunity_section = f"""
 ## WEEKLY OPPORTUNITY NOTES
 
-Scan the UK Trending Queries above. For each query where a connection to an ROR product exists (however loose — topic, occasion, culture, humour angle), write one line for Bethan.
-Format: [trending query] is trending — [specific, concrete suggestion tied to an ROR product or content angle].
-Examples: "World Cup is trending — consider year tops in football colours this week"
-          "Great British Bake Off is trending — push the biscuit range on Stories this week"
+Scan the UK Trending Queries above. For each query where a connection to an ROR product exists, however loose, write one line for Bethan.
+Format: [trending query] is trending, [specific, concrete suggestion tied to an ROR product or content angle].
+Examples: "World Cup is trending, consider year tops in football colours this week"
+          "Great British Bake Off is trending, push the biscuit range on Stories this week"
 Only write a note where a real connection exists. Do not force it.
 Output as a numbered list. If no connections exist, write: No strong trending connections this week.
 """
 
     return f"""
 {BRAND_CONTEXT}
+{WRITING_RULES}
 {catalogue_ctx}
 {instagram_ctx}
 ---
@@ -470,13 +479,13 @@ each starting with the exact markdown heading shown. No preamble, no commentary 
 def generate_content(all_groups: list[dict] | None = None, trending_data: dict | None = None) -> bool:
     api_key = os.environ.get("ANTHROPIC_API_KEY", "")
     if not api_key:
-        print("\nANTHROPIC_API_KEY not set — skipping content generation.")
+        print("\nANTHROPIC_API_KEY not set, skipping content generation.")
         return False
 
     # Load cache if not passed directly
     if all_groups is None:
         if not CACHE_FILE.exists():
-            print("\ntrend_cache.json not found — run scraper first.")
+            print("\ntrend_cache.json not found, run scraper first.")
             return False
         raw = json.loads(CACHE_FILE.read_text())
         if isinstance(raw, dict) and "groups" in raw:
@@ -516,7 +525,7 @@ def generate_content(all_groups: list[dict] | None = None, trending_data: dict |
             max_tokens=8192,
             system=(
                 "You are a copywriter for Rock On Ruby, a print-on-demand personalised clothing brand "
-                "based in Bury, Manchester. You write in Holly's voice — warm, funny, straight-talking, "
+                "based in Bury, Manchester. You write in Holly's voice, warm, funny, straight-talking, "
                 "never corporate. Follow the brand guide exactly.\n\n"
                 f"{WRITING_RULES}"
             ),
@@ -536,7 +545,7 @@ def generate_content(all_groups: list[dict] | None = None, trending_data: dict |
     date_str = datetime.now().strftime("%d %B %Y, %H:%M")
     layer4_terms = [r["term"] for r in layer_terms.get(4, [])]
     top_terms    = [r["term"] for r in all_selected[:5]]
-    md = f"""# Rock On Ruby — Content Drafts
+    md = f"""# Rock On Ruby - Content Drafts
 Generated: {date_str}
 Run `python3 content_generator.py` to regenerate with cached trend data.
 
@@ -555,7 +564,7 @@ Run `python3 content_generator.py` to regenerate with cached trend data.
 """
 
     CONTENT_FILE.write_text(md, encoding="utf-8")
-    print(f"  Content draft → {CONTENT_FILE}")
+    print(f"  Content draft: {CONTENT_FILE}")
     return True
 
 

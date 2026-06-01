@@ -16,6 +16,7 @@ import sys
 import time
 import random
 from datetime import datetime, timedelta
+from html import escape
 from pathlib import Path
 import requests
 from pytrends.request import TrendReq
@@ -23,10 +24,12 @@ from pytrends.request import TrendReq
 # ── Config ───────────────────────────────────────────────────────────────────
 
 SERPER_KEY   = os.environ.get("SERPER_API_KEY", "")
+SERPAPI_KEY  = os.environ.get("SERPAPI_KEY", "")
 OUTPUT_DIR   = Path(__file__).parent
 REPORT_FILE  = OUTPUT_DIR / "trend_report.html"
 CACHE_FILE   = OUTPUT_DIR / "trend_cache.json"
 FOCUS_FILE   = OUTPUT_DIR / "ror_focus.json"
+OPEN_TRENDS_FILE = OUTPUT_DIR / "open_trends.json"
 LAYER4_CACHE = OUTPUT_DIR / "layer4_expanded.json"
 
 GEO              = "GB"
@@ -34,9 +37,21 @@ TIMEFRAME        = "today 3-m"
 CATALOGUE_FILE   = OUTPUT_DIR / "shopify_catalogue.json"
 TIMEOUT_SECONDS  = 480   # 8-minute hard cap — save & report with whatever was collected
 RATE_LIMIT_WAIT  = 15    # seconds to pause after a 429 before retrying
+TEAM_INPUT_LIST_URL = os.environ.get(
+    "TEAM_INPUT_LIST_URL",
+    "https://app.clickup.com/90121649956/v/l/li/901218496536",
+)
 
-_PT        = TrendReq(hl="en-GB", tz=0, retries=3, backoff_factor=0.5)
+_PT: TrendReq | None = None
 _CATALOGUE: dict = {}
+
+
+def trends_client() -> TrendReq:
+    """Create pytrends lazily so cached/report-only runs do not need network access."""
+    global _PT
+    if _PT is None:
+        _PT = TrendReq(hl="en-GB", tz=0, retries=3, backoff_factor=0.5)
+    return _PT
 
 
 def load_catalogue() -> dict:
@@ -380,15 +395,17 @@ def _trends_query(q: str) -> dict:
     """Single pytrends interest-over-time call. Returns parsed dict or {}.
     Retries once after RATE_LIMIT_WAIT seconds if a 429 is returned."""
     try:
-        _PT.build_payload([q], cat=0, timeframe=TIMEFRAME, geo=GEO)
-        df = _PT.interest_over_time()
+        pt = trends_client()
+        pt.build_payload([q], cat=0, timeframe=TIMEFRAME, geo=GEO)
+        df = pt.interest_over_time()
     except Exception as e:
         if "429" in str(e):
             print(f"    429 — waiting {RATE_LIMIT_WAIT}s before retry")
             time.sleep(RATE_LIMIT_WAIT)
             try:
-                _PT.build_payload([q], cat=0, timeframe=TIMEFRAME, geo=GEO)
-                df = _PT.interest_over_time()
+                pt = trends_client()
+                pt.build_payload([q], cat=0, timeframe=TIMEFRAME, geo=GEO)
+                df = pt.interest_over_time()
             except Exception:
                 return {}
         else:
@@ -443,8 +460,9 @@ def pytrends_related_queries(term: str) -> dict[str, list[str]]:
     out = {"rising": [], "top": [], "breakout": []}
 
     def _do_call():
-        _PT.build_payload([term], cat=0, timeframe=TIMEFRAME, geo=GEO)
-        return _PT.related_queries()
+        pt = trends_client()
+        pt.build_payload([term], cat=0, timeframe=TIMEFRAME, geo=GEO)
+        return pt.related_queries()
 
     try:
         related = _do_call()
@@ -510,8 +528,9 @@ def fetch_related_queries_weekly(term: str, gprop: str = "") -> dict[str, list[s
     MAX_RETRIES = 3
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            _PT.build_payload([term], cat=0, timeframe="now 7-d", geo=GEO, gprop=gprop)
-            related = _PT.related_queries()
+            pt = trends_client()
+            pt.build_payload([term], cat=0, timeframe="now 7-d", geo=GEO, gprop=gprop)
+            related = pt.related_queries()
             if not related or term not in related:
                 return out
             term_data = related[term]
@@ -532,80 +551,91 @@ def fetch_related_queries_weekly(term: str, gprop: str = "") -> dict[str, list[s
     return out
 
 
-def fetch_trending_queries_uk(all_groups: list[dict], run_start: float | None = None) -> dict:
+def empty_open_trends(source_note: str = "") -> dict:
+    return {
+        "web": {"top": [], "rising": []},
+        "youtube": {"top": [], "rising": []},
+        "weekly_ok": False,
+        "source_note": source_note,
+    }
+
+
+def normalise_open_trends(raw: dict, source_note: str = "") -> dict:
+    """Normalise raw open-trends input without scoring, filtering or ROR matching."""
+    out = empty_open_trends(source_note or raw.get("source_note", ""))
+    for channel in ("web", "youtube"):
+        channel_data = raw.get(channel, {}) if isinstance(raw, dict) else {}
+        for bucket in ("top", "rising"):
+            values = channel_data.get(bucket, []) if isinstance(channel_data, dict) else []
+            out[channel][bucket] = [str(v).strip() for v in values if str(v).strip()][:10]
+    out["weekly_ok"] = any(out[channel][bucket] for channel in ("web", "youtube") for bucket in ("top", "rising"))
+    return out
+
+
+def load_open_trends_file() -> dict | None:
     """
-    Fetch UK trending data for the dashboard.
+    Optional raw open-trends import.
 
-    Primary (always): trending_searches() — today's top UK topics, fast and rate-limit-free.
-    Secondary (if time allows): weekly related queries for the top 3 scoring terms.
-
-    Returns {
-        "web":     {"top": [...today's trending...], "rising": [...weekly rising if available...]},
-        "youtube": {"top": [...], "rising": [...]},
-        "weekly_ok": bool,   # True when weekly queries were also fetched
+    Expected shape:
+    {
+      "web": {"top": ["..."], "rising": ["..."]},
+      "youtube": {"top": ["..."], "rising": ["..."]},
+      "source_note": "Google Trends, UK, past 7 days"
     }
     """
-    # ── Primary: today's trending searches — always fast ──────────────────────
+    if not OPEN_TRENDS_FILE.exists():
+        return None
+    try:
+        raw = json.loads(OPEN_TRENDS_FILE.read_text())
+        return normalise_open_trends(raw, raw.get("source_note", "Imported from open_trends.json"))
+    except Exception as e:
+        print(f"  open_trends.json ignored: {e}")
+        return None
+
+
+def fetch_pytrends_daily_fallback() -> dict:
+    """
+    Free fallback only.
+
+    pytrends does not expose unseeded UK past-week top/rising web and YouTube
+    queries. This keeps the dashboard populated with today's UK trending searches
+    without pretending it is the requested weekly open-trends feed.
+    """
     today_top: list[str] = []
     try:
-        df = _PT.trending_searches(pn="united_kingdom")
+        df = trends_client().trending_searches(pn="united_kingdom")
         today_top = [str(t) for t in df.iloc[:, 0].dropna().tolist()[:10]]
         print(f"  Today's trending: {len(today_top)} topics fetched")
     except Exception as e:
         print(f"  trending_searches() failed: {e}")
 
-    # ── Secondary: weekly related queries (only if enough time remains) ───────
-    elapsed = time.monotonic() - run_start if run_start is not None else TIMEOUT_SECONDS
-    time_left = TIMEOUT_SECONDS - elapsed
-    # Need at least 90s to make the weekly calls worthwhile
-    if time_left < 90:
-        print(f"  Skipping weekly queries — only {time_left:.0f}s remaining")
-        return {
-            "web":      {"top": today_top, "rising": []},
-            "youtube":  {"top": [],        "rising": []},
-            "weekly_ok": False,
-        }
-
-    all_results = [r for g in all_groups for r in g["results"]]
-    top_terms   = [r["term"] for r in sorted(all_results, key=lambda r: -r["score"])[:3]]
-
-    web_rising: list[str] = []
-    yt_top:     list[str] = []
-    yt_rising:  list[str] = []
-    seen_wr: set[str] = set()
-    seen_yt: set[str] = set()
-    seen_yr: set[str] = set()
-
-    for term in top_terms:
-        if time.monotonic() - run_start > TIMEOUT_SECONDS - 10:
-            print(f"  Timeout — stopping weekly queries early")
-            break
-
-        print(f"  → Weekly web trends: {term}")
-        web = fetch_related_queries_weekly(term, "")
-        for q in web["rising"]:
-            if q not in seen_wr:
-                seen_wr.add(q); web_rising.append(q)
-        time.sleep(random.uniform(1.5, 2.5))
-
-        if time.monotonic() - run_start > TIMEOUT_SECONDS - 10:
-            break
-
-        print(f"  → Weekly YouTube trends: {term}")
-        yt = fetch_related_queries_weekly(term, "youtube")
-        for q in yt["top"]:
-            if q not in seen_yt:
-                seen_yt.add(q); yt_top.append(q)
-        for q in yt["rising"]:
-            if q not in seen_yr:
-                seen_yr.add(q); yt_rising.append(q)
-        time.sleep(random.uniform(1.5, 2.5))
-
     return {
-        "web":      {"top": today_top,          "rising": web_rising[:10]},
-        "youtube":  {"top": yt_top[:10],        "rising": yt_rising[:10]},
-        "weekly_ok": bool(web_rising or yt_top or yt_rising),
+        "web": {"top": today_top, "rising": []},
+        "youtube": {"top": [], "rising": []},
+        "weekly_ok": False,
+        "source_note": "Fallback only: pytrends daily UK trending searches. Add open_trends.json or SERPAPI_KEY for true past-week open trends.",
     }
+
+
+def fetch_trending_queries_uk(all_groups: list[dict], run_start: float | None = None) -> dict:
+    """
+    Fetch raw UK open-trends data for the dashboard and content prompt.
+
+    This is intentionally separate from programmed ROR keyword tracking. It must
+    not seed Google Trends with ROR terms, score results, or filter them through
+    products. If a true past-week source is not available, the fallback is labelled
+    clearly so Bethan is not asked to act on pretend weekly data.
+    """
+    imported = load_open_trends_file()
+    if imported:
+        print("  Open UK trends loaded from open_trends.json")
+        return imported
+
+    if SERPAPI_KEY:
+        print("  SERPAPI_KEY found, but open weekly web/YouTube trend import is not wired yet.")
+        print("  Add open_trends.json to feed raw past-week top/rising queries into the dashboard.")
+
+    return fetch_pytrends_daily_fallback()
 
 
 # ── Fetch all data ────────────────────────────────────────────────────────────
@@ -1121,15 +1151,14 @@ TRENDING_CSS = """
 def build_trending_section(trending_data: dict) -> str:
     """Return an HTML string for the UK Trending Queries section."""
     if not trending_data:
-        return ""
+        trending_data = empty_open_trends("No open UK trends captured this run.")
 
     weekly_ok = trending_data.get("weekly_ok", False)
+    source_note = trending_data.get("source_note", "")
     web = trending_data.get("web", {})
     yt  = trending_data.get("youtube", {})
 
-    today_rows: list[tuple[str, str]] = [(q, "Web") for q in web.get("top", [])]
-
-    def merge_weekly(web_list: list[str], yt_list: list[str]) -> list[tuple[str, str]]:
+    def merge_rows(web_list: list[str], yt_list: list[str]) -> list[tuple[str, str]]:
         rows: list[tuple[str, str]] = []
         seen: set[str] = set()
         for q in web_list:
@@ -1140,10 +1169,8 @@ def build_trending_section(trending_data: dict) -> str:
                 seen.add(q); rows.append((q, "YouTube"))
         return rows[:10]
 
-    weekly_rows = merge_weekly(web.get("rising", []), yt.get("rising", []) + yt.get("top", []))
-
-    if not today_rows and not weekly_rows:
-        return ""
+    top_rows = merge_rows(web.get("top", []), yt.get("top", []))
+    rising_rows = merge_rows(web.get("rising", []), yt.get("rising", []))
 
     def render_table(rows: list[tuple[str, str]], empty_msg: str = "No data captured this run.") -> str:
         if not rows:
@@ -1154,7 +1181,7 @@ def build_trending_section(trending_data: dict) -> str:
             trs += f"""
 <tr>
   <td class="tq-num">{i}</td>
-  <td class="tq-query">{query}</td>
+  <td class="tq-query">{escape(query)}</td>
   <td><span class="tq-src {src_cls}">{src}</span></td>
 </tr>"""
         return f"""<table class="tq-table">
@@ -1164,21 +1191,156 @@ def build_trending_section(trending_data: dict) -> str:
 </table>"""
 
     weekly_note = "" if weekly_ok else \
-        ' &nbsp;<span style="color:var(--yellow);font-size:.75rem">(Showing today\'s trending searches — weekly data temporarily unavailable)</span>'
+        ' &nbsp;<span style="color:var(--yellow);font-size:.75rem">(True past-week open trends unavailable in this run)</span>'
+    source_html = f'<p class="trending-sub">{escape(source_note)}</p>' if source_note else ""
 
     return f"""
 <section class="trending-section">
-  <h2 class="trending-title">UK Trending Searches</h2>
-  <p class="trending-sub">Google Trends via pytrends &nbsp;·&nbsp; UK &nbsp;·&nbsp; Today&#39;s top topics + weekly rising queries{weekly_note}</p>
+  <h2 class="trending-title">UK Trending Queries</h2>
+  <p class="trending-sub">Raw Google trend feed &nbsp;·&nbsp; UK &nbsp;·&nbsp; Past week &nbsp;·&nbsp; Web search and YouTube search{weekly_note}</p>
+  {source_html}
   <div class="trending-tables">
     <div class="trending-table-wrap">
-      <h3>Trending in the UK — Today</h3>
-      {render_table(today_rows)}
+      <h3>Top Searches UK — Past Week</h3>
+      {render_table(top_rows, "No top searches captured for the past-week open trend feed.")}
     </div>
     <div class="trending-table-wrap">
-      <h3>Weekly Rising Searches</h3>
-      {render_table(weekly_rows, "Weekly data not fetched this run — today&#39;s trending shown left.")}
+      <h3>Rising Searches UK — Past Week</h3>
+      {render_table(rising_rows, "No rising searches captured for the past-week open trend feed.")}
     </div>
+  </div>
+</section>"""
+
+
+def build_weekly_actions_section(all_groups: list[dict]) -> str:
+    """Return the executive summary section: what to do, why, and what evidence supports it."""
+    all_results = [r for g in all_groups for r in g["results"]]
+    ranked = sorted(all_results, key=lambda r: (-r["score"], -(1 if r["trend"] == "rising" else 0), -r["avg_interest"]))
+    top = ranked[:5]
+    if not top:
+        return """
+<section class="dashboard-section">
+  <h2>Weekly Actions</h2>
+  <p class="section-intro">No trend data captured yet. Re-run the scraper to build weekly recommendations.</p>
+</section>"""
+
+    cards = ""
+    for r in top:
+        existing = r.get("ror_existing") or "No direct matching ROR page found"
+        action = seo_action(r["score"], r["trend"], r.get("ror_existing", ""))
+        confidence = "High" if r["score"] >= 8 else ("Medium" if r["score"] >= 5 else "Low")
+        badge_cls = "pill-high" if confidence == "High" else ("pill-medium" if confidence == "Medium" else "pill-low")
+        aov_note = "Look for a bundle or add-on angle to support the £48 AOV target." if r.get("ror_existing") else "Create content first, then decide if this needs a product or collection page."
+        data_bits = [
+            f"Score {r['score']}/10",
+            f"{r['trend']} demand",
+            f"~{r['avg_interest']}/100 interest",
+            f"Maps to: {existing}",
+        ]
+        if r.get("rising_queries"):
+            data_bits.append(f"Related rising query: {r['rising_queries'][0]}")
+        data_text = " · ".join(data_bits)
+        cards += f"""
+<article class="action-card">
+  <div class="action-head">
+    <span class="pill {badge_cls}">{confidence} confidence</span>
+    <span class="pill pill-aov">AOV/Conversion check</span>
+  </div>
+  <h3>{r['term']}</h3>
+  <div class="dia-grid">
+    <div class="dia-box"><h4>Data</h4><p>{data_text}</p></div>
+    <div class="dia-box"><h4>Interpretation</h4><p>This looks commercially relevant because it connects search demand to existing products, seasonal demand or a clear page gap.</p></div>
+    <div class="dia-box"><h4>Action</h4><p>{action}. {aov_note}</p></div>
+  </div>
+</article>"""
+
+    return f"""
+<section class="dashboard-section">
+  <h2>Weekly Actions</h2>
+  <p class="section-intro">The first tab keeps Bethan, Holly and Graham away from the data swamp. It shows what to act on, why it matters, and what to do next.</p>
+  <div class="action-list">{cards}</div>
+</section>"""
+
+
+def build_calendar_section() -> str:
+    """Return a simple calendar signal section from ror_focus.json."""
+    seasons = FOCUS_CONFIG.get("upcoming_seasons", [])
+    hero_products = FOCUS_CONFIG.get("hero_products", [])
+    collections = FOCUS_CONFIG.get("current_collections", [])
+
+    def _items(values: list[str], empty: str) -> str:
+        if not values:
+            return f"<li>{empty}</li>"
+        return "".join(f"<li>{v}</li>" for v in values[:12])
+
+    return f"""
+<section class="dashboard-section">
+  <h2>Calendar Signals</h2>
+  <p class="section-intro">This is the commercial context layer. It should eventually read ClickUp content, email and production calendars, but it starts with <code>ror_focus.json</code>.</p>
+  <div class="info-grid">
+    <div class="info-panel">
+      <h3>Upcoming seasons</h3>
+      <ul class="plain-list">{_items(seasons, "No upcoming seasons configured.")}</ul>
+    </div>
+    <div class="info-panel">
+      <h3>Hero products</h3>
+      <ul class="plain-list">{_items(hero_products, "No hero products configured.")}</ul>
+    </div>
+    <div class="info-panel">
+      <h3>Current collections</h3>
+      <ul class="plain-list">{_items(collections, "No current collections configured.")}</ul>
+    </div>
+  </div>
+</section>"""
+
+
+def build_team_inputs_section() -> str:
+    """Return the team input panel. Actual ingestion comes in the next phase."""
+    return f"""
+<section class="dashboard-section">
+  <h2>Team Inputs</h2>
+  <p class="section-intro">This is the human signal layer. Team notes from ClickUp will help the system find opportunities that keyword lists miss.</p>
+  <div class="team-input-card">
+    <h3>Team Trend &amp; Content Ideas Inbox</h3>
+    <p>Add customer questions, TikTok observations, product push ideas, blog angles, reel ideas, collection/drop notes and competitor observations.</p>
+    <a class="report-btn" href="{TEAM_INPUT_LIST_URL}" target="_blank" rel="noopener">Add or review team ideas in ClickUp</a>
+  </div>
+  <div class="info-grid">
+    <div class="info-panel"><h3>Example input</h3><p>Airport outfit planning is everywhere.</p></div>
+    <div class="info-panel"><h3>System read</h3><p>Connect to summer totes, caps and make-up bags.</p></div>
+    <div class="info-panel"><h3>Possible action</h3><p>Create a summer travel content pack if it fits the calendar and product priorities.</p></div>
+  </div>
+</section>"""
+
+
+def build_content_pack_section(all_groups: list[dict]) -> str:
+    """Return a placeholder for the blog-led production-pack system."""
+    all_results = [r for g in all_groups for r in g["results"]]
+    blog_candidates = [
+        r for r in sorted(all_results, key=lambda r: (-r["score"], -r["avg_interest"]))
+        if "blog" in r.get("seo_action", "").lower() or r["score"] >= 7
+    ][:3]
+    rows = ""
+    for r in blog_candidates:
+        rows += f"""
+<tr>
+  <td>{r['term']}</td>
+  <td>{r['score']}/10</td>
+  <td>{r.get('seo_action', 'Review content angle')}</td>
+  <td>Blog, reel, stories, carousel and email only where the format genuinely fits.</td>
+</tr>"""
+    if not rows:
+        rows = '<tr><td colspan="4">No content-pack candidates found this run.</td></tr>'
+
+    return f"""
+<section class="dashboard-section">
+  <h2>Content Packs</h2>
+  <p class="section-intro">This is where the Content Creator System will turn approved blog ideas into media-company-style production packs.</p>
+  <div class="table-wrap">
+    <table class="seo-table">
+      <thead><tr><th>Blog/source idea</th><th>Score</th><th>Why</th><th>Pack direction</th></tr></thead>
+      <tbody>{rows}</tbody>
+    </table>
   </div>
 </section>"""
 
@@ -1221,6 +1383,42 @@ HTML_TEMPLATE = """<!DOCTYPE html>
              font-size: .78rem; color: var(--muted);
              background: rgba(255,255,255,.02);
              border-bottom: 1px solid rgba(255,255,255,.05); }}
+
+  .tabs {{ display: flex; gap: .5rem; flex-wrap: wrap; padding: 1rem 2rem;
+           background: rgba(255,255,255,.03); border-bottom: 1px solid rgba(255,255,255,.06);
+           position: sticky; top: 0; z-index: 10; backdrop-filter: blur(8px); }}
+  .tab-btn {{ border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.05);
+              color: var(--text); border-radius: 6px; min-height: 36px; padding: 0 .85rem;
+              font-size: .82rem; font-weight: 650; cursor: pointer; }}
+  .tab-btn.active {{ background: var(--pink); border-color: var(--pink); color: #fff; }}
+  .tab-panel {{ display: none; }}
+  .tab-panel.active {{ display: block; }}
+  .dashboard-section {{ margin-bottom: 2rem; }}
+  .dashboard-section h2 {{ font-size: 1.2rem; color: var(--pink); padding-bottom: .7rem;
+                           border-bottom: 2px solid rgba(233,30,140,.25); margin-bottom: .7rem; }}
+  .section-intro {{ color: var(--muted); font-size: .86rem; margin-bottom: 1rem; }}
+  .action-card {{ background: var(--card); border: 1px solid rgba(255,255,255,.08);
+                  border-radius: 8px; padding: 1rem; margin-bottom: .9rem; }}
+  .action-card h3 {{ font-size: 1.05rem; color: #fff; margin: .35rem 0 .8rem; }}
+  .action-head {{ display: flex; flex-wrap: wrap; gap: .4rem; }}
+  .pill {{ display: inline-block; border-radius: 999px; padding: .18rem .55rem;
+           font-size: .7rem; font-weight: 750; text-transform: uppercase; letter-spacing: .03em; }}
+  .pill-high {{ background: rgba(233,30,140,.2); color: var(--pink); border: 1px solid rgba(233,30,140,.4); }}
+  .pill-medium {{ background: rgba(116,185,255,.15); color: var(--blue); border: 1px solid rgba(116,185,255,.35); }}
+  .pill-low {{ background: rgba(255,255,255,.08); color: var(--muted); border: 1px solid rgba(255,255,255,.15); }}
+  .pill-aov {{ background: rgba(0,184,148,.12); color: var(--green); border: 1px solid rgba(0,184,148,.3); }}
+  .dia-grid {{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }}
+  .dia-box, .info-panel, .team-input-card {{ background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+                                              border-radius: 8px; padding: .85rem; }}
+  .dia-box h4, .info-panel h3, .team-input-card h3 {{ color: #fff; font-size: .82rem; margin-bottom: .35rem; }}
+  .dia-box p, .info-panel p, .team-input-card p {{ color: var(--text); font-size: .82rem; }}
+  .info-grid {{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; }}
+  .plain-list {{ list-style: none; }}
+  .plain-list li {{ border-bottom: 1px solid rgba(255,255,255,.05); padding: .35rem 0; font-size: .82rem; }}
+  .plain-list li:last-child {{ border-bottom: 0; }}
+  .report-btn {{ display: inline-flex; align-items: center; min-height: 36px; margin-top: .8rem;
+                 padding: 0 .8rem; background: var(--pink); color: #fff; border-radius: 6px;
+                 text-decoration: none; font-size: .8rem; font-weight: 700; }}
 
   main {{ padding: 2rem; max-width: 1440px; margin: 0 auto; }}
 
@@ -1304,6 +1502,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     main, .summary, .notice, .legend {{ padding-left: 1rem; padding-right: 1rem; }}
     .two-col {{ grid-template-columns: 1fr; }}
     .seo-section {{ padding-left: 1rem; padding-right: 1rem; }}
+    .tabs {{ padding-left: 1rem; padding-right: 1rem; position: static; }}
+    .dia-grid, .info-grid {{ grid-template-columns: 1fr; }}
   }}
 </style>
 </head>
@@ -1335,21 +1535,57 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <span>○ Est = Knowledge-seeded estimate</span>
 </div>
 
-{gaps_section}
-
-{bestseller_section}
+<nav class="tabs" aria-label="Report sections">
+  <button class="tab-btn active" data-tab="actions">Weekly Actions</button>
+  <button class="tab-btn" data-tab="calendar">Calendar</button>
+  <button class="tab-btn" data-tab="trends">Trends</button>
+  <button class="tab-btn" data-tab="keywords">Keywords</button>
+  <button class="tab-btn" data-tab="seo">Website &amp; SEO</button>
+  <button class="tab-btn" data-tab="content">Content Packs</button>
+  <button class="tab-btn" data-tab="team">Team Inputs</button>
+</nav>
 
 <main>
-{trending_section}
-{groups_html}
+  <section id="tab-actions" class="tab-panel active">
+    {weekly_actions_section}
+    {gaps_section}
+    {bestseller_section}
+  </section>
+  <section id="tab-calendar" class="tab-panel">
+    {calendar_section}
+  </section>
+  <section id="tab-trends" class="tab-panel">
+    {trending_section}
+  </section>
+  <section id="tab-keywords" class="tab-panel">
+    {groups_html}
+  </section>
+  <section id="tab-seo" class="tab-panel">
+    {seo_section}
+  </section>
+  <section id="tab-content" class="tab-panel">
+    {content_pack_section}
+  </section>
+  <section id="tab-team" class="tab-panel">
+    {team_inputs_section}
+  </section>
 </main>
-
-{seo_section}
 
 <footer>
   Rock On Ruby Trend Scraper · rockonruby.co.uk · Re-run: <code>python3 scraper.py</code>
   &nbsp;·&nbsp; Use cached data: <code>python3 scraper.py --cached</code>
 </footer>
+<script>
+  document.querySelectorAll('.tab-btn').forEach((button) => {{
+    button.addEventListener('click', () => {{
+      const tab = button.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach((btn) => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach((panel) => panel.classList.remove('active'));
+      button.classList.add('active');
+      document.getElementById(`tab-${{tab}}`).classList.add('active');
+    }});
+  }});
+</script>
 </body>
 </html>"""
 
@@ -1450,6 +1686,10 @@ def build_report(all_groups: list[dict], trending_data: dict | None = None) -> N
     breakout_section      = build_breakout_section(all_groups)
     gaps_section          = build_gaps_section(all_groups)
     bestseller_section    = build_bestseller_demand_section(all_groups)
+    weekly_actions_section = build_weekly_actions_section(all_groups)
+    calendar_section      = build_calendar_section()
+    team_inputs_section   = build_team_inputs_section()
+    content_pack_section  = build_content_pack_section(all_groups)
     seo_css_clean         = SEO_CSS.strip()
     trending_section_html = build_trending_section(trending_data or {})
     trending_css_clean    = TRENDING_CSS.strip()
@@ -1463,6 +1703,10 @@ def build_report(all_groups: list[dict], trending_data: dict | None = None) -> N
         breakout_section=breakout_section,
         gaps_section=gaps_section,
         bestseller_section=bestseller_section,
+        weekly_actions_section=weekly_actions_section,
+        calendar_section=calendar_section,
+        team_inputs_section=team_inputs_section,
+        content_pack_section=content_pack_section,
         trending_section=trending_section_html,
         trending_css=trending_css_clean,
     )

@@ -32,6 +32,7 @@ jobs:
       - name: Run trend scraper
         env:
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scraper.py
 
@@ -41,6 +42,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git add trend_report.html trend_cache.json layer4_expanded.json shopify_catalogue.json || true
+          test -f open_trends.json && git add open_trends.json || true
           git diff --cached --quiet || git commit -m "chore: weekly trend scrape $(date +%Y-%m-%d)"
           git pull --rebase && git push
 
