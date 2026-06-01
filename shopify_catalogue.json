@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-05-26T15:48:40.957483+00:00",
+  "synced_at": "2026-06-01T12:41:37.877856+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -6713,14 +6713,14 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 420,
-      "revenue": 14840.0
+      "orders": 402,
+      "revenue": 14210.0
     },
     {
       "title": "Personalised Year Unisex T-shirt",
       "handle": "",
-      "orders": 93,
-      "revenue": 2496.0
+      "orders": 103,
+      "revenue": 2756.0
     },
     {
       "title": "Personalised Varsity Year Leopard Print Tote Bag",
@@ -6731,68 +6731,62 @@
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 44,
-      "revenue": 1080.0
-    },
-    {
-      "title": "Personalisation on the back of the neck (+\u00a34.95)",
-      "handle": "",
-      "orders": 144,
-      "revenue": 712.8
-    },
-    {
-      "title": "Happy Hour Slogan Sweatshirt",
-      "handle": "",
-      "orders": 20,
-      "revenue": 700.0
+      "orders": 51,
+      "revenue": 1248.0
     },
     {
       "title": "Embroidered Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 25,
-      "revenue": 609.65
+      "orders": 31,
+      "revenue": 819.65
     },
     {
-      "title": "Funky Font Personalised Year Sweatshirt",
+      "title": "Personalisation on the back of the neck (+\u00a34.95)",
+      "handle": "",
+      "orders": 152,
+      "revenue": 752.4
+    },
+    {
+      "title": "Embroidered Yes I Like Pina Coladas T-shirt",
+      "handle": "",
+      "orders": 22,
+      "revenue": 616.0
+    },
+    {
+      "title": "Happy Hour Slogan Sweatshirt",
       "handle": "",
       "orders": 17,
       "revenue": 595.0
     },
     {
-      "title": "Embroidered Yes I Like Pina Coladas T-shirt",
+      "title": "Funky Font Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 19,
-      "revenue": 532.0
+      "orders": 16,
+      "revenue": 560.0
     },
     {
-      "title": "Tea Please Sweatshirt",
+      "title": "Men's Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 14,
+      "orders": 15,
+      "revenue": 525.0
+    },
+    {
+      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
+      "handle": "",
+      "orders": 13,
       "revenue": 490.0
     },
     {
       "title": "Embroidered Personalised Cuff Sweatshirt",
       "handle": "",
-      "orders": 10,
-      "revenue": 480.0
+      "orders": 9,
+      "revenue": 440.0
     },
     {
-      "title": "Personalised Varsity Year Leopard print Makeup Bag",
+      "title": "Personalised 'Only Here For...' Cap",
       "handle": "",
-      "orders": 24,
-      "revenue": 468.0
-    },
-    {
-      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
-      "handle": "",
-      "orders": 12,
-      "revenue": 455.0
-    },
-    {
-      "title": "Men's Personalised Year Sweatshirt",
-      "handle": "",
-      "orders": 13,
-      "revenue": 455.0
+      "orders": 18,
+      "revenue": 432.0
     },
     {
       "title": "Personalised Handwriting Cuff Sweatshirt",
@@ -6801,10 +6795,28 @@
       "revenue": 432.0
     },
     {
+      "title": "Tea Please Sweatshirt",
+      "handle": "",
+      "orders": 12,
+      "revenue": 420.0
+    },
+    {
       "title": "Happy Hour Slogan T-Shirt",
       "handle": "",
       "orders": 16,
       "revenue": 416.0
+    },
+    {
+      "title": "Rock On Ruby Branded Tote Bag",
+      "handle": "",
+      "orders": 25,
+      "revenue": 400.37
+    },
+    {
+      "title": "Custard Cream Connoisseur T-Shirt",
+      "handle": "",
+      "orders": 14,
+      "revenue": 364.0
     },
     {
       "title": "Tea Please T-shirt",
@@ -6813,22 +6825,10 @@
       "revenue": 364.0
     },
     {
-      "title": "Rock On Ruby Branded Tote Bag",
-      "handle": "",
-      "orders": 22,
-      "revenue": 352.37
-    },
-    {
       "title": "Note To Self Sleeve Sweatshirt",
       "handle": "",
       "orders": 9,
       "revenue": 343.22
-    },
-    {
-      "title": "Custard Cream Connoisseur Sweatshirt",
-      "handle": "",
-      "orders": 9,
-      "revenue": 342.0
     }
   ]
 }
