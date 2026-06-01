@@ -1006,6 +1006,7 @@
       "top": [],
       "rising": []
     },
-    "weekly_ok": false
+    "weekly_ok": false,
+    "source_note": "Fallback only: pytrends daily UK trending searches. Add open_trends.json or SERPAPI_KEY for true past-week open trends."
   }
 }
