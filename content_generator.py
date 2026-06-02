@@ -28,6 +28,7 @@ FOCUS_FILE       = OUTPUT_DIR / "ror_focus.json"
 CATALOGUE_FILE   = OUTPUT_DIR / "shopify_catalogue.json"
 INSTAGRAM_FILE   = OUTPUT_DIR / "instagram_insights.json"
 DESIGN_RULES_FILE = OUTPUT_DIR / "design_system" / "ror_design_rules.md"
+RANK_CACHE_FILE = OUTPUT_DIR / "rank_tracker_cache.json"
 
 BRAND_CONTEXT = """
 BRAND: Rock On Ruby, print-on-demand personalised clothing and accessories.
@@ -221,6 +222,56 @@ def load_json_file(path: Path, fallback):
 
 def all_results(all_groups: list[dict]) -> list[dict]:
     return [r for g in all_groups for r in g.get("results", [])]
+
+
+def find_cached_term(all_groups: list[dict], keyword: str) -> dict | None:
+    wanted = keyword.strip().lower()
+    if not wanted:
+        return None
+    for r in all_results(all_groups):
+        term = r.get("term", "").strip().lower()
+        if term == wanted:
+            return r
+    for r in all_results(all_groups):
+        term = r.get("term", "").strip().lower()
+        if wanted in term or term in wanted:
+            return r
+    return None
+
+
+def find_rank_term(keyword: str) -> dict | None:
+    wanted = keyword.strip().lower()
+    cache = load_json_file(RANK_CACHE_FILE, {})
+    for row in cache.get("results", []):
+        query = row.get("query", "").strip()
+        if not query:
+            continue
+        q_lower = query.lower()
+        if q_lower != wanted and wanted not in q_lower and q_lower not in wanted:
+            continue
+        rank = row.get("ror_rank")
+        priority = row.get("priority_score", 6)
+        return {
+            "term": query,
+            "avg_interest": min(int(row.get("gsc_impressions", 0) or 0), 100),
+            "peak_interest": min(int(row.get("gsc_impressions", 0) or 0), 100),
+            "trend": "stable",
+            "rising_queries": [],
+            "top_queries": [],
+            "breakout_queries": [],
+            "paa": [],
+            "ror_existing": row.get("target_page") or row.get("ror_url") or "",
+            "suggestions": [
+                f"Live Google UK rank: #{rank}" if rank is not None else "Live Google UK rank: not top 20",
+                f"Search Console impressions: {row.get('gsc_impressions', 0)}",
+                f"Priority score: {priority}",
+            ],
+            "score": 8 if priority >= 70 else 6,
+            "seo_action": "Generate finished page copy, FAQ and supporting content from rank evidence",
+            "layer": 98,
+            "data_source": "search-console-rank",
+        }
+    return None
 
 def pick_terms_by_layer(all_groups: list[dict], history: dict) -> dict[int, list[dict]]:
     """
@@ -1153,10 +1204,23 @@ def generate_content(all_groups: list[dict] | None = None, trending_data: dict |
 
     layer_terms = pick_terms_by_layer(all_groups, history)
     seo_terms   = pick_seo_terms(all_groups, history)
+    forced_keyword = os.environ.get("CONTENT_KEYWORD", "").strip()
+    forced_term = find_cached_term(all_groups, forced_keyword) if forced_keyword else None
+    if forced_keyword and not forced_term:
+        forced_term = find_rank_term(forced_keyword)
+    if forced_keyword and forced_term:
+        seo_terms = [forced_term] + [r for r in seo_terms if r.get("term") != forced_term.get("term")]
+        layer_terms.setdefault(99, [])
+        if all(r.get("term") != forced_term.get("term") for r in layer_terms[99]):
+            layer_terms[99].insert(0, forced_term)
+    elif forced_keyword:
+        print(f"  Requested keyword not found in cached trend data: {forced_keyword}")
 
     print("\n-- Content Generation (Claude API) --")
     all_selected = [r for terms in layer_terms.values() for r in terms]
     print(f"  Terms selected: {', '.join(r['term'] for r in all_selected)}")
+    if forced_keyword:
+        print(f"  Requested keyword: {forced_keyword}")
     print(f"  SEO terms: {len(seo_terms)}")
 
     client = anthropic.Anthropic(api_key=api_key)

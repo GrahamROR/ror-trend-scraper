@@ -30,6 +30,26 @@ SERPER_URL = "https://google.serper.dev/search"
 ROR_DOMAIN = "rockonruby.co.uk"
 
 
+def gsc_priority_score(row: dict) -> float:
+    impressions = float(row.get("impressions", 0) or 0)
+    clicks = float(row.get("clicks", 0) or 0)
+    ctr = float(row.get("ctr", 0) or 0)
+    position = float(row.get("position", 99) or 99)
+
+    score = min(impressions / 8, 55)
+    if 4 <= position <= 10:
+        score += 35
+    elif 10 < position <= 20:
+        score += 28
+    elif position <= 3:
+        score += 12
+    if impressions >= 50 and ctr < 2.5:
+        score += 12
+    if clicks > 0:
+        score += min(clicks, 12)
+    return round(score, 2)
+
+
 def load_gsc_cache() -> dict:
     if not GSC_CACHE_FILE.exists():
         raise FileNotFoundError("search_console_cache.json not found. Run search_console.py first.")
@@ -37,7 +57,7 @@ def load_gsc_cache() -> dict:
 
 
 def pick_priority_keywords(gsc_cache: dict, limit: int) -> list[dict]:
-    candidates: list[dict] = []
+    candidates_by_query: dict[str, dict] = {}
     seen: set[str] = set()
 
     def add(row: dict, reason: str) -> None:
@@ -45,36 +65,37 @@ def pick_priority_keywords(gsc_cache: dict, limit: int) -> list[dict]:
         if not query or query in seen:
             return
         seen.add(query)
-        candidates.append(
-            {
-                "query": query,
-                "target_page": row.get("page", ""),
-                "gsc_clicks": row.get("clicks", 0),
-                "gsc_impressions": row.get("impressions", 0),
-                "gsc_ctr": row.get("ctr", 0),
-                "gsc_position": row.get("position", 0),
-                "reason": reason,
-            }
-        )
+        candidates_by_query[query] = {
+            "query": query,
+            "target_page": row.get("page", ""),
+            "gsc_clicks": row.get("clicks", 0),
+            "gsc_impressions": row.get("impressions", 0),
+            "gsc_ctr": row.get("ctr", 0),
+            "gsc_position": row.get("position", 0),
+            "gsc_priority_score": gsc_priority_score(row),
+            "reason": reason,
+        }
 
     opps = gsc_cache.get("opportunities", {})
     for row in opps.get("striking_distance", []):
         add(row, "GSC position 8-20 opportunity")
-        if len(candidates) >= limit:
-            return candidates
 
     for row in opps.get("high_impressions_low_ctr", []):
         add(row, "GSC high impressions, low CTR")
-        if len(candidates) >= limit:
-            return candidates
 
     for row in gsc_cache.get("query_pages", []):
         if row.get("impressions", 0) >= 50:
             add(row, "GSC fallback high-impression query/page")
-        if len(candidates) >= limit:
-            break
 
-    return candidates
+    candidates = sorted(
+        candidates_by_query.values(),
+        key=lambda row: (
+            -row.get("gsc_priority_score", 0),
+            -row.get("gsc_impressions", 0),
+            row.get("gsc_position", 99),
+        ),
+    )
+    return candidates[:limit]
 
 
 def result_domain(link: str) -> str:
@@ -168,6 +189,33 @@ def analyse_serp(query_info: dict, serp: dict) -> dict:
     }
 
 
+def live_priority(row: dict) -> tuple[str, int]:
+    impressions = int(row.get("gsc_impressions", 0) or 0)
+    rank = row.get("ror_rank")
+    ctr = float(row.get("gsc_ctr", 0) or 0)
+    score = int(row.get("gsc_priority_score", 0) or 0)
+
+    if rank is None:
+        score += 40
+        label = "Fix visibility gap"
+    elif rank == 1:
+        score += 10
+        label = "Protect winner"
+    elif rank <= 3:
+        score += 18
+        label = "Push to #1"
+    elif rank <= 10:
+        score += 32
+        label = "Move to top 3"
+    else:
+        score += 28
+        label = "Build support"
+
+    if impressions >= 100 and ctr < 2.5:
+        score += 10
+    return label, score
+
+
 def run_rank_tracker(limit: int, sleep_seconds: float) -> dict:
     api_key = os.environ.get("SERPER_API_KEY", "").strip().strip('"').strip("'")
     if not api_key:
@@ -182,6 +230,9 @@ def run_rank_tracker(limit: int, sleep_seconds: float) -> dict:
         print(f"  {i}/{len(keywords)} Checking: {query}")
         serp = search_serper(query, api_key)
         analysed = analyse_serp(query_info, serp)
+        label, score = live_priority(analysed)
+        analysed["priority_label"] = label
+        analysed["priority_score"] = score
         results.append(analysed)
         if analysed.get("serper_error"):
             error = analysed["serper_error"]
@@ -200,7 +251,7 @@ def run_rank_tracker(limit: int, sleep_seconds: float) -> dict:
             "end_date": gsc_cache.get("end_date"),
         },
         "limit": limit,
-        "results": results,
+        "results": sorted(results, key=lambda row: -row.get("priority_score", 0)),
     }
     RANK_CACHE_FILE.write_text(json.dumps(cache, indent=2), encoding="utf-8")
     return cache
@@ -223,7 +274,7 @@ def print_summary(cache: dict) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Spot-check live Google UK rankings via Serper.")
-    parser.add_argument("--limit", type=int, default=20, help="Number of priority GSC keywords to check. Default 20.")
+    parser.add_argument("--limit", type=int, default=100, help="Number of priority GSC keywords to check. Default 100.")
     parser.add_argument("--sleep", type=float, default=0.5, help="Seconds to pause between Serper calls. Default 0.5.")
     args = parser.parse_args()
 

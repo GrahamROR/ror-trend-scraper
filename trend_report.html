@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rock On Ruby — Trend Report 02 June 2026, 19:38</title>
+<title>Rock On Ruby — Trend Report 02 June 2026, 21:41</title>
 <style>
   :root {
     --pink: #e91e8c; --dark: #1a1a2e; --mid: #16213e; --card: #0f3460;
@@ -52,6 +52,8 @@
                   border-radius: 8px; padding: 1rem; margin-bottom: .9rem; }
   .action-card h3 { font-size: 1.05rem; color: #fff; margin: .35rem 0 .8rem; }
   .action-head { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .action-next { margin-top: .85rem; padding: .75rem; border-radius: 8px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); font-size: .84rem; }
+  .action-buttons { margin-top: .65rem; display: flex; flex-wrap: wrap; gap: .35rem; }
   .pill { display: inline-block; border-radius: 999px; padding: .18rem .55rem;
            font-size: .7rem; font-weight: 750; text-transform: uppercase; letter-spacing: .03em; }
   .pill-high { background: rgba(233,30,140,.2); color: var(--pink); border: 1px solid rgba(233,30,140,.4); }
@@ -83,10 +85,26 @@
   .rank-good { background: rgba(0,184,148,.14); color: var(--green); border: 1px solid rgba(0,184,148,.35); }
   .rank-mid { background: rgba(253,203,110,.15); color: var(--yellow); border: 1px solid rgba(253,203,110,.35); }
   .rank-bad { background: rgba(214,48,49,.15); color: var(--red); border: 1px solid rgba(214,48,49,.35); }
+  .priority-pill { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; border-radius: 999px; padding: .18rem .42rem; font-size: .72rem; font-weight: 800; background: rgba(233,30,140,.16); color: var(--pink); border: 1px solid rgba(233,30,140,.35); }
   .metric-cell { text-align: center; white-space: nowrap; color: var(--text); }
   .competitor-chip { display: inline-block; margin: .12rem .15rem .12rem 0; padding: .15rem .4rem; border-radius: 999px; background: rgba(255,255,255,.06); color: var(--muted); font-size: .68rem; }
   .action-cell { min-width: 360px; font-size: .78rem; line-height: 1.45; }
   .muted-small { color: var(--muted); font-size: .72rem; }
+  .mini-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 30px; margin: .15rem .2rem .15rem 0; padding: 0 .55rem; border-radius: 6px; border: 1px solid rgba(233,30,140,.35); background: rgba(233,30,140,.14); color: #fff; font-size: .72rem; font-weight: 750; text-decoration: none; cursor: pointer; font-family: inherit; }
+  .mini-btn:hover { background: rgba(233,30,140,.28); }
+  .mini-btn:disabled, .muted-action { opacity: .55; cursor: not-allowed; border-color: rgba(255,255,255,.15); background: rgba(255,255,255,.06); }
+  .content-queue { display: grid; gap: .9rem; }
+  .content-queue-card { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 1rem; }
+  .content-queue-card h3 { color: #fff; font-size: 1rem; margin: .45rem 0 .35rem; }
+  .page-fix-list { display: grid; gap: .9rem; }
+  .page-fix-card { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 1rem; }
+  .page-fix-card h3 { font-size: .98rem; margin: .45rem 0 .75rem; }
+  .page-fix-card h3 a { color: var(--blue); }
+  .fix-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }
+  .fix-grid div, .fix-work { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 8px; padding: .75rem; }
+  .fix-grid h4 { color: #fff; font-size: .8rem; margin-bottom: .25rem; }
+  .fix-grid p, .fix-work { color: var(--text); font-size: .82rem; }
+  .fix-work { margin-top: .65rem; }
 
   main { padding: 2rem; max-width: 1440px; margin: 0 auto; }
 
@@ -263,6 +281,7 @@
     .seo-section { padding-left: 1rem; padding-right: 1rem; }
     .tabs { padding-left: 1rem; padding-right: 1rem; position: static; }
     .dia-grid, .info-grid { grid-template-columns: 1fr; }
+    .fix-grid { grid-template-columns: 1fr; }
     .visibility-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 </style>
@@ -271,7 +290,7 @@
 
 <header>
   <h1>Rock On Ruby — Trend Intelligence Report</h1>
-  <p>Generated 02 June 2026, 19:38 · Google Trends (pytrends) · PAA via Serper.dev · UK · 90-day window</p>
+  <p>Generated 02 June 2026, 21:41 · Google Trends (pytrends) · PAA via Serper.dev · UK · 90-day window</p>
 </header>
 
 
@@ -308,541 +327,130 @@
 <main>
   <section id="tab-actions" class="tab-panel active">
     
-<section class="dashboard-section visibility-section">
-  <h2>Organic Visibility</h2>
-  <p class="section-intro">Search Console shows where ROR is already getting impressions. Serper then spot-checks the live Google UK result so the action is based on ranking evidence, not guessing. Window: 2026-05-04 to 2026-05-31.</p>
-  <div class="visibility-stats">
-    <div><strong>25</strong><span>Keywords checked</span></div>
-    <div><strong>15</strong><span>ROR found</span></div>
-    <div><strong>11</strong><span>Top 3</span></div>
-    <div><strong>15</strong><span>Page 1</span></div>
-    <div><strong>10</strong><span>Not top 20</span></div>
-  </div>
-  <div class="visibility-key">
-    <span><b class="key-dot key-good"></b>Good, protect or nudge</span>
-    <span><b class="key-dot key-mid"></b>Useful, improve to top 3</span>
-    <span><b class="key-dot key-bad"></b>Problem, investigate or rebuild support</span>
-  </div>
-  <div class="table-wrap">
-    <table class="seo-table visibility-table">
-      <thead>
-        <tr>
-          <th>Keyword</th>
-          <th>Mapped ROR page</th>
-          <th>Impr.</th>
-          <th>Clicks</th>
-          <th>GSC pos.</th>
-          <th>Live rank</th>
-          <th>Above ROR</th>
-          <th>Do this</th>
-        </tr>
-      </thead>
-      <tbody>
-<tr>
-  <td class="kw-cell">embroidered cap</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-caps" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-caps</a></td>
-  <td class="metric-cell">448</td>
-  <td class="metric-cell">9</td>
-  <td class="metric-cell">8.04</td>
-  <td class="metric-cell"><span class="rank-pill rank-mid">#10</span></td>
-  <td><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
-  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'embroidered cap' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk.</td>
-</tr>
-<tr>
-  <td class="kw-cell">mama sweatshirt</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-mama-sweatshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-mama-sweatshirt</a></td>
-  <td class="metric-cell">89</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.18</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">mylittlecoco.co.uk</span><span class="competitor-chip">next.co.uk</span><span class="competitor-chip">tracystreasuredkeepsakes.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'mama sweatshirt'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-mama-sweatshirt, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan cap</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap</a></td>
-  <td class="metric-cell">53</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.23</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
-  <td><span class="muted-small">No competitor list captured.</span></td>
-  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
-</tr>
-<tr>
-  <td class="kw-cell">white slogan t shirt women</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
-  <td class="metric-cell">95</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.25</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
-  <td><span class="competitor-chip">newlook.com</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'white slogan t shirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">cap embroidered</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</a></td>
-  <td class="metric-cell">64</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.31</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">inkthreadable.co.uk</span><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'cap embroidered'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">christmas sweatshirt</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/merry-varsity-christmas-jumper" target="_blank" rel="noopener">rockonruby.co.uk/products/merry-varsity-christmas-jumper</a></td>
-  <td class="metric-cell">344</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.34</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
-  <td><span class="competitor-chip">next.co.uk</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'christmas sweatshirt', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">christmas sweatshirts uk</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/christmas-jumpers" target="_blank" rel="noopener">rockonruby.co.uk/collections/christmas-jumpers</a></td>
-  <td class="metric-cell">70</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.34</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#3</span></td>
-  <td><span class="competitor-chip">next.co.uk</span><span class="competitor-chip">sillysanta.uk</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'christmas sweatshirts uk', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">bobble hats men</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat" target="_blank" rel="noopener">rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat</a></td>
-  <td class="metric-cell">53</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.4</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">neweracap.co.uk</span><span class="competitor-chip">thehatcompany.com</span><span class="competitor-chip">gooutdoors.co.uk</span><span class="competitor-chip">next.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'bobble hats men'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">white slogan t shirt</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-t-shirts</a></td>
-  <td class="metric-cell">150</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.43</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
-  <td><span class="muted-small">No competitor list captured.</span></td>
-  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
-</tr>
-<tr>
-  <td class="kw-cell">womens slogan knitwear sale</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-sweatshirts</a></td>
-  <td class="metric-cell">91</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.46</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">marksandspencer.com</span><span class="competitor-chip">boohoo.com</span><span class="competitor-chip">joanieclothing.com</span><span class="competitor-chip">ebay.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'womens slogan knitwear sale'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/collections/slogan-sweatshirts, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan tee</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt</a></td>
-  <td class="metric-cell">434</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.59</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
-  <td><span class="muted-small">No competitor list captured.</span></td>
-  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan sweatshirt women</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-sweatshirts</a></td>
-  <td class="metric-cell">133</td>
-  <td class="metric-cell">7</td>
-  <td class="metric-cell">8.59</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
-  <td><span class="competitor-chip">percyandnell.com</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan sweatshirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">embroided cap</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</a></td>
-  <td class="metric-cell">84</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.6</td>
-  <td class="metric-cell"><span class="rank-pill rank-mid">#10</span></td>
-  <td><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
-  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'embroided cap' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk.</td>
-</tr>
-<tr>
-  <td class="kw-cell">statement t shirts women</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
-  <td class="metric-cell">54</td>
-  <td class="metric-cell">1</td>
-  <td class="metric-cell">8.61</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#3</span></td>
-  <td><span class="competitor-chip">shirtbox.com</span><span class="competitor-chip">newlook.com</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'statement t shirts women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">club tropicana outfit</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/blogs/news/club-tropicana-style-fancy-dress" target="_blank" rel="noopener">rockonruby.co.uk/blogs/news/club-tropicana-style-fancy-dress</a></td>
-  <td class="metric-cell">56</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.64</td>
-  <td class="metric-cell"><span class="rank-pill rank-mid">#5</span></td>
-  <td><span class="competitor-chip">amazon.co.uk</span><span class="competitor-chip">uk.pinterest.com</span><span class="competitor-chip">oliviavonhalle.com</span><span class="competitor-chip">pinkboutique.co.uk</span></td>
-  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'club tropicana outfit' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include amazon.co.uk, uk.pinterest.com, oliviavonhalle.com.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan tshirt women</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
-  <td class="metric-cell">193</td>
-  <td class="metric-cell">2</td>
-  <td class="metric-cell">8.72</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
-  <td><span class="competitor-chip">newlook.com</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan tshirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">can i go read my book cap</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap</a></td>
-  <td class="metric-cell">95</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.73</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">alphabetbags.com</span><span class="competitor-chip">sillylittletees.co.uk</span><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">moobou.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'can i go read my book cap'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan t shirt</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt</a></td>
-  <td class="metric-cell">188</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.84</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
-  <td><span class="competitor-chip">zara.com</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan t shirt', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">custom jumpers uk</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-sweatshirts</a></td>
-  <td class="metric-cell">122</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.95</td>
-  <td class="metric-cell"><span class="rank-pill rank-mid">#8</span></td>
-  <td><span class="competitor-chip">store.amcustomclothing.co.uk</span><span class="competitor-chip">mypersonalisedclothing.com</span><span class="competitor-chip">rapanuiclothing.com</span><span class="competitor-chip">vistaprint.co.uk</span></td>
-  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'custom jumpers uk' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include store.amcustomclothing.co.uk, mypersonalisedclothing.com, rapanuiclothing.com.</td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised bobble hat</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat" target="_blank" rel="noopener">rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat</a></td>
-  <td class="metric-cell">69</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.99</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">tshirtstudio.com</span><span class="competitor-chip">myoddballs.com</span><span class="competitor-chip">swaz.co.uk</span><span class="competitor-chip">millieandralph.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'personalised bobble hat'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">baby tee slogan</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
-  <td class="metric-cell">76</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">9.01</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">siswhatsthetee.com</span><span class="competitor-chip">pinterest.com</span><span class="competitor-chip">etsy.com</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'baby tee slogan'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">baby tee with text</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
-  <td class="metric-cell">58</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">9.12</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">whenindoubt.co</span><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">inprintwetrust.co</span><span class="competitor-chip">pinterest.com</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'baby tee with text'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan baby tee</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
-  <td class="metric-cell">423</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">9.2</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">siswhatsthetee.com</span><span class="competitor-chip">pinterest.com</span><span class="competitor-chip">vogue.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'slogan baby tee'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan jumpers</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-sweatshirts</a></td>
-  <td class="metric-cell">117</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">9.21</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
-  <td><span class="muted-small">No competitor list captured.</span></td>
-  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised t shirts</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-t-shirts</a></td>
-  <td class="metric-cell">4443</td>
-  <td class="metric-cell">1</td>
-  <td class="metric-cell">18.01</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">tshirtstudio.com</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">photo.asda.com</span><span class="competitor-chip">yourdesign.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'personalised t shirts'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/personalised-t-shirts, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr></tbody>
-    </table>
-  </div>
-</section>
-    
 <section class="dashboard-section">
-  <h2>Weekly Actions</h2>
-  <p class="section-intro">The first tab keeps Bethan, Holly and Graham away from the data swamp. It shows what to act on, why it matters, and what to do next.</p>
+  <h2>Weekly Priority Queue</h2>
+  <p class="section-intro">This is the short list. It is ranked by Search Console demand, live Google position and whether ROR is close enough to move.</p>
   <div class="action-list">
 <article class="action-card">
   <div class="action-head">
-    <span class="pill pill-medium">Medium confidence</span>
-    <span class="pill pill-aov">AOV/Conversion check</span>
+    <span class="pill pill-high">Priority 106</span>
+    <span class="pill pill-aov">Move to top 3</span>
   </div>
-  <h3>fathers day gifts uk</h3>
+  <h3>embroidered cap</h3>
   <div class="dia-grid">
-    <div class="dia-box"><h4>Data</h4><p>Score 7/10 · rising demand · ~25/100 interest · Maps to: Father's Day Gifts</p></div>
-    <div class="dia-box"><h4>Interpretation</h4><p>This looks commercially relevant because it connects search demand to existing products, seasonal demand or a clear page gap.</p></div>
-    <div class="dia-box"><h4>Action</h4><p>Update collection page copy + add to FAQs. Look for a bundle or add-on angle to support the £48 AOV target.</p></div>
+    <div class="dia-box"><h4>Evidence</h4><p>448 impressions, 9 clicks, GSC position 8.04, live rank #10.</p></div>
+    <div class="dia-box"><h4>Page</h4><p>https://rockonruby.co.uk/collections/personalised-caps</p></div>
+    <div class="dia-box"><h4>Why it matters</h4><p>ROR is on page 1 but competitors are still above it.</p></div>
+  </div>
+  <div class="action-next"><strong>Do this:</strong> Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'embroidered cap' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk.<br><strong>System should make:</strong> Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;embroidered cap&#x27;.</div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="Keyword: embroidered cap
+Priority: Move to top 3, score 106
+Mapped page: https://rockonruby.co.uk/collections/personalised-caps
+GSC: 448 impressions, 9 clicks, avg position 8.04
+Live Google UK rank: #10
+Competitors above ROR: bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk, pinterest.com
+Why this matters: ROR is on page 1 but competitors are still above it.
+Generate finished content only. Needed output: Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;embroidered cap&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
   </div>
 </article>
 <article class="action-card">
   <div class="action-head">
-    <span class="pill pill-medium">Medium confidence</span>
-    <span class="pill pill-aov">AOV/Conversion check</span>
+    <span class="pill pill-high">Priority 51</span>
+    <span class="pill pill-aov">Fix visibility gap</span>
   </div>
-  <h3>personalised year sweatshirt</h3>
+  <h3>mama sweatshirt</h3>
   <div class="dia-grid">
-    <div class="dia-box"><h4>Data</h4><p>Score 6/10 · rising demand · ~35/100 interest · Maps to: Personalised Accessories</p></div>
-    <div class="dia-box"><h4>Interpretation</h4><p>This looks commercially relevant because it connects search demand to existing products, seasonal demand or a clear page gap.</p></div>
-    <div class="dia-box"><h4>Action</h4><p>Update collection page copy + add to FAQs. Look for a bundle or add-on angle to support the £48 AOV target.</p></div>
+    <div class="dia-box"><h4>Evidence</h4><p>89 impressions, 0 clicks, GSC position 8.18, live rank not top 20.</p></div>
+    <div class="dia-box"><h4>Page</h4><p>https://rockonruby.co.uk/products/embroidered-mama-sweatshirt</p></div>
+    <div class="dia-box"><h4>Why it matters</h4><p>Google Search Console sees the query, but ROR is not showing in the live top 20.</p></div>
+  </div>
+  <div class="action-next"><strong>Do this:</strong> Check why the mapped page is not showing in the top 20 for 'mama sweatshirt'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-mama-sweatshirt, and create one supporting blog or FAQ section that answers the buyer intent.<br><strong>System should make:</strong> Generate a page intro rewrite, 4 FAQs, internal-link copy and one supporting blog for &#x27;mama sweatshirt&#x27;.</div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="Keyword: mama sweatshirt
+Priority: Fix visibility gap, score 51
+Mapped page: https://rockonruby.co.uk/products/embroidered-mama-sweatshirt
+GSC: 89 impressions, 0 clicks, avg position 8.18
+Live Google UK rank: not top 20
+Competitors above ROR: mylittlecoco.co.uk, next.co.uk, tracystreasuredkeepsakes.co.uk, pinterest.com
+Why this matters: Google Search Console sees the query, but ROR is not showing in the live top 20.
+Generate finished content only. Needed output: Generate a page intro rewrite, 4 FAQs, internal-link copy and one supporting blog for &#x27;mama sweatshirt&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
   </div>
 </article>
 <article class="action-card">
   <div class="action-head">
-    <span class="pill pill-medium">Medium confidence</span>
-    <span class="pill pill-aov">AOV/Conversion check</span>
+    <span class="pill pill-high">Priority 40</span>
+    <span class="pill pill-aov">Move to top 3</span>
   </div>
-  <h3>personalised year hoodie</h3>
+  <h3>cap embroidered</h3>
   <div class="dia-grid">
-    <div class="dia-box"><h4>Data</h4><p>Score 6/10 · rising demand · ~35/100 interest · Maps to: Personalised Accessories</p></div>
-    <div class="dia-box"><h4>Interpretation</h4><p>This looks commercially relevant because it connects search demand to existing products, seasonal demand or a clear page gap.</p></div>
-    <div class="dia-box"><h4>Action</h4><p>Update collection page copy + add to FAQs. Look for a bundle or add-on angle to support the £48 AOV target.</p></div>
+    <div class="dia-box"><h4>Evidence</h4><p>64 impressions, 0 clicks, GSC position 8.31, live rank #7.</p></div>
+    <div class="dia-box"><h4>Page</h4><p>https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</p></div>
+    <div class="dia-box"><h4>Why it matters</h4><p>ROR is on page 1 but competitors are still above it.</p></div>
+  </div>
+  <div class="action-next"><strong>Do this:</strong> Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'cap embroidered' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, inkthreadable.co.uk, vistaprint.co.uk.<br><strong>System should make:</strong> Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;cap embroidered&#x27;.</div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="Keyword: cap embroidered
+Priority: Move to top 3, score 40
+Mapped page: https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap
+GSC: 64 impressions, 0 clicks, avg position 8.31
+Live Google UK rank: #7
+Competitors above ROR: bluepanda.co.uk, inkthreadable.co.uk, vistaprint.co.uk, jrsindustrial.co.uk
+Why this matters: ROR is on page 1 but competitors are still above it.
+Generate finished content only. Needed output: Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;cap embroidered&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
   </div>
 </article>
 <article class="action-card">
   <div class="action-head">
-    <span class="pill pill-medium">Medium confidence</span>
-    <span class="pill pill-aov">AOV/Conversion check</span>
+    <span class="pill pill-high">Priority 29</span>
+    <span class="pill pill-aov">Push to #1</span>
   </div>
-  <h3>personalised year t-shirt</h3>
+  <h3>white slogan t shirt women</h3>
   <div class="dia-grid">
-    <div class="dia-box"><h4>Data</h4><p>Score 6/10 · rising demand · ~35/100 interest · Maps to: Christmas T-Shirts</p></div>
-    <div class="dia-box"><h4>Interpretation</h4><p>This looks commercially relevant because it connects search demand to existing products, seasonal demand or a clear page gap.</p></div>
-    <div class="dia-box"><h4>Action</h4><p>Update collection page copy + add to FAQs. Look for a bundle or add-on angle to support the £48 AOV target.</p></div>
+    <div class="dia-box"><h4>Evidence</h4><p>95 impressions, 0 clicks, GSC position 8.25, live rank #2.</p></div>
+    <div class="dia-box"><h4>Page</h4><p>https://rockonruby.co.uk/collections/slogan-t-shirts</p></div>
+    <div class="dia-box"><h4>Why it matters</h4><p>ROR is already near the top. Small page improvements may be enough.</p></div>
+  </div>
+  <div class="action-next"><strong>Do this:</strong> Push this from top 3 to position 1. Add a short FAQ that answers 'white slogan t shirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.<br><strong>System should make:</strong> Generate a focused FAQ block, meta title option and image alt text ideas for &#x27;white slogan t shirt women&#x27;.</div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="Keyword: white slogan t shirt women
+Priority: Push to #1, score 29
+Mapped page: https://rockonruby.co.uk/collections/slogan-t-shirts
+GSC: 95 impressions, 0 clicks, avg position 8.25
+Live Google UK rank: #2
+Competitors above ROR: shirtbox.com
+Why this matters: ROR is already near the top. Small page improvements may be enough.
+Generate finished content only. Needed output: Generate a focused FAQ block, meta title option and image alt text ideas for &#x27;white slogan t shirt women&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
   </div>
 </article>
 <article class="action-card">
   <div class="action-head">
-    <span class="pill pill-medium">Medium confidence</span>
-    <span class="pill pill-aov">AOV/Conversion check</span>
+    <span class="pill pill-high">Priority 16</span>
+    <span class="pill pill-aov">Protect winner</span>
   </div>
-  <h3>milestone birthday gift uk</h3>
+  <h3>slogan cap</h3>
   <div class="dia-grid">
-    <div class="dia-box"><h4>Data</h4><p>Score 6/10 · rising demand · ~35/100 interest · Maps to: Father's Day Gifts</p></div>
-    <div class="dia-box"><h4>Interpretation</h4><p>This looks commercially relevant because it connects search demand to existing products, seasonal demand or a clear page gap.</p></div>
-    <div class="dia-box"><h4>Action</h4><p>Update collection page copy + add to FAQs. Look for a bundle or add-on angle to support the £48 AOV target.</p></div>
+    <div class="dia-box"><h4>Evidence</h4><p>53 impressions, 0 clicks, GSC position 8.23, live rank #1.</p></div>
+    <div class="dia-box"><h4>Page</h4><p>https://rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap</p></div>
+    <div class="dia-box"><h4>Why it matters</h4><p>ROR already owns this result. Keep it fresh without rewriting the page heavily.</p></div>
+  </div>
+  <div class="action-next"><strong>Do this:</strong> Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.<br><strong>System should make:</strong> Generate one light support pack for &#x27;slogan cap&#x27;: Pinterest pin copy, a short caption and one internal-link suggestion.</div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="Keyword: slogan cap
+Priority: Protect winner, score 16
+Mapped page: https://rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap
+GSC: 53 impressions, 0 clicks, avg position 8.23
+Live Google UK rank: #1
+Competitors above ROR: none captured
+Why this matters: ROR already owns this result. Keep it fresh without rewriting the page heavily.
+Generate finished content only. Needed output: Generate one light support pack for &#x27;slogan cap&#x27;: Pinterest pin copy, a short caption and one internal-link suggestion.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
   </div>
 </article></div>
-</section>
-    
-<section class="gap-section">
-  <div class="gap-header">⚡ 1 Search Gap — Trending but No Matching ROR Page</div>
-  <p class="gap-sub">These keywords have real search demand but no product or collection page on rockonruby.co.uk targeting them. Each is a direct SEO opportunity to create or improve a page.</p>
-  <div class="gap-grid">
-<div class="gap-item">
-  <div class="gap-kw">glastonbury 2026</div>
-  <div class="gap-meta">
-    <span style="color:#fdcb6e;font-weight:700">6/10</span>
-    <span style="color:var(--green)">↑ Rising</span>
-    <span style="color:var(--muted);font-size:.72rem">~25/100 interest</span>
-  </div>
-  <div class="gap-action">Write blog post — no ROR page to land on yet</div>
-</div></div>
-</section>
-    
-<section class="bs-section">
-  <h2 class="bs-header">Your Bestsellers vs Search Demand</h2>
-  <p class="bs-sub">Top-selling products from Shopify (last 90 days) matched against what people are actually searching. "Not tracked" = add to <code>ror_focus.json</code> to monitor.</p>
-  <div class="table-wrap">
-  <table class="bs-table">
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Revenue (90d)</th>
-        <th style="text-align:center">Orders</th>
-        <th style="text-align:center">Trend Score</th>
-        <th style="text-align:center">Direction</th>
-        <th style="text-align:center">Search Interest</th>
-      </tr>
-    </thead>
-    <tbody>
-<tr>
-  <td class="bs-prod">Personalised Year Sweatshirt</td>
-  <td class="bs-rev">£14,105</td>
-  <td style="text-align:center;color:var(--muted)">399</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Personalised Year Unisex T-shirt</td>
-  <td class="bs-rev">£2,782</td>
-  <td style="text-align:center;color:var(--muted)">104</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Personalised Varsity Year Leopard Print Tote Bag</td>
-  <td class="bs-rev">£1,680</td>
-  <td style="text-align:center;color:var(--muted)">69</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Vintage Style Denim Unisex Personalised Slogan Cap</td>
-  <td class="bs-rev">£1,272</td>
-  <td style="text-align:center;color:var(--muted)">52</td>
-  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
-  <td style="text-align:center">—</td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
-</tr>
-<tr>
-  <td class="bs-prod">Embroidered Unisex Personalised Slogan Cap</td>
-  <td class="bs-rev">£820</td>
-  <td style="text-align:center;color:var(--muted)">31</td>
-  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
-  <td style="text-align:center">—</td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
-</tr>
-<tr>
-  <td class="bs-prod">Embroidered Yes I Like Pina Coladas T-shirt</td>
-  <td class="bs-rev">£644</td>
-  <td style="text-align:center;color:var(--muted)">23</td>
-  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
-  <td style="text-align:center">—</td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
-</tr>
-<tr>
-  <td class="bs-prod">Happy Hour Slogan Sweatshirt</td>
-  <td class="bs-rev">£560</td>
-  <td style="text-align:center;color:var(--muted)">16</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">5/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Men's Personalised Year Sweatshirt</td>
-  <td class="bs-rev">£525</td>
-  <td style="text-align:center;color:var(--muted)">15</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Funky Font Personalised Year Sweatshirt</td>
-  <td class="bs-rev">£525</td>
-  <td style="text-align:center;color:var(--muted)">15</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Personalised 'Only Here For...' Cap</td>
-  <td class="bs-rev">£456</td>
-  <td style="text-align:center;color:var(--muted)">19</td>
-  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
-  <td style="text-align:center">—</td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
-</tr>
-<tr>
-  <td class="bs-prod">Happy Hour Slogan T-Shirt</td>
-  <td class="bs-rev">£442</td>
-  <td style="text-align:center;color:var(--muted)">17</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">5/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Embroidered Personalised Cuff Sweatshirt</td>
-  <td class="bs-rev">£440</td>
-  <td style="text-align:center;color:var(--muted)">9</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Personalised Handwriting Cuff Sweatshirt</td>
-  <td class="bs-rev">£432</td>
-  <td style="text-align:center;color:var(--muted)">9</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Tea Please Sweatshirt</td>
-  <td class="bs-rev">£420</td>
-  <td style="text-align:center;color:var(--muted)">12</td>
-  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
-  <td style="text-align:center">—</td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
-</tr>
-<tr>
-  <td class="bs-prod">Rock On Ruby Branded Tote Bag</td>
-  <td class="bs-rev">£416</td>
-  <td style="text-align:center;color:var(--muted)">26</td>
-  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
-  <td style="text-align:center">—</td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
-</tr>
-<tr>
-  <td class="bs-prod">My Other Job is a Dallas Cowboys Cheerleader Sweatshirt</td>
-  <td class="bs-rev">£385</td>
-  <td style="text-align:center;color:var(--muted)">11</td>
-  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
-  <td style="text-align:center">—</td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
-</tr>
-<tr>
-  <td class="bs-prod">Custard Cream Connoisseur T-Shirt</td>
-  <td class="bs-rev">£364</td>
-  <td style="text-align:center;color:var(--muted)">14</td>
-  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
-  <td style="text-align:center">—</td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
-</tr>
-<tr>
-  <td class="bs-prod">Personalised Slogan T-shirt</td>
-  <td class="bs-rev">£364</td>
-  <td style="text-align:center;color:var(--muted)">13</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Tea Please T-shirt</td>
-  <td class="bs-rev">£364</td>
-  <td style="text-align:center;color:var(--muted)">14</td>
-  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
-  <td style="text-align:center">—</td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
-</tr></tbody>
-  </table>
-  </div>
 </section>
   </section>
   <section id="tab-calendar" class="tab-panel">
@@ -885,1023 +493,16 @@
 </section>
   </section>
   <section id="tab-keywords" class="tab-panel">
-    <div class="group"><h2>Best Sellers & Birthday (Layer 4)</h2><div class="cards">
-<div class="card rising">
-  <div class="card-term">personalised year sweatshirt</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">personalised year hoodie</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">personalised year t-shirt</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/christmas-t-shirts" target="_blank" rel="noopener">Christmas T-Shirts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">milestone birthday gift uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'milestone birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">40th birthday gift uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to '40th birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">50th birthday gift uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to '50th birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">30th birthday gift uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to '30th birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">18th birthday gift uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to '18th birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">21st birthday gift uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to '21st birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">personalised 40th birthday sweatshirt</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">50th birthday gift ideas uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to '50th birthday gift ideas uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">30th birthday personalised hoodie</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">custom birth year hoodie uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'custom birth year hoodie uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">personalised birthday jumper uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/christmas-jumpers" target="_blank" rel="noopener">Christmas Jumpers</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">birthday sweatshirt uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:50%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">5</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">Personalised Sweatshirts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'birthday sweatshirt uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">born in sweatshirt</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:50%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">5</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">Personalised Sweatshirts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'born in sweatshirt' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">birth year clothing uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:50%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">5</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">Children’s Clothing</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'birth year clothing uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">happy hour sweatshirt</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:50%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">5</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">Personalised Sweatshirts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'happy hour sweatshirt' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">slogan sweatshirt uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:50%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">5</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan drop: 'Only Here for the…' extended into summer — beach, Prosecco, festival</li><li>Cap: 'Festival Hair, Don't Care' — festival season tie-in</li><li>Sweatshirt: 'Only Here for the Headliners' — Glastonbury hype angle</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">pina colada cap</div>
-  <div class="badges">
-    <span class="badge b-avg">~35/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:50%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">5</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/search?q=pina colada cap" target="_blank" rel="noopener">Embroidered Yes I Like Pina Coladas T-shirt</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'pina colada cap' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div></div></div>
-<div class="group"><h2>Broad Category Discovery</h2><div class="cards">
-<div class="card">
-  <div class="card-term">gift ideas uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~20/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:30%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">3</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'gift ideas uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">birthday gift uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~20/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:30%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">3</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'birthday gift uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">personalised gift uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~20/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:30%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">3</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">women's fashion uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~20/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:20%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">2</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/premium-spark-joggers" target="_blank" rel="noopener">Women's Premium Rock On Ruby Joggers</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Funny birthday gift sets — cap + tote bundle, gift-wrapped</li><li>Social: 'Gifts that aren't a candle' — positions ROR against generic gifting</li><li>Sweatshirt: 'Bra Off By 7' — speaks directly to the ROR customer</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">food and drink trends uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~20/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:20%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">2</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/only-here-for-the-food-christmas-jumper" target="_blank" rel="noopener">Bourbon Biscuit Fan Club Sweatshirt</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'food and drink trends uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">novelty clothing uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~20/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:20%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">2</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">Children’s Clothing</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Novelty slogan caps for gifting — lean into the anti-boring positioning</li><li>Social: 'Slogans we've actually embroidered' reel — funny UGC-style content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">funny slogan clothing uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~20/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:20%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">2</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">Children’s Clothing</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan drop: 'Only Here for the…' extended into summer — beach, Prosecco, festival</li><li>Cap: 'Festival Hair, Don't Care' — festival season tie-in</li><li>Sweatshirt: 'Only Here for the Headliners' — Glastonbury hype angle</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div></div></div>
-<div class="group"><h2>Seasonal Trends (Layer 3)</h2><div class="cards">
-<div class="card rising">
-  <div class="card-term">fathers day gifts uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:70%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">7</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Cap: 'Only Here for the BBQ' — embroidered slogan, Father's Day gifting angle</li><li>Sweatshirt: 'Tea Please Dad' — simple embroidered text, gift-ready</li><li>Cap: 'Coffee First, Dad Stuff Second' — funny and fast to execute</li><li>Social: 'What Dad Really Wants' reel featuring BBQ-themed personalised cap</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">glastonbury 2026</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-gap">⚡ Product gap — not on rockonruby.co.uk yet</span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'glastonbury 2026' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">reading festival 2026</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap" target="_blank" rel="noopener">Book Club Tote Bag</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Festival cap collection — embroidered, practical, gifting angle pre-June</li><li>Social: 'What goes on tour' — personalised cap gifting content for festival groups</li><li>Tote: Festival tote with custom name or slogan — low cost, high gift appeal</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">festival outfit uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/clothing" target="_blank" rel="noopener">Embroidered Personalised Initials Tote Bag</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Festival cap collection — embroidered, practical, gifting angle pre-June</li><li>Social: 'What goes on tour' — personalised cap gifting content for festival groups</li><li>Tote: Festival tote with custom name or slogan — low cost, high gift appeal</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">festival clothing uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">Children’s Clothing</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Festival cap collection — embroidered, practical, gifting angle pre-June</li><li>Social: 'What goes on tour' — personalised cap gifting content for festival groups</li><li>Tote: Festival tote with custom name or slogan — low cost, high gift appeal</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">summer holidays uk 2026</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/summer-2023" target="_blank" rel="noopener">Summer 2023</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Drop: personalised beach tote + 'Girls Trip 2026' cap</li><li>Social: 'Your summer sorted' gift guide email pulling existing products together</li><li>Cap: 'Only Here for the Sunshine' — seasonal slogan, fast to execute</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">personalised gifts uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">funny gifts for women uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Funny birthday gift sets — cap + tote bundle, gift-wrapped</li><li>Social: 'Gifts that aren't a candle' — positions ROR against generic gifting</li><li>Sweatshirt: 'Bra Off By 7' — speaks directly to the ROR customer</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">funny birthday gifts uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'funny birthday gifts uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">gifts for her uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">Father's Day Gifts</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'gifts for her uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">bbq season uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:60%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">6</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/spritz-season-slogan-cap" target="_blank" rel="noopener">Spritz Season Slogan Cap</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Cap: 'Grill Sergeant' — Father's Day BBQ gifting, fast to produce</li><li>Cap: 'Ketchup or Brown Sauce' — divisive, funny, conversation-starting</li><li>Gap product: Personalised apron — 'Head Chef (Self-Appointed)'</li><li>Social: 'Team Ketchup vs Team Brown Sauce' poll — big engagement driver</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">leopard print fashion uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:50%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">5</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/leopard-print-lover" target="_blank" rel="noopener">Leopard Print Lover</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Leopard print sweatshirt with embroidered slogan — bold colourway</li><li>Social: 'Leopard print is forever' — leans into ROR's anti-boring positioning</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">bourbon biscuit</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:50%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">5</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/biscuit-collection" target="_blank" rel="noopener">Biscuit Collection</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Cap: 'Only Here for the Bourbons' — biscuit range hero product</li><li>Sweatshirt: Custard Cream slogan print — nostalgic British humour</li><li>Tote: 'Only Here for the Jammy Dodgers' — low cost, high shareability</li><li>Social: 'Rank our biscuit range' poll — drives engagement and discovery</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">jammy dodger</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:50%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">5</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/products/jammy-dodger-enthusiast-slogan-cap" target="_blank" rel="noopener">Jammy Dodger Enthusiast Slogan Cap</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'jammy dodger' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card rising">
-  <div class="card-term">novelty clothing uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~25/100</span><span class="badge b-rise">↑ Rising</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:50%;background:#fdcb6e"></div>
-    </div>
-    <div class="score-val" style="color:#fdcb6e">5</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">Children’s Clothing</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Novelty slogan caps for gifting — lean into the anti-boring positioning</li><li>Social: 'Slogans we've actually embroidered' reel — funny UGC-style content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div></div></div>
-<div class="group"><h2>Industry × Product (Layers 1+2)</h2><div class="cards">
-<div class="card">
-  <div class="card-term">personalised sweatshirt uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~15/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:30%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">3</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">personalised hoodie uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~15/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:30%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">3</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">personalised cap uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~15/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:30%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">3</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">personalised tote bag uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~15/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:30%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">3</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">Personalised Accessories</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Gap: Personalised aprons — Father's Day / BBQ crossover, not on ROR yet</li><li>Gap: Personalised BBQ accessories — gifting gap for food-loving dads</li><li>Social: 'Weird personalisation requests we've actually had' — relatable content</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">custom sweatshirt uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~15/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:30%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">3</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'custom sweatshirt uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">custom hoodie uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~15/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:30%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">3</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'custom hoodie uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">custom cap uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~15/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:30%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">3</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'custom cap uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div>
-<div class="card">
-  <div class="card-term">custom tote bag uk</div>
-  <div class="badges">
-    <span class="badge b-avg">~15/100</span><span class="badge b-stbl">→ Stable</span><span class="badge b-est">○ Est</span>
-  </div>
-  <div class="score-row">
-    <div class="score-lbl">Opportunity</div>
-    <div class="bar-track">
-      <div class="bar-fill" style="width:30%;background:#636e72"></div>
-    </div>
-    <div class="score-val" style="color:#636e72">3</div>
-  </div>
-  <span class="ror-tag ror-has">✓ ROR sells: <a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">Custom Slogan</a></span>
-  <div class="section-label">ROR product &amp; social ideas</div>
-  <ul class="items"><li>Slogan cap or sweatshirt tied to 'custom tote bag uk' — quick to produce as print-on-demand</li><li>Social: behind-the-scenes making content featuring this theme</li></ul>
-  <div class="two-col">
-    
-    
-  </div>
-</div></div></div>
-
-  </section>
-  <section id="tab-seo" class="tab-panel">
     
 <section class="dashboard-section visibility-section">
   <h2>Organic Visibility</h2>
   <p class="section-intro">Search Console shows where ROR is already getting impressions. Serper then spot-checks the live Google UK result so the action is based on ranking evidence, not guessing. Window: 2026-05-04 to 2026-05-31.</p>
   <div class="visibility-stats">
-    <div><strong>25</strong><span>Keywords checked</span></div>
-    <div><strong>15</strong><span>ROR found</span></div>
-    <div><strong>11</strong><span>Top 3</span></div>
-    <div><strong>15</strong><span>Page 1</span></div>
-    <div><strong>10</strong><span>Not top 20</span></div>
+    <div><strong>5</strong><span>Keywords checked</span></div>
+    <div><strong>4</strong><span>ROR found</span></div>
+    <div><strong>2</strong><span>Top 3</span></div>
+    <div><strong>4</strong><span>Page 1</span></div>
+    <div><strong>1</strong><span>Not top 20</span></div>
   </div>
   <div class="visibility-key">
     <span><b class="key-dot key-good"></b>Good, protect or nudge</span>
@@ -1912,6 +513,7 @@
     <table class="seo-table visibility-table">
       <thead>
         <tr>
+          <th>Priority</th>
           <th>Keyword</th>
           <th>Mapped ROR page</th>
           <th>Impr.</th>
@@ -1920,10 +522,12 @@
           <th>Live rank</th>
           <th>Above ROR</th>
           <th>Do this</th>
+          <th>Content</th>
         </tr>
       </thead>
       <tbody>
 <tr>
+  <td class="metric-cell"><span class="priority-pill">106</span><br><span class="muted-small">Move to top 3</span></td>
   <td class="kw-cell">embroidered cap</td>
   <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-caps" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-caps</a></td>
   <td class="metric-cell">448</td>
@@ -1931,9 +535,21 @@
   <td class="metric-cell">8.04</td>
   <td class="metric-cell"><span class="rank-pill rank-mid">#10</span></td>
   <td><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
-  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'embroidered cap' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk.</td>
+  <td class="action-cell"><strong>ROR is on page 1 but competitors are still above it.</strong><br>Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'embroidered cap' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk.</td>
+  <td class="action-cell">
+    <button class="mini-btn copy-brief" data-brief="Keyword: embroidered cap
+Priority: Move to top 3, score 106
+Mapped page: https://rockonruby.co.uk/collections/personalised-caps
+GSC: 448 impressions, 9 clicks, avg position 8.04
+Live Google UK rank: #10
+Competitors above ROR: bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk, pinterest.com
+Why this matters: ROR is on page 1 but competitors are still above it.
+Generate finished content only. Needed output: Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;embroidered cap&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
+  </td>
 </tr>
 <tr>
+  <td class="metric-cell"><span class="priority-pill">51</span><br><span class="muted-small">Fix visibility gap</span></td>
   <td class="kw-cell">mama sweatshirt</td>
   <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-mama-sweatshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-mama-sweatshirt</a></td>
   <td class="metric-cell">89</td>
@@ -1941,9 +557,65 @@
   <td class="metric-cell">8.18</td>
   <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
   <td><span class="competitor-chip">mylittlecoco.co.uk</span><span class="competitor-chip">next.co.uk</span><span class="competitor-chip">tracystreasuredkeepsakes.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'mama sweatshirt'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-mama-sweatshirt, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+  <td class="action-cell"><strong>Google Search Console sees the query, but ROR is not showing in the live top 20.</strong><br>Check why the mapped page is not showing in the top 20 for 'mama sweatshirt'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-mama-sweatshirt, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+  <td class="action-cell">
+    <button class="mini-btn copy-brief" data-brief="Keyword: mama sweatshirt
+Priority: Fix visibility gap, score 51
+Mapped page: https://rockonruby.co.uk/products/embroidered-mama-sweatshirt
+GSC: 89 impressions, 0 clicks, avg position 8.18
+Live Google UK rank: not top 20
+Competitors above ROR: mylittlecoco.co.uk, next.co.uk, tracystreasuredkeepsakes.co.uk, pinterest.com
+Why this matters: Google Search Console sees the query, but ROR is not showing in the live top 20.
+Generate finished content only. Needed output: Generate a page intro rewrite, 4 FAQs, internal-link copy and one supporting blog for &#x27;mama sweatshirt&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
+  </td>
 </tr>
 <tr>
+  <td class="metric-cell"><span class="priority-pill">40</span><br><span class="muted-small">Move to top 3</span></td>
+  <td class="kw-cell">cap embroidered</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</a></td>
+  <td class="metric-cell">64</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.31</td>
+  <td class="metric-cell"><span class="rank-pill rank-mid">#7</span></td>
+  <td><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">inkthreadable.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span></td>
+  <td class="action-cell"><strong>ROR is on page 1 but competitors are still above it.</strong><br>Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'cap embroidered' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, inkthreadable.co.uk, vistaprint.co.uk.</td>
+  <td class="action-cell">
+    <button class="mini-btn copy-brief" data-brief="Keyword: cap embroidered
+Priority: Move to top 3, score 40
+Mapped page: https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap
+GSC: 64 impressions, 0 clicks, avg position 8.31
+Live Google UK rank: #7
+Competitors above ROR: bluepanda.co.uk, inkthreadable.co.uk, vistaprint.co.uk, jrsindustrial.co.uk
+Why this matters: ROR is on page 1 but competitors are still above it.
+Generate finished content only. Needed output: Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;cap embroidered&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
+  </td>
+</tr>
+<tr>
+  <td class="metric-cell"><span class="priority-pill">29</span><br><span class="muted-small">Push to #1</span></td>
+  <td class="kw-cell">white slogan t shirt women</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
+  <td class="metric-cell">95</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.25</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
+  <td><span class="competitor-chip">shirtbox.com</span></td>
+  <td class="action-cell"><strong>ROR is already near the top. Small page improvements may be enough.</strong><br>Push this from top 3 to position 1. Add a short FAQ that answers 'white slogan t shirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+  <td class="action-cell">
+    <button class="mini-btn copy-brief" data-brief="Keyword: white slogan t shirt women
+Priority: Push to #1, score 29
+Mapped page: https://rockonruby.co.uk/collections/slogan-t-shirts
+GSC: 95 impressions, 0 clicks, avg position 8.25
+Live Google UK rank: #2
+Competitors above ROR: shirtbox.com
+Why this matters: ROR is already near the top. Small page improvements may be enough.
+Generate finished content only. Needed output: Generate a focused FAQ block, meta title option and image alt text ideas for &#x27;white slogan t shirt women&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
+  </td>
+</tr>
+<tr>
+  <td class="metric-cell"><span class="priority-pill">16</span><br><span class="muted-small">Protect winner</span></td>
   <td class="kw-cell">slogan cap</td>
   <td class="page-cell"><a href="https://rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap</a></td>
   <td class="metric-cell">53</td>
@@ -1951,627 +623,252 @@
   <td class="metric-cell">8.23</td>
   <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
   <td><span class="muted-small">No competitor list captured.</span></td>
-  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
-</tr>
-<tr>
-  <td class="kw-cell">white slogan t shirt women</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
-  <td class="metric-cell">95</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.25</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
-  <td><span class="competitor-chip">newlook.com</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'white slogan t shirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">cap embroidered</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</a></td>
-  <td class="metric-cell">64</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.31</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">inkthreadable.co.uk</span><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'cap embroidered'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">christmas sweatshirt</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/merry-varsity-christmas-jumper" target="_blank" rel="noopener">rockonruby.co.uk/products/merry-varsity-christmas-jumper</a></td>
-  <td class="metric-cell">344</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.34</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
-  <td><span class="competitor-chip">next.co.uk</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'christmas sweatshirt', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">christmas sweatshirts uk</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/christmas-jumpers" target="_blank" rel="noopener">rockonruby.co.uk/collections/christmas-jumpers</a></td>
-  <td class="metric-cell">70</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.34</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#3</span></td>
-  <td><span class="competitor-chip">next.co.uk</span><span class="competitor-chip">sillysanta.uk</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'christmas sweatshirts uk', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">bobble hats men</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat" target="_blank" rel="noopener">rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat</a></td>
-  <td class="metric-cell">53</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.4</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">neweracap.co.uk</span><span class="competitor-chip">thehatcompany.com</span><span class="competitor-chip">gooutdoors.co.uk</span><span class="competitor-chip">next.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'bobble hats men'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">white slogan t shirt</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-t-shirts</a></td>
-  <td class="metric-cell">150</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.43</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
-  <td><span class="muted-small">No competitor list captured.</span></td>
-  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
-</tr>
-<tr>
-  <td class="kw-cell">womens slogan knitwear sale</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-sweatshirts</a></td>
-  <td class="metric-cell">91</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.46</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">marksandspencer.com</span><span class="competitor-chip">boohoo.com</span><span class="competitor-chip">joanieclothing.com</span><span class="competitor-chip">ebay.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'womens slogan knitwear sale'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/collections/slogan-sweatshirts, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan tee</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt</a></td>
-  <td class="metric-cell">434</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.59</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
-  <td><span class="muted-small">No competitor list captured.</span></td>
-  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan sweatshirt women</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-sweatshirts</a></td>
-  <td class="metric-cell">133</td>
-  <td class="metric-cell">7</td>
-  <td class="metric-cell">8.59</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
-  <td><span class="competitor-chip">percyandnell.com</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan sweatshirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">embroided cap</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</a></td>
-  <td class="metric-cell">84</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.6</td>
-  <td class="metric-cell"><span class="rank-pill rank-mid">#10</span></td>
-  <td><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
-  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'embroided cap' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk.</td>
-</tr>
-<tr>
-  <td class="kw-cell">statement t shirts women</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
-  <td class="metric-cell">54</td>
-  <td class="metric-cell">1</td>
-  <td class="metric-cell">8.61</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#3</span></td>
-  <td><span class="competitor-chip">shirtbox.com</span><span class="competitor-chip">newlook.com</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'statement t shirts women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">club tropicana outfit</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/blogs/news/club-tropicana-style-fancy-dress" target="_blank" rel="noopener">rockonruby.co.uk/blogs/news/club-tropicana-style-fancy-dress</a></td>
-  <td class="metric-cell">56</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.64</td>
-  <td class="metric-cell"><span class="rank-pill rank-mid">#5</span></td>
-  <td><span class="competitor-chip">amazon.co.uk</span><span class="competitor-chip">uk.pinterest.com</span><span class="competitor-chip">oliviavonhalle.com</span><span class="competitor-chip">pinkboutique.co.uk</span></td>
-  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'club tropicana outfit' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include amazon.co.uk, uk.pinterest.com, oliviavonhalle.com.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan tshirt women</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
-  <td class="metric-cell">193</td>
-  <td class="metric-cell">2</td>
-  <td class="metric-cell">8.72</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
-  <td><span class="competitor-chip">newlook.com</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan tshirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">can i go read my book cap</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap</a></td>
-  <td class="metric-cell">95</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.73</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">alphabetbags.com</span><span class="competitor-chip">sillylittletees.co.uk</span><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">moobou.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'can i go read my book cap'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan t shirt</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt</a></td>
-  <td class="metric-cell">188</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.84</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
-  <td><span class="competitor-chip">zara.com</span></td>
-  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan t shirt', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">custom jumpers uk</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-sweatshirts</a></td>
-  <td class="metric-cell">122</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.95</td>
-  <td class="metric-cell"><span class="rank-pill rank-mid">#8</span></td>
-  <td><span class="competitor-chip">store.amcustomclothing.co.uk</span><span class="competitor-chip">mypersonalisedclothing.com</span><span class="competitor-chip">rapanuiclothing.com</span><span class="competitor-chip">vistaprint.co.uk</span></td>
-  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'custom jumpers uk' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include store.amcustomclothing.co.uk, mypersonalisedclothing.com, rapanuiclothing.com.</td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised bobble hat</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat" target="_blank" rel="noopener">rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat</a></td>
-  <td class="metric-cell">69</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">8.99</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">tshirtstudio.com</span><span class="competitor-chip">myoddballs.com</span><span class="competitor-chip">swaz.co.uk</span><span class="competitor-chip">millieandralph.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'personalised bobble hat'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">baby tee slogan</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
-  <td class="metric-cell">76</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">9.01</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">siswhatsthetee.com</span><span class="competitor-chip">pinterest.com</span><span class="competitor-chip">etsy.com</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'baby tee slogan'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">baby tee with text</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
-  <td class="metric-cell">58</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">9.12</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">whenindoubt.co</span><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">inprintwetrust.co</span><span class="competitor-chip">pinterest.com</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'baby tee with text'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan baby tee</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
-  <td class="metric-cell">423</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">9.2</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">siswhatsthetee.com</span><span class="competitor-chip">pinterest.com</span><span class="competitor-chip">vogue.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'slogan baby tee'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan jumpers</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-sweatshirts</a></td>
-  <td class="metric-cell">117</td>
-  <td class="metric-cell">0</td>
-  <td class="metric-cell">9.21</td>
-  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
-  <td><span class="muted-small">No competitor list captured.</span></td>
-  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised t shirts</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-t-shirts</a></td>
-  <td class="metric-cell">4443</td>
-  <td class="metric-cell">1</td>
-  <td class="metric-cell">18.01</td>
-  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
-  <td><span class="competitor-chip">tshirtstudio.com</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">photo.asda.com</span><span class="competitor-chip">yourdesign.co.uk</span></td>
-  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'personalised t shirts'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/personalised-t-shirts, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+  <td class="action-cell"><strong>ROR already owns this result. Keep it fresh without rewriting the page heavily.</strong><br>Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
+  <td class="action-cell">
+    <button class="mini-btn copy-brief" data-brief="Keyword: slogan cap
+Priority: Protect winner, score 16
+Mapped page: https://rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap
+GSC: 53 impressions, 0 clicks, avg position 8.23
+Live Google UK rank: #1
+Competitors above ROR: none captured
+Why this matters: ROR already owns this result. Keep it fresh without rewriting the page heavily.
+Generate finished content only. Needed output: Generate one light support pack for &#x27;slogan cap&#x27;: Pinterest pin copy, a short caption and one internal-link suggestion.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
+  </td>
 </tr></tbody>
     </table>
   </div>
 </section>
+  </section>
+  <section id="tab-seo" class="tab-panel">
     
-<section class="seo-section">
-  <h2 class="seo-title">SEO Keyword Action List</h2>
-  <p class="seo-sub">For every trending term — which ROR page it maps to and what to do next.
-     ● = live Trends data &nbsp; ○ = estimated</p>
-  <div class="table-wrap">
-  <table class="seo-table">
-    <thead>
-      <tr>
-        <th>Keyword</th>
-        <th>Trend</th>
-        <th style="text-align:center">Score</th>
-        <th>ROR Page / Product</th>
-        <th>Recommended Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-<tr>
-  <td class="kw-cell">fathers day gifts uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">7/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised year sweatshirt <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised year hoodie <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised year t-shirt <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/christmas-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/christmas-t-shirts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">milestone birthday gift uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">40th birthday gift uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">50th birthday gift uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">30th birthday gift uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">18th birthday gift uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">21st birthday gift uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised 40th birthday sweatshirt <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">50th birthday gift ideas uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">30th birthday personalised hoodie <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">custom birth year hoodie uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised birthday jumper uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/christmas-jumpers" target="_blank" rel="noopener">rockonruby.co.uk/collections/christmas-jumpers</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">glastonbury 2026 <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/clothing</a></td>
-  <td><span class="act act-create">Write blog post — no ROR page to land on yet</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">reading festival 2026 <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">festival outfit uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/clothing</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">festival clothing uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/children-s-clothing</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">summer holidays uk 2026 <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/summer-2023" target="_blank" rel="noopener">rockonruby.co.uk/collections/summer-2023</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised gifts uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">funny gifts for women uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">funny birthday gifts uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">gifts for her uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">bbq season uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">6/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/spritz-season-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/spritz-season-slogan-cap</a></td>
-  <td><span class="act act-update">Update collection page copy + add to FAQs</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">birthday sweatshirt uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-sweatshirts</a></td>
-  <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">born in sweatshirt <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-sweatshirts</a></td>
-  <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">birth year clothing uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/children-s-clothing</a></td>
-  <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">happy hour sweatshirt <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-sweatshirts</a></td>
-  <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">slogan sweatshirt uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
-  <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">pina colada cap <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/search?q=pina colada cap" target="_blank" rel="noopener">rockonruby.co.uk/products/search?q=pina colada cap</a></td>
-  <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">leopard print fashion uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/leopard-print-lover" target="_blank" rel="noopener">rockonruby.co.uk/collections/leopard-print-lover</a></td>
-  <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">bourbon biscuit <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/biscuit-collection" target="_blank" rel="noopener">rockonruby.co.uk/collections/biscuit-collection</a></td>
-  <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">jammy dodger <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/jammy-dodger-enthusiast-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/jammy-dodger-enthusiast-slogan-cap</a></td>
-  <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">novelty clothing uk <span class="src-dot">○</span></td>
-  <td style="color:#00b894;font-weight:600">↑ Rising</td>
-  <td style="color:#fdcb6e;font-weight:700;text-align:center">5/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/children-s-clothing</a></td>
-  <td><span class="act act-watch">Refresh product description — keyword is stable</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">gift ideas uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">birthday gift uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised gift uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/fathers-day-gifts" target="_blank" rel="noopener">rockonruby.co.uk/collections/fathers-day-gifts</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised sweatshirt uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised hoodie uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised cap uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">personalised tote bag uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-accessories" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-accessories</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">custom sweatshirt uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">custom hoodie uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">custom cap uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">custom tote bag uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">3/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/custom-slogan" target="_blank" rel="noopener">rockonruby.co.uk/collections/custom-slogan</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">women's fashion uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">2/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/premium-spark-joggers" target="_blank" rel="noopener">rockonruby.co.uk/products/premium-spark-joggers</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">food and drink trends uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">2/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/products/only-here-for-the-food-christmas-jumper" target="_blank" rel="noopener">rockonruby.co.uk/products/only-here-for-the-food-christmas-jumper</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">novelty clothing uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">2/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/children-s-clothing</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-<tr>
-  <td class="kw-cell">funny slogan clothing uk <span class="src-dot">○</span></td>
-  <td style="color:#aaa;font-weight:600">→ Stable</td>
-  <td style="color:#636e72;font-weight:700;text-align:center">2/10</td>
-  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/children-s-clothing" target="_blank" rel="noopener">rockonruby.co.uk/collections/children-s-clothing</a></td>
-  <td><span class="act act-low">Low priority — review next quarter</span></td>
-</tr>
-    </tbody>
-  </table>
+<section class="dashboard-section">
+  <h2>Website & SEO Fixes</h2>
+  <p class="section-intro">Same evidence as the keyword table, grouped by the actual ROR page that needs work.</p>
+  <div class="page-fix-list">
+<article class="page-fix-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority 106</span>
+    <span class="pill pill-aov">Move to top 3</span>
   </div>
+  <h3><a href="https://rockonruby.co.uk/collections/personalised-caps" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-caps</a></h3>
+  <div class="fix-grid">
+    <div><h4>Keywords affected</h4><p>embroidered cap</p></div>
+    <div><h4>Ranking evidence</h4><p>embroidered cap: #10</p></div>
+    <div><h4>Why</h4><p>ROR is on page 1 but competitors are still above it.</p></div>
+  </div>
+  <div class="fix-work">
+    <strong>Exact page work:</strong> Rewrite the first 80 words around the primary search phrase "embroidered cap". Add 2 to 4 buyer-question FAQs specific to this page, improve the meta title around the phrase if it is missing, add image alt text that describes the product and gift/use case, and add internal links from related products, blogs or collections.
+  </div>
+  <div class="fix-work">
+    <strong>System-generated content needed:</strong> Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;embroidered cap&#x27;.
+  </div>
+</article>
+<article class="page-fix-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority 51</span>
+    <span class="pill pill-aov">Fix visibility gap</span>
+  </div>
+  <h3><a href="https://rockonruby.co.uk/products/embroidered-mama-sweatshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-mama-sweatshirt</a></h3>
+  <div class="fix-grid">
+    <div><h4>Keywords affected</h4><p>mama sweatshirt</p></div>
+    <div><h4>Ranking evidence</h4><p>mama sweatshirt: not top 20</p></div>
+    <div><h4>Why</h4><p>Google Search Console sees the query, but ROR is not showing in the live top 20.</p></div>
+  </div>
+  <div class="fix-work">
+    <strong>Exact page work:</strong> Rewrite the first 80 words around the primary search phrase "mama sweatshirt". Add 2 to 4 buyer-question FAQs specific to this page, improve the meta title around the phrase if it is missing, add image alt text that describes the product and gift/use case, and add internal links from related products, blogs or collections.
+  </div>
+  <div class="fix-work">
+    <strong>System-generated content needed:</strong> Generate a page intro rewrite, 4 FAQs, internal-link copy and one supporting blog for &#x27;mama sweatshirt&#x27;.
+  </div>
+</article>
+<article class="page-fix-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority 40</span>
+    <span class="pill pill-aov">Move to top 3</span>
+  </div>
+  <h3><a href="https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</a></h3>
+  <div class="fix-grid">
+    <div><h4>Keywords affected</h4><p>cap embroidered</p></div>
+    <div><h4>Ranking evidence</h4><p>cap embroidered: #7</p></div>
+    <div><h4>Why</h4><p>ROR is on page 1 but competitors are still above it.</p></div>
+  </div>
+  <div class="fix-work">
+    <strong>Exact page work:</strong> Rewrite the first 80 words around the primary search phrase "cap embroidered". Add 2 to 4 buyer-question FAQs specific to this page, improve the meta title around the phrase if it is missing, add image alt text that describes the product and gift/use case, and add internal links from related products, blogs or collections.
+  </div>
+  <div class="fix-work">
+    <strong>System-generated content needed:</strong> Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;cap embroidered&#x27;.
+  </div>
+</article>
+<article class="page-fix-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority 29</span>
+    <span class="pill pill-aov">Push to #1</span>
+  </div>
+  <h3><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></h3>
+  <div class="fix-grid">
+    <div><h4>Keywords affected</h4><p>white slogan t shirt women</p></div>
+    <div><h4>Ranking evidence</h4><p>white slogan t shirt women: #2</p></div>
+    <div><h4>Why</h4><p>ROR is already near the top. Small page improvements may be enough.</p></div>
+  </div>
+  <div class="fix-work">
+    <strong>Exact page work:</strong> Rewrite the first 80 words around the primary search phrase "white slogan t shirt women". Add 2 to 4 buyer-question FAQs specific to this page, improve the meta title around the phrase if it is missing, add image alt text that describes the product and gift/use case, and add internal links from related products, blogs or collections.
+  </div>
+  <div class="fix-work">
+    <strong>System-generated content needed:</strong> Generate a focused FAQ block, meta title option and image alt text ideas for &#x27;white slogan t shirt women&#x27;.
+  </div>
+</article>
+<article class="page-fix-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority 16</span>
+    <span class="pill pill-aov">Protect winner</span>
+  </div>
+  <h3><a href="https://rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap</a></h3>
+  <div class="fix-grid">
+    <div><h4>Keywords affected</h4><p>slogan cap</p></div>
+    <div><h4>Ranking evidence</h4><p>slogan cap: #1</p></div>
+    <div><h4>Why</h4><p>ROR already owns this result. Keep it fresh without rewriting the page heavily.</p></div>
+  </div>
+  <div class="fix-work">
+    <strong>Exact page work:</strong> Rewrite the first 80 words around the primary search phrase "slogan cap". Add 2 to 4 buyer-question FAQs specific to this page, improve the meta title around the phrase if it is missing, add image alt text that describes the product and gift/use case, and add internal links from related products, blogs or collections.
+  </div>
+  <div class="fix-work">
+    <strong>System-generated content needed:</strong> Generate one light support pack for &#x27;slogan cap&#x27;: Pinterest pin copy, a short caption and one internal-link suggestion.
+  </div>
+</article></div>
 </section>
   </section>
   <section id="tab-content" class="tab-panel">
     
 <section class="dashboard-section">
   <h2>Content Packs</h2>
-  <p class="section-intro">This is where the Content Creator System will turn approved blog ideas into media-company-style production packs.</p>
-  <div class="table-wrap">
-    <table class="seo-table">
-      <thead><tr><th>Blog/source idea</th><th>Score</th><th>Why</th><th>Pack direction</th></tr></thead>
-      <tbody>
-<tr>
-  <td>fathers day gifts uk</td>
-  <td>7/10</td>
-  <td>Update collection page copy + add to FAQs</td>
-  <td>Blog, reel, stories, carousel and email only where the format genuinely fits.</td>
-</tr>
-<tr>
-  <td>glastonbury 2026</td>
-  <td>6/10</td>
-  <td>Write blog post — no ROR page to land on yet</td>
-  <td>Blog, reel, stories, carousel and email only where the format genuinely fits.</td>
-</tr></tbody>
-    </table>
+  <p class="section-intro">This is the production queue. The system should generate finished page copy, FAQs, blogs, email/social packs and supporting assets from the evidence here. ClickUp stays for approved finished work only.</p>
+  <div class="content-queue">
+<article class="content-queue-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority 106</span>
+    <span class="pill pill-aov">Move to top 3</span>
   </div>
+  <h3>embroidered cap</h3>
+  <p class="muted-small">Mapped page: https://rockonruby.co.uk/collections/personalised-caps</p>
+  <div class="fix-grid">
+    <div><h4>Evidence</h4><p>448 impressions, 9 clicks, GSC position 8.04, live rank #10.</p></div>
+    <div><h4>Why</h4><p>ROR is on page 1 but competitors are still above it.</p></div>
+    <div><h4>Make</h4><p>Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;embroidered cap&#x27;.</p></div>
+  </div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="Keyword: embroidered cap
+Priority: Move to top 3, score 106
+Mapped page: https://rockonruby.co.uk/collections/personalised-caps
+GSC: 448 impressions, 9 clicks, avg position 8.04
+Live Google UK rank: #10
+Competitors above ROR: bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk, pinterest.com
+Why this matters: ROR is on page 1 but competitors are still above it.
+Generate finished content only. Needed output: Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;embroidered cap&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
+    <button class="mini-btn muted-action" disabled>Push to ClickUp after approval</button>
+  </div>
+</article>
+<article class="content-queue-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority 51</span>
+    <span class="pill pill-aov">Fix visibility gap</span>
+  </div>
+  <h3>mama sweatshirt</h3>
+  <p class="muted-small">Mapped page: https://rockonruby.co.uk/products/embroidered-mama-sweatshirt</p>
+  <div class="fix-grid">
+    <div><h4>Evidence</h4><p>89 impressions, 0 clicks, GSC position 8.18, live rank not top 20.</p></div>
+    <div><h4>Why</h4><p>Google Search Console sees the query, but ROR is not showing in the live top 20.</p></div>
+    <div><h4>Make</h4><p>Generate a page intro rewrite, 4 FAQs, internal-link copy and one supporting blog for &#x27;mama sweatshirt&#x27;.</p></div>
+  </div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="Keyword: mama sweatshirt
+Priority: Fix visibility gap, score 51
+Mapped page: https://rockonruby.co.uk/products/embroidered-mama-sweatshirt
+GSC: 89 impressions, 0 clicks, avg position 8.18
+Live Google UK rank: not top 20
+Competitors above ROR: mylittlecoco.co.uk, next.co.uk, tracystreasuredkeepsakes.co.uk, pinterest.com
+Why this matters: Google Search Console sees the query, but ROR is not showing in the live top 20.
+Generate finished content only. Needed output: Generate a page intro rewrite, 4 FAQs, internal-link copy and one supporting blog for &#x27;mama sweatshirt&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
+    <button class="mini-btn muted-action" disabled>Push to ClickUp after approval</button>
+  </div>
+</article>
+<article class="content-queue-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority 40</span>
+    <span class="pill pill-aov">Move to top 3</span>
+  </div>
+  <h3>cap embroidered</h3>
+  <p class="muted-small">Mapped page: https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</p>
+  <div class="fix-grid">
+    <div><h4>Evidence</h4><p>64 impressions, 0 clicks, GSC position 8.31, live rank #7.</p></div>
+    <div><h4>Why</h4><p>ROR is on page 1 but competitors are still above it.</p></div>
+    <div><h4>Make</h4><p>Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;cap embroidered&#x27;.</p></div>
+  </div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="Keyword: cap embroidered
+Priority: Move to top 3, score 40
+Mapped page: https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap
+GSC: 64 impressions, 0 clicks, avg position 8.31
+Live Google UK rank: #7
+Competitors above ROR: bluepanda.co.uk, inkthreadable.co.uk, vistaprint.co.uk, jrsindustrial.co.uk
+Why this matters: ROR is on page 1 but competitors are still above it.
+Generate finished content only. Needed output: Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for &#x27;cap embroidered&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
+    <button class="mini-btn muted-action" disabled>Push to ClickUp after approval</button>
+  </div>
+</article>
+<article class="content-queue-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority 29</span>
+    <span class="pill pill-aov">Push to #1</span>
+  </div>
+  <h3>white slogan t shirt women</h3>
+  <p class="muted-small">Mapped page: https://rockonruby.co.uk/collections/slogan-t-shirts</p>
+  <div class="fix-grid">
+    <div><h4>Evidence</h4><p>95 impressions, 0 clicks, GSC position 8.25, live rank #2.</p></div>
+    <div><h4>Why</h4><p>ROR is already near the top. Small page improvements may be enough.</p></div>
+    <div><h4>Make</h4><p>Generate a focused FAQ block, meta title option and image alt text ideas for &#x27;white slogan t shirt women&#x27;.</p></div>
+  </div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="Keyword: white slogan t shirt women
+Priority: Push to #1, score 29
+Mapped page: https://rockonruby.co.uk/collections/slogan-t-shirts
+GSC: 95 impressions, 0 clicks, avg position 8.25
+Live Google UK rank: #2
+Competitors above ROR: shirtbox.com
+Why this matters: ROR is already near the top. Small page improvements may be enough.
+Generate finished content only. Needed output: Generate a focused FAQ block, meta title option and image alt text ideas for &#x27;white slogan t shirt women&#x27;.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
+    <button class="mini-btn muted-action" disabled>Push to ClickUp after approval</button>
+  </div>
+</article>
+<article class="content-queue-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority 16</span>
+    <span class="pill pill-aov">Protect winner</span>
+  </div>
+  <h3>slogan cap</h3>
+  <p class="muted-small">Mapped page: https://rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap</p>
+  <div class="fix-grid">
+    <div><h4>Evidence</h4><p>53 impressions, 0 clicks, GSC position 8.23, live rank #1.</p></div>
+    <div><h4>Why</h4><p>ROR already owns this result. Keep it fresh without rewriting the page heavily.</p></div>
+    <div><h4>Make</h4><p>Generate one light support pack for &#x27;slogan cap&#x27;: Pinterest pin copy, a short caption and one internal-link suggestion.</p></div>
+  </div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="Keyword: slogan cap
+Priority: Protect winner, score 16
+Mapped page: https://rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap
+GSC: 53 impressions, 0 clicks, avg position 8.23
+Live Google UK rank: #1
+Competitors above ROR: none captured
+Why this matters: ROR already owns this result. Keep it fresh without rewriting the page heavily.
+Generate finished content only. Needed output: Generate one light support pack for &#x27;slogan cap&#x27;: Pinterest pin copy, a short caption and one internal-link suggestion.">Copy brief</button>
+    <a class="mini-btn" href="https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml" target="_blank" rel="noopener">Generate content</a>
+    <button class="mini-btn muted-action" disabled>Push to ClickUp after approval</button>
+  </div>
+</article></div>
 </section>
   </section>
   <section id="tab-team" class="tab-panel">
@@ -2605,6 +902,19 @@
       document.querySelectorAll('.tab-panel').forEach((panel) => panel.classList.remove('active'));
       button.classList.add('active');
       document.getElementById(`tab-${tab}`).classList.add('active');
+    });
+  });
+  document.querySelectorAll('.copy-brief').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const brief = button.dataset.brief || '';
+      try {
+        await navigator.clipboard.writeText(brief);
+        const original = button.textContent;
+        button.textContent = 'Copied';
+        setTimeout(() => button.textContent = original, 1400);
+      } catch (e) {
+        window.prompt('Copy this brief', brief);
+      }
     });
   });
 </script>

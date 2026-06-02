@@ -43,6 +43,10 @@ TEAM_INPUT_LIST_URL = os.environ.get(
     "TEAM_INPUT_LIST_URL",
     "https://app.clickup.com/90121649956/v/l/li/901218496536",
 )
+CONTENT_WORKFLOW_URL = os.environ.get(
+    "CONTENT_WORKFLOW_URL",
+    "https://github.com/GrahamROR/ror-trend-scraper/actions/workflows/content.yml",
+)
 
 _PT: TrendReq | None = None
 _CATALOGUE: dict = {}
@@ -928,6 +932,101 @@ def _rank_status(rank) -> tuple[str, str]:
     return f"#{rank}", "rank-bad"
 
 
+def _row_priority(row: dict) -> tuple[str, int, str]:
+    impressions = int(row.get("gsc_impressions", 0) or 0)
+    clicks = int(row.get("gsc_clicks", 0) or 0)
+    ctr = float(row.get("gsc_ctr", 0) or 0)
+    rank = row.get("ror_rank")
+    score = int(row.get("priority_score", 0) or 0)
+
+    if not score:
+        score = min(int(impressions / 8), 55)
+        if rank is None:
+            score += 40
+        elif rank == 1:
+            score += 10
+        elif rank <= 3:
+            score += 18
+        elif rank <= 10:
+            score += 32
+        else:
+            score += 28
+        if impressions >= 100 and ctr < 2.5:
+            score += 10
+        score += min(clicks, 12)
+
+    if rank is None:
+        label = "Fix visibility gap"
+        why = "Google Search Console sees the query, but ROR is not showing in the live top 20."
+    elif rank == 1:
+        label = "Protect winner"
+        why = "ROR already owns this result. Keep it fresh without rewriting the page heavily."
+    elif rank <= 3:
+        label = "Push to #1"
+        why = "ROR is already near the top. Small page improvements may be enough."
+    elif rank <= 10:
+        label = "Move to top 3"
+        why = "ROR is on page 1 but competitors are still above it."
+    else:
+        label = "Build support"
+        why = "ROR is visible, but the page needs stronger supporting content and links."
+    return label, score, why
+
+
+def _sorted_rank_results(limit: int | None = None) -> list[dict]:
+    rank_cache = load_json_cache(RANK_TRACKER_CACHE_FILE, {})
+    results = rank_cache.get("results", [])
+    sorted_results = sorted(
+        results,
+        key=lambda row: (
+            -_row_priority(row)[1],
+            -int(row.get("gsc_impressions", 0) or 0),
+            row.get("ror_rank") if row.get("ror_rank") is not None else 99,
+        ),
+    )
+    return sorted_results[:limit] if limit else sorted_results
+
+
+def _target_link(row: dict) -> str:
+    target_page = row.get("target_page") or row.get("ror_url") or ""
+    if target_page.startswith("https://"):
+        return f'<a href="{escape(target_page)}" target="_blank" rel="noopener">{escape(target_page.replace("https://", ""))}</a>'
+    return escape(target_page or "No mapped page")
+
+
+def _content_needed(row: dict) -> str:
+    query = row.get("query", "")
+    rank = row.get("ror_rank")
+    if rank is None:
+        return f"Generate a page intro rewrite, 4 FAQs, internal-link copy and one supporting blog for '{query}'."
+    if rank == 1:
+        return f"Generate one light support pack for '{query}': Pinterest pin copy, a short caption and one internal-link suggestion."
+    if rank <= 3:
+        return f"Generate a focused FAQ block, meta title option and image alt text ideas for '{query}'."
+    if rank <= 10:
+        return f"Generate a page intro rewrite, FAQ block, internal-link copy and one social/Pinterest support asset for '{query}'."
+    return f"Generate a supporting blog, page intro rewrite, FAQ block and internal-link plan for '{query}'."
+
+
+def _content_brief(row: dict) -> str:
+    query = row.get("query", "")
+    target = row.get("target_page") or row.get("ror_url") or "mapped ROR page"
+    rank = row.get("ror_rank")
+    rank_text = f"#{rank}" if rank is not None else "not top 20"
+    competitors = ", ".join(c.get("domain", "") for c in row.get("competitors_above", [])[:4] if c.get("domain")) or "none captured"
+    label, score, why = _row_priority(row)
+    return (
+        f"Keyword: {query}\n"
+        f"Priority: {label}, score {score}\n"
+        f"Mapped page: {target}\n"
+        f"GSC: {row.get('gsc_impressions', 0)} impressions, {row.get('gsc_clicks', 0)} clicks, avg position {row.get('gsc_position', 'unknown')}\n"
+        f"Live Google UK rank: {rank_text}\n"
+        f"Competitors above ROR: {competitors}\n"
+        f"Why this matters: {why}\n"
+        f"Generate finished content only. Needed output: {_content_needed(row)}"
+    )
+
+
 def _visibility_action(row: dict) -> str:
     query = row.get("query", "")
     target = row.get("target_page", "")
@@ -974,13 +1073,13 @@ def build_visibility_rank_section() -> str:
     """Return live rank evidence from Search Console plus Serper spot checks."""
     rank_cache = load_json_cache(RANK_TRACKER_CACHE_FILE, {})
     gsc_cache = load_json_cache(SEARCH_CONSOLE_CACHE_FILE, {})
-    results = rank_cache.get("results", [])
+    results = _sorted_rank_results()
 
     if not results:
-        return """
+        return f"""
 <section class="dashboard-section visibility-section">
   <h2>Organic Visibility</h2>
-  <p class="section-intro">No live rank checks yet. Run <code>python rank_tracker.py --limit 5</code> after Search Console has been refreshed.</p>
+  <p class="section-intro">No live rank checks yet. Run <code>python rank_tracker.py --limit 100</code> after Search Console has been refreshed.</p>
 </section>"""
 
     found = sum(1 for r in results if r.get("ror_found"))
@@ -996,13 +1095,9 @@ def build_visibility_rank_section() -> str:
 
     rows = ""
     for row in results:
+        label, score, why = _row_priority(row)
         rank_label, rank_cls = _rank_status(row.get("ror_rank"))
-        target_page = row.get("target_page") or row.get("ror_url") or ""
-        target_link = (
-            f'<a href="{escape(target_page)}" target="_blank" rel="noopener">{escape(target_page.replace("https://", ""))}</a>'
-            if target_page.startswith("https://")
-            else escape(target_page or "No mapped page")
-        )
+        target_link = _target_link(row)
         competitors = row.get("competitors_above", [])
         competitor_html = "".join(
             f'<span class="competitor-chip">{escape(c.get("domain", ""))}</span>'
@@ -1010,8 +1105,10 @@ def build_visibility_rank_section() -> str:
             if c.get("domain")
         ) or '<span class="muted-small">No competitor list captured.</span>'
         action = _visibility_action(row)
+        brief = escape(_content_brief(row), quote=True)
         rows += f"""
 <tr>
+  <td class="metric-cell"><span class="priority-pill">{score}</span><br><span class="muted-small">{escape(label)}</span></td>
   <td class="kw-cell">{escape(row.get("query", ""))}</td>
   <td class="page-cell">{target_link}</td>
   <td class="metric-cell">{row.get("gsc_impressions", 0)}</td>
@@ -1019,7 +1116,11 @@ def build_visibility_rank_section() -> str:
   <td class="metric-cell">{row.get("gsc_position", "—")}</td>
   <td class="metric-cell"><span class="rank-pill {rank_cls}">{rank_label}</span></td>
   <td>{competitor_html}</td>
-  <td class="action-cell">{action}</td>
+  <td class="action-cell"><strong>{escape(why)}</strong><br>{action}</td>
+  <td class="action-cell">
+    <button class="mini-btn copy-brief" data-brief="{brief}">Copy brief</button>
+    <a class="mini-btn" href="{CONTENT_WORKFLOW_URL}" target="_blank" rel="noopener">Generate content</a>
+  </td>
 </tr>"""
 
     return f"""
@@ -1042,6 +1143,7 @@ def build_visibility_rank_section() -> str:
     <table class="seo-table visibility-table">
       <thead>
         <tr>
+          <th>Priority</th>
           <th>Keyword</th>
           <th>Mapped ROR page</th>
           <th>Impr.</th>
@@ -1050,11 +1152,66 @@ def build_visibility_rank_section() -> str:
           <th>Live rank</th>
           <th>Above ROR</th>
           <th>Do this</th>
+          <th>Content</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
     </table>
   </div>
+</section>"""
+
+
+def build_page_seo_fix_section() -> str:
+    """Group organic visibility fixes by ROR page so the site work is clearer."""
+    results = _sorted_rank_results()
+    if not results:
+        return """
+<section class="dashboard-section">
+  <h2>Website & SEO Fixes</h2>
+  <p class="section-intro">No page-level fixes yet because no rank cache exists.</p>
+</section>"""
+
+    by_page: dict[str, list[dict]] = {}
+    for row in results:
+        page = row.get("target_page") or row.get("ror_url") or "No mapped page"
+        by_page.setdefault(page, []).append(row)
+
+    page_blocks = ""
+    for page, rows in sorted(by_page.items(), key=lambda item: -sum(_row_priority(r)[1] for r in item[1]))[:20]:
+        rows_sorted = sorted(rows, key=lambda r: -_row_priority(r)[1])
+        primary = rows_sorted[0]
+        target_link = _target_link(primary)
+        keywords = ", ".join(r.get("query", "") for r in rows_sorted[:5])
+        ranks = ", ".join(
+            f"{r.get('query', '')}: #{r.get('ror_rank')}" if r.get("ror_rank") is not None else f"{r.get('query', '')}: not top 20"
+            for r in rows_sorted[:4]
+        )
+        label, score, why = _row_priority(primary)
+        page_blocks += f"""
+<article class="page-fix-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority {score}</span>
+    <span class="pill pill-aov">{escape(label)}</span>
+  </div>
+  <h3>{target_link}</h3>
+  <div class="fix-grid">
+    <div><h4>Keywords affected</h4><p>{escape(keywords)}</p></div>
+    <div><h4>Ranking evidence</h4><p>{escape(ranks)}</p></div>
+    <div><h4>Why</h4><p>{escape(why)}</p></div>
+  </div>
+  <div class="fix-work">
+    <strong>Exact page work:</strong> Rewrite the first 80 words around the primary search phrase "{escape(primary.get('query', ''))}". Add 2 to 4 buyer-question FAQs specific to this page, improve the meta title around the phrase if it is missing, add image alt text that describes the product and gift/use case, and add internal links from related products, blogs or collections.
+  </div>
+  <div class="fix-work">
+    <strong>System-generated content needed:</strong> {escape(_content_needed(primary))}
+  </div>
+</article>"""
+
+    return f"""
+<section class="dashboard-section">
+  <h2>Website & SEO Fixes</h2>
+  <p class="section-intro">Same evidence as the keyword table, grouped by the actual ROR page that needs work.</p>
+  <div class="page-fix-list">{page_blocks}</div>
 </section>"""
 
 
@@ -1364,51 +1521,47 @@ def build_trending_section(trending_data: dict) -> str:
 
 
 def build_weekly_actions_section(all_groups: list[dict]) -> str:
-    """Return the executive summary section: what to do, why, and what evidence supports it."""
-    all_results = [r for g in all_groups for r in g["results"]]
-    ranked = sorted(all_results, key=lambda r: (-r["score"], -(1 if r["trend"] == "rising" else 0), -r["avg_interest"]))
-    top = ranked[:5]
+    """Return the weekly priority queue from live organic visibility evidence."""
+    top = _sorted_rank_results(limit=8)
     if not top:
         return """
 <section class="dashboard-section">
   <h2>Weekly Actions</h2>
-  <p class="section-intro">No trend data captured yet. Re-run the scraper to build weekly recommendations.</p>
+  <p class="section-intro">No organic visibility actions yet. Refresh Search Console and run the rank tracker.</p>
 </section>"""
 
     cards = ""
-    for r in top:
-        existing = r.get("ror_existing") or "No direct matching ROR page found"
-        action = seo_action(r["score"], r["trend"], r.get("ror_existing", ""))
-        confidence = "High" if r["score"] >= 8 else ("Medium" if r["score"] >= 5 else "Low")
-        badge_cls = "pill-high" if confidence == "High" else ("pill-medium" if confidence == "Medium" else "pill-low")
-        aov_note = "Look for a bundle or add-on angle to support the £48 AOV target." if r.get("ror_existing") else "Create content first, then decide if this needs a product or collection page."
-        data_bits = [
-            f"Score {r['score']}/10",
-            f"{r['trend']} demand",
-            f"~{r['avg_interest']}/100 interest",
-            f"Maps to: {existing}",
-        ]
-        if r.get("rising_queries"):
-            data_bits.append(f"Related rising query: {r['rising_queries'][0]}")
-        data_text = " · ".join(data_bits)
+    for row in top:
+        label, score, why = _row_priority(row)
+        rank = row.get("ror_rank")
+        rank_text = f"#{rank}" if rank is not None else "not top 20"
+        target_page = row.get("target_page") or row.get("ror_url") or "No mapped page"
+        action = _visibility_action(row)
+        needed = _content_needed(row)
+        brief = escape(_content_brief(row), quote=True)
         cards += f"""
 <article class="action-card">
   <div class="action-head">
-    <span class="pill {badge_cls}">{confidence} confidence</span>
-    <span class="pill pill-aov">AOV/Conversion check</span>
+    <span class="pill pill-high">Priority {score}</span>
+    <span class="pill pill-aov">{escape(label)}</span>
   </div>
-  <h3>{r['term']}</h3>
+  <h3>{escape(row.get('query', ''))}</h3>
   <div class="dia-grid">
-    <div class="dia-box"><h4>Data</h4><p>{data_text}</p></div>
-    <div class="dia-box"><h4>Interpretation</h4><p>This looks commercially relevant because it connects search demand to existing products, seasonal demand or a clear page gap.</p></div>
-    <div class="dia-box"><h4>Action</h4><p>{action}. {aov_note}</p></div>
+    <div class="dia-box"><h4>Evidence</h4><p>{row.get('gsc_impressions', 0)} impressions, {row.get('gsc_clicks', 0)} clicks, GSC position {row.get('gsc_position', '—')}, live rank {rank_text}.</p></div>
+    <div class="dia-box"><h4>Page</h4><p>{escape(target_page)}</p></div>
+    <div class="dia-box"><h4>Why it matters</h4><p>{escape(why)}</p></div>
+  </div>
+  <div class="action-next"><strong>Do this:</strong> {action}<br><strong>System should make:</strong> {escape(needed)}</div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="{brief}">Copy brief</button>
+    <a class="mini-btn" href="{CONTENT_WORKFLOW_URL}" target="_blank" rel="noopener">Generate content</a>
   </div>
 </article>"""
 
     return f"""
 <section class="dashboard-section">
-  <h2>Weekly Actions</h2>
-  <p class="section-intro">The first tab keeps Bethan, Holly and Graham away from the data swamp. It shows what to act on, why it matters, and what to do next.</p>
+  <h2>Weekly Priority Queue</h2>
+  <p class="section-intro">This is the short list. It is ranked by Search Console demand, live Google position and whether ROR is close enough to move.</p>
   <div class="action-list">{cards}</div>
 </section>"""
 
@@ -1465,34 +1618,42 @@ def build_team_inputs_section() -> str:
 
 
 def build_content_pack_section(all_groups: list[dict]) -> str:
-    """Return a placeholder for the blog-led production-pack system."""
-    all_results = [r for g in all_groups for r in g["results"]]
-    blog_candidates = [
-        r for r in sorted(all_results, key=lambda r: (-r["score"], -r["avg_interest"]))
-        if "blog" in r.get("seo_action", "").lower() or r["score"] >= 7
-    ][:3]
-    rows = ""
-    for r in blog_candidates:
-        rows += f"""
-<tr>
-  <td>{r['term']}</td>
-  <td>{r['score']}/10</td>
-  <td>{r.get('seo_action', 'Review content angle')}</td>
-  <td>Blog, reel, stories, carousel and email only where the format genuinely fits.</td>
-</tr>"""
-    if not rows:
-        rows = '<tr><td colspan="4">No content-pack candidates found this run.</td></tr>'
+    """Return content generation queue from organic visibility evidence."""
+    candidates = _sorted_rank_results(limit=12)
+    cards = ""
+    for row in candidates:
+        label, score, why = _row_priority(row)
+        rank = row.get("ror_rank")
+        rank_text = f"#{rank}" if rank is not None else "not top 20"
+        brief = escape(_content_brief(row), quote=True)
+        cards += f"""
+<article class="content-queue-card">
+  <div class="action-head">
+    <span class="pill pill-high">Priority {score}</span>
+    <span class="pill pill-aov">{escape(label)}</span>
+  </div>
+  <h3>{escape(row.get("query", ""))}</h3>
+  <p class="muted-small">Mapped page: {row.get("target_page") or row.get("ror_url") or "No mapped page"}</p>
+  <div class="fix-grid">
+    <div><h4>Evidence</h4><p>{row.get('gsc_impressions', 0)} impressions, {row.get('gsc_clicks', 0)} clicks, GSC position {row.get('gsc_position', '—')}, live rank {rank_text}.</p></div>
+    <div><h4>Why</h4><p>{escape(why)}</p></div>
+    <div><h4>Make</h4><p>{escape(_content_needed(row))}</p></div>
+  </div>
+  <div class="action-buttons">
+    <button class="mini-btn copy-brief" data-brief="{brief}">Copy brief</button>
+    <a class="mini-btn" href="{CONTENT_WORKFLOW_URL}" target="_blank" rel="noopener">Generate content</a>
+    <button class="mini-btn muted-action" disabled>Push to ClickUp after approval</button>
+  </div>
+</article>"""
+
+    if not cards:
+        cards = '<p class="section-intro">No content queue yet. Run Search Console and rank tracking first.</p>'
 
     return f"""
 <section class="dashboard-section">
   <h2>Content Packs</h2>
-  <p class="section-intro">This is where the Content Creator System will turn approved blog ideas into media-company-style production packs.</p>
-  <div class="table-wrap">
-    <table class="seo-table">
-      <thead><tr><th>Blog/source idea</th><th>Score</th><th>Why</th><th>Pack direction</th></tr></thead>
-      <tbody>{rows}</tbody>
-    </table>
-  </div>
+  <p class="section-intro">This is the production queue. The system should generate finished page copy, FAQs, blogs, email/social packs and supporting assets from the evidence here. ClickUp stays for approved finished work only.</p>
+  <div class="content-queue">{cards}</div>
 </section>"""
 
 
@@ -1552,6 +1713,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                   border-radius: 8px; padding: 1rem; margin-bottom: .9rem; }}
   .action-card h3 {{ font-size: 1.05rem; color: #fff; margin: .35rem 0 .8rem; }}
   .action-head {{ display: flex; flex-wrap: wrap; gap: .4rem; }}
+  .action-next {{ margin-top: .85rem; padding: .75rem; border-radius: 8px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); font-size: .84rem; }}
+  .action-buttons {{ margin-top: .65rem; display: flex; flex-wrap: wrap; gap: .35rem; }}
   .pill {{ display: inline-block; border-radius: 999px; padding: .18rem .55rem;
            font-size: .7rem; font-weight: 750; text-transform: uppercase; letter-spacing: .03em; }}
   .pill-high {{ background: rgba(233,30,140,.2); color: var(--pink); border: 1px solid rgba(233,30,140,.4); }}
@@ -1583,10 +1746,26 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   .rank-good {{ background: rgba(0,184,148,.14); color: var(--green); border: 1px solid rgba(0,184,148,.35); }}
   .rank-mid {{ background: rgba(253,203,110,.15); color: var(--yellow); border: 1px solid rgba(253,203,110,.35); }}
   .rank-bad {{ background: rgba(214,48,49,.15); color: var(--red); border: 1px solid rgba(214,48,49,.35); }}
+  .priority-pill {{ display: inline-flex; align-items: center; justify-content: center; min-width: 42px; border-radius: 999px; padding: .18rem .42rem; font-size: .72rem; font-weight: 800; background: rgba(233,30,140,.16); color: var(--pink); border: 1px solid rgba(233,30,140,.35); }}
   .metric-cell {{ text-align: center; white-space: nowrap; color: var(--text); }}
   .competitor-chip {{ display: inline-block; margin: .12rem .15rem .12rem 0; padding: .15rem .4rem; border-radius: 999px; background: rgba(255,255,255,.06); color: var(--muted); font-size: .68rem; }}
   .action-cell {{ min-width: 360px; font-size: .78rem; line-height: 1.45; }}
   .muted-small {{ color: var(--muted); font-size: .72rem; }}
+  .mini-btn {{ display: inline-flex; align-items: center; justify-content: center; min-height: 30px; margin: .15rem .2rem .15rem 0; padding: 0 .55rem; border-radius: 6px; border: 1px solid rgba(233,30,140,.35); background: rgba(233,30,140,.14); color: #fff; font-size: .72rem; font-weight: 750; text-decoration: none; cursor: pointer; font-family: inherit; }}
+  .mini-btn:hover {{ background: rgba(233,30,140,.28); }}
+  .mini-btn:disabled, .muted-action {{ opacity: .55; cursor: not-allowed; border-color: rgba(255,255,255,.15); background: rgba(255,255,255,.06); }}
+  .content-queue {{ display: grid; gap: .9rem; }}
+  .content-queue-card {{ background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 1rem; }}
+  .content-queue-card h3 {{ color: #fff; font-size: 1rem; margin: .45rem 0 .35rem; }}
+  .page-fix-list {{ display: grid; gap: .9rem; }}
+  .page-fix-card {{ background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 1rem; }}
+  .page-fix-card h3 {{ font-size: .98rem; margin: .45rem 0 .75rem; }}
+  .page-fix-card h3 a {{ color: var(--blue); }}
+  .fix-grid {{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }}
+  .fix-grid div, .fix-work {{ background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 8px; padding: .75rem; }}
+  .fix-grid h4 {{ color: #fff; font-size: .8rem; margin-bottom: .25rem; }}
+  .fix-grid p, .fix-work {{ color: var(--text); font-size: .82rem; }}
+  .fix-work {{ margin-top: .65rem; }}
 
   main {{ padding: 2rem; max-width: 1440px; margin: 0 auto; }}
 
@@ -1672,6 +1851,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     .seo-section {{ padding-left: 1rem; padding-right: 1rem; }}
     .tabs {{ padding-left: 1rem; padding-right: 1rem; position: static; }}
     .dia-grid, .info-grid {{ grid-template-columns: 1fr; }}
+    .fix-grid {{ grid-template-columns: 1fr; }}
     .visibility-stats {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }}
   }}
 </style>
@@ -1716,10 +1896,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
 <main>
   <section id="tab-actions" class="tab-panel active">
-    {visibility_section}
     {weekly_actions_section}
-    {gaps_section}
-    {bestseller_section}
   </section>
   <section id="tab-calendar" class="tab-panel">
     {calendar_section}
@@ -1728,11 +1905,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     {trending_section}
   </section>
   <section id="tab-keywords" class="tab-panel">
-    {groups_html}
+    {visibility_section}
   </section>
   <section id="tab-seo" class="tab-panel">
-    {visibility_section}
-    {seo_section}
+    {page_seo_section}
   </section>
   <section id="tab-content" class="tab-panel">
     {content_pack_section}
@@ -1754,6 +1930,19 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       document.querySelectorAll('.tab-panel').forEach((panel) => panel.classList.remove('active'));
       button.classList.add('active');
       document.getElementById(`tab-${{tab}}`).classList.add('active');
+    }});
+  }});
+  document.querySelectorAll('.copy-brief').forEach((button) => {{
+    button.addEventListener('click', async () => {{
+      const brief = button.dataset.brief || '';
+      try {{
+        await navigator.clipboard.writeText(brief);
+        const original = button.textContent;
+        button.textContent = 'Copied';
+        setTimeout(() => button.textContent = original, 1400);
+      }} catch (e) {{
+        window.prompt('Copy this brief', brief);
+      }}
     }});
   }});
 </script>
@@ -1859,6 +2048,7 @@ def build_report(all_groups: list[dict], trending_data: dict | None = None) -> N
     bestseller_section    = build_bestseller_demand_section(all_groups)
     weekly_actions_section = build_weekly_actions_section(all_groups)
     visibility_section    = build_visibility_rank_section()
+    page_seo_section      = build_page_seo_fix_section()
     calendar_section      = build_calendar_section()
     team_inputs_section   = build_team_inputs_section()
     content_pack_section  = build_content_pack_section(all_groups)
@@ -1877,6 +2067,7 @@ def build_report(all_groups: list[dict], trending_data: dict | None = None) -> N
         bestseller_section=bestseller_section,
         weekly_actions_section=weekly_actions_section,
         visibility_section=visibility_section,
+        page_seo_section=page_seo_section,
         calendar_section=calendar_section,
         team_inputs_section=team_inputs_section,
         content_pack_section=content_pack_section,

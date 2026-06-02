@@ -34,7 +34,7 @@ jobs:
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
         run: |
           if [ -f search_console_cache.json ] && [ -n "$SERPER_API_KEY" ]; then
-            python rank_tracker.py --limit 25 --sleep 0.5
+            python rank_tracker.py --limit 100 --sleep 0.5
           else
             echo "Skipping rank tracker: search_console_cache.json or SERPER_API_KEY missing"
           fi
