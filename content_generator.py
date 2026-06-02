@@ -15,6 +15,7 @@ Requires: ANTHROPIC_API_KEY environment variable
 import os
 import json
 import re
+import argparse
 from datetime import datetime, timedelta
 from pathlib import Path
 import anthropic
@@ -26,12 +27,16 @@ CACHE_FILE       = OUTPUT_DIR / "trend_cache.json"
 FOCUS_FILE       = OUTPUT_DIR / "ror_focus.json"
 CATALOGUE_FILE   = OUTPUT_DIR / "shopify_catalogue.json"
 INSTAGRAM_FILE   = OUTPUT_DIR / "instagram_insights.json"
+DESIGN_RULES_FILE = OUTPUT_DIR / "design_system" / "ror_design_rules.md"
 
 BRAND_CONTEXT = """
 BRAND: Rock On Ruby, print-on-demand personalised clothing and accessories.
 Based in Bury, Manchester. Co-owned by Holly (brand voice) and Graham (strategy).
 
-PRODUCTS: Personalised embroidered caps, sweatshirts, hoodies, tees, tote bags, slogan clothing.
+PRODUCTS: Personalised clothing and accessories using DTF print and embroidery.
+DTF PRINT: Full-colour print, explained to customers as full-colour print rather than jargon.
+EMBROIDERY: Used where embroidery is genuinely the right production method, especially caps and selected personalised products.
+PRODUCT TYPES: Caps, sweatshirts, hoodies, tees, tote bags, make-up bags and slogan clothing.
 CUSTOMER: UK women, 30-50. Busy. Thoughtful gift-buyer. Warm, funny, slightly chaotic.
 POSITIONING: Anti-boring high street. The antidote to the Amazon last-minute lazy gift.
 WEBSITE: rockonruby.co.uk
@@ -104,6 +109,63 @@ If the content could have been written by ChatGPT, rewrite it until it could not
 """.strip()
 
 
+BLOG_SEO_PASS_SYSTEM = """
+You are an SEO specialist working exclusively for Rock On Ruby, a personalised print-on-demand clothing and accessories brand based in Bury, Manchester.
+Your job is to take a blog draft written in Holly's voice and optimise it fully for Google search and AI Overviews without losing the brand tone.
+
+Holly's voice is chatty, warm, self-deprecating, UK humour, conversational, never salesy and never corporate.
+
+Apply all of the following to every blog:
+
+STRUCTURE:
+- Keep the existing conversational opening. Do not make it formal.
+- Break the body into sections using H2 subheadings phrased as questions buyers actually search. Derive these from the actual topic and trend data, not generic templates.
+- Add H3 subheadings within longer sections where needed.
+- Aim for 600 to 800 words minimum.
+- Include the specific year in the title and first paragraph when the topic is time sensitive.
+- Include specific dates for seasonal moments where relevant.
+
+KEYWORDS:
+- Expand all product mentions into long-tail keyword phrases specific to the blog topic.
+- Never use generic one-word product names when a more specific phrase fits.
+- Combine product phrases with the occasion, audience or use case relevant to this exact blog.
+- Derive keyword phrases from the actual trend data and blog topic. Never reuse phrases from another blog.
+
+LOCAL SEO:
+- Mention Bury, Manchester naturally at least once.
+- Mention UK-wide shipping or delivered across the UK at least once.
+- Reference fast turnaround for late shoppers where relevant to the topic.
+
+BUYER PERSONAS:
+- Include at least one specific buyer scenario relevant to the actual blog topic.
+- Derive personas from who would genuinely search for this topic.
+- Never copy personas from an unrelated blog.
+
+DEPTH:
+- Give specific examples of personalisation ideas relevant to the blog topic, such as nicknames, in-jokes, birth years, catchphrases or inside references.
+- Explain why personalised beats generic using the emotional argument, not only product features.
+- Reference the quality of Rock On Ruby DTF full-colour print or embroidery versus cheap alternatives at least once. Choose the method that fits the product and do not imply every product is embroidered.
+- Expand product descriptions to be specific and detailed.
+
+FAQ SECTION:
+- Add a fully written FAQ section at the bottom with at least 4 questions.
+- Questions must come from the actual trend data, People Also Ask results and the specific blog topic.
+- Phrase every question exactly as someone would type it into Google or ask ChatGPT.
+- Include occasion date questions only when the blog is genuinely time sensitive.
+- Every answer must be fully written in Holly's voice.
+- No placeholders, no notes and no draft-your-answer-here wording.
+
+CTA:
+- End with a natural, low-pressure call to action pointing to rockonruby.co.uk.
+- Keep it in Holly's voice. Never use corporate calls to action like shop now or click here.
+
+OUTPUT:
+- Return only the finished blog post.
+- Mark all headings clearly as H1, H2 or H3.
+- Do not add commentary, notes or explanations outside the blog content.
+""".strip()
+
+
 # ── History tracking ──────────────────────────────────────────────────────────
 
 def load_history() -> dict:
@@ -138,6 +200,27 @@ def recently_used(term: str, history: dict, days: int = 14) -> bool:
 
 
 # ── Term selection ────────────────────────────────────────────────────────────
+
+def load_cached_trend_data() -> tuple[list[dict], dict]:
+    if not CACHE_FILE.exists():
+        raise FileNotFoundError("trend_cache.json not found, run scraper first.")
+    raw = json.loads(CACHE_FILE.read_text())
+    if isinstance(raw, dict) and "groups" in raw:
+        return raw["groups"], raw.get("trending", {})
+    return raw, {}
+
+
+def load_json_file(path: Path, fallback):
+    if path.exists():
+        try:
+            return json.loads(path.read_text())
+        except Exception:
+            pass
+    return fallback
+
+
+def all_results(all_groups: list[dict]) -> list[dict]:
+    return [r for g in all_groups for r in g.get("results", [])]
 
 def pick_terms_by_layer(all_groups: list[dict], history: dict) -> dict[int, list[dict]]:
     """
@@ -195,12 +278,568 @@ def pick_seo_terms(all_groups: list[dict], history: dict, cap: int = 10) -> list
     return ranked[:cap]
 
 
+def pick_blog_terms(layer_terms: dict[int, list[dict]], seo_terms: list[dict], cap: int = 2) -> list[dict]:
+    """Pick the source blog topics. These become the assets email/social content derives from."""
+    picked: list[dict] = []
+    seen: set[str] = set()
+    for r in seo_terms:
+        if "blog" in r.get("seo_action", "").lower() and r["term"] not in seen:
+            picked.append(r)
+            seen.add(r["term"])
+        if len(picked) >= cap:
+            return picked
+    candidates = (
+        [r for r in layer_terms.get(4, [])]
+        + [r for layer, rs in layer_terms.items() if layer != 4 for r in rs]
+    )
+    for r in sorted(candidates, key=lambda item: (-item.get("score", 0), -item.get("avg_interest", 0))):
+        if r["term"] not in seen:
+            picked.append(r)
+            seen.add(r["term"])
+        if len(picked) >= cap:
+            break
+    return picked
+
+
+def claude_text(client: anthropic.Anthropic, system: str, prompt: str, max_tokens: int = 4096) -> str:
+    message = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=max_tokens,
+        system=system,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return message.content[0].text.strip()
+
+
+def blog_evidence_block(r: dict, all_groups: list[dict], catalogue: dict, trending_data: dict | None) -> str:
+    existing = r.get("ror_existing", "")
+    url = find_catalogue_url(existing, catalogue)
+    related = ", ".join(r.get("rising_queries", [])[:6]) or "none captured"
+    top = ", ".join(r.get("top_queries", [])[:6]) or "none captured"
+    paa = "\n".join(f"- {q}" for q in r.get("paa", [])[:8]) or "none captured"
+    products = []
+    words = {w for w in normalise_text(r["term"]).split() if len(w) > 3}
+    for product in catalogue.get("products", []):
+        title = product.get("title", "")
+        if any(w in normalise_text(title) for w in words):
+            products.append(f"- {title} to {product.get('url', 'rockonruby.co.uk')}")
+        if len(products) >= 6:
+            break
+    product_lines = "\n".join(products) or "No exact product matches found. Use the mapped page and bestsellers cautiously."
+    open_trends = "none captured"
+    if trending_data:
+        web = trending_data.get("web", {})
+        yt = trending_data.get("youtube", {})
+        captured = web.get("top", []) + web.get("rising", []) + yt.get("top", []) + yt.get("rising", [])
+        if captured:
+            open_trends = ", ".join(captured[:10])
+    return f"""
+BLOG TOPIC EVIDENCE:
+Primary keyword: {r['term']}
+Mapped ROR page/product: {existing or 'needs page mapping'}
+Mapped URL: {url}
+Trend score: {r.get('score', 0)}/10
+Search interest estimate: {r.get('avg_interest', 0)}/100
+Trend direction: {r.get('trend', 'unknown')}
+Related rising queries: {related}
+Top related queries: {top}
+People Also Ask:
+{paa}
+
+Relevant products or URLs:
+{product_lines}
+
+Open UK trend inspiration:
+{open_trends}
+""".strip()
+
+
+def generate_two_pass_blogs(
+    client: anthropic.Anthropic,
+    blog_terms: list[dict],
+    all_groups: list[dict],
+    catalogue: dict,
+    trending_data: dict | None,
+) -> dict[str, str]:
+    finished: dict[str, str] = {}
+    design_rules = DESIGN_RULES_FILE.read_text(encoding="utf-8") if DESIGN_RULES_FILE.exists() else ""
+    pass1_system = (
+        "You are writing rough first-draft blog copy for Rock On Ruby in Holly's voice. "
+        "Write chatty, warm, self-deprecating UK copy with short paragraphs. Never sound corporate, formal or salesy.\n\n"
+        f"{WRITING_RULES}\n\n{design_rules}"
+    )
+    pass2_system = f"{BLOG_SEO_PASS_SYSTEM}\n\n{WRITING_RULES}\n\n{design_rules}"
+
+    for r in blog_terms:
+        evidence = blog_evidence_block(r, all_groups, catalogue, trending_data)
+        print(f"  Blog pass 1: {r['term']}")
+        rough_prompt = f"""
+Create Pass 1, a rough conversational blog draft in Holly's voice using this evidence.
+
+Do not optimise heavily yet. Focus on making it sound like Holly: chatty, warm, self-deprecating, UK humour, short paragraphs, never corporate and never salesy.
+
+{evidence}
+""".strip()
+        rough = claude_text(client, pass1_system, rough_prompt, max_tokens=4096)
+
+        print(f"  Blog pass 2 SEO: {r['term']}")
+        seo_prompt = f"""
+Take this Pass 1 blog draft and optimise it fully using the system instructions.
+
+Use the evidence below to create search-specific H2/H3 headings, long-tail keyword phrases, buyer personas, local SEO, product detail, FAQ questions and a natural CTA.
+
+IMPORTANT: Save only the finished Pass 2 blog. Discard Pass 1.
+
+{evidence}
+
+PASS 1 DRAFT:
+{rough}
+""".strip()
+        finished[r["term"]] = claude_text(client, pass2_system, seo_prompt, max_tokens=8192)
+    return finished
+
+
+# ── No-AI visibility and content packs ────────────────────────────────────────
+
+def normalise_text(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", value.lower()).strip()
+
+
+def find_catalogue_url(label: str, catalogue: dict) -> str:
+    if not label:
+        return "rockonruby.co.uk"
+    label_norm = normalise_text(label)
+    for collection in catalogue.get("collections", []):
+        if normalise_text(collection.get("title", "")) == label_norm:
+            return collection.get("url", "rockonruby.co.uk")
+    for product in catalogue.get("products", []):
+        title_norm = normalise_text(product.get("title", ""))
+        if label_norm and (label_norm in title_norm or title_norm in label_norm):
+            return product.get("url", "rockonruby.co.uk")
+    return "rockonruby.co.uk"
+
+
+def page_mapping_note(term: str, existing: str) -> str:
+    term_l = term.lower()
+    existing_l = existing.lower()
+    if not existing:
+        return "No mapped page yet. Create or choose the correct target before assigning this task."
+    weak = False
+    reasons = []
+    if "birthday" in term_l and "christmas" in existing_l:
+        weak = True
+        reasons.append("birthday search mapped to a Christmas page")
+    if "hoodie" in term_l and "slogan" in existing_l:
+        weak = True
+        reasons.append("hoodie search mapped to a broad slogan page")
+    if "year" in term_l and "accessories" in existing_l:
+        weak = True
+        reasons.append("year clothing search mapped to accessories")
+    if weak:
+        return "Needs review: current inferred mapping may be wrong because " + ", ".join(reasons) + "."
+    return "Current inferred mapping looks usable, but ranking data is not connected yet."
+
+
+def score_explanation(score: int) -> str:
+    if score >= 8:
+        return f"{score}/10, Green, strong opportunity. Prioritise this if the page mapping is correct."
+    if score >= 5:
+        return f"{score}/10, Amber, useful opportunity. Worth action when it connects to an existing product, page or seasonal moment."
+    return f"{score}/10, Grey, low priority. Monitor unless it supports a high-value page or product."
+
+
+def interest_explanation(interest: int) -> str:
+    if interest >= 70:
+        return f"{interest}/100, Green, high search interest."
+    if interest >= 30:
+        return f"{interest}/100, Amber, moderate search interest. Useful for product/page optimisation."
+    if interest > 0:
+        return f"{interest}/100, Grey, low search interest. Use only if commercially useful."
+    return "0/100, no reliable live interest captured."
+
+
+def trend_explanation(trend: str) -> str:
+    if trend == "rising":
+        return "Rising, Green, interest is increasing compared with the earlier part of the tracking window."
+    if trend == "falling":
+        return "Falling, Red, interest is dropping compared with the earlier part of the tracking window."
+    return "Stable, Grey, no clear increase or drop detected."
+
+
+def shopper_phrase(term: str) -> str:
+    words = term.lower()
+    replacements = {
+        " uk": "",
+        "custom ": "a custom ",
+        "personalised ": "a personalised ",
+    }
+    phrase = words
+    for old, new in replacements.items():
+        phrase = phrase.replace(old, new)
+    if not phrase.startswith(("a ", "an ")):
+        phrase = "a " + phrase
+    return phrase
+
+
+def design_direction_for_term(term: str) -> dict:
+    text = term.lower()
+    if any(w in text for w in ["father", "dad", "bbq", "grill"]):
+        return {
+            "moment": "Father's Day",
+            "palette": "beige, black, navy, army green, orange and dark teal",
+            "type": "Prohibition or Futura Condensed for badge energy, Sharp Grotesk for supporting copy",
+            "feel": "practical, bold, giftable and dry-funny",
+            "avoid": "pink-heavy styling, soft florals, sentimental stock-photo cues and tiny unreadable product shots",
+        }
+    if any(w in text for w in ["christmas", "stocking", "festive"]):
+        return {
+            "moment": "Christmas",
+            "palette": "cream, black, bright red, dark red, forest green, army green and gold",
+            "type": "Druk or Sharp Grotesk for gift-guide headers, Cooper Black for warmer nostalgic moments",
+            "feel": "shoppable, warm, clear and gift-guide friendly",
+            "avoid": "busy layouts where product names, prices or personalisation details get lost",
+        }
+    if any(w in text for w in ["festival", "glastonbury", "reading", "summer", "holiday"]):
+        return {
+            "moment": "Festival and summer",
+            "palette": "beige, black, bright orange, bright blue, pink, bright yellow and teal",
+            "type": "Druk for loud hooks, Sharp Grotesk for product and CTA copy",
+            "feel": "loud, fun, useful and a bit chaotic in a controlled way",
+            "avoid": "blurry mood shots where the product cannot be inspected",
+        }
+    if any(w in text for w in ["birthday", "year", "40th", "30th", "50th", "21st", "18th"]):
+        return {
+            "moment": "Birthday and milestone gifting",
+            "palette": "beige, black, bright red, pink, navy, burgundy and gold",
+            "type": "Old English or varsity-inspired type for year moments, Sharp Grotesk for clear gift copy",
+            "feel": "personal, celebratory, clear and gift-ready",
+            "avoid": "childish birthday styling or copy that feels too generic",
+        }
+    if any(w in text for w in ["mother", "mum"]):
+        return {
+            "moment": "Mother's Day and gifts for mum",
+            "palette": "beige, cream, black, pink, bright red, baby pink and butter",
+            "type": "Sharp Grotesk for clarity, Cooper Black for warmer retro moments",
+            "feel": "warm, thoughtful, personal and not twee",
+            "avoid": "overly soft greetings-card styling",
+        }
+    return {
+        "moment": "Evergreen ROR gifting",
+        "palette": "beige, black, pink, bright red and one product-led accent colour",
+        "type": "Sharp Grotesk for clear shopping information, Druk for big hooks",
+        "feel": "bold, useful, anti-boring and easy to shop",
+        "avoid": "generic lifestyle styling, corporate minimalism and hard-to-read product shots",
+    }
+
+
+def exact_visibility_action(term: str, existing: str, seo_action: str) -> dict:
+    term_l = term.lower()
+    existing_label = existing or "No matching ROR page found"
+    if not existing:
+        return {
+            "problem": "ROR does not have a clearly mapped page for this search.",
+            "do_this": "Create a supporting blog first, then decide whether it deserves a collection, product page or seasonal landing section.",
+            "copy_focus": f"The first section should explain why {term} matters to an ROR customer, then point to the closest product or collection.",
+            "links": "Link to the closest product collection, bestselling personalised products and any seasonal gift page that fits.",
+        }
+    if "birthday" in term_l or "year" in term_l or any(n in term_l for n in ["18th", "21st", "30th", "40th", "50th"]):
+        return {
+            "problem": f"The mapped page is likely too broad. It needs to make birthday and milestone gift intent obvious for '{term}'.",
+            "do_this": "Rewrite the first 80 words around birthday gifting. Mention personalised birthday sweatshirts, milestone birthdays, birth years, 18th, 21st, 30th, 40th and 50th gifts where relevant, gift-ready wording and UK delivery.",
+            "copy_focus": "Open with the gift moment, then explain the personalisation choice, then show why it feels more thoughtful than a generic present.",
+            "links": "Add links from birthday blogs, personalised gifts, gifts for her, gifts for mum and relevant milestone gift posts to this page.",
+        }
+    if "father" in term_l or "dad" in term_l or "bbq" in term_l:
+        return {
+            "problem": f"The mapped page needs a clearer Father's Day or dad-gifting angle for '{term}'.",
+            "do_this": "Add a short dad-gifting intro, a FAQ about delivery and personalisation, and a product row that makes bundles obvious.",
+            "copy_focus": "Use practical gift language. Mention caps, sweatshirts, BBQ humour, last-minute gifting and add-on products where they fit.",
+            "links": "Add links from Father's Day gift guide, BBQ/festival content and best-selling cap pages.",
+        }
+    if "festival" in term_l or "glastonbury" in term_l or "summer" in term_l:
+        return {
+            "problem": f"The mapped page needs to connect the product to summer or festival use, not just generic clothing.",
+            "do_this": "Add a seasonal content block that frames caps, totes or sweatshirts as useful for packing, groups, outfits or gifting.",
+            "copy_focus": "Talk about what the product does in the real moment: packing, wearing, gifting, matching or surviving a chaotic day out.",
+            "links": "Add links from summer, festival, travel and personalised accessory content to the target page.",
+        }
+    return {
+        "problem": f"The page may not be clearly answering the search intent for '{term}'.",
+        "do_this": f"Update the intro, one FAQ and internal links so the page uses '{term}' naturally and gives shoppers a clearer reason to buy.",
+        "copy_focus": "Start with the customer need, mention the product type, explain personalisation or gift value, then link to the best matching products.",
+        "links": "Add internal links from related blogs, gift collections and product pages that already get traffic.",
+    }
+
+
+def suggested_intro_draft(term: str, existing: str) -> str:
+    term_l = term.lower()
+    product = existing if existing and "christmas" not in existing.lower() else "The right ROR product or collection"
+    phrase = shopper_phrase(term)
+    if "birthday" in term_l or "year" in term_l or any(n in term_l for n in ["18th", "21st", "30th", "40th", "50th"]):
+        return (
+            f"Looking for {phrase} that feels more thoughtful than another panic-bought candle? "
+            f"{product} is made for milestone birthdays, birth-year gifts and people who say they don't want a fuss, "
+            "then absolutely do. Choose the colour, add the personalisation and make it feel like it was made for them, because it was."
+        )
+    if "father" in term_l or "dad" in term_l or "bbq" in term_l:
+        return (
+            f"If you're searching for {phrase}, start with something he might actually wear. "
+            f"{product} gives Father's Day gifting a bit more personality without making it too sentimental. "
+            "Add a cap, sweatshirt or personalised extra to build a gift that feels useful, funny and not like a last-minute garage run."
+        )
+    if "festival" in term_l or "glastonbury" in term_l or "summer" in term_l:
+        return (
+            f"{term} searches are really about finding something useful, wearable and a bit more fun than the usual panic packing. "
+            f"{product} can support that with personalised caps, totes or layers that work for groups, travel days and festival photos. "
+            "Keep the product easy to shop and show the personalisation clearly."
+        )
+    return (
+        f"If someone lands here after searching for {term}, the page needs to show them why {product} is the right ROR answer. "
+        "Start with the real buying moment, explain the personalisation or gift value, then make the next step obvious with a clear product link."
+    )
+
+
+def production_method_note(term: str, existing: str) -> str:
+    text = f"{term} {existing}".lower()
+    if any(word in text for word in ["cap", "embroidered", "embroidery"]):
+        return "Likely embroidery if the target product is a cap or embroidered product. Check the exact product before mentioning embroidery."
+    if any(word in text for word in ["sweatshirt", "hoodie", "t-shirt", "tee", "jumper", "tote", "bag"]):
+        return "Likely DTF full-colour print for many clothing or accessory products, unless the exact product is listed as embroidered. Say full-colour print for customers rather than DTF jargon."
+    return "Check the exact product production method before mentioning print or embroidery. ROR uses both DTF full-colour print and embroidery."
+
+
+def no_ai_pack_for_term(r: dict, catalogue: dict) -> str:
+    term = r["term"]
+    existing = r.get("ror_existing", "")
+    url = find_catalogue_url(existing, catalogue)
+    mapping_note = page_mapping_note(term, existing)
+    action = exact_visibility_action(term, existing, r.get("seo_action", ""))
+    intro_draft = suggested_intro_draft(term, existing)
+    production_note = production_method_note(term, existing)
+    design = design_direction_for_term(term)
+    priority = "High" if r.get("score", 0) >= 8 else ("Medium" if r.get("score", 0) >= 5 else "Low")
+    created_date = datetime.now().strftime("%Y-%m-%d")
+    due_date = (datetime.now() + timedelta(days=7)).strftime("%Y-%m-%d")
+    evidence = (
+        f"Trend score: {score_explanation(int(r.get('score', 0)))} "
+        f"Search interest estimate: {interest_explanation(int(r.get('avg_interest', 0)))} "
+        f"Trend direction: {trend_explanation(r.get('trend', 'unknown'))} "
+        "Ranking data is not connected yet, so this action is inferred."
+    )
+    return f"""
+## {term}
+
+### Visibility Action
+
+**Page or product:** {existing or 'Needs page mapping'}
+
+**Target URL:** {url}
+
+**Page mapping check:** {mapping_note}
+
+**Target keyword:** {term}
+
+**Priority:** {priority}
+
+**Recommended owner:** System drafts from the evidence. Bethan checks placement and execution, Holly checks customer-facing voice, Graham checks SEO intent and page mapping.
+
+**Date created:** {created_date}
+
+**Suggested due date:** {due_date}
+
+**Evidence:** {evidence}
+
+**Problem:** {action['problem']}
+
+**Do this:** {action['do_this']}
+
+**Who writes this:** The system drafts this from the evidence, using the target keyword, mapped page, search intent, design rules and content structure. Bethan and Holly should not be starting from a blank page.
+
+**How it is used:** Bethan checks the page or channel it belongs on, Holly reviews tone where needed, and Graham checks the SEO/page mapping if it is marked for review. If Claude credits are available, use the same evidence to polish the draft. If not, use the no-AI draft as the first usable version.
+
+**Suggested copy focus:** {action['copy_focus']}
+
+**Suggested intro draft:** {intro_draft}
+
+**Production method note:** {production_note}
+
+**Internal links to add:** {action['links']}
+
+**Review note:** This no-AI pack is not approved finished content. Use it for planning, evidence review and page mapping checks only. Do not push it to ClickUp as a production task.
+
+### Draft Task Breakdown
+
+**Task name:** Page Copy: {term}
+**Type tag:** page-copy
+**Priority:** {priority}
+**Date created:** {created_date}
+**Suggested due date:** {due_date}
+**Task summary:** Review and place the system-generated page intro or supporting page copy for "{term}" using the exact "Do this" notes, suggested intro draft and internal link guidance. Bethan checks placement, Holly reviews voice, Graham checks SEO/page mapping.
+
+**Task name:** Blog: {term}
+**Type tag:** blog
+**Priority:** {priority}
+**Date created:** {created_date}
+**Suggested due date:** {due_date}
+**Task summary:** Create or update a blog that supports "{term}", links to {existing or 'the chosen ROR page'}, includes a short FAQ section and points traffic to {url}.
+
+**Task name:** Email: {term}
+**Type tag:** email
+**Priority:** {priority}
+**Date created:** {created_date}
+**Suggested due date:** {due_date}
+**Task summary:** Turn the blog or page angle into a shopping email with one clear product block, one add-on or bundle prompt and a CTA to {url}.
+
+**Task name:** Reel: {term}
+**Type tag:** reel
+**Priority:** {priority}
+**Date created:** {created_date}
+**Suggested due date:** {due_date}
+**Task summary:** Film product close-ups, personalisation detail, packing or styling, then finish on the CTA product.
+
+**Task name:** Stories: {term}
+**Type tag:** stories
+**Priority:** {priority}
+**Date created:** {created_date}
+**Suggested due date:** {due_date}
+**Task summary:** Build 4 frames: hook, product proof, personalisation or gift detail, link sticker. Add a poll only if it helps the buying decision.
+
+**Task name:** Carousel: {term}
+**Type tag:** carousel
+**Priority:** {priority}
+**Date created:** {created_date}
+**Suggested due date:** {due_date}
+**Task summary:** Build 6 slides: hook, problem, product answer, personalisation detail, proof or use case, CTA.
+
+**Task name:** TikTok: {term}
+**Type tag:** tiktok
+**Priority:** {priority}
+**Date created:** {created_date}
+**Suggested due date:** {due_date}
+**Task summary:** Use the Reel footage, but make the first line feel more like an observation from Holly than a sales line.
+
+**Task name:** Pinterest: {term}
+**Type tag:** pinterest
+**Priority:** {priority}
+**Date created:** {created_date}
+**Suggested due date:** {due_date}
+**Task summary:** Create 3 pins with keyword-led titles, product or gift moment descriptions and the ROR URL.
+
+### Content Execution Pack
+
+**Visibility goal:** Help ROR become a clearer answer for "{term}" and support the mapped product or page.
+
+**Production method:** {production_note}
+
+**Blog:** Create or update a blog that answers the search intent, links to {existing or 'the closest matching ROR product'}, and includes a short FAQ section.
+
+**Email:** Turn the blog angle into a shopping email with one clear product block, one supporting product or add-on, and a CTA to {url}.
+
+**Reel:** Open with a practical hook tied to the search intent. Film product close-ups, personalisation detail, packing or styling, then finish on the CTA product.
+
+**Stories:** Use 4 frames: hook, product proof, personalisation/gift detail, link sticker. Add a poll only if it helps the buying decision.
+
+**Carousel:** Use 6 slides: hook, problem, product answer, personalisation detail, proof or use case, CTA.
+
+**TikTok:** Keep it more observation-led than sales-led. Use the same Reel footage but make the first line feel like a real comment from Holly.
+
+**Pinterest:** Create 3 pins using keyword-led titles. Include the product, gift moment and ROR URL in the description.
+
+### Design Direction
+
+**Moment:** {design['moment']}
+
+**Palette:** {design['palette']}
+
+**Type mood:** {design['type']}
+
+**Feel:** {design['feel']}
+
+**Avoid:** {design['avoid']}
+"""
+
+
+def generate_no_ai_content(all_groups: list[dict] | None = None, trending_data: dict | None = None) -> bool:
+    if all_groups is None:
+        try:
+            all_groups, trending_data = load_cached_trend_data()
+        except FileNotFoundError as e:
+            print(f"\n{e}")
+            return False
+
+    history = load_history()
+    catalogue = load_json_file(CATALOGUE_FILE, {})
+    seo_terms = pick_seo_terms(all_groups, history, cap=6)
+    ranked = sorted(all_results(all_groups), key=lambda r: (-r.get("score", 0), -r.get("avg_interest", 0)))
+    selected = seo_terms or ranked[:6]
+
+    date_str = datetime.now().strftime("%d %B %Y, %H:%M")
+    design_note = DESIGN_RULES_FILE.read_text(encoding="utf-8") if DESIGN_RULES_FILE.exists() else "Design rules not found."
+    packs = "\n".join(no_ai_pack_for_term(r, catalogue) for r in selected)
+    trend_note = "Open UK trends not captured this run."
+    if trending_data:
+        web = trending_data.get("web", {})
+        yt = trending_data.get("youtube", {})
+        captured = web.get("top", []) + web.get("rising", []) + yt.get("top", []) + yt.get("rising", [])
+        if captured:
+            trend_note = "Raw trend ideas available for inspiration: " + ", ".join(captured[:10])
+
+    md = f"""# Rock On Ruby - No-AI Visibility and Content Packs
+Generated: {date_str}
+Run `python3 content_generator.py --no-ai` to regenerate from cached trend data.
+
+This file does not use Claude. It creates structured visibility actions and production packs from cached product, keyword and trend data.
+
+Ranking data is not connected yet. Any ranking-related diagnosis is inferred until Google Search Console or live rank checking is added.
+
+---
+
+## System Focus
+
+Improve organic visibility for products and pages ROR already sells, then create content only where it supports a product, page, season, keyword gap or conversion goal.
+
+## Trend Note
+
+{trend_note}
+
+## How To Read The Evidence
+
+**Trend score:** 8-10 is Green and should be prioritised when the page mapping is right. 5-7 is Amber and useful when it connects to an existing product, page or seasonal moment. 0-4 is Grey and should usually be monitored rather than actioned.
+
+**Search interest estimate:** 70-100 is Green and means strong search interest. 30-69 is Amber and means moderate search interest that can still be useful for page optimisation. 1-29 is Grey and low interest, so only use it if it supports a commercial priority. 0 means no reliable live interest was captured.
+
+**Trend direction:** Rising means interest is increasing compared with the earlier part of the tracking window. Stable means no clear movement. Falling means interest is dropping.
+
+**Ranking data:** Not connected yet. Until Google Search Console or live rank checks are added, ranking-related comments are inferred and should be treated as review prompts, not proven rankings.
+
+## Design Rules Summary
+
+Use `design_system/ror_design_rules.md` as the source for palette, type mood and content pack visual direction.
+
+{design_note.split('## Content Pack Design Output')[0].strip()}
+
+---
+
+# Visibility Actions and Production Packs
+
+{packs}
+
+---
+
+Generated by ROR Content Generator no-AI mode.
+"""
+    CONTENT_FILE.write_text(md, encoding="utf-8")
+    print(f"  No-AI content pack: {CONTENT_FILE}")
+    return True
+
+
 # ── Prompt builder ────────────────────────────────────────────────────────────
 
 def build_prompt(layer_terms: dict[int, list[dict]], seo_terms: list[dict], all_groups: list[dict],
                  catalogue: dict | None = None, instagram: dict | None = None,
-                 trending_data: dict | None = None) -> str:
+                 trending_data: dict | None = None, finished_blogs: dict[str, str] | None = None) -> str:
     today = datetime.now().strftime("%d %B %Y")
+    design_rules = DESIGN_RULES_FILE.read_text(encoding="utf-8") if DESIGN_RULES_FILE.exists() else ""
 
     # Flatten all selected terms for context
     all_selected = [r for terms in layer_terms.values() for r in terms]
@@ -218,11 +857,7 @@ def build_prompt(layer_terms: dict[int, list[dict]], seo_terms: list[dict], all_
     # PAA questions
     all_paa = [(r["term"], q) for g in all_groups for r in g["results"] for q in r.get("paa", [])]
 
-    # Blog post targets (layer 4 first, then others)
-    blog_terms = (
-        [r for r in layer_terms.get(4, [])][:2]
-        + [r for layer, rs in layer_terms.items() if layer != 4 for r in rs][:2]
-    )[:2]
+    blog_terms = pick_blog_terms(layer_terms, seo_terms, cap=2)
 
     # Social terms
     social_terms = all_selected[:2]
@@ -238,14 +873,25 @@ def build_prompt(layer_terms: dict[int, list[dict]], seo_terms: list[dict], all_
     product_seo = [r for r in seo_terms if "product page" in r.get("seo_action", "").lower()][:3]
     collect_seo = [r for r in seo_terms if "collection" in r.get("seo_action", "").lower()][:3]
 
-    # Build blog post section
+    # Build blog post section. In Claude mode, finished two-pass blogs become the source assets.
     blog_sections = ""
-    for i, r in enumerate(blog_terms, 1):
-        blog_sections += f"""
+    if finished_blogs:
+        blog_sections = "\n## FINISHED TWO-PASS BLOGS\n\nUse these finished blogs as source assets for email, social, Reel, Stories, Carousel, TikTok and Pinterest content. Do not rewrite the blogs unless explicitly asked.\n"
+        for term, blog in finished_blogs.items():
+            blog_sections += f"\n### Finished blog: {term}\n\n{blog}\n"
+    else:
+        for i, r in enumerate(blog_terms, 1):
+            blog_sections += f"""
 ## BLOG POST {i}
 
-Write a 500-word blog post targeting the keyword '{r['term']}'.
+Write a 600-800 word blog post targeting the keyword '{r['term']}'.
 - H1 must contain the keyword naturally
+- Include H2 headings phrased as buyer search questions
+- Include H3 headings in longer sections where useful
+- Include a fully written FAQ section with at least 4 questions
+- Mention Bury, Manchester naturally
+- Mention UK-wide shipping or delivered across the UK
+- Include specific personalisation examples and quality details
 - Storytelling structure: real moment to tension to shift to reason to care to CTA
 - Holly's voice throughout, warm, funny, Manchester woman running a business
 - End CTA links to rockonruby.co.uk
@@ -257,6 +903,7 @@ Write a 500-word blog post targeting the keyword '{r['term']}'.
 ## SOCIAL CAPTIONS
 
 Write 2 social media captions (Instagram/TikTok format) targeting: {', '.join("'" + r['term'] + "'" for r in social_terms)}.
+If finished blogs are supplied above, derive the captions from the blog angles and product context.
 Each caption must:
 - Open with a strong hook (first line = the scroll-stopper)
 - Be 3-6 lines total, sound like Holly texting her mate
@@ -271,6 +918,7 @@ Each caption must:
 ## EMAIL DESIGN PROMPT {i}
 
 For the keyword '{r['term']}', produce a full email design prompt that Bethan can paste into Claude to write the complete email.
+If finished blogs are supplied above, derive the email story angle from the relevant finished blog.
 Format EXACTLY as follows:
 
 **Subject:** [subject line, punchy, Holly's voice, no corporate language]
@@ -313,12 +961,17 @@ Lead with the product benefit, not features:
         seo_section += f"""
 ## SEO CONTENT, BLOG DRAFTS
 
-For each keyword below write a full 500-word blog post draft:
+For each keyword below write a full 600-800 word blog post draft unless that keyword already has a finished two-pass blog above:
 {chr(10).join(f"- '{r['term']}' (score {r['score']}/10, {r['trend']})" for r in blog_seo)}
 
 Each post:
 - H1 includes keyword naturally
-- 500 words, Holly's voice, storytelling structure
+- H2 headings are buyer search questions
+- H3 headings appear in longer sections where useful
+- Includes a fully written FAQ section with at least 4 questions
+- Mentions Bury, Manchester naturally
+- Mentions UK-wide shipping or delivered across the UK
+- 600-800 words, Holly's voice, storytelling structure
 - Ends with CTA to rockonruby.co.uk
 - Optimised for Google and AI search (answer the question fully)
 """
@@ -452,6 +1105,7 @@ Output as a numbered list. If no connections exist, write: No strong trending co
     return f"""
 {BRAND_CONTEXT}
 {WRITING_RULES}
+{design_rules}
 {catalogue_ctx}
 {instagram_ctx}
 ---
@@ -464,6 +1118,9 @@ TOP TRENDING TERMS THIS RUN:
 ---
 Generate the following content for Rock On Ruby. Return EXACTLY the sections below,
 each starting with the exact markdown heading shown. No preamble, no commentary after.
+
+For every content idea, include a short "Design direction:" production note using the ROR design rules above. Pick palette, type mood and visual treatment to fit the product, season and audience. For example, Father's Day should not default to soft pink styling if navy, army green, orange, beige and black would fit better.
+When finished two-pass blogs are supplied, treat them as the source assets. Email, social and production packs should flow from the finished blog angle, not from a disconnected caption idea.
 {opportunity_section}
 {blog_sections}
 {social_section}
@@ -484,33 +1141,18 @@ def generate_content(all_groups: list[dict] | None = None, trending_data: dict |
 
     # Load cache if not passed directly
     if all_groups is None:
-        if not CACHE_FILE.exists():
-            print("\ntrend_cache.json not found, run scraper first.")
+        try:
+            all_groups, trending_data = load_cached_trend_data()
+        except FileNotFoundError as e:
+            print(f"\n{e}")
             return False
-        raw = json.loads(CACHE_FILE.read_text())
-        if isinstance(raw, dict) and "groups" in raw:
-            all_groups    = raw["groups"]
-            trending_data = raw.get("trending", {})
-        else:
-            all_groups = raw
 
     history   = load_history()
-    catalogue = {}
-    instagram = {}
-    if CATALOGUE_FILE.exists():
-        try:
-            catalogue = json.loads(CATALOGUE_FILE.read_text())
-        except Exception:
-            pass
-    if INSTAGRAM_FILE.exists():
-        try:
-            instagram = json.loads(INSTAGRAM_FILE.read_text())
-        except Exception:
-            pass
+    catalogue = load_json_file(CATALOGUE_FILE, {})
+    instagram = load_json_file(INSTAGRAM_FILE, {})
 
     layer_terms = pick_terms_by_layer(all_groups, history)
     seo_terms   = pick_seo_terms(all_groups, history)
-    prompt      = build_prompt(layer_terms, seo_terms, all_groups, catalogue, instagram, trending_data)
 
     print("\n-- Content Generation (Claude API) --")
     all_selected = [r for terms in layer_terms.values() for r in terms]
@@ -518,6 +1160,17 @@ def generate_content(all_groups: list[dict] | None = None, trending_data: dict |
     print(f"  SEO terms: {len(seo_terms)}")
 
     client = anthropic.Anthropic(api_key=api_key)
+    blog_terms = pick_blog_terms(layer_terms, seo_terms, cap=2)
+    finished_blogs: dict[str, str] = {}
+    try:
+        if blog_terms:
+            print(f"  Two-pass blogs: {', '.join(r['term'] for r in blog_terms)}")
+            finished_blogs = generate_two_pass_blogs(client, blog_terms, all_groups, catalogue, trending_data)
+    except Exception as e:
+        print(f"  Two-pass blog generation failed: {e}")
+        return False
+
+    prompt = build_prompt(layer_terms, seo_terms, all_groups, catalogue, instagram, trending_data, finished_blogs)
     print("  Calling Claude API...")
     try:
         message = client.messages.create(
@@ -538,7 +1191,7 @@ def generate_content(all_groups: list[dict] | None = None, trending_data: dict |
 
     # Save history
     used_terms  = [r["term"] for r in all_selected] + [r["term"] for r in seo_terms]
-    used_types  = ["blog", "social", "email", "product", "seo"]
+    used_types  = ["blog", "two-pass-blog", "social", "email", "product", "seo"]
     save_history(history, used_terms, used_types)
 
     # Build markdown file
@@ -557,6 +1210,12 @@ Run `python3 content_generator.py` to regenerate with cached trend data.
 
 ---
 
+## FINISHED TWO-PASS BLOGS
+
+{chr(10).join(f"### {term}{chr(10)}{blog}" for term, blog in finished_blogs.items()) if finished_blogs else "No two-pass blogs generated this run."}
+
+---
+
 {content_text}
 
 ---
@@ -569,4 +1228,14 @@ Run `python3 content_generator.py` to regenerate with cached trend data.
 
 
 if __name__ == "__main__":
-    generate_content()
+    parser = argparse.ArgumentParser(description="Generate ROR content drafts.")
+    parser.add_argument(
+        "--no-ai",
+        action="store_true",
+        help="Generate structured visibility and content packs without calling Claude.",
+    )
+    args = parser.parse_args()
+    if args.no_ai:
+        generate_no_ai_content()
+    else:
+        generate_content()

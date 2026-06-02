@@ -31,6 +31,8 @@ CACHE_FILE   = OUTPUT_DIR / "trend_cache.json"
 FOCUS_FILE   = OUTPUT_DIR / "ror_focus.json"
 OPEN_TRENDS_FILE = OUTPUT_DIR / "open_trends.json"
 LAYER4_CACHE = OUTPUT_DIR / "layer4_expanded.json"
+SEARCH_CONSOLE_CACHE_FILE = OUTPUT_DIR / "search_console_cache.json"
+RANK_TRACKER_CACHE_FILE = OUTPUT_DIR / "rank_tracker_cache.json"
 
 GEO              = "GB"
 TIMEFRAME        = "today 3-m"
@@ -62,6 +64,15 @@ def load_catalogue() -> dict:
         except Exception:
             pass
     return _CATALOGUE
+
+
+def load_json_cache(path: Path, fallback):
+    if path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return fallback
 
 
 # ── Season config ─────────────────────────────────────────────────────────────
@@ -907,6 +918,146 @@ def build_seo_section(all_groups: list[dict]) -> str:
 </section>"""
 
 
+def _rank_status(rank) -> tuple[str, str]:
+    if rank is None:
+        return "Not top 20", "rank-bad"
+    if rank <= 3:
+        return f"#{rank}", "rank-good"
+    if rank <= 10:
+        return f"#{rank}", "rank-mid"
+    return f"#{rank}", "rank-bad"
+
+
+def _visibility_action(row: dict) -> str:
+    query = row.get("query", "")
+    target = row.get("target_page", "")
+    rank = row.get("ror_rank")
+    competitors = row.get("competitors_above", [])
+    competitor_names = ", ".join(c.get("domain", "") for c in competitors[:3] if c.get("domain"))
+
+    if rank is None:
+        return (
+            f"Check why the mapped page is not showing in the top 20 for '{escape(query)}'. "
+            f"Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. "
+            f"If the query fits ROR, add the exact phrase naturally, add 3 internal links to {escape(target)}, "
+            "and create one supporting blog or FAQ section that answers the buyer intent."
+        )
+
+    if rank == 1:
+        return (
+            "Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, "
+            "keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals."
+        )
+
+    if rank <= 3:
+        return (
+            f"Push this from top 3 to position 1. Add a short FAQ that answers '{escape(query)}', "
+            "tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent."
+        )
+
+    if rank <= 10:
+        competitor_text = f" The main pages above ROR include {escape(competitor_names)}." if competitor_names else ""
+        return (
+            f"Move this page towards the top 3. Rewrite the first 80 words of the mapped page so '{escape(query)}' is obvious, "
+            "add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, "
+            "and make the page explain the gift/use case faster above the fold."
+            f"{competitor_text}"
+        )
+
+    return (
+        f"This is a page 2 ranking. Build one supporting blog around '{escape(query)}', link it back to the mapped page, "
+        "then improve the mapped page title, intro and FAQ so Google has a clearer landing page for the query."
+    )
+
+
+def build_visibility_rank_section() -> str:
+    """Return live rank evidence from Search Console plus Serper spot checks."""
+    rank_cache = load_json_cache(RANK_TRACKER_CACHE_FILE, {})
+    gsc_cache = load_json_cache(SEARCH_CONSOLE_CACHE_FILE, {})
+    results = rank_cache.get("results", [])
+
+    if not results:
+        return """
+<section class="dashboard-section visibility-section">
+  <h2>Organic Visibility</h2>
+  <p class="section-intro">No live rank checks yet. Run <code>python rank_tracker.py --limit 5</code> after Search Console has been refreshed.</p>
+</section>"""
+
+    found = sum(1 for r in results if r.get("ror_found"))
+    top3 = sum(1 for r in results if r.get("ror_rank") is not None and r.get("ror_rank") <= 3)
+    page1 = sum(1 for r in results if r.get("ror_rank") is not None and r.get("ror_rank") <= 10)
+    missing = sum(1 for r in results if r.get("ror_rank") is None)
+    window = ""
+    if rank_cache.get("source_gsc_window"):
+        source = rank_cache["source_gsc_window"]
+        window = f"{source.get('start_date', '')} to {source.get('end_date', '')}"
+    elif gsc_cache:
+        window = f"{gsc_cache.get('start_date', '')} to {gsc_cache.get('end_date', '')}"
+
+    rows = ""
+    for row in results:
+        rank_label, rank_cls = _rank_status(row.get("ror_rank"))
+        target_page = row.get("target_page") or row.get("ror_url") or ""
+        target_link = (
+            f'<a href="{escape(target_page)}" target="_blank" rel="noopener">{escape(target_page.replace("https://", ""))}</a>'
+            if target_page.startswith("https://")
+            else escape(target_page or "No mapped page")
+        )
+        competitors = row.get("competitors_above", [])
+        competitor_html = "".join(
+            f'<span class="competitor-chip">{escape(c.get("domain", ""))}</span>'
+            for c in competitors[:4]
+            if c.get("domain")
+        ) or '<span class="muted-small">No competitor list captured.</span>'
+        action = _visibility_action(row)
+        rows += f"""
+<tr>
+  <td class="kw-cell">{escape(row.get("query", ""))}</td>
+  <td class="page-cell">{target_link}</td>
+  <td class="metric-cell">{row.get("gsc_impressions", 0)}</td>
+  <td class="metric-cell">{row.get("gsc_clicks", 0)}</td>
+  <td class="metric-cell">{row.get("gsc_position", "—")}</td>
+  <td class="metric-cell"><span class="rank-pill {rank_cls}">{rank_label}</span></td>
+  <td>{competitor_html}</td>
+  <td class="action-cell">{action}</td>
+</tr>"""
+
+    return f"""
+<section class="dashboard-section visibility-section">
+  <h2>Organic Visibility</h2>
+  <p class="section-intro">Search Console shows where ROR is already getting impressions. Serper then spot-checks the live Google UK result so the action is based on ranking evidence, not guessing. Window: {escape(window or "latest cached Search Console data")}.</p>
+  <div class="visibility-stats">
+    <div><strong>{len(results)}</strong><span>Keywords checked</span></div>
+    <div><strong>{found}</strong><span>ROR found</span></div>
+    <div><strong>{top3}</strong><span>Top 3</span></div>
+    <div><strong>{page1}</strong><span>Page 1</span></div>
+    <div><strong>{missing}</strong><span>Not top 20</span></div>
+  </div>
+  <div class="visibility-key">
+    <span><b class="key-dot key-good"></b>Good, protect or nudge</span>
+    <span><b class="key-dot key-mid"></b>Useful, improve to top 3</span>
+    <span><b class="key-dot key-bad"></b>Problem, investigate or rebuild support</span>
+  </div>
+  <div class="table-wrap">
+    <table class="seo-table visibility-table">
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Mapped ROR page</th>
+          <th>Impr.</th>
+          <th>Clicks</th>
+          <th>GSC pos.</th>
+          <th>Live rank</th>
+          <th>Above ROR</th>
+          <th>Do this</th>
+        </tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+  </div>
+</section>"""
+
+
 def build_breakout_section(all_groups: list[dict]) -> str:
     """Return an HTML alert block for any breakout keywords found this run."""
     breakouts = []
@@ -1419,6 +1570,23 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   .report-btn {{ display: inline-flex; align-items: center; min-height: 36px; margin-top: .8rem;
                  padding: 0 .8rem; background: var(--pink); color: #fff; border-radius: 6px;
                  text-decoration: none; font-size: .8rem; font-weight: 700; }}
+  .visibility-stats {{ display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .7rem; margin: .8rem 0 1rem; }}
+  .visibility-stats div {{ background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 8px; padding: .75rem; }}
+  .visibility-stats strong {{ display: block; color: #fff; font-size: 1.35rem; line-height: 1; }}
+  .visibility-stats span {{ display: block; color: var(--muted); font-size: .72rem; margin-top: .25rem; }}
+  .visibility-key {{ display: flex; gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: .78rem; margin-bottom: .8rem; }}
+  .key-dot {{ display: inline-block; width: .65rem; height: .65rem; border-radius: 999px; margin-right: .3rem; }}
+  .key-good {{ background: var(--green); }}
+  .key-mid {{ background: var(--yellow); }}
+  .key-bad {{ background: var(--red); }}
+  .rank-pill {{ display: inline-flex; align-items: center; justify-content: center; min-width: 54px; border-radius: 999px; padding: .2rem .45rem; font-size: .72rem; font-weight: 800; }}
+  .rank-good {{ background: rgba(0,184,148,.14); color: var(--green); border: 1px solid rgba(0,184,148,.35); }}
+  .rank-mid {{ background: rgba(253,203,110,.15); color: var(--yellow); border: 1px solid rgba(253,203,110,.35); }}
+  .rank-bad {{ background: rgba(214,48,49,.15); color: var(--red); border: 1px solid rgba(214,48,49,.35); }}
+  .metric-cell {{ text-align: center; white-space: nowrap; color: var(--text); }}
+  .competitor-chip {{ display: inline-block; margin: .12rem .15rem .12rem 0; padding: .15rem .4rem; border-radius: 999px; background: rgba(255,255,255,.06); color: var(--muted); font-size: .68rem; }}
+  .action-cell {{ min-width: 360px; font-size: .78rem; line-height: 1.45; }}
+  .muted-small {{ color: var(--muted); font-size: .72rem; }}
 
   main {{ padding: 2rem; max-width: 1440px; margin: 0 auto; }}
 
@@ -1504,6 +1672,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     .seo-section {{ padding-left: 1rem; padding-right: 1rem; }}
     .tabs {{ padding-left: 1rem; padding-right: 1rem; position: static; }}
     .dia-grid, .info-grid {{ grid-template-columns: 1fr; }}
+    .visibility-stats {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }}
   }}
 </style>
 </head>
@@ -1547,6 +1716,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
 <main>
   <section id="tab-actions" class="tab-panel active">
+    {visibility_section}
     {weekly_actions_section}
     {gaps_section}
     {bestseller_section}
@@ -1561,6 +1731,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     {groups_html}
   </section>
   <section id="tab-seo" class="tab-panel">
+    {visibility_section}
     {seo_section}
   </section>
   <section id="tab-content" class="tab-panel">
@@ -1687,6 +1858,7 @@ def build_report(all_groups: list[dict], trending_data: dict | None = None) -> N
     gaps_section          = build_gaps_section(all_groups)
     bestseller_section    = build_bestseller_demand_section(all_groups)
     weekly_actions_section = build_weekly_actions_section(all_groups)
+    visibility_section    = build_visibility_rank_section()
     calendar_section      = build_calendar_section()
     team_inputs_section   = build_team_inputs_section()
     content_pack_section  = build_content_pack_section(all_groups)
@@ -1704,6 +1876,7 @@ def build_report(all_groups: list[dict], trending_data: dict | None = None) -> N
         gaps_section=gaps_section,
         bestseller_section=bestseller_section,
         weekly_actions_section=weekly_actions_section,
+        visibility_section=visibility_section,
         calendar_section=calendar_section,
         team_inputs_section=team_inputs_section,
         content_pack_section=content_pack_section,

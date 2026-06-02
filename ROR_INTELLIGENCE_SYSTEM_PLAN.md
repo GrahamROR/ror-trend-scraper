@@ -4,13 +4,17 @@ Created: 2026-05-27
 
 ## Goal
 
-Turn the current trend scraper into a weekly content and commercial intelligence system.
+Turn the current trend scraper into a weekly organic visibility and commercial intelligence system.
+
+The controlling architecture now lives in `ROR_VISIBILITY_SYSTEM_ARCHITECTURE.md`. That document should be treated as the main source of truth.
 
 The system should not just show data. It should show:
 
 - Data: what Google, Shopify, Instagram, website content and search demand are showing.
 - Interpretation: what that probably means for Rock On Ruby.
 - Action: what Bethan, Holly or Graham should do next.
+
+Actions must be specific enough to execute. For example, "improve collection copy" is not acceptable unless the system also explains what to change, where to put it, what keyword it supports, what links to add and what content should support it.
 
 ## First Priority
 

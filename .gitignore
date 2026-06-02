@@ -1,3 +1,8 @@
 __pycache__/
+.venv/
 *.pyc
 *.rtf
+gsc_oauth_client.json
+gsc_token.json
+gsc_service_account.json
+rank_tracker_cache.json

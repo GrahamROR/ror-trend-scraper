@@ -1,0 +1,167 @@
+/* ============================================================
+   ROCK ON RUBY - Colours & Type
+   Brand identity by Gorilla Studio (2021). Tokens by design system.
+   ============================================================ */
+
+:root {
+  --beige: #F1E5D6;
+  --cream: #EEE5D6;
+  --black: #000000;
+  --white: #FFFFFF;
+
+  --bright-red: #FF081A;
+  --dark-red: #990B08;
+  --orange: #FF9624;
+  --bright-orange: #F95015;
+  --bright-yellow: #EFFF2E;
+  --pink: #FF6CC0;
+  --bright-pink: #E284EF;
+  --teal: #288C9E;
+  --dark-teal: #17514B;
+  --army-green: #455922;
+  --bright-blue: #0D70FF;
+
+  --hot-pink: #DB0085;
+  --baby-pink: #FFA2D4;
+  --butter: #FAD482;
+  --baby-blue: #A0BEDE;
+  --navy: #324068;
+  --royal-blue: #1B78CE;
+  --forest-green: #41733C;
+  --burgundy: #611736;
+  --gold: #F2D832;
+  --teal-soft: #4A8E88;
+
+  --bg: var(--beige);
+  --bg-paper: var(--cream);
+  --surface: var(--white);
+  --ink: var(--black);
+  --ink-soft: #3A352D;
+  --ink-muted: #6E665A;
+  --primary: #FF6CC0;
+  --on-primary: #14110D;
+  --line: #2A241C;
+  --line-soft: rgba(42,36,28,0.16);
+
+  --font-logo: "Druk Wide", "Arial Narrow", sans-serif;
+  --font-display: "Druk", "Druk Wide", sans-serif;
+  --font-head: "Sharp Grotesk 25", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Sharp Grotesk 20", "Helvetica Neue", Arial, sans-serif;
+  --font-retro: "Cooper Black", Georgia, serif;
+  --font-serif: "ITC Garamond", Georgia, serif;
+  --font-poster: "Prohibition", "Futura Cond", sans-serif;
+  --font-oldeng: "Old English", "Times New Roman", serif;
+
+  --step--1: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem);
+  --step-0: clamp(1rem, 0.95rem + 0.3vw, 1.13rem);
+  --step-1: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+  --step-2: clamp(1.6rem, 1.35rem + 1.2vw, 2.4rem);
+  --step-3: clamp(2.1rem, 1.6rem + 2.4vw, 3.6rem);
+  --step-4: clamp(2.8rem, 1.9rem + 4.5vw, 5.5rem);
+  --step-5: clamp(3.6rem, 2rem + 8vw, 8rem);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  --radius-0: 0px;
+  --radius-sm: 6px;
+  --radius-pill: 999px;
+
+  --shadow-block: 6px 6px 0 var(--ink);
+  --shadow-block-red: 6px 6px 0 var(--bright-red);
+  --shadow-soft: 0 10px 30px rgba(42,36,28,0.18);
+  --border-strong: 2.5px solid var(--ink);
+}
+
+:root[data-theme="dark"], .ror-dark {
+  --bg: #14110D;
+  --bg-paper: #1E1A14;
+  --surface: #221D16;
+  --ink: var(--beige);
+  --ink-soft: #CFC4B2;
+  --ink-muted: #9A9080;
+  --primary: #FF6CC0;
+  --on-primary: #14110D;
+  --line: #F1E5D6;
+  --line-soft: rgba(241,229,214,0.18);
+  --shadow-block: 6px 6px 0 var(--beige);
+}
+
+.ror {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ror h1, .ror .h1 {
+  font-family: var(--font-head);
+  font-size: var(--step-4);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-5);
+}
+
+.ror h2, .ror .h2 {
+  font-family: var(--font-head);
+  font-size: var(--step-3);
+  line-height: 1.02;
+  margin: 0 0 var(--space-4);
+}
+
+.ror h3, .ror .h3 {
+  font-family: var(--font-head);
+  font-size: var(--step-2);
+  line-height: 1.08;
+  margin: 0 0 var(--space-3);
+}
+
+.ror h4, .ror .h4 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--step-1);
+  line-height: 1.2;
+  margin: 0 0 var(--space-2);
+}
+
+.ror p {
+  margin: 0 0 var(--space-4);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+.ror a {
+  color: var(--primary);
+  text-underline-offset: 3px;
+}
+
+.ror small, .ror .caption {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+.ror-logotype {
+  font-family: var(--font-logo);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.92;
+}
+
+.ror-kicker {
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--step--1);
+}
