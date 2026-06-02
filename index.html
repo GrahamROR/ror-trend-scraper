@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rock On Ruby — Trend Report 01 June 2026, 16:16</title>
+<title>Rock On Ruby — Trend Report 02 June 2026, 19:38</title>
 <style>
   :root {
     --pink: #e91e8c; --dark: #1a1a2e; --mid: #16213e; --card: #0f3460;
@@ -70,6 +70,23 @@
   .report-btn { display: inline-flex; align-items: center; min-height: 36px; margin-top: .8rem;
                  padding: 0 .8rem; background: var(--pink); color: #fff; border-radius: 6px;
                  text-decoration: none; font-size: .8rem; font-weight: 700; }
+  .visibility-stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .7rem; margin: .8rem 0 1rem; }
+  .visibility-stats div { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 8px; padding: .75rem; }
+  .visibility-stats strong { display: block; color: #fff; font-size: 1.35rem; line-height: 1; }
+  .visibility-stats span { display: block; color: var(--muted); font-size: .72rem; margin-top: .25rem; }
+  .visibility-key { display: flex; gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: .78rem; margin-bottom: .8rem; }
+  .key-dot { display: inline-block; width: .65rem; height: .65rem; border-radius: 999px; margin-right: .3rem; }
+  .key-good { background: var(--green); }
+  .key-mid { background: var(--yellow); }
+  .key-bad { background: var(--red); }
+  .rank-pill { display: inline-flex; align-items: center; justify-content: center; min-width: 54px; border-radius: 999px; padding: .2rem .45rem; font-size: .72rem; font-weight: 800; }
+  .rank-good { background: rgba(0,184,148,.14); color: var(--green); border: 1px solid rgba(0,184,148,.35); }
+  .rank-mid { background: rgba(253,203,110,.15); color: var(--yellow); border: 1px solid rgba(253,203,110,.35); }
+  .rank-bad { background: rgba(214,48,49,.15); color: var(--red); border: 1px solid rgba(214,48,49,.35); }
+  .metric-cell { text-align: center; white-space: nowrap; color: var(--text); }
+  .competitor-chip { display: inline-block; margin: .12rem .15rem .12rem 0; padding: .15rem .4rem; border-radius: 999px; background: rgba(255,255,255,.06); color: var(--muted); font-size: .68rem; }
+  .action-cell { min-width: 360px; font-size: .78rem; line-height: 1.45; }
+  .muted-small { color: var(--muted); font-size: .72rem; }
 
   main { padding: 2rem; max-width: 1440px; margin: 0 auto; }
 
@@ -246,6 +263,7 @@
     .seo-section { padding-left: 1rem; padding-right: 1rem; }
     .tabs { padding-left: 1rem; padding-right: 1rem; position: static; }
     .dia-grid, .info-grid { grid-template-columns: 1fr; }
+    .visibility-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 </style>
 </head>
@@ -253,7 +271,7 @@
 
 <header>
   <h1>Rock On Ruby — Trend Intelligence Report</h1>
-  <p>Generated 01 June 2026, 16:16 · Google Trends (pytrends) · PAA via Serper.dev · UK · 90-day window</p>
+  <p>Generated 02 June 2026, 19:38 · Google Trends (pytrends) · PAA via Serper.dev · UK · 90-day window</p>
 </header>
 
 
@@ -289,6 +307,290 @@
 
 <main>
   <section id="tab-actions" class="tab-panel active">
+    
+<section class="dashboard-section visibility-section">
+  <h2>Organic Visibility</h2>
+  <p class="section-intro">Search Console shows where ROR is already getting impressions. Serper then spot-checks the live Google UK result so the action is based on ranking evidence, not guessing. Window: 2026-05-04 to 2026-05-31.</p>
+  <div class="visibility-stats">
+    <div><strong>25</strong><span>Keywords checked</span></div>
+    <div><strong>15</strong><span>ROR found</span></div>
+    <div><strong>11</strong><span>Top 3</span></div>
+    <div><strong>15</strong><span>Page 1</span></div>
+    <div><strong>10</strong><span>Not top 20</span></div>
+  </div>
+  <div class="visibility-key">
+    <span><b class="key-dot key-good"></b>Good, protect or nudge</span>
+    <span><b class="key-dot key-mid"></b>Useful, improve to top 3</span>
+    <span><b class="key-dot key-bad"></b>Problem, investigate or rebuild support</span>
+  </div>
+  <div class="table-wrap">
+    <table class="seo-table visibility-table">
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Mapped ROR page</th>
+          <th>Impr.</th>
+          <th>Clicks</th>
+          <th>GSC pos.</th>
+          <th>Live rank</th>
+          <th>Above ROR</th>
+          <th>Do this</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr>
+  <td class="kw-cell">embroidered cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-caps" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-caps</a></td>
+  <td class="metric-cell">448</td>
+  <td class="metric-cell">9</td>
+  <td class="metric-cell">8.04</td>
+  <td class="metric-cell"><span class="rank-pill rank-mid">#10</span></td>
+  <td><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
+  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'embroidered cap' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk.</td>
+</tr>
+<tr>
+  <td class="kw-cell">mama sweatshirt</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-mama-sweatshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-mama-sweatshirt</a></td>
+  <td class="metric-cell">89</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.18</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">mylittlecoco.co.uk</span><span class="competitor-chip">next.co.uk</span><span class="competitor-chip">tracystreasuredkeepsakes.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'mama sweatshirt'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-mama-sweatshirt, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap</a></td>
+  <td class="metric-cell">53</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.23</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
+  <td><span class="muted-small">No competitor list captured.</span></td>
+  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
+</tr>
+<tr>
+  <td class="kw-cell">white slogan t shirt women</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
+  <td class="metric-cell">95</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.25</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
+  <td><span class="competitor-chip">newlook.com</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'white slogan t shirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">cap embroidered</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</a></td>
+  <td class="metric-cell">64</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.31</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">inkthreadable.co.uk</span><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'cap embroidered'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">christmas sweatshirt</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/merry-varsity-christmas-jumper" target="_blank" rel="noopener">rockonruby.co.uk/products/merry-varsity-christmas-jumper</a></td>
+  <td class="metric-cell">344</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.34</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
+  <td><span class="competitor-chip">next.co.uk</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'christmas sweatshirt', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">christmas sweatshirts uk</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/christmas-jumpers" target="_blank" rel="noopener">rockonruby.co.uk/collections/christmas-jumpers</a></td>
+  <td class="metric-cell">70</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.34</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#3</span></td>
+  <td><span class="competitor-chip">next.co.uk</span><span class="competitor-chip">sillysanta.uk</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'christmas sweatshirts uk', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">bobble hats men</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat" target="_blank" rel="noopener">rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat</a></td>
+  <td class="metric-cell">53</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.4</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">neweracap.co.uk</span><span class="competitor-chip">thehatcompany.com</span><span class="competitor-chip">gooutdoors.co.uk</span><span class="competitor-chip">next.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'bobble hats men'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">white slogan t shirt</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-t-shirts</a></td>
+  <td class="metric-cell">150</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.43</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
+  <td><span class="muted-small">No competitor list captured.</span></td>
+  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
+</tr>
+<tr>
+  <td class="kw-cell">womens slogan knitwear sale</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-sweatshirts</a></td>
+  <td class="metric-cell">91</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.46</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">marksandspencer.com</span><span class="competitor-chip">boohoo.com</span><span class="competitor-chip">joanieclothing.com</span><span class="competitor-chip">ebay.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'womens slogan knitwear sale'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/collections/slogan-sweatshirts, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan tee</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt</a></td>
+  <td class="metric-cell">434</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.59</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
+  <td><span class="muted-small">No competitor list captured.</span></td>
+  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan sweatshirt women</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-sweatshirts</a></td>
+  <td class="metric-cell">133</td>
+  <td class="metric-cell">7</td>
+  <td class="metric-cell">8.59</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
+  <td><span class="competitor-chip">percyandnell.com</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan sweatshirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">embroided cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</a></td>
+  <td class="metric-cell">84</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.6</td>
+  <td class="metric-cell"><span class="rank-pill rank-mid">#10</span></td>
+  <td><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
+  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'embroided cap' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk.</td>
+</tr>
+<tr>
+  <td class="kw-cell">statement t shirts women</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
+  <td class="metric-cell">54</td>
+  <td class="metric-cell">1</td>
+  <td class="metric-cell">8.61</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#3</span></td>
+  <td><span class="competitor-chip">shirtbox.com</span><span class="competitor-chip">newlook.com</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'statement t shirts women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">club tropicana outfit</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/blogs/news/club-tropicana-style-fancy-dress" target="_blank" rel="noopener">rockonruby.co.uk/blogs/news/club-tropicana-style-fancy-dress</a></td>
+  <td class="metric-cell">56</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.64</td>
+  <td class="metric-cell"><span class="rank-pill rank-mid">#5</span></td>
+  <td><span class="competitor-chip">amazon.co.uk</span><span class="competitor-chip">uk.pinterest.com</span><span class="competitor-chip">oliviavonhalle.com</span><span class="competitor-chip">pinkboutique.co.uk</span></td>
+  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'club tropicana outfit' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include amazon.co.uk, uk.pinterest.com, oliviavonhalle.com.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan tshirt women</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
+  <td class="metric-cell">193</td>
+  <td class="metric-cell">2</td>
+  <td class="metric-cell">8.72</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
+  <td><span class="competitor-chip">newlook.com</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan tshirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">can i go read my book cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap</a></td>
+  <td class="metric-cell">95</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.73</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">alphabetbags.com</span><span class="competitor-chip">sillylittletees.co.uk</span><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">moobou.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'can i go read my book cap'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan t shirt</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt</a></td>
+  <td class="metric-cell">188</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.84</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
+  <td><span class="competitor-chip">zara.com</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan t shirt', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">custom jumpers uk</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-sweatshirts</a></td>
+  <td class="metric-cell">122</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.95</td>
+  <td class="metric-cell"><span class="rank-pill rank-mid">#8</span></td>
+  <td><span class="competitor-chip">store.amcustomclothing.co.uk</span><span class="competitor-chip">mypersonalisedclothing.com</span><span class="competitor-chip">rapanuiclothing.com</span><span class="competitor-chip">vistaprint.co.uk</span></td>
+  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'custom jumpers uk' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include store.amcustomclothing.co.uk, mypersonalisedclothing.com, rapanuiclothing.com.</td>
+</tr>
+<tr>
+  <td class="kw-cell">personalised bobble hat</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat" target="_blank" rel="noopener">rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat</a></td>
+  <td class="metric-cell">69</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.99</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">tshirtstudio.com</span><span class="competitor-chip">myoddballs.com</span><span class="competitor-chip">swaz.co.uk</span><span class="competitor-chip">millieandralph.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'personalised bobble hat'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">baby tee slogan</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
+  <td class="metric-cell">76</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">9.01</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">siswhatsthetee.com</span><span class="competitor-chip">pinterest.com</span><span class="competitor-chip">etsy.com</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'baby tee slogan'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">baby tee with text</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
+  <td class="metric-cell">58</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">9.12</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">whenindoubt.co</span><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">inprintwetrust.co</span><span class="competitor-chip">pinterest.com</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'baby tee with text'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan baby tee</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
+  <td class="metric-cell">423</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">9.2</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">siswhatsthetee.com</span><span class="competitor-chip">pinterest.com</span><span class="competitor-chip">vogue.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'slogan baby tee'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan jumpers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-sweatshirts</a></td>
+  <td class="metric-cell">117</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">9.21</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
+  <td><span class="muted-small">No competitor list captured.</span></td>
+  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
+</tr>
+<tr>
+  <td class="kw-cell">personalised t shirts</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-t-shirts</a></td>
+  <td class="metric-cell">4443</td>
+  <td class="metric-cell">1</td>
+  <td class="metric-cell">18.01</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">tshirtstudio.com</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">photo.asda.com</span><span class="competitor-chip">yourdesign.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'personalised t shirts'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/personalised-t-shirts, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr></tbody>
+    </table>
+  </div>
+</section>
     
 <section class="dashboard-section">
   <h2>Weekly Actions</h2>
@@ -389,8 +691,8 @@
     <tbody>
 <tr>
   <td class="bs-prod">Personalised Year Sweatshirt</td>
-  <td class="bs-rev">£14,175</td>
-  <td style="text-align:center;color:var(--muted)">401</td>
+  <td class="bs-rev">£14,105</td>
+  <td style="text-align:center;color:var(--muted)">399</td>
   <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
   <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
   <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
@@ -429,25 +731,17 @@
 </tr>
 <tr>
   <td class="bs-prod">Embroidered Yes I Like Pina Coladas T-shirt</td>
-  <td class="bs-rev">£616</td>
-  <td style="text-align:center;color:var(--muted)">22</td>
+  <td class="bs-rev">£644</td>
+  <td style="text-align:center;color:var(--muted)">23</td>
   <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
   <td style="text-align:center">—</td>
   <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
 </tr>
 <tr>
   <td class="bs-prod">Happy Hour Slogan Sweatshirt</td>
-  <td class="bs-rev">£595</td>
-  <td style="text-align:center;color:var(--muted)">17</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">5/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Funky Font Personalised Year Sweatshirt</td>
   <td class="bs-rev">£560</td>
   <td style="text-align:center;color:var(--muted)">16</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">5/10</span></td>
   <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
   <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
 </tr>
@@ -460,12 +754,28 @@
   <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
 </tr>
 <tr>
-  <td class="bs-prod">My Other Job is a Dallas Cowboys Cheerleader Sweatshirt</td>
-  <td class="bs-rev">£490</td>
-  <td style="text-align:center;color:var(--muted)">13</td>
+  <td class="bs-prod">Funky Font Personalised Year Sweatshirt</td>
+  <td class="bs-rev">£525</td>
+  <td style="text-align:center;color:var(--muted)">15</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+</tr>
+<tr>
+  <td class="bs-prod">Personalised 'Only Here For...' Cap</td>
+  <td class="bs-rev">£456</td>
+  <td style="text-align:center;color:var(--muted)">19</td>
   <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
   <td style="text-align:center">—</td>
   <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
+</tr>
+<tr>
+  <td class="bs-prod">Happy Hour Slogan T-Shirt</td>
+  <td class="bs-rev">£442</td>
+  <td style="text-align:center;color:var(--muted)">17</td>
+  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">5/10</span></td>
+  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
 </tr>
 <tr>
   <td class="bs-prod">Embroidered Personalised Cuff Sweatshirt</td>
@@ -474,14 +784,6 @@
   <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">6/10</span></td>
   <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
   <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
-</tr>
-<tr>
-  <td class="bs-prod">Personalised 'Only Here For...' Cap</td>
-  <td class="bs-rev">£432</td>
-  <td style="text-align:center;color:var(--muted)">18</td>
-  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
-  <td style="text-align:center">—</td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
 </tr>
 <tr>
   <td class="bs-prod">Personalised Handwriting Cuff Sweatshirt</td>
@@ -500,17 +802,17 @@
   <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
 </tr>
 <tr>
-  <td class="bs-prod">Happy Hour Slogan T-Shirt</td>
+  <td class="bs-prod">Rock On Ruby Branded Tote Bag</td>
   <td class="bs-rev">£416</td>
-  <td style="text-align:center;color:var(--muted)">16</td>
-  <td style="text-align:center"><span style="color:#fdcb6e;font-weight:700">5/10</span></td>
-  <td style="text-align:center"><span style="color:var(--green)">↑ Rising</span></td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">~35/100</td>
+  <td style="text-align:center;color:var(--muted)">26</td>
+  <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
+  <td style="text-align:center">—</td>
+  <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
 </tr>
 <tr>
-  <td class="bs-prod">Rock On Ruby Branded Tote Bag</td>
-  <td class="bs-rev">£400</td>
-  <td style="text-align:center;color:var(--muted)">25</td>
+  <td class="bs-prod">My Other Job is a Dallas Cowboys Cheerleader Sweatshirt</td>
+  <td class="bs-rev">£385</td>
+  <td style="text-align:center;color:var(--muted)">11</td>
   <td style="text-align:center"><span style="color:var(--muted);font-size:.75rem">Not tracked</span></td>
   <td style="text-align:center">—</td>
   <td style="text-align:center;color:var(--muted);font-size:.78rem"><span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span></td>
@@ -1590,6 +1892,290 @@
 
   </section>
   <section id="tab-seo" class="tab-panel">
+    
+<section class="dashboard-section visibility-section">
+  <h2>Organic Visibility</h2>
+  <p class="section-intro">Search Console shows where ROR is already getting impressions. Serper then spot-checks the live Google UK result so the action is based on ranking evidence, not guessing. Window: 2026-05-04 to 2026-05-31.</p>
+  <div class="visibility-stats">
+    <div><strong>25</strong><span>Keywords checked</span></div>
+    <div><strong>15</strong><span>ROR found</span></div>
+    <div><strong>11</strong><span>Top 3</span></div>
+    <div><strong>15</strong><span>Page 1</span></div>
+    <div><strong>10</strong><span>Not top 20</span></div>
+  </div>
+  <div class="visibility-key">
+    <span><b class="key-dot key-good"></b>Good, protect or nudge</span>
+    <span><b class="key-dot key-mid"></b>Useful, improve to top 3</span>
+    <span><b class="key-dot key-bad"></b>Problem, investigate or rebuild support</span>
+  </div>
+  <div class="table-wrap">
+    <table class="seo-table visibility-table">
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Mapped ROR page</th>
+          <th>Impr.</th>
+          <th>Clicks</th>
+          <th>GSC pos.</th>
+          <th>Live rank</th>
+          <th>Above ROR</th>
+          <th>Do this</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr>
+  <td class="kw-cell">embroidered cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-caps" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-caps</a></td>
+  <td class="metric-cell">448</td>
+  <td class="metric-cell">9</td>
+  <td class="metric-cell">8.04</td>
+  <td class="metric-cell"><span class="rank-pill rank-mid">#10</span></td>
+  <td><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
+  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'embroidered cap' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk.</td>
+</tr>
+<tr>
+  <td class="kw-cell">mama sweatshirt</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-mama-sweatshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-mama-sweatshirt</a></td>
+  <td class="metric-cell">89</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.18</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">mylittlecoco.co.uk</span><span class="competitor-chip">next.co.uk</span><span class="competitor-chip">tracystreasuredkeepsakes.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'mama sweatshirt'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-mama-sweatshirt, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/vintage-style-unisex-personalised-slogan-cap</a></td>
+  <td class="metric-cell">53</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.23</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
+  <td><span class="muted-small">No competitor list captured.</span></td>
+  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
+</tr>
+<tr>
+  <td class="kw-cell">white slogan t shirt women</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
+  <td class="metric-cell">95</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.25</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
+  <td><span class="competitor-chip">newlook.com</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'white slogan t shirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">cap embroidered</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</a></td>
+  <td class="metric-cell">64</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.31</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">inkthreadable.co.uk</span><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'cap embroidered'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">christmas sweatshirt</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/merry-varsity-christmas-jumper" target="_blank" rel="noopener">rockonruby.co.uk/products/merry-varsity-christmas-jumper</a></td>
+  <td class="metric-cell">344</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.34</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
+  <td><span class="competitor-chip">next.co.uk</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'christmas sweatshirt', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">christmas sweatshirts uk</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/christmas-jumpers" target="_blank" rel="noopener">rockonruby.co.uk/collections/christmas-jumpers</a></td>
+  <td class="metric-cell">70</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.34</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#3</span></td>
+  <td><span class="competitor-chip">next.co.uk</span><span class="competitor-chip">sillysanta.uk</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'christmas sweatshirts uk', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">bobble hats men</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat" target="_blank" rel="noopener">rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat</a></td>
+  <td class="metric-cell">53</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.4</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">neweracap.co.uk</span><span class="competitor-chip">thehatcompany.com</span><span class="competitor-chip">gooutdoors.co.uk</span><span class="competitor-chip">next.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'bobble hats men'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/mens-personalised-embroidered-initial-bobble-hat, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">white slogan t shirt</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-t-shirts</a></td>
+  <td class="metric-cell">150</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.43</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
+  <td><span class="muted-small">No competitor list captured.</span></td>
+  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
+</tr>
+<tr>
+  <td class="kw-cell">womens slogan knitwear sale</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-sweatshirts</a></td>
+  <td class="metric-cell">91</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.46</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">marksandspencer.com</span><span class="competitor-chip">boohoo.com</span><span class="competitor-chip">joanieclothing.com</span><span class="competitor-chip">ebay.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'womens slogan knitwear sale'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/collections/slogan-sweatshirts, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan tee</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt</a></td>
+  <td class="metric-cell">434</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.59</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
+  <td><span class="muted-small">No competitor list captured.</span></td>
+  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan sweatshirt women</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-sweatshirts</a></td>
+  <td class="metric-cell">133</td>
+  <td class="metric-cell">7</td>
+  <td class="metric-cell">8.59</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
+  <td><span class="competitor-chip">percyandnell.com</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan sweatshirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">embroided cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap</a></td>
+  <td class="metric-cell">84</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.6</td>
+  <td class="metric-cell"><span class="rank-pill rank-mid">#10</span></td>
+  <td><span class="competitor-chip">bluepanda.co.uk</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">jrsindustrial.co.uk</span><span class="competitor-chip">pinterest.com</span></td>
+  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'embroided cap' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include bluepanda.co.uk, vistaprint.co.uk, jrsindustrial.co.uk.</td>
+</tr>
+<tr>
+  <td class="kw-cell">statement t shirts women</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
+  <td class="metric-cell">54</td>
+  <td class="metric-cell">1</td>
+  <td class="metric-cell">8.61</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#3</span></td>
+  <td><span class="competitor-chip">shirtbox.com</span><span class="competitor-chip">newlook.com</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'statement t shirts women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">club tropicana outfit</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/blogs/news/club-tropicana-style-fancy-dress" target="_blank" rel="noopener">rockonruby.co.uk/blogs/news/club-tropicana-style-fancy-dress</a></td>
+  <td class="metric-cell">56</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.64</td>
+  <td class="metric-cell"><span class="rank-pill rank-mid">#5</span></td>
+  <td><span class="competitor-chip">amazon.co.uk</span><span class="competitor-chip">uk.pinterest.com</span><span class="competitor-chip">oliviavonhalle.com</span><span class="competitor-chip">pinkboutique.co.uk</span></td>
+  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'club tropicana outfit' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include amazon.co.uk, uk.pinterest.com, oliviavonhalle.com.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan tshirt women</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/slogan-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/slogan-t-shirts</a></td>
+  <td class="metric-cell">193</td>
+  <td class="metric-cell">2</td>
+  <td class="metric-cell">8.72</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
+  <td><span class="competitor-chip">newlook.com</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan tshirt women', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">can i go read my book cap</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap" target="_blank" rel="noopener">rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap</a></td>
+  <td class="metric-cell">95</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.73</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">alphabetbags.com</span><span class="competitor-chip">sillylittletees.co.uk</span><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">moobou.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'can i go read my book cap'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/embroidered-i-cant-im-reading-slogan-cap, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan t shirt</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt" target="_blank" rel="noopener">rockonruby.co.uk/products/blah-blah-blah-stripe-tshirt</a></td>
+  <td class="metric-cell">188</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.84</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#2</span></td>
+  <td><span class="competitor-chip">zara.com</span></td>
+  <td class="action-cell">Push this from top 3 to position 1. Add a short FAQ that answers 'slogan t shirt', tighten the meta title around the exact phrase, and add one product or lifestyle image alt text that matches the search intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">custom jumpers uk</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/collections/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/collections/personalised-sweatshirts</a></td>
+  <td class="metric-cell">122</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.95</td>
+  <td class="metric-cell"><span class="rank-pill rank-mid">#8</span></td>
+  <td><span class="competitor-chip">store.amcustomclothing.co.uk</span><span class="competitor-chip">mypersonalisedclothing.com</span><span class="competitor-chip">rapanuiclothing.com</span><span class="competitor-chip">vistaprint.co.uk</span></td>
+  <td class="action-cell">Move this page towards the top 3. Rewrite the first 80 words of the mapped page so 'custom jumpers uk' is obvious, add 2 FAQ questions buyers would actually ask, add internal links from related product or blog pages, and make the page explain the gift/use case faster above the fold. The main pages above ROR include store.amcustomclothing.co.uk, mypersonalisedclothing.com, rapanuiclothing.com.</td>
+</tr>
+<tr>
+  <td class="kw-cell">personalised bobble hat</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat" target="_blank" rel="noopener">rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat</a></td>
+  <td class="metric-cell">69</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">8.99</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">tshirtstudio.com</span><span class="competitor-chip">myoddballs.com</span><span class="competitor-chip">swaz.co.uk</span><span class="competitor-chip">millieandralph.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'personalised bobble hat'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/ladies-personalised-embroidered-initial-bobble-hat, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">baby tee slogan</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
+  <td class="metric-cell">76</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">9.01</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">siswhatsthetee.com</span><span class="competitor-chip">pinterest.com</span><span class="competitor-chip">etsy.com</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'baby tee slogan'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">baby tee with text</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
+  <td class="metric-cell">58</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">9.12</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">whenindoubt.co</span><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">inprintwetrust.co</span><span class="competitor-chip">pinterest.com</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'baby tee with text'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan baby tee</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee" target="_blank" rel="noopener">rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee</a></td>
+  <td class="metric-cell">423</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">9.2</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">girlgang.shop</span><span class="competitor-chip">siswhatsthetee.com</span><span class="competitor-chip">pinterest.com</span><span class="competitor-chip">vogue.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'slogan baby tee'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/custom-embroidered-slogan-baby-tee, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr>
+<tr>
+  <td class="kw-cell">slogan jumpers</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-sweatshirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-sweatshirts</a></td>
+  <td class="metric-cell">117</td>
+  <td class="metric-cell">0</td>
+  <td class="metric-cell">9.21</td>
+  <td class="metric-cell"><span class="rank-pill rank-good">#1</span></td>
+  <td><span class="muted-small">No competitor list captured.</span></td>
+  <td class="action-cell">Protect this ranking. Do not rewrite the page heavily. Add one fresh internal link from a related blog or collection, keep the product examples current, and use this keyword in one supporting social/Pinterest asset so the page keeps getting visibility signals.</td>
+</tr>
+<tr>
+  <td class="kw-cell">personalised t shirts</td>
+  <td class="page-cell"><a href="https://rockonruby.co.uk/products/personalised-t-shirts" target="_blank" rel="noopener">rockonruby.co.uk/products/personalised-t-shirts</a></td>
+  <td class="metric-cell">4443</td>
+  <td class="metric-cell">1</td>
+  <td class="metric-cell">18.01</td>
+  <td class="metric-cell"><span class="rank-pill rank-bad">Not top 20</span></td>
+  <td><span class="competitor-chip">tshirtstudio.com</span><span class="competitor-chip">vistaprint.co.uk</span><span class="competitor-chip">photo.asda.com</span><span class="competitor-chip">yourdesign.co.uk</span></td>
+  <td class="action-cell">Check why the mapped page is not showing in the top 20 for 'personalised t shirts'. Compare the page title, collection intro, H1 and first 80 words against the pages currently ranking. If the query fits ROR, add the exact phrase naturally, add 3 internal links to https://rockonruby.co.uk/products/personalised-t-shirts, and create one supporting blog or FAQ section that answers the buyer intent.</td>
+</tr></tbody>
+    </table>
+  </div>
+</section>
     
 <section class="seo-section">
   <h2 class="seo-title">SEO Keyword Action List</h2>
