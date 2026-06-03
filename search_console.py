@@ -28,7 +28,7 @@ TOKEN_FILE = OUTPUT_DIR / "gsc_token.json"
 CACHE_FILE = OUTPUT_DIR / "search_console_cache.json"
 
 SCOPES = ["https://www.googleapis.com/auth/webmasters.readonly"]
-DEFAULT_SITE_URL = "sc-domain:rockonruby.co.uk"
+DEFAULT_SITE_URL = os.environ.get("GSC_SITE_URL", "https://rockonruby.co.uk/")
 
 
 def load_env_credentials() -> Credentials | None:
@@ -215,7 +215,7 @@ def print_summary(cache: dict) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Fetch Google Search Console performance data.")
-    parser.add_argument("--site-url", default=DEFAULT_SITE_URL, help="Search Console site URL, e.g. sc-domain:rockonruby.co.uk")
+    parser.add_argument("--site-url", default=DEFAULT_SITE_URL, help="Search Console site URL, e.g. https://rockonruby.co.uk/ or sc-domain:rockonruby.co.uk")
     parser.add_argument("--days", type=int, default=28, help="Lookback window. Defaults to 28 days.")
     args = parser.parse_args()
 

@@ -34,9 +34,15 @@ jobs:
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
         run: |
           if [ -n "$GOOGLE_CLIENT_ID" ] && [ -n "$GOOGLE_REFRESH_TOKEN" ]; then
-            python search_console.py
+            SITE_URL="${GSC_SITE_URL:-https://rockonruby.co.uk/}"
+            if python search_console.py --site-url "$SITE_URL"; then
+              echo "Search Console cache refreshed for $SITE_URL"
+            else
+              echo "Search Console refresh failed for $SITE_URL; continuing with committed cache"
+            fi
           else
             echo "Skipping Search Console refresh: credentials missing"
           fi
