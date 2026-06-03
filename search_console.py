@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from collections import defaultdict
 from datetime import date, timedelta
 from pathlib import Path
@@ -30,6 +31,25 @@ SCOPES = ["https://www.googleapis.com/auth/webmasters.readonly"]
 DEFAULT_SITE_URL = "sc-domain:rockonruby.co.uk"
 
 
+def load_env_credentials() -> Credentials | None:
+    client_id = os.environ.get("GOOGLE_CLIENT_ID", "")
+    client_secret = os.environ.get("GOOGLE_CLIENT_SECRET", "")
+    refresh_token = os.environ.get("GOOGLE_REFRESH_TOKEN", "")
+    if not client_id or not client_secret or not refresh_token:
+        return None
+
+    creds = Credentials(
+        token=None,
+        refresh_token=refresh_token,
+        token_uri="https://oauth2.googleapis.com/token",
+        client_id=client_id,
+        client_secret=client_secret,
+        scopes=SCOPES,
+    )
+    creds.refresh(Request())
+    return creds
+
+
 def load_credentials() -> Credentials:
     creds = None
     if TOKEN_FILE.exists():
@@ -37,6 +57,9 @@ def load_credentials() -> Credentials:
 
     if creds and creds.expired and creds.refresh_token:
         creds.refresh(Request())
+
+    if not creds or not creds.valid:
+        creds = load_env_credentials()
 
     if not creds or not creds.valid:
         if not CLIENT_FILE.exists():

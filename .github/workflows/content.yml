@@ -2,7 +2,7 @@ name: Content Generator
 
 on:
   schedule:
-    - cron: "0 7 */2 * *"   # Every other day at 8am UK time
+    - cron: "0 7 * * 2"   # Tuesday 8am — day after Monday scrape
   workflow_dispatch:
     inputs:
       keyword:
@@ -28,25 +28,18 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Generate content
+      - name: Generate content outlines (no AI, no token cost)
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CONTENT_KEYWORD: ${{ inputs.keyword }}
-        run: python content_generator.py
+        run: python content_generator.py --no-ai
 
-      - name: Create ClickUp tasks
-        env:
-          CLICKUP_API_KEY: ${{ secrets.CLICKUP_API_KEY }}
-          CLICKUP_LIST_ID: ${{ vars.CLICKUP_LIST_ID }}
-        run: python clickup_tasks.py
-
-      - name: Commit outputs
+      - name: Commit outlines for review
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git add ror_content_draft.md content_history.json || true
-          git diff --cached --quiet || git commit -m "chore: content draft $(date +%Y-%m-%d)"
+          git diff --cached --quiet || git commit -m "chore: content outlines $(date +%Y-%m-%d)"
           git pull --rebase && git push
 
       - name: Prepare Pages deploy

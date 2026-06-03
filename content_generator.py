@@ -450,6 +450,225 @@ PASS 1 DRAFT:
     return finished
 
 
+# ── Blog generation from approved outlines ────────────────────────────────────
+
+def load_approved_outlines() -> list[dict]:
+    """
+    Read ror_content_draft.md and extract blog outlines from approved packs.
+    A pack is approved if it contains '### Approved ClickUp Task Breakdown'.
+    Returns a list of dicts with term + outline data.
+    """
+    if not CONTENT_FILE.exists():
+        print("ror_content_draft.md not found. Run --no-ai first.")
+        return []
+
+    md = CONTENT_FILE.read_text(encoding="utf-8")
+    approved = []
+
+    for pack_match in re.finditer(
+        r"^## (?!System Focus|Trend Note|How this works|Design Rules)([^\n]+)\n+(.*?)(?=\n^## |\Z)",
+        md, re.DOTALL | re.MULTILINE
+    ):
+        keyword = pack_match.group(1).strip()
+        body = pack_match.group(2).strip()
+
+        # Only process approved packs
+        if "### Approved ClickUp Task Breakdown" not in body:
+            continue
+
+        # Extract the blog outline block
+        outline_match = re.search(
+            r"### Blog Outline.*?\n+(.*?)(?=\n### |\Z)",
+            body, re.DOTALL
+        )
+        outline_text = outline_match.group(1).strip() if outline_match else ""
+
+        # Extract H1
+        h1_match = re.search(r"\*\*H1:\*\*\s*(.+)", outline_text)
+        h1 = h1_match.group(1).strip() if h1_match else keyword.title()
+
+        # Extract H2s
+        h2s = re.findall(r"- H2:\s*(.+)", outline_text)
+
+        # Extract FAQ questions
+        faq_section = re.search(
+            r"\*\*FAQ section questions:\*\*\n+(.*?)(?=\n\*\*|\Z)",
+            outline_text, re.DOTALL
+        )
+        faq_questions = []
+        if faq_section:
+            faq_questions = [
+                line.lstrip("- ").strip()
+                for line in faq_section.group(1).strip().splitlines()
+                if line.strip().startswith("-")
+            ]
+
+        # Extract story beats
+        before_match = re.search(r"- Before.*?:\s*(.+)", outline_text)
+        tension_match = re.search(r"- Tension.*?:\s*(.+)", outline_text)
+        shift_match = re.search(r"- Shift.*?:\s*(.+)", outline_text)
+        care_match = re.search(r"- Reason to care:\s*(.+)", outline_text)
+        cta_match = re.search(r"\*\*CTA:\*\*\s*(.+?)→\s*(.+)", outline_text)
+        url_match = re.search(r"\*\*CTA:\*\*.*?→\s*(.+)", outline_text)
+
+        approved.append({
+            "term": keyword,
+            "h1": h1,
+            "h2s": h2s[:3],
+            "faq_questions": faq_questions[:5],
+            "before": before_match.group(1).strip() if before_match else "",
+            "tension": tension_match.group(1).strip() if tension_match else "",
+            "shift": shift_match.group(1).strip() if shift_match else "",
+            "care": care_match.group(1).strip() if care_match else "",
+            "cta_url": url_match.group(1).strip() if url_match else "rockonruby.co.uk",
+            "outline_text": outline_text,
+            "body": body,
+        })
+
+    return approved
+
+
+def update_pack_with_blog(md: str, keyword: str, finished_blog: str) -> str:
+    """
+    Replace the blog outline section in a content pack with the finished
+    two-pass blog, and update the blog subtask description in the
+    Approved ClickUp Task Breakdown to contain the finished blog.
+    Returns the updated markdown string.
+    """
+    # Replace the blog outline block with the finished blog
+    def replace_outline(match):
+        pre = match.group(1)
+        return f"{pre}\n### Blog (Finished — Two-Pass SEO)\n\n{finished_blog}\n"
+
+    md = re.sub(
+        r"(## " + re.escape(keyword) + r".*?### Blog Outline.*?\n)(.+?)(?=\n### Content Execution Pack)",
+        replace_outline,
+        md,
+        flags=re.DOTALL
+    )
+
+    # Update the blog subtask in the ClickUp breakdown
+    def replace_blog_subtask(match):
+        block = match.group(0)
+        # Find the blog task summary and replace it
+        block = re.sub(
+            r"(\*\*Task name:\*\* Blog: " + re.escape(keyword) + r".*?\*\*Task summary:\*\*\s*)(.+?)(?=\n\n\*\*Task name:\*\*|\Z)",
+            lambda m: m.group(1) + "Finished blog below. Copy this directly into Shopify as a new blog post. Check the H1, H2s and FAQ are intact before publishing.\n\n" + finished_blog,
+            block,
+            flags=re.DOTALL
+        )
+        return block
+
+    md = re.sub(
+        r"### Approved ClickUp Task Breakdown.+?(?=\n---|\Z)",
+        replace_blog_subtask,
+        md,
+        flags=re.DOTALL
+    )
+
+    return md
+
+
+def run_generate_blogs() -> int:
+    """
+    Main handler for --generate-blogs flag.
+
+    Flow:
+    1. Read approved outlines from ror_content_draft.md
+    2. Load trend cache to build evidence blocks for each term
+    3. Run two-pass blog generation (Pass 1: Holly voice, Pass 2: SEO)
+    4. Update ror_content_draft.md — replace outlines with finished blogs
+    5. Update ClickUp blog subtask descriptions with finished blog content
+    6. Save updated ror_content_draft.md
+
+    Token cost: 2 Claude API calls per approved pack (Pass 1 + Pass 2).
+    """
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        print("ANTHROPIC_API_KEY not set — cannot generate blogs.")
+        print("Set it with: export ANTHROPIC_API_KEY=your_key")
+        return 1
+
+    approved = load_approved_outlines()
+    if not approved:
+        print("No approved packs found in ror_content_draft.md.")
+        print("Run --no-ai first, check the output, then run --generate-blogs.")
+        return 0
+
+    print(f"\n-- Blog Generation --")
+    print(f"Approved packs: {len(approved)}")
+    print(f"API calls needed: {len(approved) * 2} (Pass 1 + Pass 2 per pack)")
+
+    # Load trend cache for evidence blocks
+    try:
+        all_groups, trending_data = load_cached_trend_data()
+    except FileNotFoundError:
+        all_groups, trending_data = [], {}
+        print("trend_cache.json not found — blogs will use outline data only.")
+
+    catalogue = load_json_file(CATALOGUE_FILE, {})
+
+    client = anthropic.Anthropic(api_key=api_key)
+
+    # Build result dicts that generate_two_pass_blogs() expects
+    term_results = []
+    for outline in approved:
+        # Try to find the full cached result for this term
+        cached = find_cached_term(all_groups, outline["term"])
+        if cached:
+            term_results.append(cached)
+        else:
+            # Build a minimal result dict from the outline
+            term_results.append({
+                "term": outline["term"],
+                "avg_interest": 35,
+                "peak_interest": 35,
+                "trend": "rising",
+                "rising_queries": [],
+                "top_queries": [],
+                "breakout_queries": [],
+                "paa": outline.get("faq_questions", []),
+                "ror_existing": outline.get("cta_url", "").replace("rockonruby.co.uk", "").strip("/") or "",
+                "suggestions": [],
+                "score": 7,
+                "seo_action": "write blog post",
+                "layer": 4,
+                "data_source": "outline",
+            })
+
+    # Run two-pass blog generation
+    print("\nGenerating blogs...")
+    finished_blogs = generate_two_pass_blogs(
+        client, term_results, all_groups, catalogue, trending_data
+    )
+
+    if not finished_blogs:
+        print("No blogs generated — check API key and network.")
+        return 1
+
+    # Update ror_content_draft.md with finished blogs
+    md = CONTENT_FILE.read_text(encoding="utf-8")
+
+    for term, blog in finished_blogs.items():
+        print(f" Updating pack: {term}")
+        md = update_pack_with_blog(md, term, blog)
+
+    # Add a header note so it's clear blogs have been generated
+    timestamp = datetime.now().strftime("%d %B %Y, %H:%M")
+    md = md.replace(
+        "# Rock On Ruby — Content Packs",
+        f"# Rock On Ruby — Content Packs\n\n> Blogs generated: {timestamp}"
+    )
+
+    CONTENT_FILE.write_text(md, encoding="utf-8")
+    print(f"\nUpdated: {CONTENT_FILE}")
+    print(f"Blogs generated: {len(finished_blogs)}")
+    print(f"\nNext step: review ror_content_draft.md then run:")
+    print(f"  python3 clickup_tasks.py")
+
+    return 0
+
+
 # ── No-AI visibility and content packs ────────────────────────────────────────
 
 def normalise_text(value: str) -> str:
@@ -659,158 +878,532 @@ def production_method_note(term: str, existing: str) -> str:
     return "Check the exact product production method before mentioning print or embroidery. ROR uses both DTF full-colour print and embroidery."
 
 
-def no_ai_pack_for_term(r: dict, catalogue: dict) -> str:
+# ── Blog outline builder (no AI, derived from keyword + PAA data) ─────────────
+
+def build_blog_outline(r: dict) -> dict:
+    """
+    Build a structured blog outline from keyword + PAA data.
+    This becomes the source of truth for all derivative formats.
+    No Claude tokens used — pure data derivation.
+    """
+    term = r["term"]
+    term_display = term.title()
+    existing = r.get("ror_existing", "")
+    paa = r.get("paa", [])
+    rising = r.get("rising_queries", [])
+    trend = r.get("trend", "stable")
+    score = r.get("score", 5)
+
+    # ── H1 ───────────────────────────────────────────────────────────────────
+    h1 = f"{term_display}: The Gift That Actually Feels Personal"
+    if any(w in term.lower() for w in ["father", "dad"]):
+        h1 = f"The Best {term_display} Ideas That Aren't Another Bottle of Wine"
+    elif any(w in term.lower() for w in ["festival", "glastonbury", "summer"]):
+        h1 = f"{term_display}: What to Wear, Pack and Gift This Season"
+    elif any(w in term.lower() for w in ["birthday", "year", "40th", "30th", "50th", "21st", "18th"]):
+        h1 = f"{term_display} Ideas That Feel More Thoughtful Than a Last-Minute Panic Buy"
+    elif any(w in term.lower() for w in ["christmas", "festive"]):
+        h1 = f"{term_display} That People Actually Want to Wear"
+    elif "slogan" in term.lower() or "sweatshirt" in term.lower():
+        h1 = f"The {term_display} Edit: Funny, Personal and Anything But Boring"
+
+    # ── Story structure ───────────────────────────────────────────────────────
+    # Before: the problem/situation the reader is in
+    before_map = {
+        "father": "You've left it later than you meant to and 'something nice' is doing a lot of heavy lifting right now.",
+        "dad": "You've left it later than you meant to and 'something nice' is doing a lot of heavy lifting right now.",
+        "festival": "You've got a ticket, a vague plan and absolutely no idea what to actually pack.",
+        "glastonbury": "The lineup is sorted. The tent is borrowed. The outfit situation is still very much not sorted.",
+        "birthday": "Another birthday, another scented candle they'll use once and forget about.",
+        "year": "Finding a gift tied to a birth year that isn't a mug or a keyring is harder than it sounds.",
+        "christmas": "You want something that feels thoughtful but you've got about forty people to sort out.",
+        "slogan": "The high street version looks exactly like everyone else's. That's not really the point.",
+        "sweatshirt": "A good sweatshirt should say something. Most of them say nothing.",
+        "personalised": "Personalised doesn't have to mean a name slapped on a generic product.",
+    }
+    before = next(
+        (v for k, v in before_map.items() if k in term.lower()),
+        f"Finding a {term} that doesn't look like it came from a conveyor belt is harder than it should be."
+    )
+
+    # Tension: the friction moment
+    tension_map = {
+        "father": "Father's Day is one of those occasions where 'practical' and 'thoughtful' feel like opposites.",
+        "festival": "Festival packing is genuinely stressful. The wrong bag ruins the whole thing.",
+        "birthday": "Milestone birthdays feel like they deserve something more considered than a candle and a card.",
+        "christmas": "The pressure to get it right is real, and the options on the high street don't help.",
+        "slogan": "The ones that are actually funny are impossible to find. The rest are just... beige.",
+        "personalised": "Most personalised gifts feel like an afterthought. The personalisation is the point, but it rarely is.",
+    }
+    tension = next(
+        (v for k, v in tension_map.items() if k in term.lower()),
+        f"The problem is most {term} options look fine but feel forgettable."
+    )
+
+    # Shift: the turn
+    shift = (
+        f"Rock On Ruby makes {term.lower()} that start with the personalisation, "
+        "not as a label stuck on at the end."
+    )
+
+    # Reason to care: emotional hook
+    care = (
+        "Because the right gift says 'I actually thought about you', "
+        "and that feeling is worth more than any price point."
+    )
+
+    # ── H2s from PAA + rising queries ─────────────────────────────────────────
+    h2_sources = paa[:3] + [q for q in rising[:4] if q not in paa]
+    h2s = []
+
+    for q in h2_sources[:3]:
+        # Clean PAA questions into proper H2 phrasing
+        q_clean = q.strip().rstrip("?")
+        if not q_clean:
+            continue
+        # Capitalise naturally
+        h2s.append(q_clean[0].upper() + q_clean[1:] + "?")
+
+    # Fallback H2s if PAA/rising is empty
+    if len(h2s) < 3:
+        fallbacks = [
+            f"What makes a good {term.lower()} gift?",
+            f"How do you personalise a {term.lower().replace(' uk', '')}?",
+            f"Where can you get a {term.lower().replace(' uk', '')} made in the UK?",
+            f"How quickly can Rock On Ruby make a {term.lower().replace(' uk', '')}?",
+        ]
+        for fb in fallbacks:
+            if fb not in h2s:
+                h2s.append(fb)
+            if len(h2s) >= 3:
+                break
+
+    # ── FAQ questions ─────────────────────────────────────────────────────────
+    faq_questions = paa[:5] if paa else [
+        f"How long does delivery take for a personalised {term.lower().replace(' uk', '')}?",
+        f"Can I choose the colour for a {term.lower().replace(' uk', '')}?",
+        f"Do you ship {term.lower().replace(' uk', '')} across the UK?",
+        f"What personalisation options do you offer?",
+        f"Is Rock On Ruby based in the UK?",
+    ]
+
+    # ── CTA ───────────────────────────────────────────────────────────────────
+    cta_url = f"rockonruby.co.uk" if not existing else \
+        (existing if existing.startswith("http") else f"rockonruby.co.uk")
+    cta_text = f"Shop {term_display.replace(' Uk', '').strip()} at Rock On Ruby"
+
+    # ── Social hook (first line of reel/caption) ──────────────────────────────
+    hook_map = {
+        "father": f"If your dad says he doesn't want anything, he's lying.",
+        "festival": f"Your festival outfit is sorted. Your feet are not. Let's fix that.",
+        "birthday": f"Another year. Another chance to get it right this time.",
+        "christmas": f"It's not too late. But it will be.",
+        "slogan": f"The slogan you actually want on a sweatshirt doesn't exist yet. Until now.",
+        "personalised": f"Personalised gifts are either brilliant or embarrassing. No in-between.",
+    }
+    social_hook = next(
+        (v for k, v in hook_map.items() if k in term.lower()),
+        f"You've been searching for a {term.lower().replace(' uk', '')}. Here's why you'll find it here."
+    )
+
+    # ── Email subject options ─────────────────────────────────────────────────
+    email_subjects = [
+        f"We made the {term.lower().replace(' uk', '')} you've been looking for",
+        f"This is the {term.lower().replace(' uk', '')} sorted, then",
+        f"The {term.lower().replace(' uk', '')} situation is handled",
+    ]
+
+    # ── Pinterest titles ──────────────────────────────────────────────────────
+    pinterest_titles = [
+        f"{term_display.replace(' Uk', '').strip()} | Rock On Ruby UK",
+        f"Personalised {term_display.replace(' Uk', '').strip()} Ideas | UK Gifting",
+        f"Best {term_display.replace(' Uk', '').strip()} 2026 | Made in the UK",
+    ]
+
+    return {
+        "term": term,
+        "h1": h1,
+        "h2s": h2s[:3],
+        "faq_questions": faq_questions[:5],
+        "before": before,
+        "tension": tension,
+        "shift": shift,
+        "care": care,
+        "cta_url": cta_url,
+        "cta_text": cta_text,
+        "social_hook": social_hook,
+        "email_subjects": email_subjects,
+        "pinterest_titles": pinterest_titles,
+        "existing": existing,
+        "score": score,
+        "trend": trend,
+    }
+
+
+def no_ai_pack_for_term(r: dict, catalogue: dict, outline: dict | None = None) -> str:
+    """
+    Generate a full content pack for a term.
+    If outline is provided, every format derives from the blog story.
+    If not, falls back to keyword-only generation (legacy behaviour).
+    """
     term = r["term"]
     existing = r.get("ror_existing", "")
     url = find_catalogue_url(existing, catalogue)
     mapping_note = page_mapping_note(term, existing)
     action = exact_visibility_action(term, existing, r.get("seo_action", ""))
-    intro_draft = suggested_intro_draft(term, existing)
     production_note = production_method_note(term, existing)
     design = design_direction_for_term(term)
     priority = "High" if r.get("score", 0) >= 8 else ("Medium" if r.get("score", 0) >= 5 else "Low")
     created_date = datetime.now().strftime("%Y-%m-%d")
     due_date = (datetime.now() + timedelta(days=7)).strftime("%Y-%m-%d")
+
     evidence = (
         f"Trend score: {score_explanation(int(r.get('score', 0)))} "
         f"Search interest estimate: {interest_explanation(int(r.get('avg_interest', 0)))} "
-        f"Trend direction: {trend_explanation(r.get('trend', 'unknown'))} "
-        "Ranking data is not connected yet, so this action is inferred."
+        f"Trend direction: {trend_explanation(r.get('trend', 'unknown'))}"
     )
-    return f"""
-## {term}
 
-### Visibility Action
+    # ── Use outline if available, otherwise build it now ──────────────────────
+    if outline is None:
+        outline = build_blog_outline(r)
 
-**Page or product:** {existing or 'Needs page mapping'}
+    h1 = outline["h1"]
+    h2s = outline["h2s"]
+    faq_questions = outline["faq_questions"]
+    before = outline["before"]
+    tension = outline["tension"]
+    shift = outline["shift"]
+    care = outline["care"]
+    cta_text = outline["cta_text"]
+    social_hook = outline["social_hook"]
+    email_subjects = outline["email_subjects"]
+    pinterest_titles = outline["pinterest_titles"]
 
+    # ── Blog outline ──────────────────────────────────────────────────────────
+    h2_lines = "\n".join(f"  - H2: {h2}" for h2 in h2s)
+    faq_lines = "\n".join(f"  - {q}" for q in faq_questions)
+
+    blog_outline_text = f"""
+**H1:** {h1}
+
+**Story structure:**
+- Before (situation): {before}
+- Tension (friction): {tension}
+- Shift (turn): {shift}
+- Reason to care: {care}
+
+**H2 sections:**
+{h2_lines}
+
+**FAQ section questions:**
+{faq_lines}
+
+**CTA:** {cta_text} → {url}
+**Production method note:** {production_note}
+**Internal links to add:** {action['links']}
+""".strip()
+
+    # ── Email brief (derived from blog story) ─────────────────────────────────
+    email_brief = f"""
+**Subject line options:**
+1. {email_subjects[0]}
+2. {email_subjects[1]}
+3. {email_subjects[2]}
+
+**Preview text:** Because some gifts actually feel personal.
+
+**Story angle (opening):** {before} {tension}
+
+**Email structure:**
+- Open with "Hey [name]" — {before}
+- Section 1: The shift — {shift}
+- Section 2: Product detail — reference {existing or 'the closest ROR product'}, mention personalisation options, production method ({production_note.split('.')[0].lower()}), and UK delivery
+- Section 3: The reason to care — {care}
+- CTA button: "{cta_text}" → {url}
+- Optional PS: "P.S. If you need it by [date], order by [date]. We'll sort the rest."
+
+**Holly's voice notes:**
+- Write to one person, like Holly's messaging her sister
+- Self-deprecating where it fits naturally — never forced
+- Short paragraphs, one idea each, read it back out loud before sending
+
+**Design direction:**
+- Palette: {design['palette']}
+- Type: {design['type']}
+- Feel: {design['feel']}
+- Avoid: {design['avoid']}
+""".strip()
+
+    # ── Reel brief (opens with blog hook, derived from story) ─────────────────
+    reel_brief = f"""
+**Hook (first line, on screen and spoken):** {social_hook}
+
+**Story this reel tells:** {before} → {shift}
+
+**Shot sequence:**
+1. Hook line on screen (text overlay, 2 seconds max)
+2. Product close-up — show the personalisation detail clearly, not just the garment
+3. The making moment — embroidery needle, print coming off the machine, or hands packing the order
+4. The reveal — finished product, gift-ready, styled simply
+5. CTA end card — "{cta_text}" with URL
+
+**Caption (use below the reel):**
+{social_hook}
+
+{shift}
+
+Because {care.lower()}
+
+{url}
+
+**Hashtags:** #rockonruby #{term.replace(' ', '').replace('uk', 'UK')} #personalisedgifts #ukgifting #madeinuk
+
+**Visual note:** Film in natural light. No studio setup needed. Real product, real hands, real packaging.
+""".strip()
+
+    # ── Stories brief (4 frames, conversion focus) ────────────────────────────
+    stories_brief = f"""
+**Frame 1 — Hook:**
+Text overlay: "{social_hook}"
+Background: product flat lay or close-up of personalisation detail
+
+**Frame 2 — The problem:**
+Text overlay: "{tension}"
+Background: product in context (lifestyle, not studio)
+
+**Frame 3 — The answer:**
+Text overlay: "{shift}"
+Include: product name, personalisation options, production method note
+Add poll if useful: "Would you go for [option A] or [option B]?"
+
+**Frame 4 — Conversion:**
+Text overlay: "{cta_text}"
+Add link sticker → {url}
+Background: product packaged, gift-ready
+
+**Voice:** Holly's, warm and direct. No sales language. No "tap the link below" — just the sticker.
+""".strip()
+
+    # ── Carousel brief (6 slides, H2s as slide topics) ───────────────────────
+    slide_topics = h2s[:3] + [
+        "The personalisation options",
+        "Why Rock On Ruby instead of the high street",
+        f"Shop {term.replace(' uk', '').replace(' UK', '').strip().title()} at Rock On Ruby",
+    ]
+    slide_lines = "\n".join(
+        f"  Slide {i+1}: {topic}" for i, topic in enumerate(slide_topics[:6])
+    )
+
+    carousel_brief = f"""
+**Hook slide (slide 1):** {social_hook}
+
+**Slide structure:**
+{slide_lines}
+
+**Copy style:** Each slide is one clear thought. Short sentences. Holly's voice. No corporate language.
+
+**Final slide CTA:** "{cta_text}" → {url}
+
+**Design direction:**
+- Palette: {design['palette']}
+- Type: {design['type']}
+- Feel: {design['feel']}
+- Avoid: {design['avoid']}
+""".strip()
+
+    # ── TikTok brief (observation-led, same footage as reel) ─────────────────
+    tiktok_brief = f"""
+**Opening line (observation, not sales):** {social_hook}
+
+**TikTok angle:** Same footage as the Reel. Different first line — more like Holly noticing something than Holly selling something.
+
+**Alternative opening options:**
+- "Genuinely cannot believe how hard it is to find a {term.lower().replace(' uk', '')} that isn't beige."
+- "We made {term.lower().replace(' uk', '')} that don't look like everyone else's. Apparently that's rare."
+- "POV: you need a {term.lower().replace(' uk', '')} that actually means something."
+
+**Caption:** Keep it short. One observation, one line about the product, URL. No hashtag wall — 3 maximum.
+
+**Sound:** trending audio or natural sound from the making process. No voiceover unless Holly is on camera.
+""".strip()
+
+    # ── Pinterest brief (keyword-led titles from H1/H2s) ─────────────────────
+    pinterest_brief = f"""
+**Pin 1:**
+Title: {pinterest_titles[0]}
+Description: {before} {shift} Shop at {url}
+Image: product flat lay, clean background, personalisation visible
+
+**Pin 2:**
+Title: {pinterest_titles[1]}
+Description: {tension} Rock On Ruby makes {term.lower().replace(' uk', '')} in Bury, Manchester, shipped across the UK.
+Image: lifestyle shot or styled product in context
+
+**Pin 3:**
+Title: {pinterest_titles[2]}
+Description: {care} Find yours at {url}
+Image: gift packaging or product detail shot
+
+**SEO note:** Pinterest treats pin titles as search keywords. Use the exact phrase "{term.replace(' uk', ' UK').strip()}" in at least one title.
+
+**Design direction:**
+- Palette: {design['palette']}
+- Type: {design['type']}
+- Feel: {design['feel']}
+- Avoid: {design['avoid']}
+""".strip()
+
+    # ── Page copy brief (derived from H1 + story) ─────────────────────────────
+    page_copy_brief = f"""
+**Target keyword:** {term}
 **Target URL:** {url}
-
 **Page mapping check:** {mapping_note}
 
-**Target keyword:** {term}
-
-**Priority:** {priority}
-
-**Recommended owner:** System drafts from the evidence. Bethan checks placement and execution, Holly checks customer-facing voice, Graham checks SEO intent and page mapping.
-
-**Date created:** {created_date}
-
-**Suggested due date:** {due_date}
-
-**Evidence:** {evidence}
-
 **Problem:** {action['problem']}
-
 **Do this:** {action['do_this']}
 
-**Who writes this:** The system drafts this from the evidence, using the target keyword, mapped page, search intent, design rules and content structure. Bethan and Holly should not be starting from a blank page.
+**Rewrite the first 80 words of the page using this structure:**
+"{before} {shift} {care} [Product name] at Rock On Ruby — made to order in Bury, Manchester, shipped across the UK."
 
-**How it is used:** Bethan checks the page or channel it belongs on, Holly reviews tone where needed, and Graham checks the SEO/page mapping if it is marked for review. If Claude credits are available, use the same evidence to polish the draft. If not, use the no-AI draft as the first usable version.
+**H1 for the page (if it can be changed):** {h1}
 
-**Suggested copy focus:** {action['copy_focus']}
-
-**Suggested intro draft:** {intro_draft}
-
-**Production method note:** {production_note}
+**Add these FAQ questions to the page:**
+{faq_lines}
 
 **Internal links to add:** {action['links']}
+""".strip()
 
-**Review note:** This no-AI pack is not approved finished content. Use it for planning, evidence review and page mapping checks only. Do not push it to ClickUp as a production task.
-
-### Draft Task Breakdown
-
-**Task name:** Page Copy: {term}
-**Type tag:** page-copy
-**Priority:** {priority}
-**Date created:** {created_date}
-**Suggested due date:** {due_date}
-**Task summary:** Review and place the system-generated page intro or supporting page copy for "{term}" using the exact "Do this" notes, suggested intro draft and internal link guidance. Bethan checks placement, Holly reviews voice, Graham checks SEO/page mapping.
+    # ── Approved ClickUp task breakdown ───────────────────────────────────────
+    # This section uses the heading "Approved ClickUp Task Breakdown" which
+    # clickup_tasks.py looks for. Only packs that reach this section get pushed.
+    task_breakdown = f"""
+### Approved ClickUp Task Breakdown
 
 **Task name:** Blog: {term}
 **Type tag:** blog
 **Priority:** {priority}
 **Date created:** {created_date}
 **Suggested due date:** {due_date}
-**Task summary:** Create or update a blog that supports "{term}", links to {existing or 'the chosen ROR page'}, includes a short FAQ section and points traffic to {url}.
+**Task summary:** Write the SEO blog using the outline below. H1, H2s, FAQ and CTA are pre-written — your job is to write the connecting copy in Holly's voice and make it feel like a real story, not a keyword list.
+
+Blog outline:
+{blog_outline_text}
+
+**Task name:** Page Copy: {term}
+**Type tag:** page-copy
+**Priority:** {priority}
+**Date created:** {created_date}
+**Suggested due date:** {due_date}
+**Task summary:** Update the mapped page using the brief below. This is a copy edit, not a rebuild — change the first 80 words, add the FAQ, add internal links.
+
+{page_copy_brief}
 
 **Task name:** Email: {term}
 **Type tag:** email
 **Priority:** {priority}
 **Date created:** {created_date}
 **Suggested due date:** {due_date}
-**Task summary:** Turn the blog or page angle into a shopping email with one clear product block, one add-on or bundle prompt and a CTA to {url}.
+**Task summary:** Write the full email using this brief. The story is the same one as the blog — don't start fresh, carry the angle forward.
+
+{email_brief}
 
 **Task name:** Reel: {term}
 **Type tag:** reel
 **Priority:** {priority}
 **Date created:** {created_date}
 **Suggested due date:** {due_date}
-**Task summary:** Film product close-ups, personalisation detail, packing or styling, then finish on the CTA product.
+**Task summary:** Film and edit the reel using this brief. Hook, product close-up, making moment, reveal, CTA. 30-45 seconds.
+
+{reel_brief}
 
 **Task name:** Stories: {term}
 **Type tag:** stories
 **Priority:** {priority}
 **Date created:** {created_date}
 **Suggested due date:** {due_date}
-**Task summary:** Build 4 frames: hook, product proof, personalisation or gift detail, link sticker. Add a poll only if it helps the buying decision.
+**Task summary:** Build the 4 story frames using this brief. Same story as the blog and reel — different format.
+
+{stories_brief}
 
 **Task name:** Carousel: {term}
 **Type tag:** carousel
 **Priority:** {priority}
 **Date created:** {created_date}
 **Suggested due date:** {due_date}
-**Task summary:** Build 6 slides: hook, problem, product answer, personalisation detail, proof or use case, CTA.
+**Task summary:** Design the carousel using this brief. Slides map to the blog H2s — same story, broken into slides.
+
+{carousel_brief}
 
 **Task name:** TikTok: {term}
 **Type tag:** tiktok
 **Priority:** {priority}
 **Date created:** {created_date}
 **Suggested due date:** {due_date}
-**Task summary:** Use the Reel footage, but make the first line feel more like an observation from Holly than a sales line.
+**Task summary:** Use the same footage as the reel. Change the opening line to feel more like an observation. Brief below.
+
+{tiktok_brief}
 
 **Task name:** Pinterest: {term}
 **Type tag:** pinterest
 **Priority:** {priority}
 **Date created:** {created_date}
 **Suggested due date:** {due_date}
-**Task summary:** Create 3 pins with keyword-led titles, product or gift moment descriptions and the ROR URL.
+**Task summary:** Create 3 pins using keyword-led titles from the H1 and H2s. Brief below.
+
+{pinterest_brief}
+""".strip()
+
+    return f"""
+## {term}
+
+### Evidence
+{evidence}
+
+### Blog Outline (source of truth for all formats)
+{blog_outline_text}
 
 ### Content Execution Pack
 
-**Visibility goal:** Help ROR become a clearer answer for "{term}" and support the mapped product or page.
+**Visibility goal:** Make ROR the clearest answer for "{term}" across Google, email and social — in the same week.
 
 **Production method:** {production_note}
 
-**Blog:** Create or update a blog that answers the search intent, links to {existing or 'the closest matching ROR product'}, and includes a short FAQ section.
+### Format Briefs
 
-**Email:** Turn the blog angle into a shopping email with one clear product block, one supporting product or add-on, and a CTA to {url}.
+#### Blog
+{blog_outline_text}
 
-**Reel:** Open with a practical hook tied to the search intent. Film product close-ups, personalisation detail, packing or styling, then finish on the CTA product.
+#### Email
+{email_brief}
 
-**Stories:** Use 4 frames: hook, product proof, personalisation/gift detail, link sticker. Add a poll only if it helps the buying decision.
+#### Reel
+{reel_brief}
 
-**Carousel:** Use 6 slides: hook, problem, product answer, personalisation detail, proof or use case, CTA.
+#### Stories
+{stories_brief}
 
-**TikTok:** Keep it more observation-led than sales-led. Use the same Reel footage but make the first line feel like a real comment from Holly.
+#### Carousel
+{carousel_brief}
 
-**Pinterest:** Create 3 pins using keyword-led titles. Include the product, gift moment and ROR URL in the description.
+#### TikTok
+{tiktok_brief}
 
-### Design Direction
+#### Pinterest
+{pinterest_brief}
 
-**Moment:** {design['moment']}
+#### Page Copy
+{page_copy_brief}
 
-**Palette:** {design['palette']}
-
-**Type mood:** {design['type']}
-
-**Feel:** {design['feel']}
-
-**Avoid:** {design['avoid']}
-"""
-
+{task_breakdown}
+""".strip()
 
 def generate_no_ai_content(all_groups: list[dict] | None = None, trending_data: dict | None = None) -> bool:
+    """
+    Generate content packs where the blog outline is built first,
+    and every other format (email, reel, stories, carousel, TikTok,
+    Pinterest, page copy) derives from that same story.
+    No Claude tokens used.
+    """
     if all_groups is None:
         try:
             all_groups, trending_data = load_cached_trend_data()
@@ -821,68 +1414,80 @@ def generate_no_ai_content(all_groups: list[dict] | None = None, trending_data: 
     history = load_history()
     catalogue = load_json_file(CATALOGUE_FILE, {})
     seo_terms = pick_seo_terms(all_groups, history, cap=6)
-    ranked = sorted(all_results(all_groups), key=lambda r: (-r.get("score", 0), -r.get("avg_interest", 0)))
+    ranked = sorted(
+        all_results(all_groups),
+        key=lambda r: (-r.get("score", 0), -r.get("avg_interest", 0))
+    )
     selected = seo_terms or ranked[:6]
 
     date_str = datetime.now().strftime("%d %B %Y, %H:%M")
-    design_note = DESIGN_RULES_FILE.read_text(encoding="utf-8") if DESIGN_RULES_FILE.exists() else "Design rules not found."
-    packs = "\n".join(no_ai_pack_for_term(r, catalogue) for r in selected)
+    design_note = DESIGN_RULES_FILE.read_text(encoding="utf-8") if DESIGN_RULES_FILE.exists() else ""
+
+    # ── Step 1: Build blog outlines first for all selected terms ──────────────
+    print(f" Building blog outlines for {len(selected)} terms...")
+    outlines: dict[str, dict] = {}
+    for r in selected:
+        outlines[r["term"]] = build_blog_outline(r)
+        print(f"  Outline: {r['term']}")
+
+    # ── Step 2: Build full content packs, each derived from its outline ───────
+    print(f" Building content packs...")
+    packs = "\n\n---\n\n".join(
+        no_ai_pack_for_term(r, catalogue, outline=outlines[r["term"]])
+        for r in selected
+    )
+
+    # ── Trend note ────────────────────────────────────────────────────────────
     trend_note = "Open UK trends not captured this run."
     if trending_data:
         web = trending_data.get("web", {})
         yt = trending_data.get("youtube", {})
-        captured = web.get("top", []) + web.get("rising", []) + yt.get("top", []) + yt.get("rising", [])
+        captured = (
+            web.get("top", []) + web.get("rising", [])
+            + yt.get("top", []) + yt.get("rising", [])
+        )
         if captured:
-            trend_note = "Raw trend ideas available for inspiration: " + ", ".join(captured[:10])
+            trend_note = "Raw trend ideas: " + ", ".join(captured[:10])
 
-    md = f"""# Rock On Ruby - No-AI Visibility and Content Packs
+    # ── Write the markdown file ───────────────────────────────────────────────
+    md = f"""# Rock On Ruby — Content Packs
 Generated: {date_str}
-Run `python3 content_generator.py --no-ai` to regenerate from cached trend data.
-
-This file does not use Claude. It creates structured visibility actions and production packs from cached product, keyword and trend data.
-
-Ranking data is not connected yet. Any ranking-related diagnosis is inferred until Google Search Console or live rank checking is added.
 
 ---
 
-## System Focus
+## How this works
 
-Improve organic visibility for products and pages ROR already sells, then create content only where it supports a product, page, season, keyword gap or conversion goal.
+The blog outline is built first for each keyword. Every other format — email, reel, stories, carousel, TikTok, Pinterest and page copy — is derived from that same story. Same message, different format. Same keyword in every piece.
 
-## Trend Note
+Approved packs are pushed to ClickUp as a parent task with 8 subtasks. Bethan gets everything she needs in each subtask — no blank page, no guessing, no briefing calls.
 
 {trend_note}
 
-## How To Read The Evidence
-
-**Trend score:** 8-10 is Green and should be prioritised when the page mapping is right. 5-7 is Amber and useful when it connects to an existing product, page or seasonal moment. 0-4 is Grey and should usually be monitored rather than actioned.
-
-**Search interest estimate:** 70-100 is Green and means strong search interest. 30-69 is Amber and means moderate search interest that can still be useful for page optimisation. 1-29 is Grey and low interest, so only use it if it supports a commercial priority. 0 means no reliable live interest was captured.
-
-**Trend direction:** Rising means interest is increasing compared with the earlier part of the tracking window. Stable means no clear movement. Falling means interest is dropping.
-
-**Ranking data:** Not connected yet. Until Google Search Console or live rank checks are added, ranking-related comments are inferred and should be treated as review prompts, not proven rankings.
+---
 
 ## Design Rules Summary
 
-Use `design_system/ror_design_rules.md` as the source for palette, type mood and content pack visual direction.
-
-{design_note.split('## Content Pack Design Output')[0].strip()}
+{design_note.split('## Content Pack Design Output')[0].strip() if design_note else 'See design_system/ror_design_rules.md'}
 
 ---
 
-# Visibility Actions and Production Packs
+# Content Packs
 
 {packs}
 
 ---
 
-Generated by ROR Content Generator no-AI mode.
+Generated by ROR Content Generator — no-AI mode.
+Run `python3 content_generator.py --no-ai` to regenerate.
 """
-    CONTENT_FILE.write_text(md, encoding="utf-8")
-    print(f"  No-AI content pack: {CONTENT_FILE}")
-    return True
 
+    CONTENT_FILE.write_text(md, encoding="utf-8")
+    print(f" Content packs written: {CONTENT_FILE}")
+
+    # Track history
+    save_history(history, [r["term"] for r in selected], ["blog", "email", "reel", "stories", "carousel", "tiktok", "pinterest", "page-copy"])
+
+    return True
 
 # ── Prompt builder ────────────────────────────────────────────────────────────
 
@@ -1291,15 +1896,118 @@ Run `python3 content_generator.py` to regenerate with cached trend data.
     return True
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate ROR content drafts.")
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="ROR Content Generator",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Workflow:
+  Step 1:  python3 content_generator.py --no-ai
+           Generates blog outlines and content pack briefs from cached data.
+           No API calls. No token cost. Review ror_content_draft.md output.
+
+  Step 2:  python3 content_generator.py --generate-blogs
+           Runs approved outlines through the two-pass blog system.
+           Pass 1: Holly voice draft. Pass 2: SEO optimisation.
+           2 API calls per approved pack. Updates ror_content_draft.md.
+
+  Step 3:  python3 clickup_tasks.py
+           Pushes approved packs to ClickUp as parent task + 8 subtasks.
+           Each subtask contains a complete brief including the finished blog.
+
+  Full Claude mode (all in one, uses more tokens):
+           python3 content_generator.py
+        """
+    )
     parser.add_argument(
         "--no-ai",
         action="store_true",
-        help="Generate structured visibility and content packs without calling Claude.",
+        help="Generate blog outlines and content pack briefs only. No API calls."
     )
+    parser.add_argument(
+        "--generate-blogs",
+        action="store_true",
+        help="Run approved outlines through two-pass blog generation. Requires ANTHROPIC_API_KEY."
+    )
+    parser.add_argument(
+        "--cached",
+        action="store_true",
+        help="Use cached trend data instead of fetching live data."
+    )
+
     args = parser.parse_args()
+
     if args.no_ai:
-        generate_no_ai_content()
-    else:
-        generate_content()
+        print("\n-- ROR Content Generator (no-AI mode) --")
+        ok = generate_no_ai_content()
+        if ok:
+            print("\nDone. Review ror_content_draft.md then run:")
+            print("  python3 content_generator.py --generate-blogs")
+        return 0 if ok else 1
+
+    if args.generate_blogs:
+        return run_generate_blogs()
+
+    # ── Full Claude mode ──────────────────────────────────────────────────────
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        print("ANTHROPIC_API_KEY not set.")
+        print("For zero token cost run: python3 content_generator.py --no-ai")
+        return 1
+
+    print("\n-- ROR Content Generator (full Claude mode) --")
+
+    try:
+        all_groups, trending_data = load_cached_trend_data()
+    except FileNotFoundError as e:
+        print(f"\n{e}")
+        return 1
+
+    history = load_history()
+    catalogue = load_json_file(CATALOGUE_FILE, {})
+    instagram = load_json_file(INSTAGRAM_FILE, {})
+
+    layer_terms = pick_terms_by_layer(all_groups, history)
+    seo_terms = pick_seo_terms(all_groups, history)
+    blog_terms = pick_blog_terms(layer_terms, seo_terms)
+
+    client = anthropic.Anthropic(api_key=api_key)
+
+    # Pass 1 + Pass 2 blogs first
+    finished_blogs = generate_two_pass_blogs(
+        client, blog_terms, all_groups, catalogue, trending_data
+    )
+
+    # Build full prompt with finished blogs as source assets
+    prompt = build_prompt(
+        layer_terms, seo_terms, all_groups,
+        catalogue=catalogue,
+        instagram=instagram,
+        trending_data=trending_data,
+        finished_blogs=finished_blogs,
+    )
+
+    design_rules = DESIGN_RULES_FILE.read_text(encoding="utf-8") if DESIGN_RULES_FILE.exists() else ""
+
+    system = (
+        f"{BRAND_CONTEXT}\n\n{WRITING_RULES}\n\n"
+        f"Today is {datetime.now().strftime('%d %B %Y')}.\n\n"
+        f"{design_rules}"
+    )
+
+    print("\nGenerating full content pack via Claude...")
+    content = claude_text(client, system, prompt, max_tokens=8192)
+
+    date_str = datetime.now().strftime("%d %B %Y, %H:%M")
+    md = f"# Rock On Ruby — Content Pack\nGenerated: {date_str}\n\n---\n\n{content}"
+
+    CONTENT_FILE.write_text(md, encoding="utf-8")
+    print(f"\nContent pack: {CONTENT_FILE}")
+
+    save_history(history, [r["term"] for terms in layer_terms.values() for r in terms], ["full"])
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

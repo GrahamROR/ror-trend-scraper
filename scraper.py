@@ -12,6 +12,7 @@ Usage:
 
 import json
 import os
+import re
 import sys
 import time
 import random
@@ -25,6 +26,8 @@ from pytrends.request import TrendReq
 
 SERPER_KEY   = os.environ.get("SERPER_API_KEY", "")
 SERPAPI_KEY  = os.environ.get("SERPAPI_KEY", "")
+DATAFORSEO_LOGIN    = os.environ.get("DATAFORSEO_LOGIN", "")
+DATAFORSEO_PASSWORD = os.environ.get("DATAFORSEO_PASSWORD", "")
 OUTPUT_DIR   = Path(__file__).parent
 REPORT_FILE  = OUTPUT_DIR / "trend_report.html"
 CACHE_FILE   = OUTPUT_DIR / "trend_cache.json"
@@ -33,6 +36,7 @@ OPEN_TRENDS_FILE = OUTPUT_DIR / "open_trends.json"
 LAYER4_CACHE = OUTPUT_DIR / "layer4_expanded.json"
 SEARCH_CONSOLE_CACHE_FILE = OUTPUT_DIR / "search_console_cache.json"
 RANK_TRACKER_CACHE_FILE = OUTPUT_DIR / "rank_tracker_cache.json"
+CONTENT_FILE = OUTPUT_DIR / "ror_content_draft.md"
 
 GEO              = "GB"
 TIMEFRAME        = "today 3-m"
@@ -53,11 +57,96 @@ _CATALOGUE: dict = {}
 
 
 def trends_client() -> TrendReq:
-    """Create pytrends lazily so cached/report-only runs do not need network access."""
-    global _PT
-    if _PT is None:
-        _PT = TrendReq(hl="en-GB", tz=0, retries=3, backoff_factor=0.5)
-    return _PT
+    """
+    pytrends has been replaced by DataForSEO for reliable UK search volume.
+    This stub exists so any remaining references do not cause import errors.
+    """
+    raise RuntimeError(
+        "pytrends is no longer used. "
+        "Set DATAFORSEO_LOGIN and DATAFORSEO_PASSWORD instead."
+    )
+
+
+def dataforseo_search_volume(term: str) -> dict:
+    """
+    Fetch real UK monthly search volume from DataForSEO Keywords Data API.
+    Returns {"avg": int, "peak": int, "trend": str} or {} on failure.
+    Cost: ~$0.0005 per keyword. 50 keywords/week ≈ £1/month.
+    """
+    if not DATAFORSEO_LOGIN or not DATAFORSEO_PASSWORD:
+        return {}
+
+    try:
+        import base64
+        credentials = base64.b64encode(
+            f"{DATAFORSEO_LOGIN}:{DATAFORSEO_PASSWORD}".encode()
+        ).decode()
+
+        payload = [{
+            "keywords": [term],
+            "location_code": 2826,   # United Kingdom
+            "language_code": "en",
+            "date_from": (
+                datetime.now() - timedelta(days=365)
+            ).strftime("%Y-%m-%d"),
+        }]
+
+        resp = requests.post(
+            "https://api.dataforseo.com/v3/keywords_data/google_ads/search_volume/live",
+            headers={
+                "Authorization": f"Basic {credentials}",
+                "Content-Type": "application/json",
+            },
+            json=payload,
+            timeout=30,
+        )
+
+        if not resp.ok:
+            print(f"  DataForSEO error {resp.status_code} for '{term}'")
+            return {}
+
+        data = resp.json()
+        tasks = data.get("tasks", [])
+        if not tasks or tasks[0].get("status_code") != 20000:
+            return {}
+
+        results = tasks[0].get("result", [])
+        if not results:
+            return {}
+
+        item = results[0]
+        avg = int(item.get("search_volume", 0) or 0)
+
+        # Monthly history for trend + peak calculation
+        monthly = item.get("monthly_searches", []) or []
+        volumes = [int(m.get("search_volume", 0) or 0) for m in monthly]
+
+        if not volumes or max(volumes) == 0:
+            return {"avg": avg, "peak": avg, "trend": "stable"}
+
+        peak = max(volumes)
+
+        # Trend: compare last 3 months vs first 3 months
+        if len(volumes) >= 6:
+            recent = sum(volumes[:3]) / 3
+            older  = sum(volumes[-3:]) / 3
+            if older > 0:
+                if recent > older * 1.15:
+                    trend = "rising"
+                elif recent < older * 0.85:
+                    trend = "falling"
+                else:
+                    trend = "stable"
+            else:
+                trend = "stable"
+        else:
+            trend = "stable"
+
+        return {"avg": avg, "peak": peak, "trend": trend}
+
+    except Exception as e:
+        print(f"  DataForSEO exception for '{term}': {e}")
+        return {}
 
 
 def load_catalogue() -> dict:
@@ -350,42 +439,77 @@ def get_suggestions(label: str, term: str) -> list[str]:
 
 
 def already_sells(term: str) -> str:
-    """Return matching product/collection title if ROR sells something related, else ''."""
+    """
+    Return matching product/collection title if ROR sells something related.
+    Requires at least 2 meaningful word matches OR one specific word (6+ chars,
+    not in the generic exclusion list) to avoid false matches.
+    """
     term_lower = term.lower()
-    words = [w for w in term_lower.split()
-             if len(w) > 3 and w not in {"with", "from", "that", "this", "your", "they", "have", "here"}]
+
+    # Words too generic to match on alone
+    GENERIC = {
+        "clothing", "fashion", "product", "collection", "gifts", "slogan",
+        "custom", "women", "personalised", "birthday", "jumper", "sweatshirt",
+        "hoodie", "shirt", "tshirt", "tshirts", "things", "ideas", "style",
+        "wear", "outfits", "outfit", "ladies", "mens", "unisex", "sale",
+        "cheap", "best", "great", "good", "nice", "cool", "funny", "novelty",
+        "print", "design", "embroidered", "personalised", "unique", "gift",
+        "with", "from", "that", "this", "your", "they", "have", "here",
+        "some", "only", "just", "also", "more", "than", "over", "into",
+    }
+
+    # Extract meaningful words (4+ chars, not generic)
+    words = [
+        w for w in re.sub(r"[^a-z0-9 ]", " ", term_lower).split()
+        if len(w) >= 4 and w not in GENERIC
+    ]
+
+    # Specific words (6+ chars, not generic) — one match is enough
+    specific_words = [w for w in words if len(w) >= 6]
+
     if not words:
         return ""
 
-    _SKIP_COLL = {"gift-vouchers", "all", "frontpage", "homepage-collection",
-                  "imported", "best-sellers-vs-hidden-gems", "collections",
-                  "sale", "christmas-sale", "year-sale", "sale-tops", "sale-accessories",
-                  "winter-sale", "holiday-bundle", "basics", "easter"}
+    def _matches(title: str) -> bool:
+        title_lower = re.sub(r"[^a-z0-9 ]", " ", title.lower())
+        title_words = set(title_lower.split())
+        # Count how many search words appear in the title
+        matched = [w for w in words if w in title_lower]
+        specific_matched = [w for w in specific_words if w in title_lower]
+        # Pass if: 2+ word matches, OR 1 specific (6+ char) word match
+        return len(matched) >= 2 or len(specific_matched) >= 1
+
+    _SKIP_COLL = {
+        "gift-vouchers", "all", "frontpage", "homepage-collection",
+        "imported", "best-sellers-vs-hidden-gems", "collections",
+        "sale", "christmas-sale", "year-sale", "sale-tops", "sale-accessories",
+        "winter-sale", "holiday-bundle", "basics", "easter",
+    }
 
     if _CATALOGUE:
-        # Collections first — highest confidence for SEO mapping
+        # Collections first
         for c in _CATALOGUE.get("collections", []):
             if c.get("handle") in _SKIP_COLL:
                 continue
-            c_lower = c["title"].lower()
-            if any(w in c_lower for w in words):
+            if _matches(c["title"]):
                 return c["title"]
-        # Bestsellers — proven sellers, highest relevance for content
+
+        # Bestsellers
         for b in _CATALOGUE.get("bestsellers", []):
-            b_lower = b["title"].lower()
-            if any(w in b_lower for w in words):
+            if _matches(b["title"]):
                 return b["title"]
-        # All products — broad match
+
+        # All products
         for p in _CATALOGUE.get("products", []):
-            p_lower = p["title"].lower()
-            p_tags  = " ".join(p.get("tags", [])).lower()
-            if any(w in p_lower for w in words) or any(w in p_tags for w in words):
+            p_text = p["title"] + " " + " ".join(p.get("tags", []))
+            if _matches(p_text):
                 return p["title"]
 
     # Static fallback
     for existing in ROR_EXISTING:
-        if any(w in existing for w in words):
+        if _matches(existing):
             return existing
+
     return ""
 
 
@@ -441,28 +565,19 @@ def _trends_query(q: str) -> dict:
 
 def pytrends_interest_over_time(term: str) -> dict:
     """
-    Fetch interest-over-time for a term (0-100 scale, UK, 90-day window).
-    Falls back to stripping trailing ' uk' suffix if first call returns no data.
-    Returns {"avg": int, "peak": int, "trend": str} or {}.
+    Fetch search volume for a term.
+    Uses DataForSEO if credentials are set (real UK data).
+    Falls back to empty dict if not configured.
     """
-    try:
-        result = _trends_query(term)
+    # Try DataForSEO first (real data)
+    if DATAFORSEO_LOGIN and DATAFORSEO_PASSWORD:
+        result = dataforseo_search_volume(term)
         if result:
             return result
-        cleaned = term
-        for suffix in (" uk 2026", " uk"):
-            if cleaned.lower().endswith(suffix):
-                cleaned = cleaned[: -len(suffix)].strip()
-                break
-        if cleaned != term:
-            time.sleep(random.uniform(1.5, 2.5))
-            result = _trends_query(cleaned)
-            if result:
-                return result
-        return {}
-    except Exception as e:
-        print(f"    Trends error for '{term}': {e}")
-        return {}
+
+    # No credentials — return empty so scraper uses seed estimates
+    print(f"  No DataForSEO credentials — skipping live volume for '{term}'")
+    return {}
 
 
 def pytrends_related_queries(term: str) -> dict[str, list[str]]:
@@ -1078,7 +1193,7 @@ def build_visibility_rank_section() -> str:
     if not results:
         return f"""
 <section class="dashboard-section visibility-section">
-  <h2>Organic Visibility</h2>
+  <h2>Where We Rank</h2>
   <p class="section-intro">No live rank checks yet. Run <code>python rank_tracker.py --limit 100</code> after Search Console has been refreshed.</p>
 </section>"""
 
@@ -1095,7 +1210,6 @@ def build_visibility_rank_section() -> str:
 
     rows = ""
     for row in results:
-        label, score, why = _row_priority(row)
         rank_label, rank_cls = _rank_status(row.get("ror_rank"))
         target_link = _target_link(row)
         competitors = row.get("competitors_above", [])
@@ -1104,11 +1218,8 @@ def build_visibility_rank_section() -> str:
             for c in competitors[:4]
             if c.get("domain")
         ) or '<span class="muted-small">No competitor list captured.</span>'
-        action = _visibility_action(row)
-        brief = escape(_content_brief(row), quote=True)
         rows += f"""
 <tr>
-  <td class="metric-cell"><span class="priority-pill">{score}</span><br><span class="muted-small">{escape(label)}</span></td>
   <td class="kw-cell">{escape(row.get("query", ""))}</td>
   <td class="page-cell">{target_link}</td>
   <td class="metric-cell">{row.get("gsc_impressions", 0)}</td>
@@ -1116,17 +1227,12 @@ def build_visibility_rank_section() -> str:
   <td class="metric-cell">{row.get("gsc_position", "—")}</td>
   <td class="metric-cell"><span class="rank-pill {rank_cls}">{rank_label}</span></td>
   <td>{competitor_html}</td>
-  <td class="action-cell"><strong>{escape(why)}</strong><br>{action}</td>
-  <td class="action-cell">
-    <button class="mini-btn copy-brief" data-brief="{brief}">Copy brief</button>
-    <a class="mini-btn" href="{CONTENT_WORKFLOW_URL}" target="_blank" rel="noopener">Generate content</a>
-  </td>
 </tr>"""
 
     return f"""
 <section class="dashboard-section visibility-section">
-  <h2>Organic Visibility</h2>
-  <p class="section-intro">Search Console shows where ROR is already getting impressions. Serper then spot-checks the live Google UK result so the action is based on ranking evidence, not guessing. Window: {escape(window or "latest cached Search Console data")}.</p>
+  <h2>Where We Rank</h2>
+  <p class="section-intro">For keywords Google already knows about us for, this shows the Search Console position and a live Google UK spot check. Window: {escape(window or "latest cached Search Console data")}.</p>
   <div class="visibility-stats">
     <div><strong>{len(results)}</strong><span>Keywords checked</span></div>
     <div><strong>{found}</strong><span>ROR found</span></div>
@@ -1135,15 +1241,14 @@ def build_visibility_rank_section() -> str:
     <div><strong>{missing}</strong><span>Not top 20</span></div>
   </div>
   <div class="visibility-key">
-    <span><b class="key-dot key-good"></b>Good, protect or nudge</span>
-    <span><b class="key-dot key-mid"></b>Useful, improve to top 3</span>
-    <span><b class="key-dot key-bad"></b>Problem, investigate or rebuild support</span>
+    <span><b class="key-dot key-good"></b>Green = top 3</span>
+    <span><b class="key-dot key-mid"></b>Amber = 4-10</span>
+    <span><b class="key-dot key-bad"></b>Red = not top 20</span>
   </div>
   <div class="table-wrap">
     <table class="seo-table visibility-table">
       <thead>
         <tr>
-          <th>Priority</th>
           <th>Keyword</th>
           <th>Mapped ROR page</th>
           <th>Impr.</th>
@@ -1151,8 +1256,6 @@ def build_visibility_rank_section() -> str:
           <th>GSC pos.</th>
           <th>Live rank</th>
           <th>Above ROR</th>
-          <th>Do this</th>
-          <th>Content</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
@@ -1280,19 +1383,53 @@ def build_gaps_section(all_groups: list[dict]) -> str:
 
 
 def build_bestseller_demand_section(all_groups: list[dict]) -> str:
-    """Cross-reference live Shopify bestsellers against trend data from this run."""
+    """Cross-reference Shopify bestsellers against trend and Search Console data."""
     if not _CATALOGUE or not _CATALOGUE.get("bestsellers"):
         return ""
 
     all_results  = [r for g in all_groups for r in g["results"]]
+    gsc_cache = load_json_cache(SEARCH_CONSOLE_CACHE_FILE, {})
+    gsc_queries = gsc_cache.get("queries", [])
     bestsellers  = [b for b in _CATALOGUE["bestsellers"]
                     if b["title"] and "personalisation" not in b["title"].lower()
                     and "back of the neck" not in b["title"].lower()][:20]
 
+    def meaningful_words(text: str) -> set[str]:
+        generic = {"the", "and", "for", "with", "personalised", "custom", "slogan", "shirt", "tshirt", "sweatshirt", "hoodie", "gift"}
+        return {
+            w for w in re.sub(r"[^a-z0-9 ]", " ", text.lower()).split()
+            if len(w) >= 4 and w not in generic
+        }
+
+    def trend_match(title: str) -> dict | None:
+        bs_words = meaningful_words(title)
+        best = None
+        best_overlap = 0
+        for r in all_results:
+            overlap = len(bs_words & meaningful_words(r["term"]))
+            if overlap > best_overlap:
+                best = r
+                best_overlap = overlap
+        return best if best_overlap >= 1 else None
+
+    def gsc_position(title: str) -> str:
+        bs_words = meaningful_words(title)
+        best = None
+        best_overlap = 0
+        for q in gsc_queries:
+            overlap = len(bs_words & meaningful_words(q.get("query", "")))
+            if overlap > best_overlap:
+                best = q
+                best_overlap = overlap
+        if not best or best_overlap < 1:
+            return "—"
+        return f"{float(best.get('position', 0) or 0):.2f}"
+
     rows = ""
     for bs in bestsellers:
         title   = bs["title"]
-        revenue = f"£{bs['revenue']:,.0f}" if bs.get("revenue") else "—"
+        revenue_value = float(bs.get("revenue", 0) or 0)
+        revenue = f"£{revenue_value:,.0f}" if revenue_value else "—"
         orders  = str(bs.get("orders", "—"))
         handle  = bs.get("handle", "")
 
@@ -1302,41 +1439,39 @@ def build_bestseller_demand_section(all_groups: list[dict]) -> str:
         else:
             title_cell = title
 
-        # Fuzzy-match against this run's trend results (≥2 significant words in common)
-        bs_words = {w for w in title.lower().split() if len(w) > 3}
-        matched  = None
-        for r in all_results:
-            term_words = {w for w in r["term"].lower().split() if len(w) > 3}
-            if len(bs_words & term_words) >= 2:
-                matched = r
-                break
+        matched = trend_match(title)
+        position = gsc_position(title)
 
         if matched:
             s_col  = score_color(matched["score"])
             t_icon = {"rising": "↑", "falling": "↓", "stable": "→"}.get(matched["trend"], "→")
             t_col  = {"rising": "var(--green)", "falling": "var(--red)", "stable": "var(--muted)"}.get(matched["trend"], "var(--muted)")
-            score_cell    = f'<span style="color:{s_col};font-weight:700">{matched["score"]}/10</span>'
-            trend_cell    = f'<span style="color:{t_col}">{t_icon} {matched["trend"].capitalize()}</span>'
-            interest_cell = f'~{matched["avg_interest"]}/100'
+            demand_cell = (
+                f'<span style="color:{s_col};font-weight:700">{matched["score"]}/10</span><br>'
+                f'<span style="color:{t_col};font-size:.72rem">{t_icon} {matched["trend"].capitalize()} · ~{matched["avg_interest"]}/100</span>'
+            )
+            flag_cell = '<span class="muted-small">Matched search demand</span>'
         else:
-            score_cell    = '<span style="color:var(--muted);font-size:.75rem">Not tracked</span>'
-            trend_cell    = "—"
-            interest_cell = '<span style="color:var(--yellow);font-size:.72rem">Add to ror_focus.json →</span>'
+            demand_cell = '<span style="color:var(--muted);font-size:.75rem">No trend match</span>'
+            if revenue_value > 500:
+                flag_cell = '<span class="act act-create">Content gap</span>'
+            else:
+                flag_cell = '<span class="muted-small">No gap flagged</span>'
 
         rows += f"""
 <tr>
   <td class="bs-prod">{title_cell}</td>
   <td class="bs-rev">{revenue}</td>
   <td style="text-align:center;color:var(--muted)">{orders}</td>
-  <td style="text-align:center">{score_cell}</td>
-  <td style="text-align:center">{trend_cell}</td>
-  <td style="text-align:center;color:var(--muted);font-size:.78rem">{interest_cell}</td>
+  <td style="text-align:center">{demand_cell}</td>
+  <td style="text-align:center;color:var(--muted)">{position}</td>
+  <td style="text-align:center">{flag_cell}</td>
 </tr>"""
 
     return f"""
 <section class="bs-section">
-  <h2 class="bs-header">Your Bestsellers vs Search Demand</h2>
-  <p class="bs-sub">Top-selling products from Shopify (last 90 days) matched against what people are actually searching. "Not tracked" = add to <code>ror_focus.json</code> to monitor.</p>
+  <h2 class="bs-header">Bestsellers</h2>
+  <p class="bs-sub">Top-selling Shopify products matched against trend cache demand and Search Console query position. Revenue over £500 with no trend match is flagged as a content gap.</p>
   <div class="table-wrap">
   <table class="bs-table">
     <thead>
@@ -1344,9 +1479,9 @@ def build_bestseller_demand_section(all_groups: list[dict]) -> str:
         <th>Product</th>
         <th>Revenue (90d)</th>
         <th style="text-align:center">Orders</th>
-        <th style="text-align:center">Trend Score</th>
-        <th style="text-align:center">Direction</th>
-        <th style="text-align:center">Search Interest</th>
+        <th style="text-align:center">Search demand</th>
+        <th style="text-align:center">GSC position</th>
+        <th style="text-align:center">Flag</th>
       </tr>
     </thead>
     <tbody>{rows}</tbody>
@@ -1520,9 +1655,49 @@ def build_trending_section(trending_data: dict) -> str:
 </section>"""
 
 
+def build_trend_opportunities_section(all_groups: list[dict]) -> str:
+    """Return rising keyword opportunities from trend_cache.json only."""
+    all_results = [r for g in all_groups for r in g["results"]]
+    rising = [
+        r for r in all_results
+        if r.get("trend") == "rising" and int(r.get("score", 0) or 0) >= 5
+    ]
+    rising.sort(key=lambda r: (-int(r.get("score", 0) or 0), -int(r.get("avg_interest", 0) or 0)))
+    gaps = [r for r in rising if not r.get("ror_existing")]
+    opportunities = [r for r in rising if r.get("ror_existing")]
+
+    def render_cards(items: list[dict], empty: str) -> str:
+        if not items:
+            return f'<p class="section-intro">{escape(empty)}</p>'
+        cards = ""
+        for r in items[:18]:
+            page = seo_page_map(r["term"], r.get("ror_existing", ""))
+            page_html = _as_link(page) if page.startswith("rockonruby.co.uk/") else escape(page)
+            cards += f"""
+<article class="content-queue-card">
+  <h3>{escape(r["term"])}</h3>
+  <div class="fix-grid">
+    <div><h4>Search demand</h4><p>Score {r.get("score", 0)}/10, rising, ~{r.get("avg_interest", 0)}/100 interest.</p></div>
+    <div><h4>ROR page</h4><p>{page_html}</p></div>
+    <div><h4>Next move</h4><p>{escape(seo_action(r.get("score", 0), r.get("trend", ""), r.get("ror_existing", "")))}</p></div>
+  </div>
+</article>"""
+        return f'<div class="content-queue">{cards}</div>'
+
+    return f"""
+<section class="dashboard-section">
+  <h2>Trends</h2>
+  <p class="section-intro">Rising keywords from the trend cache only. No rank tracking, no Search Console data, and no repeated organic visibility table.</p>
+  <h3 class="subsection-title">Gap — no ROR page yet</h3>
+  {render_cards(gaps, "No rising gaps found in the current trend cache.")}
+  <h3 class="subsection-title">Opportunity — ROR ranks but can improve</h3>
+  {render_cards(opportunities, "No rising mapped opportunities found in the current trend cache.")}
+</section>"""
+
+
 def build_weekly_actions_section(all_groups: list[dict]) -> str:
-    """Return the weekly priority queue from live organic visibility evidence."""
-    top = _sorted_rank_results(limit=8)
+    """Return top 5 weekly actions from rank_tracker_cache.json only."""
+    top = _sorted_rank_results(limit=5)
     if not top:
         return """
 <section class="dashboard-section">
@@ -1530,38 +1705,52 @@ def build_weekly_actions_section(all_groups: list[dict]) -> str:
   <p class="section-intro">No organic visibility actions yet. Refresh Search Console and run the rank tracker.</p>
 </section>"""
 
+    def action_label(row: dict) -> str:
+        rank = row.get("ror_rank")
+        if rank is None:
+            return "Fix"
+        if rank == 1:
+            return "Protect"
+        if rank <= 10:
+            return "Push"
+        return "Build"
+
+    def action_reason(row: dict, label: str) -> str:
+        impressions = int(row.get("gsc_impressions", 0) or 0)
+        rank = row.get("ror_rank")
+        if label == "Protect":
+            return f"ROR is already live rank #{rank} with {impressions} impressions, so keep the page fresh without a heavy rewrite."
+        if label == "Push":
+            return f"ROR is visible with {impressions} impressions, and a focused page update could move it closer to the top 3."
+        if label == "Fix":
+            return f"Search Console shows {impressions} impressions, but ROR is not in the live top 20, so Graham should check the mapped page first."
+        return f"ROR has {impressions} impressions but needs stronger support content and internal links before it can climb."
+
     cards = ""
     for row in top:
-        label, score, why = _row_priority(row)
-        rank = row.get("ror_rank")
-        rank_text = f"#{rank}" if rank is not None else "not top 20"
+        label = action_label(row)
         target_page = row.get("target_page") or row.get("ror_url") or "No mapped page"
-        action = _visibility_action(row)
-        needed = _content_needed(row)
-        brief = escape(_content_brief(row), quote=True)
+        owner = "Graham" if label == "Fix" else "Bethan"
+        reason = action_reason(row, label)
+        page_html = _target_link(row)
         cards += f"""
 <article class="action-card">
   <div class="action-head">
-    <span class="pill pill-high">Priority {score}</span>
-    <span class="pill pill-aov">{escape(label)}</span>
+    <span class="pill pill-high">{escape(label)}</span>
+    <span class="pill pill-aov">Owner: {escape(owner)}</span>
   </div>
   <h3>{escape(row.get('query', ''))}</h3>
   <div class="dia-grid">
-    <div class="dia-box"><h4>Evidence</h4><p>{row.get('gsc_impressions', 0)} impressions, {row.get('gsc_clicks', 0)} clicks, GSC position {row.get('gsc_position', '—')}, live rank {rank_text}.</p></div>
-    <div class="dia-box"><h4>Page</h4><p>{escape(target_page)}</p></div>
-    <div class="dia-box"><h4>Why it matters</h4><p>{escape(why)}</p></div>
-  </div>
-  <div class="action-next"><strong>Do this:</strong> {action}<br><strong>System should make:</strong> {escape(needed)}</div>
-  <div class="action-buttons">
-    <button class="mini-btn copy-brief" data-brief="{brief}">Copy brief</button>
-    <a class="mini-btn" href="{CONTENT_WORKFLOW_URL}" target="_blank" rel="noopener">Generate content</a>
+    <div class="dia-box"><h4>Reason</h4><p>{escape(reason)}</p></div>
+    <div class="dia-box"><h4>Mapped page</h4><p>{page_html}</p></div>
+    <div class="dia-box"><h4>Owner</h4><p>{escape(owner)}</p></div>
   </div>
 </article>"""
 
     return f"""
 <section class="dashboard-section">
-  <h2>Weekly Priority Queue</h2>
-  <p class="section-intro">This is the short list. It is ranked by Search Console demand, live Google position and whether ROR is close enough to move.</p>
+  <h2>Weekly Actions</h2>
+  <p class="section-intro">Top 5 actions from rank tracking only. This tab is deliberately short: what to act on, why, where, and who owns it.</p>
   <div class="action-list">{cards}</div>
 </section>"""
 
@@ -1618,41 +1807,56 @@ def build_team_inputs_section() -> str:
 
 
 def build_content_pack_section(all_groups: list[dict]) -> str:
-    """Return content generation queue from organic visibility evidence."""
-    candidates = _sorted_rank_results(limit=12)
+    """Return approved content packs parsed from ror_content_draft.md."""
+    if not CONTENT_FILE.exists():
+        return """
+<section class="dashboard-section">
+  <h2>Content Packs</h2>
+  <p class="section-intro">No content draft exists yet. Run <code>python content_generator.py --no-ai</code> to create outlines for review.</p>
+</section>"""
+
+    md = CONTENT_FILE.read_text(encoding="utf-8")
+    packs: list[dict] = []
+    for pack_match in re.finditer(
+        r"^## (?!System Focus|Trend Note|How this works|Design Rules|Core Visual|Type Direction|Palette Direction)([^\n]+)\n+(.*?)(?=\n^## |\Z)",
+        md,
+        re.DOTALL | re.MULTILINE,
+    ):
+        keyword = pack_match.group(1).strip()
+        body = pack_match.group(2).strip()
+        if "### Approved ClickUp Task Breakdown" not in body:
+            continue
+        h1_match = re.search(r"\*\*H1:\*\*\s*(.+)", body)
+        h1 = h1_match.group(1).strip() if h1_match else "No H1 found"
+        if "In ClickUp" in body:
+            status = "In ClickUp"
+        elif "### Blog (Finished" in body or "Blogs generated:" in md:
+            status = "Blog generated"
+        else:
+            status = "Outline ready"
+        packs.append({"keyword": keyword, "h1": h1, "status": status})
+
     cards = ""
-    for row in candidates:
-        label, score, why = _row_priority(row)
-        rank = row.get("ror_rank")
-        rank_text = f"#{rank}" if rank is not None else "not top 20"
-        brief = escape(_content_brief(row), quote=True)
+    for pack in packs:
         cards += f"""
 <article class="content-queue-card">
-  <div class="action-head">
-    <span class="pill pill-high">Priority {score}</span>
-    <span class="pill pill-aov">{escape(label)}</span>
-  </div>
-  <h3>{escape(row.get("query", ""))}</h3>
-  <p class="muted-small">Mapped page: {row.get("target_page") or row.get("ror_url") or "No mapped page"}</p>
+  <div class="action-head"><span class="pill pill-aov">{escape(pack["status"])}</span></div>
+  <h3>{escape(pack["keyword"])}</h3>
+  <p class="muted-small">H1: {escape(pack["h1"])}</p>
   <div class="fix-grid">
-    <div><h4>Evidence</h4><p>{row.get('gsc_impressions', 0)} impressions, {row.get('gsc_clicks', 0)} clicks, GSC position {row.get('gsc_position', '—')}, live rank {rank_text}.</p></div>
-    <div><h4>Why</h4><p>{escape(why)}</p></div>
-    <div><h4>Make</h4><p>{escape(_content_needed(row))}</p></div>
-  </div>
-  <div class="action-buttons">
-    <button class="mini-btn copy-brief" data-brief="{brief}">Copy brief</button>
-    <a class="mini-btn" href="{CONTENT_WORKFLOW_URL}" target="_blank" rel="noopener">Generate content</a>
-    <button class="mini-btn muted-action" disabled>Push to ClickUp after approval</button>
+    <div><h4>Formats</h4><p>Blog, Email, Reel, Stories, Carousel, TikTok, Pinterest</p></div>
+    <div><h4>Status</h4><p>{escape(pack["status"])}</p></div>
+    <div><h4>Source</h4><p>ror_content_draft.md approved pack</p></div>
   </div>
 </article>"""
 
     if not cards:
-        cards = '<p class="section-intro">No content queue yet. Run Search Console and rank tracking first.</p>'
+        cards = '<p class="section-intro">No approved content packs found in ror_content_draft.md.</p>'
 
     return f"""
 <section class="dashboard-section">
   <h2>Content Packs</h2>
-  <p class="section-intro">This is the production queue. The system should generate finished page copy, FAQs, blogs, email/social packs and supporting assets from the evidence here. ClickUp stays for approved finished work only.</p>
+  <p class="section-intro">Approved packs only. This tab shows what Bethan should make this week, without repeating keyword scores or rank tables.</p>
   <div class="content-queue">{cards}</div>
 </section>"""
 
@@ -1708,6 +1912,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   .dashboard-section {{ margin-bottom: 2rem; }}
   .dashboard-section h2 {{ font-size: 1.2rem; color: var(--pink); padding-bottom: .7rem;
                            border-bottom: 2px solid rgba(233,30,140,.25); margin-bottom: .7rem; }}
+  .subsection-title {{ color: #fff; font-size: .95rem; margin: 1rem 0 .65rem; }}
   .section-intro {{ color: var(--muted); font-size: .86rem; margin-bottom: 1rem; }}
   .action-card {{ background: var(--card); border: 1px solid rgba(255,255,255,.08);
                   border-radius: 8px; padding: 1rem; margin-bottom: .9rem; }}
@@ -1886,29 +2091,25 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
 <nav class="tabs" aria-label="Report sections">
   <button class="tab-btn active" data-tab="actions">Weekly Actions</button>
-  <button class="tab-btn" data-tab="calendar">Calendar</button>
+  <button class="tab-btn" data-tab="rank">Where We Rank</button>
   <button class="tab-btn" data-tab="trends">Trends</button>
-  <button class="tab-btn" data-tab="keywords">Keywords</button>
-  <button class="tab-btn" data-tab="seo">Website &amp; SEO</button>
+  <button class="tab-btn" data-tab="bestsellers">Bestsellers</button>
   <button class="tab-btn" data-tab="content">Content Packs</button>
-  <button class="tab-btn" data-tab="team">Team Inputs</button>
+  <button class="tab-btn" data-tab="team">Team</button>
 </nav>
 
 <main>
   <section id="tab-actions" class="tab-panel active">
     {weekly_actions_section}
   </section>
-  <section id="tab-calendar" class="tab-panel">
-    {calendar_section}
-  </section>
-  <section id="tab-trends" class="tab-panel">
-    {trending_section}
-  </section>
-  <section id="tab-keywords" class="tab-panel">
+  <section id="tab-rank" class="tab-panel">
     {visibility_section}
   </section>
-  <section id="tab-seo" class="tab-panel">
-    {page_seo_section}
+  <section id="tab-trends" class="tab-panel">
+    {trend_opportunities_section}
+  </section>
+  <section id="tab-bestsellers" class="tab-panel">
+    {bestseller_section}
   </section>
   <section id="tab-content" class="tab-panel">
     {content_pack_section}
@@ -2042,19 +2243,17 @@ def build_report(all_groups: list[dict], trending_data: dict | None = None) -> N
         cards = "".join(render_card(r) for r in sorted(g["results"], key=lambda x: -x["score"]))
         groups_html += f'<div class="group"><h2>{g["label"]}</h2><div class="cards">{cards}</div></div>\n'
 
-    seo_section           = build_seo_section(all_groups)
-    breakout_section      = build_breakout_section(all_groups)
-    gaps_section          = build_gaps_section(all_groups)
-    bestseller_section    = build_bestseller_demand_section(all_groups)
+    seo_section            = build_seo_section(all_groups)
+    breakout_section       = build_breakout_section(all_groups)
+    gaps_section           = build_gaps_section(all_groups)
+    bestseller_section     = build_bestseller_demand_section(all_groups)
     weekly_actions_section = build_weekly_actions_section(all_groups)
-    visibility_section    = build_visibility_rank_section()
-    page_seo_section      = build_page_seo_fix_section()
-    calendar_section      = build_calendar_section()
-    team_inputs_section   = build_team_inputs_section()
-    content_pack_section  = build_content_pack_section(all_groups)
-    seo_css_clean         = SEO_CSS.strip()
-    trending_section_html = build_trending_section(trending_data or {})
-    trending_css_clean    = TRENDING_CSS.strip()
+    visibility_section     = build_visibility_rank_section()
+    trend_opportunities_section = build_trend_opportunities_section(all_groups)
+    team_inputs_section    = build_team_inputs_section()
+    content_pack_section   = build_content_pack_section(all_groups)
+    seo_css_clean          = SEO_CSS.strip()
+    trending_css_clean     = TRENDING_CSS.strip()
 
     date_str = datetime.now().strftime("%d %B %Y, %H:%M")
     html = HTML_TEMPLATE.format(
@@ -2067,11 +2266,9 @@ def build_report(all_groups: list[dict], trending_data: dict | None = None) -> N
         bestseller_section=bestseller_section,
         weekly_actions_section=weekly_actions_section,
         visibility_section=visibility_section,
-        page_seo_section=page_seo_section,
-        calendar_section=calendar_section,
+        trend_opportunities_section=trend_opportunities_section,
         team_inputs_section=team_inputs_section,
         content_pack_section=content_pack_section,
-        trending_section=trending_section_html,
         trending_css=trending_css_clean,
     )
     REPORT_FILE.write_text(html, encoding="utf-8")

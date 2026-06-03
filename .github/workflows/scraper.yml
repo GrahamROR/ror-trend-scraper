@@ -29,6 +29,18 @@ jobs:
           SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
         run: python shopify_sync.py
 
+      - name: Refresh Search Console cache
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+        run: |
+          if [ -n "$GOOGLE_CLIENT_ID" ] && [ -n "$GOOGLE_REFRESH_TOKEN" ]; then
+            python search_console.py
+          else
+            echo "Skipping Search Console refresh: credentials missing"
+          fi
+
       - name: Run rank tracker
         env:
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
@@ -44,6 +56,8 @@ jobs:
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DATAFORSEO_LOGIN: ${{ secrets.DATAFORSEO_LOGIN }}
+          DATAFORSEO_PASSWORD: ${{ secrets.DATAFORSEO_PASSWORD }}
         run: python scraper.py
 
       - name: Commit outputs
@@ -51,7 +65,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git add trend_report.html trend_cache.json layer4_expanded.json shopify_catalogue.json || true
+          git add trend_report.html trend_cache.json layer4_expanded.json shopify_catalogue.json search_console_cache.json rank_tracker_cache.json || true
           test -f open_trends.json && git add open_trends.json || true
           git diff --cached --quiet || git commit -m "chore: weekly trend scrape $(date +%Y-%m-%d)"
           git pull --rebase && git push

@@ -5,7 +5,8 @@ Called from the GitHub Actions workflow after content generation.
 
 Required env vars:
   CLICKUP_API_KEY  — ClickUp personal API token (GitHub secret)
-  CLICKUP_LIST_ID  — ClickUp list ID to create tasks in (GitHub variable)
+  CLICKUP_LIST_ID_2 — ClickUp list ID to create tasks in (GitHub variable)
+  CLICKUP_LIST_ID   — fallback ClickUp list ID, kept for older setups
 """
 
 import os
@@ -16,7 +17,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 API_KEY      = os.environ.get("CLICKUP_API_KEY", "")
-LIST_ID      = os.environ.get("CLICKUP_LIST_ID", "")
+LIST_ID      = os.environ.get("CLICKUP_LIST_ID_2") or os.environ.get("CLICKUP_LIST_ID", "")
 CONTENT_FILE = Path(__file__).parent / "ror_content_draft.md"
 BASE_URL     = "https://api.clickup.com/api/v2"
 HEADERS      = {"Authorization": API_KEY, "Content-Type": "application/json"}
@@ -70,137 +71,137 @@ def find_bethan() -> int | None:
 
 
 def parse_sections(md: str) -> list[dict]:
-    tasks = []
-    today = datetime.utcnow().strftime("%d %b")
+    """
+    Parse content packs into parent tasks with subtasks.
+    Only processes packs with '### Approved ClickUp Task Breakdown'.
+    Each pack becomes one parent task + 8 subtasks.
+    """
+    packs = []
 
-    # Approved production packs only. Draft/no-AI packs use "Draft Task Breakdown"
-    # and must not be pushed into ClickUp.
-    for pack in re.finditer(r"## (?!System Focus|Trend Note)([^\n]+)\n+(.*?)(?=\n## |\Z)", md, re.DOTALL):
-        keyword = pack.group(1).strip()
-        body = pack.group(2).strip()
-        task_breakdown = re.search(r"### Approved ClickUp Task Breakdown\n+(.*?)(?=\n### |\Z)", body, re.DOTALL)
+    for pack_match in re.finditer(
+        r"^## (?!System Focus|Trend Note|How this works|Design Rules)([^\n]+)\n+(.*?)(?=\n^## |\Z)",
+        md, re.DOTALL | re.MULTILINE
+    ):
+        keyword = pack_match.group(1).strip()
+        body = pack_match.group(2).strip()
+
+        # Only push approved packs
+        task_breakdown = re.search(
+            r"### Approved ClickUp Task Breakdown\n+(.*?)(?=\n### |\Z)",
+            body, re.DOTALL
+        )
         if not task_breakdown:
             continue
-        for task_match in re.finditer(r"\*\*Task name:\*\*\s*(.+?)(?=\n\*\*Task name:\*\*|\Z)", task_breakdown.group(1), re.DOTALL):
+
+        breakdown_text = task_breakdown.group(1).strip()
+
+        # Extract evidence/context for parent task description
+        evidence_match = re.search(r"### Evidence\n+(.*?)(?=\n### |\Z)", body, re.DOTALL)
+        evidence_text = evidence_match.group(1).strip() if evidence_match else ""
+
+        outline_match = re.search(r"### Blog Outline.*?\n+(.*?)(?=\n### |\Z)", body, re.DOTALL)
+        outline_text = outline_match.group(1).strip() if outline_match else ""
+
+        # Parse subtasks from the breakdown block
+        subtasks = []
+        for task_match in re.finditer(
+            r"\*\*Task name:\*\*\s*(.+?)(?=\n\*\*Task name:\*\*|\Z)",
+            breakdown_text, re.DOTALL
+        ):
             block = task_match.group(1).strip()
-            lines = [line.strip() for line in block.splitlines() if line.strip()]
-            name = lines[0]
+            lines = block.splitlines()
+            name = lines[0].strip()
+
             fields = {}
+            content_lines = []
+            in_content = False
+
             for line in lines[1:]:
-                m = re.match(r"\*\*(Type tag|Priority|Date created|Suggested due date|Task summary):\*\*\s*(.+)", line)
+                m = re.match(
+                    r"\*\*(Type tag|Priority|Date created|Suggested due date|Task summary):\*\*\s*(.+)",
+                    line.strip()
+                )
                 if m:
                     fields[m.group(1).lower()] = m.group(2).strip()
+                    in_content = False
+                elif line.strip() == "" and not in_content:
+                    in_content = True
+                else:
+                    content_lines.append(line)
+
             task_type = clean_task_type(fields.get("type tag", "content"))
             priority_label = fields.get("priority", "Medium")
             due_ms = date_to_ms(fields.get("suggested due date", ""))
             summary = fields.get("task summary", "")
-            description = f"""Keyword: {keyword}
-Type: {task_type}
-Priority: {priority_label}
-Date created: {fields.get('date created', '')}
-Suggested due date: {fields.get('suggested due date', '')}
+            extra_content = "\n".join(content_lines).strip()
 
+            description = f"""KEYWORD: {keyword}
+TYPE: {task_type}
+PRIORITY: {priority_label}
+
+WHAT TO DO:
 {summary}
 
-Full pack context:
-{body}
-"""
-            tasks.append({
+BRIEF:
+{extra_content}
+
+---
+BLOG OUTLINE (source of truth for tone and story):
+{outline_text}
+""".strip()
+
+            subtasks.append({
                 "name": name,
-                "description": description.strip(),
-                "tags": [task_type, "content-pack", "visibility"],
+                "description": description,
+                "tags": [task_type, "content-pack"],
                 "priority": priority_label,
                 "due_ms": due_ms,
             })
 
-    if tasks:
-        return tasks
+        if subtasks:
+            parent_description = f"""CONTENT PACK: {keyword}
 
-    # Legacy Claude content sections. These are finished Claude outputs, not no-AI draft packs.
-    for m in re.finditer(r"## BLOG POST (\d+)\n+(.*?)(?=\n## |\Z)", md, re.DOTALL):
-        tasks.append({
-            "name":        f"[Blog] Draft {m.group(1)} — {today}",
-            "description": m.group(2).strip(),
-            "tags":        ["blog"],
-        })
+EVIDENCE:
+{evidence_text}
 
-    # Social captions — Claude numbers them; split on Caption N header patterns
-    social = re.search(r"## SOCIAL CAPTIONS\n+(.*?)(?=\n## |\Z)", md, re.DOTALL)
-    if social:
-        captions = re.split(r"\n(?=\*\*Caption \d|\bCaption \d|\d\.\s)", social.group(1))
-        captions = [c.strip() for c in captions if len(c.strip()) > 30][:5]
-        for i, c in enumerate(captions, 1):
-            tasks.append({
-                "name":        f"[Social] Caption {i} — {today}",
-                "description": c,
-                "tags":        ["social"],
+BLOG OUTLINE (source of truth — all formats tell this same story):
+{outline_text}
+
+SUBTASKS: {len(subtasks)} tasks created below.
+Blog → Page Copy → Email → Reel → Stories → Carousel → TikTok → Pinterest
+
+Each subtask contains a complete brief. Bethan should be able to execute each one without a briefing call.
+""".strip()
+
+            packs.append({
+                "parent_name": f"Content Pack: {keyword}",
+                "parent_description": parent_description,
+                "tags": ["content-pack", "visibility"],
+                "priority": subtasks[0]["priority"] if subtasks else "Medium",
+                "due_ms": subtasks[0]["due_ms"] if subtasks else None,
+                "subtasks": subtasks,
             })
 
-    # Email design prompts — one task per full prompt block
-    for m in re.finditer(r"## EMAIL DESIGN PROMPT (\d+)\n+(.*?)(?=\n## |\Z)", md, re.DOTALL):
-        body = m.group(2).strip()
-        # Extract subject for the task name
-        subj_match = re.search(r"\*\*Subject:\*\*\s*(.+)", body)
-        subj = subj_match.group(1).strip() if subj_match else f"Email prompt {m.group(1)}"
-        tasks.append({
-            "name":        f"[Email] {subj} — {today}",
-            "description": body,
-            "tags":        ["email"],
-        })
+    return packs
 
-    # SEO blog drafts — one task per draft
-    seo_blog = re.search(r"## SEO CONTENT — BLOG DRAFTS\n+(.*?)(?=\n## |\Z)", md, re.DOTALL)
-    if seo_blog:
-        drafts = re.split(r"\n(?=---|\*\*Keyword|\*\*H1|# )", seo_blog.group(1))
-        drafts = [d.strip() for d in drafts if len(d.strip()) > 60]
-        for i, d in enumerate(drafts[:5], 1):
-            first_line = d.split("\n")[0][:80].strip("# ").strip()
-            tasks.append({
-                "name":        f"[SEO Blog] {first_line} — {today}",
-                "description": d,
-                "tags":        ["blog", "seo"],
-            })
-        if not drafts:
-            tasks.append({
-                "name":        f"[SEO Blog] Drafts — {today}",
-                "description": seo_blog.group(1).strip(),
-                "tags":        ["blog", "seo"],
-            })
-
-    # SEO product page briefs — one task covering all briefs
-    prod_seo = re.search(r"## SEO CONTENT — PRODUCT PAGE BRIEFS\n+(.*?)(?=\n## |\Z)", md, re.DOTALL)
-    if prod_seo:
-        tasks.append({
-            "name":        f"[SEO Product] Page briefs — {today}",
-            "description": prod_seo.group(1).strip(),
-            "tags":        ["product-page", "seo"],
-        })
-
-    # SEO collection copy — one task covering all copy
-    coll_seo = re.search(r"## SEO CONTENT — COLLECTION PAGE COPY\n+(.*?)(?=\n## |\Z)", md, re.DOTALL)
-    if coll_seo:
-        tasks.append({
-            "name":        f"[SEO Collection] Page copy — {today}",
-            "description": coll_seo.group(1).strip(),
-            "tags":        ["collection-page", "seo"],
-        })
-
-    return tasks
-
-
-def create_task(task: dict, assignee: int | None, due_ms: int) -> bool:
+def create_task(task: dict, assignee: int | None, due_ms: int) -> str | None:
+    """Create a ClickUp task and return its ID, or None on failure."""
     task_due = task.get("due_ms") or due_ms
+
     payload: dict = {
-        "name":          task["name"],
-        "description":   task["description"],
-        "due_date":      task_due,
+        "name": task["name"],
+        "description": task["description"],
+        "due_date": task_due,
         "due_date_time": True,
     }
+
     priority_id = clickup_priority(task.get("priority", ""))
     if priority_id:
         payload["priority"] = priority_id
+
     if task.get("tags"):
         payload["tags"] = task["tags"]
+
     if assignee:
         payload["assignees"] = [assignee]
 
@@ -212,42 +213,117 @@ def create_task(task: dict, assignee: int | None, due_ms: int) -> bool:
             timeout=15,
         )
         if resp.ok:
-            print(f"  + {task['name']}  →  {resp.json().get('url', '')}")
-            return True
-        print(f"  x {task['name']}  —  {resp.status_code}: {resp.text[:120]}")
+            task_id = resp.json().get("id", "")
+            task_url = resp.json().get("url", "")
+            print(f"  + Parent: {task['name']} → {task_url}")
+            return task_id
+        print(f"  x Parent failed: {task['name']} — {resp.status_code}: {resp.text[:120]}")
     except Exception as e:
-        print(f"  x {task['name']}  —  {e}")
-    return False
+        print(f"  x Parent failed: {task['name']} — {e}")
+    return None
 
+
+def create_subtask(subtask: dict, parent_id: str, assignee: int | None, due_ms: int) -> bool:
+    """Create a ClickUp subtask under a parent task."""
+    task_due = subtask.get("due_ms") or due_ms
+
+    payload: dict = {
+        "name": subtask["name"],
+        "description": subtask["description"],
+        "due_date": task_due,
+        "due_date_time": True,
+    }
+
+    priority_id = clickup_priority(subtask.get("priority", ""))
+    if priority_id:
+        payload["priority"] = priority_id
+
+    if subtask.get("tags"):
+        payload["tags"] = subtask["tags"]
+
+    if assignee:
+        payload["assignees"] = [assignee]
+
+    try:
+        resp = requests.post(
+            f"{BASE_URL}/task/{parent_id}/subtask",
+            headers=HEADERS,
+            json=payload,
+            timeout=15,
+        )
+        if resp.ok:
+            print(f"    - Subtask: {subtask['name']}")
+            return True
+        print(f"    x Subtask failed: {subtask['name']} — {resp.status_code}: {resp.text[:80]}")
+    except Exception as e:
+        print(f"    x Subtask failed: {subtask['name']} — {e}")
+    return False
 
 def main() -> int:
     if not API_KEY:
         print("\nCLICKUP_API_KEY not set — skipping ClickUp task creation.")
         return 0
+
     if not LIST_ID:
-        print("\nCLICKUP_LIST_ID not set — skipping ClickUp task creation.")
+        print("\nCLICKUP_LIST_ID_2 or CLICKUP_LIST_ID not set — skipping ClickUp task creation.")
         return 0
+
     if not CONTENT_FILE.exists():
         print("\nror_content_draft.md not found — skipping ClickUp task creation.")
         return 0
 
     print("\n-- ClickUp Task Creation --")
-    md    = CONTENT_FILE.read_text(encoding="utf-8")
-    tasks = parse_sections(md)
-    print(f"  Parsed {len(tasks)} tasks from content draft")
+
+    md = CONTENT_FILE.read_text(encoding="utf-8")
+    packs = parse_sections(md)
+
+    if not packs:
+        print(" No approved content packs found in ror_content_draft.md.")
+        print(" Packs need '### Approved ClickUp Task Breakdown' to be pushed.")
+        return 0
+
+    print(f" Found {len(packs)} approved content pack(s)")
 
     bethan = find_bethan()
-    print(f"  Bethan: {'found (id=' + str(bethan) + ')' if bethan else 'not found — tasks will be unassigned'}")
+    print(f" Bethan: {'found (id=' + str(bethan) + ')' if bethan else 'not found — tasks will be unassigned'}")
 
     due_ms = next_friday_ms()
-    days   = (4 - datetime.utcnow().weekday()) % 7 or 7
+    days = (4 - datetime.utcnow().weekday()) % 7 or 7
     friday = datetime.utcnow() + timedelta(days=days)
-    print(f"  Due: Friday {friday.strftime('%d %b %Y')}")
+    print(f" Due: Friday {friday.strftime('%d %b %Y')}")
 
-    results = [create_task(t, bethan, due_ms) for t in tasks]
-    print(f"  {sum(results)}/{len(results)} tasks created.")
-    return 0 if all(results) else 1
+    total_parents = 0
+    total_subtasks = 0
+    failed = 0
 
+    for pack in packs:
+        print(f"\n  Pack: {pack['parent_name']}")
+
+        parent_id = create_task(
+            {"name": pack["parent_name"], "description": pack["parent_description"],
+             "tags": pack["tags"], "priority": pack["priority"], "due_ms": pack["due_ms"]},
+            bethan, due_ms
+        )
+
+        if not parent_id:
+            failed += 1
+            continue
+
+        total_parents += 1
+
+        for subtask in pack["subtasks"]:
+            ok = create_subtask(subtask, parent_id, bethan, due_ms)
+            if ok:
+                total_subtasks += 1
+            else:
+                failed += 1
+
+    print(f"\n  {total_parents} parent tasks created")
+    print(f"  {total_subtasks} subtasks created")
+    if failed:
+        print(f"  {failed} failures — check output above")
+
+    return 0 if failed == 0 else 1
 
 if __name__ == "__main__":
     sys.exit(main())
