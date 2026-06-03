@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-06-02T20:49:27.692647+00:00",
+  "synced_at": "2026-06-03T08:54:11.858157+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -6717,8 +6717,8 @@
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 53,
-      "revenue": 1296.0
+      "orders": 54,
+      "revenue": 1320.0
     },
     {
       "title": "Embroidered Unisex Personalised Slogan Cap",
@@ -6781,12 +6781,6 @@
       "revenue": 432.0
     },
     {
-      "title": "Tea Please Sweatshirt",
-      "handle": "",
-      "orders": 12,
-      "revenue": 420.0
-    },
-    {
       "title": "Rock On Ruby Branded Tote Bag",
       "handle": "",
       "orders": 26,
@@ -6799,6 +6793,18 @@
       "revenue": 385.0
     },
     {
+      "title": "Tea Please Sweatshirt",
+      "handle": "",
+      "orders": 11,
+      "revenue": 385.0
+    },
+    {
+      "title": "Tea Please T-shirt",
+      "handle": "",
+      "orders": 14,
+      "revenue": 364.0
+    },
+    {
       "title": "Custard Cream Connoisseur T-Shirt",
       "handle": "",
       "orders": 14,
@@ -6808,12 +6814,6 @@
       "title": "Personalised Slogan T-shirt",
       "handle": "",
       "orders": 13,
-      "revenue": 364.0
-    },
-    {
-      "title": "Tea Please T-shirt",
-      "handle": "",
-      "orders": 14,
       "revenue": 364.0
     }
   ]
