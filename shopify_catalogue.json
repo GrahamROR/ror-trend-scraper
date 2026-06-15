@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-06-08T12:00:48.293028+00:00",
+  "synced_at": "2026-06-15T13:18:39.194268+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -420,6 +420,11 @@
       "title": "Teacher Gifts",
       "handle": "teacher-gifts",
       "url": "rockonruby.co.uk/collections/teacher-gifts"
+    },
+    {
+      "title": "Top 10 Dad Gifts",
+      "handle": "top-10-dad-gifts",
+      "url": "rockonruby.co.uk/collections/top-10-dad-gifts"
     },
     {
       "title": "Tote Bags",
@@ -2164,7 +2169,6 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -3306,6 +3310,7 @@
       "url": "rockonruby.co.uk/products/my-other-job-is-a-dallas-cowboys-cheerleader-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "DTF",
         "New in",
@@ -4436,6 +4441,7 @@
       "url": "rockonruby.co.uk/products/personalised-handwriting-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Embroidered",
         "Gifts For Her",
         "Gifts For Him",
@@ -6696,122 +6702,122 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 384,
-      "revenue": 13580.0
+      "orders": 368,
+      "revenue": 13021.2
     },
     {
       "title": "Personalised Year Unisex T-shirt",
       "handle": "",
-      "orders": 103,
-      "revenue": 2756.0
-    },
-    {
-      "title": "Personalised Varsity Year Leopard Print Tote Bag",
-      "handle": "",
-      "orders": 67,
-      "revenue": 1632.0
+      "orders": 102,
+      "revenue": 2652.0
     },
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 52,
-      "revenue": 1272.0
+      "orders": 59,
+      "revenue": 1440.0
+    },
+    {
+      "title": "Personalised Varsity Year Leopard Print Tote Bag",
+      "handle": "",
+      "orders": 59,
+      "revenue": 1440.0
     },
     {
       "title": "Embroidered Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 33,
-      "revenue": 861.65
-    },
-    {
-      "title": "Personalisation on the back of the neck (+\u00a34.95)",
-      "handle": "",
-      "orders": 153,
-      "revenue": 757.35
-    },
-    {
-      "title": "Embroidered Yes I Like Pina Coladas T-shirt",
-      "handle": "",
-      "orders": 23,
-      "revenue": 672.0
+      "orders": 48,
+      "revenue": 1197.65
     },
     {
       "title": "Personalised 'Only Here For...' Cap",
       "handle": "",
-      "orders": 25,
-      "revenue": 648.0
+      "orders": 32,
+      "revenue": 816.0
     },
     {
-      "title": "Happy Hour Slogan Sweatshirt",
+      "title": "Embroidered Yes I Like Pina Coladas T-shirt",
       "handle": "",
-      "orders": 15,
-      "revenue": 525.0
+      "orders": 27,
+      "revenue": 784.0
     },
     {
-      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
+      "title": "Personalisation on the back of the neck (+\u00a34.95)",
       "handle": "",
-      "orders": 14,
-      "revenue": 490.0
+      "orders": 151,
+      "revenue": 747.63
     },
     {
-      "title": "Men's Personalised Year Sweatshirt",
+      "title": "Rock On Ruby Branded Tote Bag",
       "handle": "",
-      "orders": 14,
-      "revenue": 490.0
+      "orders": 37,
+      "revenue": 592.37
     },
     {
-      "title": "Funky Font Personalised Year Sweatshirt",
+      "title": "Custard Cream Connoisseur T-Shirt",
       "handle": "",
-      "orders": 14,
-      "revenue": 490.0
+      "orders": 20,
+      "revenue": 520.0
+    },
+    {
+      "title": "Custard Cream Connoisseur Sweatshirt",
+      "handle": "",
+      "orders": 13,
+      "revenue": 494.0
     },
     {
       "title": "Personalised Handwriting Cuff Sweatshirt",
       "handle": "",
       "orders": 10,
-      "revenue": 480.0
-    },
-    {
-      "title": "Happy Hour Slogan T-Shirt",
-      "handle": "",
-      "orders": 18,
       "revenue": 468.0
     },
     {
-      "title": "Custard Cream Connoisseur T-Shirt",
+      "title": "Happy Hour Slogan Sweatshirt",
       "handle": "",
-      "orders": 17,
-      "revenue": 442.0
+      "orders": 13,
+      "revenue": 455.0
     },
     {
-      "title": "Embroidered Personalised Cuff Sweatshirt",
+      "title": "Men's Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 9,
-      "revenue": 440.0
+      "orders": 13,
+      "revenue": 455.0
     },
     {
-      "title": "Rock On Ruby Branded Tote Bag",
+      "title": "Funky Font Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 27,
-      "revenue": 432.37
-    },
-    {
-      "title": "Custard Cream Connoisseur Sweatshirt",
-      "handle": "",
-      "orders": 11,
-      "revenue": 418.0
+      "orders": 13,
+      "revenue": 455.0
     },
     {
       "title": "Personalised Slogan T-shirt",
       "handle": "",
-      "orders": 14,
-      "revenue": 392.0
+      "orders": 16,
+      "revenue": 448.0
     },
     {
-      "title": "Tea Please Sweatshirt",
+      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
       "handle": "",
-      "orders": 11,
-      "revenue": 385.0
+      "orders": 12,
+      "revenue": 420.0
+    },
+    {
+      "title": "Embroidered Personalised Cuff Sweatshirt",
+      "handle": "",
+      "orders": 8,
+      "revenue": 400.0
+    },
+    {
+      "title": "Happy Hour Slogan T-Shirt",
+      "handle": "",
+      "orders": 15,
+      "revenue": 390.0
+    },
+    {
+      "title": "Yes I Like Pina Coladas Bucket Hat",
+      "handle": "",
+      "orders": 15,
+      "revenue": 360.0
     }
   ]
 }
