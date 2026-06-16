@@ -1,4 +1,112 @@
 {
-  "blogs": [],
-  "emails": []
+  "blogs": [
+    {
+      "date": "2026-06-16",
+      "topic": "Father's Day gifts for dads",
+      "title": "The Best Father's Day Gifts for Dads Who Are Impossible to Buy For (2026)"
+    },
+    {
+      "date": "2026-06-16",
+      "topic": "what to wear to Wimbledon",
+      "title": "What to Wear to Wimbledon in 2026 (And How to Look the Part Without Trying Too Hard)"
+    }
+  ],
+  "emails": [
+    {
+      "date": "2026-06-16",
+      "topic": "Email - Your June Calendar & what to wear",
+      "subject": "June is basically one long occasion"
+    },
+    {
+      "date": "2026-06-16",
+      "topic": "Email - Father's Day Gift Guide",
+      "subject": "What are you getting your dad this year (please don't say socks)"
+    },
+    {
+      "date": "2026-06-16",
+      "topic": "Email - Our fave personalised Father's Day Gifts so far",
+      "subject": "What are we actually getting Dad this year"
+    },
+    {
+      "date": "2026-06-16",
+      "topic": "Email - Delivery Date reminder",
+      "subject": "you've got until Sunday, by the way"
+    },
+    {
+      "date": "2026-06-16",
+      "topic": "Email - Last chance father's day gifting!!",
+      "subject": "Father's Day is Sunday. No pressure."
+    },
+    {
+      "date": "2026-06-16",
+      "topic": "Email - Happy Fathers Day ",
+      "subject": "Father's Day is Sunday and you're reading this email instead of sorting it"
+    }
+  ],
+  "series": [
+    {
+      "date": "2026-06-16",
+      "concept": "Holly unwraps and reacts to a finished customer order before it goes out, narrating why the personalisation makes it better than anything you'd find on the high street.",
+      "name": "That'll Do Nicely",
+      "urls": [
+        "https://www.tiktok.com/@madisontaaaaylor/video/7647731240937819399",
+        "https://www.tiktok.com/@thegiftcorner.uk/video/7641619696353037590",
+        "https://www.tiktok.com/@palletprincess0/video/7642851086511934750"
+      ]
+    },
+    {
+      "date": "2026-06-16",
+      "concept": "A fortnightly \"gift matchmaking\" format where Holly presents a specific ROR product and the audience votes in comments on which person in their life deserves it.",
+      "name": "Right, Who's Getting This",
+      "urls": []
+    },
+    {
+      "date": "2026-06-16",
+      "concept": "A behind-the-scenes mini-documentary series following one product from customer brief to finished item \u2014 design, print or embroidery, quality check, pack and dispatch.",
+      "name": "From Blank to Brilliant",
+      "urls": [
+        "https://www.tiktok.com/@glittergirl.au/video/7645601831187533064",
+        "https://www.tiktok.com/@chonkyfrenz/video/7647935199124163861",
+        "https://www.tiktok.com/@stitchedbykai/video/7649016169671838990",
+        "https://www.tiktok.com/@neelimas_attire/video/7648900769206439188",
+        "https://www.tiktok.com/@wulihome/video/7651016974478085383"
+      ]
+    },
+    {
+      "date": "2026-06-16",
+      "concept": "A fortnightly outfit/styling format where Holly builds a real, wearable outfit around one ROR piece \u2014 no fashion influencer energy, just actual clothes a 35-45 year old woman owns.",
+      "name": "She'd Absolutely Wear That",
+      "urls": []
+    },
+    {
+      "date": "2026-06-16",
+      "concept": "A weekly peek behind the curtain at the genuinely unglamorous reality of running a small print-on-demand business \u2014 one honest, unfiltered moment per week, 30 seconds max.",
+      "name": "30 Seconds of Chaos",
+      "urls": [
+        "https://www.tiktok.com/@withatouchofluxe/video/7641604451043740958",
+        "https://www.tiktok.com/@itschynnaalexis/video/7642796894149725453",
+        "https://www.tiktok.com/@nattiejopo/photo/7190483513123163438?image_index=10&lang=sw",
+        "https://www.instagram.com/reel/DZddkcHxsNM/",
+        "https://www.instagram.com/p/DY2dKqODQ_5/"
+      ]
+    },
+    {
+      "date": "2026-06-16",
+      "concept": "Customers or followers submit a real gifting brief in the comments \u2014 who it's for, what they're like, what the occasion is \u2014 and Holly designs a personalised concept live on camera, talking through her thinking.",
+      "name": "The Brief",
+      "urls": []
+    },
+    {
+      "date": "2026-06-16",
+      "concept": "Holly reviews a generic, mass-market gift (from Amazon, a supermarket, or a pound shop) against the equivalent personalised ROR alternative \u2014 no cruelty, just honest comparison with northern deadpan humour.",
+      "name": "Gift or Grim",
+      "urls": [
+        "https://www.tiktok.com/@verricrafty/video/7645077108732988694",
+        "https://www.tiktok.com/@carewithkate/video/7643119583100095764",
+        "https://www.tiktok.com/@helloruthuk/video/7646683176231849238",
+        "https://www.tiktok.com/@lovedbyjacob/video/7649841437869198614",
+        "https://www.tiktok.com/@kiro.uk/video/7642763524778806550"
+      ]
+    }
+  ]
 }
