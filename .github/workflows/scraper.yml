@@ -1,17 +1,15 @@
-name: Weekly Trend Scraper
+name: Monday Shopify Sync
 
 on:
   schedule:
-    - cron: "0 7 * * 1"   # Monday 8am UK (BST = UTC+1; covers GMT season too)
+    - cron: "0 6 * * 1"   # Monday 6am UTC (7am BST)
   workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
-  scrape:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,69 +23,15 @@ jobs:
 
       - name: Sync Shopify catalogue
         env:
-          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_ID:     ${{ secrets.SHOPIFY_CLIENT_ID }}
           SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
         run: python shopify_sync.py
 
-      - name: Refresh Search Console cache
-        env:
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
-          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
-        run: |
-          if [ -n "$GOOGLE_CLIENT_ID" ] && [ -n "$GOOGLE_REFRESH_TOKEN" ]; then
-            SITE_URL="${GSC_SITE_URL:-https://rockonruby.co.uk/}"
-            if python search_console.py --site-url "$SITE_URL"; then
-              echo "Search Console cache refreshed for $SITE_URL"
-            else
-              echo "Search Console refresh failed for $SITE_URL; continuing with committed cache"
-            fi
-          else
-            echo "Skipping Search Console refresh: credentials missing"
-          fi
-
-      - name: Run rank tracker
-        env:
-          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
-        run: |
-          if [ -f search_console_cache.json ] && [ -n "$SERPER_API_KEY" ]; then
-            python rank_tracker.py --limit 100 --sleep 0.5
-          else
-            echo "Skipping rank tracker: search_console_cache.json or SERPER_API_KEY missing"
-          fi
-
-      - name: Run trend scraper
-        env:
-          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
-          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          DATAFORSEO_LOGIN: ${{ secrets.DATAFORSEO_LOGIN }}
-          DATAFORSEO_PASSWORD: ${{ secrets.DATAFORSEO_PASSWORD }}
-        run: python scraper.py
-
-      - name: Commit outputs
+      - name: Commit catalogue
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git add trend_report.html trend_cache.json layer4_expanded.json shopify_catalogue.json search_console_cache.json rank_tracker_cache.json || true
-          test -f open_trends.json && git add open_trends.json || true
-          git diff --cached --quiet || git commit -m "chore: weekly trend scrape $(date +%Y-%m-%d)"
+          git add shopify_catalogue.json || true
+          git diff --cached --quiet || git commit -m "chore: shopify sync $(date +%Y-%m-%d)"
           git pull --rebase && git push
-
-      - name: Upload report artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: trend-report
-          path: trend_report.html
-          retention-days: 14
-
-      - name: Prepare Pages deploy
-        run: mkdir -p _site && cp trend_report.html _site/index.html
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _site

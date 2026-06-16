@@ -1,19 +1,12 @@
-name: Content Generator
+name: Weekly Content Generator
 
 on:
   schedule:
-    - cron: "0 7 * * 2"   # Tuesday 8am — day after Monday scrape
-  workflow_dispatch:
-    inputs:
-      keyword:
-        description: "Optional keyword to prioritise, for example embroidered cap"
-        required: false
-        type: string
+    - cron: "0 7 * * 2"   # Tuesday 7am UTC (8am BST)
+  workflow_dispatch:       # Manual trigger any time
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   generate:
@@ -28,25 +21,21 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Generate content outlines (no AI, no token cost)
+      - name: Generate blogs and emails → push to ClickUp
         env:
-          CONTENT_KEYWORD: ${{ inputs.keyword }}
-        run: python content_generator.py --no-ai
+          ANTHROPIC_API_KEY:    ${{ secrets.ANTHROPIC_API_KEY }}
+          CLICKUP_API_KEY:      ${{ secrets.CLICKUP_API_KEY }}
+          CLICKUP_LIST_ID:      ${{ vars.CLICKUP_LIST_ID }}
+          CLICKUP_MARKETING_LIST: "901218493661"
+          CLICKUP_SEASONAL_LIST:  "901218516109"
+          CLICKUP_PRODUCTION_LIST: "901218493701"
+        run: python content_generator.py
 
-      - name: Commit outlines for review
+      - name: Commit history
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git add ror_content_draft.md content_history.json || true
-          git diff --cached --quiet || git commit -m "chore: content outlines $(date +%Y-%m-%d)"
+          git add content_history.json || true
+          git diff --cached --quiet || git commit -m "chore: content history $(date +%Y-%m-%d)"
           git pull --rebase && git push
-
-      - name: Prepare Pages deploy
-        run: mkdir -p _site && cp trend_report.html _site/index.html
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _site
