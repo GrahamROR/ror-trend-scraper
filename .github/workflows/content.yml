@@ -29,6 +29,7 @@ jobs:
           CLICKUP_MARKETING_LIST: "901218493661"
           CLICKUP_SEASONAL_LIST:  "901218516109"
           CLICKUP_PRODUCTION_LIST: "901218493701"
+          PERPLEXITY_API_KEY:      ${{ secrets.PERPLEXITY_API_KEY }}
         run: python content_generator.py
 
       - name: Commit history

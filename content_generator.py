@@ -27,6 +27,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import anthropic
+from series_generator import run_series_generator
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
@@ -737,10 +738,15 @@ def main() -> int:
 
     save_history(history)
 
+    # ── Step 5: Content series ideas ─────────────────────────────────────────
+    series_ok = run_series_generator(due_ms, history)
+    save_history(history)
+
     # ── Summary ───────────────────────────────────────────────────────────────
     print(f"\n  Done.")
     print(f"  Blogs created:  {blogs_pushed}/{len(blog_results)}")
     print(f"  Emails created: {emails_pushed}/{len(email_results)}")
+    print(f"  Series ideas:   {'pushed to ClickUp' if series_ok else 'skipped'}")
 
     return 0
 
