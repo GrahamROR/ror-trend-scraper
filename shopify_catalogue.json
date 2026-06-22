@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-06-16T16:02:16.722588+00:00",
+  "synced_at": "2026-06-22T11:27:39.417435+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -525,8 +525,6 @@
         "Clothing",
         "DTF",
         "Gifts for Dad",
-        "interest:coffee",
-        "interest:dad",
         "New in",
         "Slogan T-shirts",
         "T-shirts"
@@ -552,7 +550,7 @@
       "title": "9PM Bed Time Club Leopard Print Makeup Bag",
       "handle": "9pm-bed-time-club-leopard-print-makeup-bag",
       "url": "rockonruby.co.uk/products/9pm-bed-time-club-leopard-print-makeup-bag",
-      "product_type": "",
+      "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -659,6 +657,7 @@
         "interest:birthday",
         "interest:mum",
         "interest:parent",
+        "Personalised T-shirts",
         "T-shirts",
         "Twinning"
       ],
@@ -683,7 +682,7 @@
       "title": "Book Club Tote Bag",
       "handle": "book-club-tote-bag",
       "url": "rockonruby.co.uk/products/book-club-tote-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -700,6 +699,8 @@
       "tags": [
         "Accessories",
         "Caps",
+        "Embroidered",
+        "Embroidered Cap",
         "interest:biscuit",
         "New in"
       ],
@@ -1032,7 +1033,7 @@
       "title": "Coffee Please Leopard Print Shopping Bag",
       "handle": "coffee-please-leopard-print-shopping-bag",
       "url": "rockonruby.co.uk/products/coffee-please-leopard-print-shopping-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -1168,6 +1169,7 @@
         "interest:birthday",
         "interest:wedding",
         "Personalised Year",
+        "REVIEW",
         "roman-numerals",
         "Sweatshirts",
         "Wedding Party"
@@ -1182,6 +1184,8 @@
       "tags": [
         "Accessories",
         "Caps",
+        "Embroidered",
+        "Embroidered Cap",
         "interest:biscuit",
         "New in"
       ],
@@ -1211,7 +1215,6 @@
       "url": "rockonruby.co.uk/products/custard-cream-connoisseur-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "DTF",
         "Gifts For Mum",
@@ -1237,7 +1240,7 @@
         "The Cocktail Collection",
         "Wedding Party"
       ],
-      "price": 28.0
+      "price": 30.0
     },
     {
       "title": "Custom Embroidered Slogan Raglan Baby Tee",
@@ -1252,7 +1255,7 @@
         "T-shirts",
         "Wedding Party"
       ],
-      "price": 28.0
+      "price": 30.0
     },
     {
       "title": "Custom I Just Want to... Sweatshirt",
@@ -2136,19 +2139,6 @@
       "price": 30.0
     },
     {
-      "title": "Embroidered Star Sign Sweatshirt",
-      "handle": "embroidered-star-sign-sweatshirt",
-      "url": "rockonruby.co.uk/products/embroidered-star-sign-sweatshirt",
-      "product_type": "Sweatshirt",
-      "tags": [
-        "Clothing",
-        "Embroidered",
-        "Personalised Sweatshirts",
-        "Sweatshirts"
-      ],
-      "price": 42.0
-    },
-    {
       "title": "Embroidered Unisex Personalised Slogan Cap",
       "handle": "embroidered-unisex-personalised-slogan-cap",
       "url": "rockonruby.co.uk/products/embroidered-unisex-personalised-slogan-cap",
@@ -2321,7 +2311,7 @@
       "title": "Forever Winging It Leopard Print Shopping Bag",
       "handle": "forever-winging-it-leopard-print-shopping-bag",
       "url": "rockonruby.co.uk/products/forever-winging-it-leopard-print-shopping-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -2403,6 +2393,7 @@
       "url": "rockonruby.co.uk/products/happy-hour-slogan-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Christmas T Shirt",
         "Christmas Tops",
         "Clothing",
@@ -2426,6 +2417,7 @@
         "interest:birthday",
         "interest:mum",
         "interest:parent",
+        "Personalised T-shirts",
         "T-shirts"
       ],
       "price": 48.0
@@ -2635,7 +2627,7 @@
       "title": "I'd Rather Be Reading Tote Bag",
       "handle": "id-rather-be-reading-tote-bag",
       "url": "rockonruby.co.uk/products/id-rather-be-reading-tote-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -2694,8 +2686,6 @@
         "Clothing",
         "DTF",
         "Gifts for Dad",
-        "interest:dad",
-        "interest:food",
         "New in",
         "Slogan T-shirts",
         "T-shirts"
@@ -2721,6 +2711,7 @@
       "url": "rockonruby.co.uk/products/jadore-parties-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "DTF",
         "Gifts Under \u00a330",
         "Slogan T-shirts",
@@ -2736,6 +2727,8 @@
       "tags": [
         "Accessories",
         "Caps",
+        "Embroidered",
+        "Embroidered Cap",
         "interest:biscuit",
         "New in"
       ],
@@ -2835,7 +2828,7 @@
       "title": "Let Me Finish My Book Tote Bag",
       "handle": "let-me-finish-my-book-tote-bag",
       "url": "rockonruby.co.uk/products/let-me-finish-my-book-tote-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -2872,6 +2865,7 @@
         "interest:birthday",
         "interest:mum",
         "interest:parent",
+        "Personalised T-shirts",
         "T-shirts"
       ],
       "price": 44.0
@@ -3292,6 +3286,21 @@
       "price": 22.0
     },
     {
+      "title": "My Other Job Is A Dallas Cowboys Cheerleader Raglan Baby Tee",
+      "handle": "my-other-job-is-a-dallas-cowboys-cheerleader-raglan-baby-tee",
+      "url": "rockonruby.co.uk/products/my-other-job-is-a-dallas-cowboys-cheerleader-raglan-baby-tee",
+      "product_type": "Baby Tee",
+      "tags": [
+        "Clothing",
+        "Custom Slogan",
+        "DTF",
+        "New in",
+        "Personalised T-shirts",
+        "T-shirts"
+      ],
+      "price": 26.0
+    },
+    {
       "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
       "handle": "my-other-job-is-a-dallas-cowboys-cheerleader-sweatshirt",
       "url": "rockonruby.co.uk/products/my-other-job-is-a-dallas-cowboys-cheerleader-sweatshirt",
@@ -3364,6 +3373,7 @@
       "tags": [
         "Accessories",
         "Caps",
+        "Embroidered",
         "Gifts For Mum",
         "New in"
       ],
@@ -3427,6 +3437,7 @@
         "Accessories",
         "Caps",
         "Embroidered",
+        "Embroidered Cap",
         "Gifts for Dad",
         "interest:food",
         "New in"
@@ -3512,6 +3523,7 @@
         "Accessories",
         "Caps",
         "Embroidered",
+        "Embroidered Cap",
         "Gifts for Dad",
         "interest:food",
         "New in"
@@ -3618,6 +3630,7 @@
         "Accessories",
         "Caps",
         "Embroidered",
+        "Embroidered Cap",
         "interest:alcohol",
         "New in",
         "Personalised Accessories"
@@ -3686,7 +3699,7 @@
       "title": "Oversized Personalised Initial Leopard Print Tote Bag",
       "handle": "oversized-personalised-initial-leopard-print-tote-bag",
       "url": "rockonruby.co.uk/products/oversized-personalised-initial-leopard-print-tote-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -3700,7 +3713,7 @@
       "title": "Oversized Personalised Varsity Year Leopard Print Tote Bag",
       "handle": "oversized-personalised-varsity-year-leopard-print-tote-bag",
       "url": "rockonruby.co.uk/products/oversized-personalised-varsity-year-leopard-print-tote-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -3779,7 +3792,6 @@
         "Clothing",
         "DTF",
         "Gifts for Dad",
-        "interest:dad",
         "New in",
         "Personalised T-shirts",
         "T-shirts"
@@ -3827,6 +3839,7 @@
         "Caps",
         "Custom Slogan",
         "Embroidered",
+        "Embroidered Cap",
         "Gifts for Dad",
         "New in",
         "Personalised Accessories",
@@ -4160,7 +4173,9 @@
       "product_type": "Sweatshirt",
       "tags": [
         "Clothing",
+        "Embroidered",
         "Gifts For Her",
+        "New in",
         "Personalised Sweatshirts",
         "Sweatshirts"
       ],
@@ -4338,7 +4353,7 @@
         "Teacher Gifts",
         "Valentine\u2019s Day"
       ],
-      "price": 44.0
+      "price": 48.0
     },
     {
       "title": "Personalised Handwriting Hoodie Breast Pocket",
@@ -4427,7 +4442,6 @@
       "url": "rockonruby.co.uk/products/personalised-handwriting-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Embroidered",
         "Gifts For Her",
         "Gifts For Him",
@@ -4470,7 +4484,7 @@
       "title": "Personalised I Just Want to... Tote Bag",
       "handle": "personalised-i-just-want-to-tote-bag",
       "url": "rockonruby.co.uk/products/personalised-i-just-want-to-tote-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -4483,7 +4497,7 @@
       "title": "Personalised I'd Rather Be... Cap",
       "handle": "personalised-id-rather-be-cap",
       "url": "rockonruby.co.uk/products/personalised-id-rather-be-cap",
-      "product_type": "",
+      "product_type": "Cap",
       "tags": [
         "Accessories",
         "Caps",
@@ -4526,7 +4540,7 @@
       "title": "Personalised Initial Leopard print Makeup Bag",
       "handle": "personalised-initial-leopard-print-makeup-bag",
       "url": "rockonruby.co.uk/products/personalised-initial-leopard-print-makeup-bag",
-      "product_type": "",
+      "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -4540,7 +4554,7 @@
       "title": "Personalised Initial Leopard Print Shopping Bag",
       "handle": "personalised-initial-leopard-print-shopping-bag",
       "url": "rockonruby.co.uk/products/personalised-initial-leopard-print-shopping-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -4555,7 +4569,7 @@
       "title": "Personalised Initial Leopard print Tote Bag",
       "handle": "personalised-initial-leopard-print-tote-bag",
       "url": "rockonruby.co.uk/products/personalised-initial-leopard-print-tote-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -4564,18 +4578,6 @@
         "Tote Bags"
       ],
       "price": 24.0
-    },
-    {
-      "title": "Personalised Initials Bumbag",
-      "handle": "personalised-initials-bumbag",
-      "url": "rockonruby.co.uk/products/personalised-initials-bumbag",
-      "product_type": "Bumbag",
-      "tags": [
-        "Accessories",
-        "Embroidered",
-        "Personalised Accessories"
-      ],
-      "price": 18.0
     },
     {
       "title": "Personalised Italic Initial Baseball Cap",
@@ -4675,7 +4677,7 @@
       "title": "Personalised Leopard Print Initial Tote Bag",
       "handle": "personalised-leopard-print-initial-tote-bag",
       "url": "rockonruby.co.uk/products/personalised-leopard-print-initial-tote-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -4736,7 +4738,8 @@
         "interest:mum",
         "interest:parent",
         "Mama Merch",
-        "Personalised Sweatshirts"
+        "Personalised Sweatshirts",
+        "REVIEW"
       ],
       "price": 69.0
     },
@@ -4871,7 +4874,7 @@
         "Teacher Gifts",
         "Valentine\u2019s Day"
       ],
-      "price": 15.0
+      "price": 18.0
     },
     {
       "title": "Personalised Newlyweds T-shirt Set",
@@ -4932,22 +4935,6 @@
         "Sweatshirts"
       ],
       "price": 35.0
-    },
-    {
-      "title": "Personalised Remember You Are Sleeve Sweatshirt",
-      "handle": "personalised-remember-you-are-sleeve-sweatshirt",
-      "url": "rockonruby.co.uk/products/personalised-remember-you-are-sleeve-sweatshirt",
-      "product_type": "Sweatshirt",
-      "tags": [
-        "Clothing",
-        "Collections",
-        "DTF",
-        "Mama Merch",
-        "Personalised Sweatshirts",
-        "Sweatshirts",
-        "Valentine\u2019s Day"
-      ],
-      "price": 38.0
     },
     {
       "title": "Personalised Retro Initials Makeup Bag",
@@ -5042,7 +5029,7 @@
       "title": "Personalised Slogan Leopard Print Makeup Bag",
       "handle": "personalised-slogan-leopard-print-makeup-bag",
       "url": "rockonruby.co.uk/products/personalised-slogan-leopard-print-makeup-bag",
-      "product_type": "",
+      "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -5059,7 +5046,7 @@
       "title": "Personalised Slogan Leopard Print Tote Bag",
       "handle": "personalised-slogan-leopard-print-tote-bag",
       "url": "rockonruby.co.uk/products/personalised-slogan-leopard-print-tote-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -5091,6 +5078,7 @@
       "url": "rockonruby.co.uk/products/personalised-t-shirts",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "Custom Slogan",
         "DTF",
@@ -5206,7 +5194,7 @@
       "title": "Personalised Varsity Leopard Year Vintage Tote Bag",
       "handle": "personalised-varsity-year-vintage-tote-bag",
       "url": "rockonruby.co.uk/products/personalised-varsity-year-vintage-tote-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -5287,7 +5275,7 @@
       "title": "Personalised Varsity Year Leopard print Makeup Bag",
       "handle": "personalised-varsity-year-leopard-print-makeup-bag",
       "url": "rockonruby.co.uk/products/personalised-varsity-year-leopard-print-makeup-bag",
-      "product_type": "",
+      "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -5301,7 +5289,7 @@
       "title": "Personalised Varsity Year Leopard Print Shopping Bag",
       "handle": "personalised-varsity-year-leopard-print-shopping-bag",
       "url": "rockonruby.co.uk/products/personalised-varsity-year-leopard-print-shopping-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "DTF",
         "New in"
@@ -5312,7 +5300,7 @@
       "title": "Personalised Varsity Year Leopard Print Tote Bag",
       "handle": "personalised-varsity-year-leopard-print-tote-bag",
       "url": "rockonruby.co.uk/products/personalised-varsity-year-leopard-print-tote-bag",
-      "product_type": "",
+      "product_type": "Tote Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -5332,8 +5320,8 @@
         "DTF",
         "Gifts for Dad",
         "interest:birthday",
-        "Personalised Sweatshirts",
         "Personalised Year",
+        "Slogan Sweatshirts",
         "Sweatshirts"
       ],
       "price": 48.0
@@ -5594,6 +5582,7 @@
       "url": "rockonruby.co.uk/products/personalised-year-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "Collections",
         "DTF",
@@ -5658,6 +5647,7 @@
       "url": "rockonruby.co.uk/products/plain-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
+        "Plain",
         "Sweatshirts"
       ],
       "price": 36.0
@@ -6147,6 +6137,7 @@
         "Accessories",
         "Caps",
         "Embroidered",
+        "Embroidered Cap",
         "Gifts For Mum",
         "interest:tea",
         "New in"
@@ -6162,6 +6153,7 @@
         "Accessories",
         "Caps",
         "Embroidered",
+        "Embroidered Cap",
         "Gifts For Mum",
         "interest:tea",
         "New in"
@@ -6175,7 +6167,6 @@
       "product_type": "Sweatshirt",
       "tags": [
         "Clothing",
-        "Debenhams_Women",
         "DTF",
         "interest:tea",
         "Slogan Sweatshirts",
@@ -6686,32 +6677,32 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 357,
-      "revenue": 12636.2
+      "orders": 324,
+      "revenue": 11481.2
     },
     {
       "title": "Personalised Year Unisex T-shirt",
       "handle": "",
-      "orders": 101,
-      "revenue": 2626.0
+      "orders": 95,
+      "revenue": 2470.0
     },
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 60,
-      "revenue": 1464.0
-    },
-    {
-      "title": "Personalised Varsity Year Leopard Print Tote Bag",
-      "handle": "",
-      "orders": 56,
-      "revenue": 1368.0
+      "orders": 64,
+      "revenue": 1584.0
     },
     {
       "title": "Embroidered Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 50,
-      "revenue": 1155.65
+      "orders": 51,
+      "revenue": 1176.65
+    },
+    {
+      "title": "Personalised Varsity Year Leopard Print Tote Bag",
+      "handle": "",
+      "orders": 44,
+      "revenue": 1080.0
     },
     {
       "title": "Personalised 'Only Here For...' Cap",
@@ -6722,50 +6713,38 @@
     {
       "title": "Embroidered Yes I Like Pina Coladas T-shirt",
       "handle": "",
-      "orders": 26,
-      "revenue": 756.0
+      "orders": 25,
+      "revenue": 728.0
     },
     {
       "title": "Personalisation on the back of the neck (+\u00a34.95)",
       "handle": "",
-      "orders": 151,
-      "revenue": 747.63
+      "orders": 136,
+      "revenue": 673.38
     },
     {
       "title": "Rock On Ruby Branded Tote Bag",
       "handle": "",
-      "orders": 38,
-      "revenue": 608.37
+      "orders": 40,
+      "revenue": 656.37
     },
     {
       "title": "Personalised Handwriting Cuff Sweatshirt",
       "handle": "",
-      "orders": 11,
-      "revenue": 512.0
-    },
-    {
-      "title": "Custard Cream Connoisseur T-Shirt",
-      "handle": "",
-      "orders": 19,
-      "revenue": 494.0
+      "orders": 13,
+      "revenue": 608.0
     },
     {
       "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
       "handle": "",
-      "orders": 14,
-      "revenue": 490.0
+      "orders": 17,
+      "revenue": 595.0
     },
     {
       "title": "Personalised Slogan T-shirt",
       "handle": "",
-      "orders": 17,
-      "revenue": 476.0
-    },
-    {
-      "title": "Custard Cream Connoisseur Sweatshirt",
-      "handle": "",
-      "orders": 12,
-      "revenue": 456.0
+      "orders": 18,
+      "revenue": 504.0
     },
     {
       "title": "Happy Hour Slogan Sweatshirt",
@@ -6774,16 +6753,16 @@
       "revenue": 455.0
     },
     {
-      "title": "Men's Personalised Year Sweatshirt",
+      "title": "Custard Cream Connoisseur T-Shirt",
       "handle": "",
-      "orders": 13,
-      "revenue": 455.0
+      "orders": 17,
+      "revenue": 442.0
     },
     {
-      "title": "Funky Font Personalised Year Sweatshirt",
+      "title": "Custard Cream Connoisseur Sweatshirt",
       "handle": "",
-      "orders": 13,
-      "revenue": 455.0
+      "orders": 11,
+      "revenue": 418.0
     },
     {
       "title": "Embroidered Personalised Cuff Sweatshirt",
@@ -6792,16 +6771,28 @@
       "revenue": 400.0
     },
     {
-      "title": "Personalised Handwriting T-Shirt",
+      "title": "Yes I Like Pina Coladas Bucket Hat",
       "handle": "",
-      "orders": 12,
+      "orders": 16,
       "revenue": 384.0
     },
     {
-      "title": "Happy Hour Slogan T-Shirt",
+      "title": "Personalised Handwriting T-Shirt",
       "handle": "",
-      "orders": 14,
-      "revenue": 364.0
+      "orders": 11,
+      "revenue": 352.0
+    },
+    {
+      "title": "Tea Please Sweatshirt",
+      "handle": "",
+      "orders": 10,
+      "revenue": 350.0
+    },
+    {
+      "title": "Funky Font Personalised Year Sweatshirt",
+      "handle": "",
+      "orders": 10,
+      "revenue": 350.0
     }
   ]
 }
