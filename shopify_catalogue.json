@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-06-22T11:27:39.417435+00:00",
+  "synced_at": "2026-06-29T10:15:43.976532+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -2222,7 +2222,6 @@
       "url": "rockonruby.co.uk/products/embroidered-yes-i-like-pina-coladas-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "Collections",
         "Embroidered",
@@ -2393,7 +2392,6 @@
       "url": "rockonruby.co.uk/products/happy-hour-slogan-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Christmas T Shirt",
         "Christmas Tops",
         "Clothing",
@@ -2664,20 +2662,6 @@
       "price": 26.0
     },
     {
-      "title": "In My Romantasy Era Slogan T-Shirt",
-      "handle": "in-my-romantasy-era-slogan-t-shirt",
-      "url": "rockonruby.co.uk/products/in-my-romantasy-era-slogan-t-shirt",
-      "product_type": "T-Shirt",
-      "tags": [
-        "Clothing",
-        "interest:reading",
-        "Slogan T-shirts",
-        "T-shirts",
-        "Valentine\u2019s Day"
-      ],
-      "price": 26.0
-    },
-    {
       "title": "It's Not Burnt Slogan T-Shirt",
       "handle": "its-not-burnt-slogan-t-shirt",
       "url": "rockonruby.co.uk/products/its-not-burnt-slogan-t-shirt",
@@ -2711,7 +2695,6 @@
       "url": "rockonruby.co.uk/products/jadore-parties-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "DTF",
         "Gifts Under \u00a330",
         "Slogan T-shirts",
@@ -3306,6 +3289,7 @@
       "url": "rockonruby.co.uk/products/my-other-job-is-a-dallas-cowboys-cheerleader-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "DTF",
         "New in",
@@ -3772,6 +3756,7 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
+        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -3835,7 +3820,6 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -4342,6 +4326,7 @@
       "url": "rockonruby.co.uk/products/personalised-handwriting-cuff-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "Embroidered",
         "Gifts For Her",
@@ -4874,7 +4859,7 @@
         "Teacher Gifts",
         "Valentine\u2019s Day"
       ],
-      "price": 18.0
+      "price": 15.0
     },
     {
       "title": "Personalised Newlyweds T-shirt Set",
@@ -4995,20 +4980,6 @@
       "price": 14.0
     },
     {
-      "title": "Personalised Serif Initial Embroidered Beanie Hat with Deep Cuff",
-      "handle": "personalised-serif-initial-embroidered-beanie-hat-with-deep-cuff",
-      "url": "rockonruby.co.uk/products/personalised-serif-initial-embroidered-beanie-hat-with-deep-cuff",
-      "product_type": "Beanie Hat",
-      "tags": [
-        "Accessories",
-        "Beanie Hats",
-        "Embroidered",
-        "Personalised Accessories",
-        "Stocking Fillers"
-      ],
-      "price": 21.0
-    },
-    {
       "title": "Personalised Slogan Leopard Print Cap",
       "handle": "personalised-slogan-leopard-print-cap",
       "url": "rockonruby.co.uk/products/personalised-slogan-leopard-print-cap",
@@ -5078,7 +5049,6 @@
       "url": "rockonruby.co.uk/products/personalised-t-shirts",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "Custom Slogan",
         "DTF",
@@ -5817,19 +5787,6 @@
         "Valentine\u2019s Day"
       ],
       "price": 35.0
-    },
-    {
-      "title": "Rom Com Kinda Love Slogan T-Shirt",
-      "handle": "rom-com-kinda-love-slogan-t-shirt",
-      "url": "rockonruby.co.uk/products/rom-com-kinda-love-slogan-t-shirt",
-      "product_type": "T-Shirt",
-      "tags": [
-        "Clothing",
-        "Slogan T-shirts",
-        "T-shirts",
-        "Valentine\u2019s Day"
-      ],
-      "price": 26.0
     },
     {
       "title": "Roman Numeral Printed Sweatshirt",
@@ -6607,6 +6564,7 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
+        "bestseller",
         "Caps",
         "Embroidered",
         "Holiday Bundle",
@@ -6677,92 +6635,86 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 324,
-      "revenue": 11481.2
+      "orders": 307,
+      "revenue": 10886.2
     },
     {
       "title": "Personalised Year Unisex T-shirt",
       "handle": "",
-      "orders": 95,
-      "revenue": 2470.0
+      "orders": 91,
+      "revenue": 2366.0
     },
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 64,
-      "revenue": 1584.0
+      "orders": 84,
+      "revenue": 2064.0
     },
     {
       "title": "Embroidered Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 51,
-      "revenue": 1176.65
-    },
-    {
-      "title": "Personalised Varsity Year Leopard Print Tote Bag",
-      "handle": "",
-      "orders": 44,
-      "revenue": 1080.0
+      "orders": 65,
+      "revenue": 1470.0
     },
     {
       "title": "Personalised 'Only Here For...' Cap",
       "handle": "",
-      "orders": 33,
-      "revenue": 840.0
+      "orders": 43,
+      "revenue": 1080.0
+    },
+    {
+      "title": "Personalised Varsity Year Leopard Print Tote Bag",
+      "handle": "",
+      "orders": 36,
+      "revenue": 888.0
     },
     {
       "title": "Embroidered Yes I Like Pina Coladas T-shirt",
       "handle": "",
-      "orders": 25,
-      "revenue": 728.0
-    },
-    {
-      "title": "Personalisation on the back of the neck (+\u00a34.95)",
-      "handle": "",
-      "orders": 136,
-      "revenue": 673.38
+      "orders": 27,
+      "revenue": 784.0
     },
     {
       "title": "Rock On Ruby Branded Tote Bag",
       "handle": "",
-      "orders": 40,
-      "revenue": 656.37
-    },
-    {
-      "title": "Personalised Handwriting Cuff Sweatshirt",
-      "handle": "",
-      "orders": 13,
-      "revenue": 608.0
+      "orders": 46,
+      "revenue": 752.0
     },
     {
       "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
       "handle": "",
-      "orders": 17,
-      "revenue": 595.0
+      "orders": 21,
+      "revenue": 735.0
     },
     {
       "title": "Personalised Slogan T-shirt",
       "handle": "",
-      "orders": 18,
-      "revenue": 504.0
+      "orders": 25,
+      "revenue": 700.0
     },
     {
-      "title": "Happy Hour Slogan Sweatshirt",
+      "title": "Personalised Handwriting Cuff Sweatshirt",
       "handle": "",
-      "orders": 13,
-      "revenue": 455.0
+      "orders": 14,
+      "revenue": 656.0
+    },
+    {
+      "title": "Personalisation on the back of the neck (+\u00a34.95)",
+      "handle": "",
+      "orders": 128,
+      "revenue": 633.78
     },
     {
       "title": "Custard Cream Connoisseur T-Shirt",
       "handle": "",
-      "orders": 17,
-      "revenue": 442.0
+      "orders": 19,
+      "revenue": 494.0
     },
     {
-      "title": "Custard Cream Connoisseur Sweatshirt",
+      "title": "Happy Hour Slogan Sweatshirt",
       "handle": "",
-      "orders": 11,
-      "revenue": 418.0
+      "orders": 12,
+      "revenue": 420.0
     },
     {
       "title": "Embroidered Personalised Cuff Sweatshirt",
@@ -6771,28 +6723,34 @@
       "revenue": 400.0
     },
     {
-      "title": "Yes I Like Pina Coladas Bucket Hat",
+      "title": "Happy Hour Slogan T-Shirt",
       "handle": "",
-      "orders": 16,
-      "revenue": 384.0
+      "orders": 15,
+      "revenue": 390.0
     },
     {
       "title": "Personalised Handwriting T-Shirt",
       "handle": "",
-      "orders": 11,
-      "revenue": 352.0
+      "orders": 12,
+      "revenue": 384.0
     },
     {
-      "title": "Tea Please Sweatshirt",
+      "title": "Personalised Slogan Sweatshirt",
       "handle": "",
       "orders": 10,
-      "revenue": 350.0
+      "revenue": 380.0
     },
     {
-      "title": "Funky Font Personalised Year Sweatshirt",
+      "title": "Custard Cream Connoisseur Sweatshirt",
       "handle": "",
       "orders": 10,
-      "revenue": 350.0
+      "revenue": 380.0
+    },
+    {
+      "title": "Bourbon Biscuit Fan Club T-Shirt",
+      "handle": "",
+      "orders": 14,
+      "revenue": 364.0
     }
   ]
 }
