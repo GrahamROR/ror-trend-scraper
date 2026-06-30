@@ -19,6 +19,16 @@
       "date": "2026-06-23",
       "topic": "personalised caps for summer UK",
       "title": "The Best Personalised Caps for Summer 2026: From Wimbledon to the World Cup and Beyond"
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "personalised kids summer holiday clothing",
+      "title": "What to Buy the Kids Before the Summer Holidays Start (That They'll Actually Wear) 2026"
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "what to wear World Cup watch party",
+      "title": "How to Dress for a World Cup Final Watch Party (Without Trying Too Hard) 2026"
     }
   ],
   "emails": [
@@ -91,6 +101,56 @@
       "date": "2026-06-23",
       "topic": "Email - FLASH SALE 48HRS",
       "subject": "48 hours, then it's gone"
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "Email - Your June Calendar & what to wear",
+      "subject": "June is basically one long occasion and we're here for it"
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "Email - Father's Day Gift Guide",
+      "subject": "what are you actually getting your dad this year"
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "Email - Our fave personalised Father's Day Gifts so far",
+      "subject": "dads are actually the hardest people to buy for"
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "Email - Delivery Date reminder",
+      "subject": "you've got until Sunday, just so you know"
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "Email - Last chance father's day gifting!!",
+      "subject": "Father's Day is Sunday. Just saying."
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "Email - Happy Fathers Day ",
+      "subject": "Dad's getting a cap this year and we're all fine with that"
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "Email - Customers styled it best (steal their look)",
+      "subject": "the looks our customers are pulling off right now"
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "Email - FLASH SALE 48HRS",
+      "subject": "48 hours, then it's gone"
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "Email - Suitcase Giveaway!!",
+      "subject": "we're giving away a suitcase (yes, an actual suitcase)"
+    },
+    {
+      "date": "2026-06-30",
+      "topic": "Email - 24HRS left to enter the giveaway",
+      "subject": "you've got 24 hours and then it's gone"
     }
   ],
   "series": [
@@ -198,6 +258,62 @@
       "date": "2026-06-23",
       "concept": "A fortnightly series where real ROR customers \u2014 not influencers, not models \u2014 film themselves getting dressed for an actual real occasion in a ROR piece, submitted by the customer and shared with their permission.",
       "name": "Normal Women Getting Dressed",
+      "urls": []
+    },
+    {
+      "date": "2026-06-30",
+      "concept": "A fortnightly series where Bethan pitches Holly a wild or unexpected product/slogan idea and Holly reacts, debates it, and they decide together whether it lives or dies \u2014 all on camera.",
+      "name": "Bethan Made Me Do It",
+      "urls": [
+        "https://www.tiktok.com/@prettyinpaperbyb/video/7650138170822085920",
+        "https://www.tiktok.com/@daviefogarty/video/7650758231458843920",
+        "https://www.tiktok.com/@beth.ejm/photo/7647644338532420886",
+        "https://www.instagram.com/reel/DZceF5ZDcJd/"
+      ]
+    },
+    {
+      "date": "2026-06-30",
+      "concept": "A fortnightly series where Holly picks one specific ROR product and imagines \u2014 out loud, with deadpan northern logic \u2014 the exact type of person who buys it, the occasion, the group chat that led to the purchase.",
+      "name": "Who Actually Buys This?",
+      "urls": []
+    },
+    {
+      "date": "2026-06-30",
+      "concept": "A weekly series where one ROR product \u2014 same item, same slogan \u2014 gets shown in three completely different real-life contexts, styled and used differently, proving personalised pieces aren't precious.",
+      "name": "Same Bag, Different Life",
+      "urls": [
+        "https://www.tiktok.com/@indiadebeaufort/video/7648433946417466655",
+        "https://www.tiktok.com/@ava_tocloo/video/7647676299435199758",
+        "https://www.tiktok.com/@whowhatwear/video/7648343638593916174",
+        "https://www.tiktok.com/@ttoddf/video/7652005301884931341",
+        "https://www.youtube.com/watch?v=gAkCYG_krBc"
+      ]
+    },
+    {
+      "date": "2026-06-30",
+      "concept": "A fortnightly series where Holly solves one specific gifting panic \u2014 a real scenario, a real deadline, a real type of person \u2014 and builds the case for why personalised beats purchased, step by step.",
+      "name": "The Guilt-Free Gift Guide",
+      "urls": [
+        "https://www.tiktok.com/@daniellejohnstonex/video/7652035411312659734",
+        "https://www.tiktok.com/@eggyboom/video/7652041017671109902"
+      ]
+    },
+    {
+      "date": "2026-06-30",
+      "concept": "A fortnightly storytelling series where Holly reads a real message \u2014 a review, a thank-you DM, a photo caption \u2014 from a customer describing the moment the recipient opened their ROR gift, then talks honestly about why that moment is the whole point.",
+      "name": "You Can't Buy This Feeling",
+      "urls": []
+    },
+    {
+      "date": "2026-06-30",
+      "concept": "A weekly series where Holly takes a real, generic, mass-market gift slogan \u2014 from a card shop, a supermarket aisle, a Moonpig suggestion \u2014 and rewrites it live on camera into something that actually sounds like a real person gave it thought.",
+      "name": "Slogan Surgery",
+      "urls": []
+    },
+    {
+      "date": "2026-06-30",
+      "concept": "A fortnightly behind-the-scenes local series where Holly shows one small, specific, unglamorous detail of running a physical small business in Bury \u2014 the suppliers, the high street, the van, the post office queue \u2014 that most customers never think about.",
+      "name": "Bury to Your Door",
       "urls": []
     }
   ]
