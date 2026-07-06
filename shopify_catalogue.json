@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-06-29T10:15:43.976532+00:00",
+  "synced_at": "2026-07-06T09:48:19.028727+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -2222,6 +2222,7 @@
       "url": "rockonruby.co.uk/products/embroidered-yes-i-like-pina-coladas-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "Collections",
         "Embroidered",
@@ -3284,6 +3285,20 @@
       "price": 26.0
     },
     {
+      "title": "My Other Job Is A Dallas Cowboys Cheerleader Slogan T-Shirt",
+      "handle": "my-other-job-is-a-dallas-cowboys-cheerleader-slogan-t-shirt",
+      "url": "rockonruby.co.uk/products/my-other-job-is-a-dallas-cowboys-cheerleader-slogan-t-shirt",
+      "product_type": "T-Shirt",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "New in",
+        "Slogan T-shirts",
+        "T-shirts"
+      ],
+      "price": 26.0
+    },
+    {
       "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
       "handle": "my-other-job-is-a-dallas-cowboys-cheerleader-sweatshirt",
       "url": "rockonruby.co.uk/products/my-other-job-is-a-dallas-cowboys-cheerleader-sweatshirt",
@@ -3406,6 +3421,7 @@
       "tags": [
         "Accessories",
         "Caps",
+        "Embroidered",
         "Gifts For Mum",
         "interest:biscuit",
         "New in"
@@ -3756,7 +3772,6 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -3820,6 +3835,7 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
+        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -4326,7 +4342,6 @@
       "url": "rockonruby.co.uk/products/personalised-handwriting-cuff-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "Embroidered",
         "Gifts For Her",
@@ -5049,6 +5064,7 @@
       "url": "rockonruby.co.uk/products/personalised-t-shirts",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "Custom Slogan",
         "DTF",
@@ -5552,7 +5568,6 @@
       "url": "rockonruby.co.uk/products/personalised-year-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "Collections",
         "DTF",
@@ -6564,7 +6579,6 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Embroidered",
         "Holiday Bundle",
@@ -6635,44 +6649,50 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 307,
-      "revenue": 10886.2
+      "orders": 267,
+      "revenue": 9451.2
     },
     {
       "title": "Personalised Year Unisex T-shirt",
       "handle": "",
-      "orders": 91,
-      "revenue": 2366.0
+      "orders": 83,
+      "revenue": 2158.0
     },
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 84,
-      "revenue": 2064.0
+      "orders": 86,
+      "revenue": 2112.0
     },
     {
       "title": "Embroidered Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 65,
-      "revenue": 1470.0
+      "orders": 61,
+      "revenue": 1386.0
     },
     {
       "title": "Personalised 'Only Here For...' Cap",
       "handle": "",
-      "orders": 43,
-      "revenue": 1080.0
-    },
-    {
-      "title": "Personalised Varsity Year Leopard Print Tote Bag",
-      "handle": "",
-      "orders": 36,
-      "revenue": 888.0
+      "orders": 45,
+      "revenue": 1128.0
     },
     {
       "title": "Embroidered Yes I Like Pina Coladas T-shirt",
       "handle": "",
+      "orders": 29,
+      "revenue": 840.0
+    },
+    {
+      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
+      "handle": "",
+      "orders": 24,
+      "revenue": 840.0
+    },
+    {
+      "title": "Personalised Slogan T-shirt",
+      "handle": "",
       "orders": 27,
-      "revenue": 784.0
+      "revenue": 756.0
     },
     {
       "title": "Rock On Ruby Branded Tote Bag",
@@ -6681,28 +6701,22 @@
       "revenue": 752.0
     },
     {
-      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
+      "title": "Personalisation on the back of the neck (+\u00a34.95)",
       "handle": "",
-      "orders": 21,
-      "revenue": 735.0
+      "orders": 129,
+      "revenue": 638.73
     },
     {
-      "title": "Personalised Slogan T-shirt",
+      "title": "Personalised Varsity Year Leopard Print Tote Bag",
       "handle": "",
-      "orders": 25,
-      "revenue": 700.0
+      "orders": 24,
+      "revenue": 600.0
     },
     {
       "title": "Personalised Handwriting Cuff Sweatshirt",
       "handle": "",
-      "orders": 14,
-      "revenue": 656.0
-    },
-    {
-      "title": "Personalisation on the back of the neck (+\u00a34.95)",
-      "handle": "",
-      "orders": 128,
-      "revenue": 633.78
+      "orders": 12,
+      "revenue": 560.0
     },
     {
       "title": "Custard Cream Connoisseur T-Shirt",
@@ -6711,34 +6725,22 @@
       "revenue": 494.0
     },
     {
-      "title": "Happy Hour Slogan Sweatshirt",
-      "handle": "",
-      "orders": 12,
-      "revenue": 420.0
-    },
-    {
       "title": "Embroidered Personalised Cuff Sweatshirt",
       "handle": "",
-      "orders": 8,
-      "revenue": 400.0
+      "orders": 10,
+      "revenue": 480.0
     },
     {
       "title": "Happy Hour Slogan T-Shirt",
       "handle": "",
-      "orders": 15,
-      "revenue": 390.0
+      "orders": 16,
+      "revenue": 416.0
     },
     {
-      "title": "Personalised Handwriting T-Shirt",
+      "title": "Yes I Like Pina Coladas Bucket Hat",
       "handle": "",
-      "orders": 12,
+      "orders": 16,
       "revenue": 384.0
-    },
-    {
-      "title": "Personalised Slogan Sweatshirt",
-      "handle": "",
-      "orders": 10,
-      "revenue": 380.0
     },
     {
       "title": "Custard Cream Connoisseur Sweatshirt",
@@ -6747,10 +6749,22 @@
       "revenue": 380.0
     },
     {
-      "title": "Bourbon Biscuit Fan Club T-Shirt",
+      "title": "Yes I Like Pina Colada Cap",
       "handle": "",
-      "orders": 14,
-      "revenue": 364.0
+      "orders": 18,
+      "revenue": 378.0
+    },
+    {
+      "title": "Personalised Handwriting T-Shirt",
+      "handle": "",
+      "orders": 11,
+      "revenue": 352.0
+    },
+    {
+      "title": "Happy Hour Slogan Sweatshirt",
+      "handle": "",
+      "orders": 10,
+      "revenue": 350.0
     }
   ]
 }
