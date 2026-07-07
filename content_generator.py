@@ -237,9 +237,10 @@ def get_upcoming_dates(list_id: str, weeks_ahead: int = 5) -> list[dict]:
 
 
 def get_email_tasks(weeks_ahead: int = 5) -> list[dict]:
-    now    = datetime.now(tz=timezone.utc)
-    cutoff = now + timedelta(weeks=weeks_ahead)
-    items  = []
+    now      = datetime.now(tz=timezone.utc)
+    tomorrow = now + timedelta(days=1)   # ignore anything already past due
+    cutoff   = now + timedelta(weeks=weeks_ahead)
+    items    = []
     for t in fetch_clickup_tasks(MARKETING_LIST):
         tags = [tag.get("name", "").lower() for tag in t.get("tags", [])]
         if "e-mail" not in tags:
@@ -248,7 +249,7 @@ def get_email_tasks(weeks_ahead: int = 5) -> list[dict]:
         if not due_ms:
             continue
         due_dt = datetime.fromtimestamp(int(due_ms) / 1000, tz=timezone.utc)
-        if now <= due_dt <= cutoff:
+        if tomorrow <= due_dt <= cutoff:   # must be in the future
             items.append({
                 "name":    t["name"],
                 "date":    due_dt.strftime("%Y-%m-%d"),
@@ -427,6 +428,15 @@ def main() -> int:
         print("  ANTHROPIC_API_KEY not set — exiting."); return 1
     if not CLICKUP_KEY:
         print("  CLICKUP_API_KEY not set — exiting."); return 1
+
+    # Guard: skip if already ran today (prevents duplicate runs from manual triggers)
+    history_check = load_history()
+    today_str = datetime.now().strftime("%Y-%m-%d")
+    ran_today = any(e.get("date") == today_str for e in history_check.get("blogs", []))
+    if ran_today:
+        print(f"  Already ran today ({today_str}) — skipping to prevent duplicates.")
+        print("  To force a re-run, clear today's entries from content_history.json first.")
+        return 0
 
     catalogue = load_catalogue()
     if not catalogue:
