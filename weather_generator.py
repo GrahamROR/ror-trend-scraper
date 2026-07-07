@@ -318,60 +318,62 @@ Make it funny. Make it feel like Holly wrote it at 10pm after checking the weath
 
 
 def generate_weather_email(story: dict, catalogue_summary: str) -> dict:
-    system = f"""{BRAND_CONTEXT}
+    context = f"WEATHER STORY: {story['headline']}\nANGLE: {story['angle']}\nFEATURED PRODUCTS: {', '.join(story['products'][:2])}\n\n{catalogue_summary}"
+
+    # Pass 1 — brief
+    brief_system = f"""{BRAND_CONTEXT}
 
 {HOLLY_VOICE}
 
-You write complete Klaviyo-ready marketing emails for Rock On Ruby.
-Every email is a story, not an announcement. Funny, warm, British.
+You are writing a strategic brief for a Rock On Ruby weather-themed marketing email.
+The email should feel timely — like Holly spotted the forecast and had to write about it.
 
-OUTPUT FORMAT — return exactly this, nothing else:
-SUBJECT: [subject line]
-PREVIEW: [preview text]
----
-[full email body starting with Hey {{{{first_name}}}},]
-"""
+Return EXACTLY this format:
 
-    prompt = f"""
-Write a complete Rock On Ruby marketing email based on this week's weather.
+SUBJECT: [chatty subject line, curious, not salesy]
+PREVIEW: [one sentence, complements subject]
+STORY_ANGLE: [the specific weather observation that opens the email]
+TENSION: [the relatable feeling — too hot, soaked, chaotic week]
+SHIFT: [how ROR fits into this moment]
+REASON_TO_CARE: [why this feels timely and personal]
+EMAIL_STRUCTURE:
+- Opening: [first 1-2 sentences]
+- Section 1: [main body — weather story + product tie-in]
+- CTA: [CTA text] linking to [URL]
+- PS: [weather-related punchy PS]
+HOLLY_VOICE_NOTES:
+1. [voice note specific to this weather story]
+2. [voice note specific to this weather story]
+3. [voice note specific to this weather story]
+IMAGE_SUGGESTIONS:
+- [image idea 1]
+- [image idea 2]
+- [image idea 3]"""
 
-WEATHER STORY: {story['headline']}
-ANGLE: {story['angle']}
-FEATURED PRODUCTS: {', '.join(story['products'][:2])}
+    brief_raw = claude_call(brief_system, f"Write the email brief.\n\n{context}", max_tokens=800)
 
-{catalogue_summary}
+    subj_m  = re.search(r"^SUBJECT:\s*(.+)$", brief_raw, re.MULTILINE)
+    prev_m  = re.search(r"^PREVIEW:\s*(.+)$", brief_raw, re.MULTILINE)
+    subject = subj_m.group(1).strip() if subj_m else "About this week's weather..."
+    preview = prev_m.group(1).strip() if prev_m else ""
 
-The email should:
-- Open with a relatable weather observation (Hey first_name, ...)
-- Build a funny story around the specific weather situation
-- Introduce 1-2 ROR products naturally within the story
-- End with a conversational CTA link
-- P.S. line that's punchy and weather-related
-- Love Team ROR x sign-off
+    # Pass 2 — finished copy
+    copy_system = f"""{BRAND_CONTEXT}
 
-Make it feel timely — like Holly spotted the forecast this morning and had to write about it.
-""".strip()
+{HOLLY_VOICE}
 
-    raw = claude_call(system, prompt, max_tokens=2000)
+You write complete Klaviyo-ready marketing emails in Holly's voice.
+Every email is a story. Funny, warm, very British about weather.
+Output only the finished email body — no subject, no preview, no labels.
+Start with Hey {{first_name}}, and end with Love Team ROR x"""
 
-    subject = ""
-    preview = ""
-    subject_match = re.search(r"^SUBJECT:\s*(.+)$", raw, re.MULTILINE)
-    preview_match = re.search(r"^PREVIEW:\s*(.+)$", raw, re.MULTILINE)
-    if subject_match:
-        subject = subject_match.group(1).strip()
-    if preview_match:
-        preview = preview_match.group(1).strip()
+    body = claude_call(
+        copy_system,
+        f"Write the finished email using this brief.\n\nBRIEF:\n{brief_raw}\n\nCONTEXT:\n{context}",
+        max_tokens=1200,
+    )
 
-    body = re.sub(r"^SUBJECT:.*\n?", "", raw, flags=re.MULTILINE)
-    body = re.sub(r"^PREVIEW:.*\n?", "", body, flags=re.MULTILINE)
-    body = re.sub(r"^---\n?", "", body, flags=re.MULTILINE)
-    body = body.strip()
-
-    if not subject:
-        subject = f"About this week's weather..."
-
-    return {"subject": subject, "preview": preview, "body": body}
+    return {"subject": subject, "preview": preview, "brief": brief_raw, "body": body.strip()}
 
 
 def generate_weather_carousel(story: dict, days: list[dict]) -> str:
@@ -515,9 +517,26 @@ def run_weather_generator(due_ms: int, history: dict, catalogue_summary: str) ->
     print("  Writing weather email...")
     try:
         email = generate_weather_email(story, catalogue_summary)
+        description = "\n".join([
+            f"SUBJECT: {email['subject']}",
+            f"PREVIEW: {email['preview']}",
+            f"WEATHER TRIGGER: {story['story']}",
+            "",
+            "━" * 40,
+            "BRIEF",
+            "━" * 40,
+            "",
+            email.get("brief", ""),
+            "",
+            "━" * 40,
+            "FINISHED EMAIL COPY",
+            "━" * 40,
+            "",
+            email["body"],
+        ])
         ok = push_weather_task(
             name=f"[Weather Email] {email['subject']} — {today}",
-            description=f"SUBJECT: {email['subject']}\nPREVIEW TEXT: {email['preview']}\nWEATHER TRIGGER: {story['story']}\n\n---\n\n{email['body']}",
+            description=description,
             tags=["email", "weather"],
             due_ms=due_ms,
         )

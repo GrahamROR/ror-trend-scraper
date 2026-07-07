@@ -72,7 +72,93 @@ BLOG_PASS1_SYSTEM = f"""{BRAND_CONTEXT}\n\n{HOLLY_VOICE}\n\nWrite a rough first-
 
 BLOG_PASS2_SYSTEM = f"""{BRAND_CONTEXT}\n\n{HOLLY_VOICE}\n\nYou are an SEO specialist for Rock On Ruby. Optimise the draft for Google and AI Overviews without losing Holly's voice.\n\nSTRUCTURE: Keep conversational opening. H2s as real search questions. H3s where useful. 700-900+ words. Include year when time-sensitive.\nKEYWORDS: Long-tail product phrases. Combine product + occasion + audience.\nLOCAL SEO: Mention Bury, Manchester. UK-wide delivery. Fast turnaround.\nDEPTH: Specific personalisation ideas. Emotional argument for personalised vs generic. Quality of full-colour print or embroidery vs cheap alternatives.\nFAQ: 4+ questions exactly as someone would type into Google. Every answer fully written in Holly's voice.\nCTA: Natural, low-pressure, Holly's voice. Never "shop now" or "click here".\nOUTPUT: Finished blog only. No commentary."""
 
-EMAIL_SYSTEM = f"""{BRAND_CONTEXT}\n\n{HOLLY_VOICE}\n\nYou write complete Klaviyo-ready marketing emails in Holly's voice. Every email is a story.\n\nSTRUCTURE:\n1. Hey {{first_name}}, — land in a real moment\n2. Story: relatable moment leading to product\n3. Product intro — what it is, why good, one customer reaction\n4. CTA: [CTA text](URL)\n5. P.S. — one punchy line\n6. Love Team ROR x\n\nRULES: Subject line: chatty, curious, no emojis. Preview text: complements subject. Story angle: specific real moment. Social proof: Holly's voice. Never mention discounts unless briefed. One CTA.\n\nOUTPUT FORMAT:\nSUBJECT: [subject]\nPREVIEW: [preview]\n---\n[email body starting with Hey {{first_name}},]"""
+EMAIL_BRIEF_SYSTEM = f"""{BRAND_CONTEXT}
+
+{HOLLY_VOICE}
+
+You are writing a strategic brief for a Rock On Ruby marketing email.
+This brief will be used by the team before the email is written — it gives context, direction and image ideas.
+
+Return EXACTLY this format, nothing else:
+
+SUBJECT: [subject line — chatty, curious, no emojis, not salesy]
+PREVIEW: [preview text — one sentence, complements subject without repeating it]
+STORY_ANGLE: [one sentence — the specific real-life moment that opens the email]
+TENSION: [one sentence — the problem or feeling the reader has]
+SHIFT: [one sentence — how ROR resolves it]
+REASON_TO_CARE: [one sentence — the emotional reason this matters to the reader]
+EMAIL_STRUCTURE:
+- Opening: [what Holly says in the first 1-2 sentences]
+- Section 1: [what the first body section covers]
+- Section 2: [what the second body section covers, if needed]
+- CTA: [CTA button text] linking to [URL]
+- PS: [the P.S. line]
+HOLLY_VOICE_NOTES:
+1. [specific voice note for this email]
+2. [specific voice note for this email]
+3. [specific voice note for this email]
+IMAGE_SUGGESTIONS:
+- [image idea 1]
+- [image idea 2]
+- [image idea 3]"""
+
+EMAIL_COPY_SYSTEM = f"""{BRAND_CONTEXT}
+
+{HOLLY_VOICE}
+
+You write complete Klaviyo-ready marketing emails in Holly's voice. Every email is a story, never an announcement.
+
+STRUCTURE:
+1. Hey {{first_name}}, — land in a real moment, never announce the product
+2. Story: a relatable moment that leads naturally to the product
+3. Product intro — what it is, why it's good, one real customer reaction in Holly's voice
+4. CTA: [CTA text](URL) — conversational, matches the story
+5. P.S. — one punchy line
+6. Love Team ROR x
+
+RULES:
+- Story angle must be specific — a real moment, not generic "gifting is nice"
+- Social proof in Holly's voice: "We've had people message saying their mum cried" not testimonials
+- Never mention discounts unless explicitly briefed
+- One CTA per email. Never "Shop Now" or "Click Here"
+- Read every sentence aloud. If it sounds like AI, rewrite it.
+
+OUTPUT: Return only the finished email body. No subject line, no preview text, no labels."""
+
+
+def generate_email(email_task: dict, catalogue: dict) -> dict:
+    cat_sum = catalogue_summary(catalogue, max_products=30)
+    context = f"EMAIL FROM MARKETING CALENDAR: {email_task['name']}\nSEND DATE: {email_task['display']}\n\n{cat_sum}"
+
+    # Pass 1 — strategic brief
+    brief_raw = claude_call(
+        EMAIL_BRIEF_SYSTEM,
+        f"Write the email brief.\n\n{context}",
+        max_tokens=1000,
+    )
+
+    # Parse subject + preview from brief
+    subj_m = re.search(r"^SUBJECT:\s*(.+)$", brief_raw, re.MULTILINE)
+    prev_m = re.search(r"^PREVIEW:\s*(.+)$", brief_raw, re.MULTILINE)
+    subject = subj_m.group(1).strip() if subj_m else re.sub(r"^Email\s*[-]\s*", "", email_task["name"], flags=re.IGNORECASE).strip()
+    preview = prev_m.group(1).strip() if prev_m else ""
+
+    # Pass 2 — finished email copy
+    body = claude_call(
+        EMAIL_COPY_SYSTEM,
+        f"Write the finished email using this brief as your guide.\n\nBRIEF:\n{brief_raw}\n\nCONTEXT:\n{context}",
+        max_tokens=1500,
+    )
+
+    return {
+        "subject":      subject,
+        "preview":      preview,
+        "brief":        brief_raw,
+        "body":         body.strip(),
+        "task_name":    email_task["name"],
+        "due_ms":       email_task["due_ms"],
+        "display_date": email_task["display"],
+    }
 
 
 def load_catalogue() -> dict:
@@ -308,9 +394,27 @@ def push_blog_task(topic, content, due_ms):
 
 def push_email_task(email):
     today = datetime.now().strftime("%d %b")
+    description = "\n".join([
+        f"SUBJECT: {email['subject']}",
+        f"PREVIEW: {email['preview']}",
+        f"SEND DATE: {email['display_date']}",
+        f"SOURCE: {email['task_name']}",
+        "",
+        "━" * 40,
+        "BRIEF",
+        "━" * 40,
+        "",
+        email["brief"],
+        "",
+        "━" * 40,
+        "FINISHED EMAIL COPY",
+        "━" * 40,
+        "",
+        email["body"],
+    ])
     return clickup_create_task(
         name=f"[Email] {email['subject']} — {today}",
-        description=f"SUBJECT: {email['subject']}\nPREVIEW: {email['preview']}\nSEND DATE: {email['display_date']}\nSOURCE: {email['task_name']}\n\n---\n\n{email['body']}",
+        description=description,
         tags=["email"], due_ms=email["due_ms"],
     ) is not None
 
