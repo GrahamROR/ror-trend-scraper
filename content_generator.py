@@ -1,25 +1,23 @@
 """
 Rock On Ruby — Content Generator
-Calendar-driven blog and email writer. No external trend APIs required.
+Calendar-driven. Runs every Tuesday. Generates and pushes all content to ClickUp.
 
 Sources:
-  - ClickUp Calendars (Seasonal Dates, Marketing Calendar) via API
-  - shopify_catalogue.json (refreshed Monday by shopify_sync.py)
+  - ClickUp Seasonal Dates, Marketing Calendar, Production Calendar
+  - Shopify catalogue (refreshed Monday)
+  - Open-Meteo 7-day forecast for Bury (free, no key)
 
-Outputs (via clickup_tasks.py):
-  - 2 x [SEO Blog] tasks  →  Generated Content Inbox
-  - N x [Email] tasks     →  Generated Content Inbox (one per e-mail task due this week)
-
-Required env vars:
-  ANTHROPIC_API_KEY
-  CLICKUP_API_KEY
-  CLICKUP_LIST_ID        — Generated Content Inbox list ID
-  CLICKUP_MARKETING_LIST — Marketing Calendar list ID (default 901218493661)
-  CLICKUP_SEASONAL_LIST  — Seasonal Dates list ID (default 901218516109)
-  CLICKUP_PRODUCTION_LIST — Production Calendar list ID (default 901218493701)
+Outputs per run:
+  - [SEO Blog]         x4  — calendar-driven, 2-pass Holly voice + SEO
+  - [Email]            x≤4 — from Marketing Calendar e-mail tasks
+  - [Carousel]         x3  — Bethan-ready Canva briefs
+  - [Weather Blog]     x0-1 — if weather trigger fires
+  - [Weather Email]    x0-1 — if weather trigger fires
+  - [Weather Carousel] x0-1 — if weather trigger fires
 """
 
 import os
+import re
 import json
 import sys
 import requests
@@ -27,9 +25,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import anthropic
-from series_generator import run_series_generator
-
-# ── Config ────────────────────────────────────────────────────────────────────
+from carousel_generator import run_carousel_generator
+from weather_generator import run_weather_generator
 
 OUTPUT_DIR      = Path(__file__).parent
 CATALOGUE_FILE  = OUTPUT_DIR / "shopify_catalogue.json"
@@ -45,131 +42,38 @@ PRODUCTION_LIST = os.environ.get("CLICKUP_PRODUCTION_LIST", "901218493701")
 CLICKUP_BASE    = "https://api.clickup.com/api/v2"
 CLICKUP_HEADERS = {"Authorization": CLICKUP_KEY, "Content-Type": "application/json"}
 
-# ── Brand constants ───────────────────────────────────────────────────────────
-
 BRAND_CONTEXT = """
 BRAND: Rock On Ruby — personalised print-on-demand clothing and accessories.
-Based in Bury, Manchester. Made to order. Co-owned by Holly (brand voice, on-camera) and Graham (strategy).
-
-PRODUCTS: Personalised sweatshirts, hoodies, t-shirts, caps, tote bags, make-up bags and slogan clothing.
-Production methods: DTF full-colour print (call it "full-colour print", never "DTF") and embroidery.
-Website: rockonruby.co.uk
-
-CUSTOMER: UK women, 30–50. Busy. Thoughtful gift-buyer. Warm, funny, slightly chaotic.
+Based in Bury, Manchester. Made to order. Co-owned by Holly (brand voice) and Graham (strategy).
+PRODUCTS: Personalised sweatshirts, hoodies, t-shirts, caps, tote bags, make-up bags, slogan clothing.
+Production: full-colour print (never "DTF") and embroidery. Website: rockonruby.co.uk
+CUSTOMER: UK women, 30-50. Busy. Thoughtful gift-buyer. Warm, funny, slightly chaotic.
 POSITIONING: Anti-boring high street. The antidote to the Amazon last-minute lazy gift.
 """.strip()
 
 HOLLY_VOICE = """
-HOLLY'S VOICE RULES — apply to every word without exception:
+HOLLY'S VOICE RULES — apply to every word:
 - Short paragraphs. One idea per paragraph. Three sentences max.
-- Conversational. Holly is talking to her sister, not presenting to a boardroom.
-- Start emails with "Hey [first_name]". Never apologise for making contact.
-- End all content with "Love Team ROR x"
-- Humour: self-deprecating, warm, never forced. If a joke doesn't land naturally, cut it.
-- Never swear.
-- UK spelling always: personalised, colour, favourite.
-- Contractions always: it's, you're, we've — never the full form.
+- Conversational. Holly is talking to her sister, not a boardroom.
+- Start emails with "Hey {first_name}". End all content with "Love Team ROR x"
+- Humour: self-deprecating, warm, never forced.
+- Never swear. UK spelling: personalised, colour, favourite.
+- Contractions always: it's, you're, we've.
 - Never use: elevated, curated, intentional, journey, effortless, timeless, wardrobe staple,
-  perfect for any occasion, treat yourself, honestly, girlboss, empower, excited to share,
-  boss babe, stunning, beautiful, amazing, incredible, seamless, nestled, delve, game-changer,
-  leverage, cutting-edge, innovative, simply, just, very, really, perfect, ensure.
-- Never use em dashes or en dashes. Use a comma, full stop, or rewrite.
-- No semicolons. No brackets for asides.
-- No bullet points in blog or email copy. Work all information into natural sentences.
-- No bold text for emphasis mid-paragraph.
-- Exclamation marks: maximum one per piece. Earned, not scattered.
-- Never sound like AI wrote it. Read every sentence as if saying it aloud.
-- Never start with "It is", "There are", "This is".
-- No rhetorical filler questions ("Sound familiar?", "Want to know more?").
-- Never summarise what you just said at the end of a section. Say it once, say it well, move on.
-- If it could have been written by ChatGPT, rewrite it until it couldn't.
+  treat yourself, honestly, girlboss, empower, stunning, amazing, incredible, seamless,
+  game-changer, leverage, simply, just, very, really, perfect, ensure.
+- No em dashes. No semicolons. No brackets for asides. No bullet points in body copy.
+- No bold mid-paragraph. Max one exclamation mark per piece.
+- Never sound like AI. Never start with "It is", "There are", "This is".
+- No rhetorical filler questions.
 """.strip()
 
-BLOG_PASS1_SYSTEM = f"""{BRAND_CONTEXT}
+BLOG_PASS1_SYSTEM = f"""{BRAND_CONTEXT}\n\n{HOLLY_VOICE}\n\nWrite a rough first-draft blog in Holly's voice. Chatty, warm, self-deprecating. Human first. SEO second."""
 
-{HOLLY_VOICE}
+BLOG_PASS2_SYSTEM = f"""{BRAND_CONTEXT}\n\n{HOLLY_VOICE}\n\nYou are an SEO specialist for Rock On Ruby. Optimise the draft for Google and AI Overviews without losing Holly's voice.\n\nSTRUCTURE: Keep conversational opening. H2s as real search questions. H3s where useful. 700-900+ words. Include year when time-sensitive.\nKEYWORDS: Long-tail product phrases. Combine product + occasion + audience.\nLOCAL SEO: Mention Bury, Manchester. UK-wide delivery. Fast turnaround.\nDEPTH: Specific personalisation ideas. Emotional argument for personalised vs generic. Quality of full-colour print or embroidery vs cheap alternatives.\nFAQ: 4+ questions exactly as someone would type into Google. Every answer fully written in Holly's voice.\nCTA: Natural, low-pressure, Holly's voice. Never "shop now" or "click here".\nOUTPUT: Finished blog only. No commentary."""
 
-You are writing a rough first-draft blog post for Rock On Ruby in Holly's voice.
-Write chatty, warm, self-deprecating UK copy. Short paragraphs. Never corporate, formal or salesy.
-Focus on making it sound human first. SEO comes in pass 2.
-"""
+EMAIL_SYSTEM = f"""{BRAND_CONTEXT}\n\n{HOLLY_VOICE}\n\nYou write complete Klaviyo-ready marketing emails in Holly's voice. Every email is a story.\n\nSTRUCTURE:\n1. Hey {{first_name}}, — land in a real moment\n2. Story: relatable moment leading to product\n3. Product intro — what it is, why good, one customer reaction\n4. CTA: [CTA text](URL)\n5. P.S. — one punchy line\n6. Love Team ROR x\n\nRULES: Subject line: chatty, curious, no emojis. Preview text: complements subject. Story angle: specific real moment. Social proof: Holly's voice. Never mention discounts unless briefed. One CTA.\n\nOUTPUT FORMAT:\nSUBJECT: [subject]\nPREVIEW: [preview]\n---\n[email body starting with Hey {{first_name}},]"""
 
-BLOG_PASS2_SYSTEM = f"""{BRAND_CONTEXT}
-
-{HOLLY_VOICE}
-
-You are an SEO specialist working exclusively for Rock On Ruby.
-Take a rough blog draft and optimise it fully for Google search and AI Overviews without losing Holly's voice.
-
-STRUCTURE:
-- Keep the conversational opening intact. Do not make it formal.
-- Break the body into H2 sections phrased as questions real buyers search.
-- Add H3 subheadings within longer sections where useful.
-- Target 700–900 words minimum.
-- Include the specific year in H1 and first paragraph when the topic is time-sensitive.
-
-KEYWORDS:
-- Expand product mentions into long-tail keyword phrases specific to this blog topic.
-- Never use generic one-word names when a more specific phrase fits.
-- Combine product phrases with the occasion, audience or use case for this exact blog.
-
-LOCAL SEO:
-- Mention Bury, Manchester naturally at least once.
-- Mention UK-wide delivery or delivered across the UK at least once.
-- Reference fast turnaround for time-sensitive topics.
-
-BUYER PERSONAS:
-- Include at least one specific buyer scenario relevant to this blog topic.
-
-DEPTH:
-- Give specific personalisation ideas: nicknames, birth years, in-jokes, catchphrases.
-- Explain why personalised beats generic using the emotional argument, not features.
-- Reference quality of Rock On Ruby full-colour print or embroidery versus cheap alternatives at least once.
-
-FAQ SECTION:
-- Add a fully written FAQ at the bottom with at least 4 questions.
-- Questions phrased exactly as someone would type into Google or ask ChatGPT.
-- Every answer fully written in Holly's voice. No placeholders.
-
-CTA:
-- End with a natural, low-pressure CTA to rockonruby.co.uk.
-- Holly's voice. Never "shop now" or "click here".
-
-OUTPUT: Return only the finished blog. No commentary, notes or explanations.
-"""
-
-EMAIL_SYSTEM = f"""{BRAND_CONTEXT}
-
-{HOLLY_VOICE}
-
-You are writing a complete Klaviyo-ready marketing email for Rock On Ruby in Holly's voice.
-Write the full email — every word. No briefs, no placeholders, no structure notes. Just the email.
-
-STRUCTURE (every email must follow this):
-1. Hey {{{{first_name}}}},  (opening line — land in a real moment, never announce the product)
-2. Story: a relatable moment that leads naturally to the product
-3. Introduce the product or offer simply — what it is, why it's good, one real-customer reaction
-4. CTA paragraph with a link formatted as: [CTA text](URL)
-5. P.S. — one punchy line, often a nudge or a twist on the main message
-6. Love Team ROR x
-
-EMAIL RULES:
-- One idea per paragraph. Three lines max.
-- Subject line: chatty, creates curiosity, no emojis, not salesy.
-- Preview text: 1 sentence, complements subject line without repeating it.
-- Never mention discounts, percentages or sale language unless explicitly briefed.
-- Story angle must be specific — not generic "gifting is nice". A real moment: a party, a school run, a 5pm Friday.
-- Social proof: Holly's voice, not formal testimonials. "We've had people message saying their mum cried" not "customers love this product".
-- CTA text: conversational, matches the story. Never "Shop Now" or "Click Here".
-
-OUTPUT FORMAT — return exactly this, nothing else:
-SUBJECT: [subject line]
-PREVIEW: [preview text]
----
-[full email body starting with Hey {{{{first_name}}}},]
-"""
-
-# ── Utilities ─────────────────────────────────────────────────────────────────
 
 def load_catalogue() -> dict:
     if CATALOGUE_FILE.exists():
@@ -186,23 +90,14 @@ def load_history() -> dict:
             return json.loads(HISTORY_FILE.read_text())
         except Exception:
             pass
-    return {"blogs": [], "emails": []}
+    return {"blogs": [], "emails": [], "carousels": [], "weather": []}
 
 
 def save_history(history: dict) -> None:
-    # Prune to last 90 days
     cutoff = (datetime.now() - timedelta(days=90)).strftime("%Y-%m-%d")
-    for key in ("blogs", "emails"):
+    for key in ("blogs", "emails", "carousels", "weather"):
         history[key] = [e for e in history.get(key, []) if e.get("date", "") >= cutoff]
     HISTORY_FILE.write_text(json.dumps(history, indent=2))
-
-
-def recently_used(topic: str, history: dict, key: str, days: int = 21) -> bool:
-    cutoff = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
-    return any(
-        e.get("topic", "").lower() == topic.lower() and e.get("date", "") >= cutoff
-        for e in history.get(key, [])
-    )
 
 
 def claude_call(system: str, prompt: str, max_tokens: int = 4096) -> str:
@@ -216,34 +111,15 @@ def claude_call(system: str, prompt: str, max_tokens: int = 4096) -> str:
     return msg.content[0].text.strip()
 
 
-def ms_to_date(ms: str | None) -> str | None:
-    if not ms:
-        return None
-    try:
-        return datetime.fromtimestamp(int(ms) / 1000, tz=timezone.utc).strftime("%Y-%m-%d")
-    except Exception:
-        return None
-
-
-def date_to_ms(date_str: str) -> int:
-    dt = datetime.strptime(date_str, "%Y-%m-%d").replace(
-        hour=17, minute=0, second=0, tzinfo=timezone.utc
-    )
-    return int(dt.timestamp() * 1000)
-
-
 def next_friday_ms() -> int:
-    today = datetime.now(tz=timezone.utc)
-    days = (4 - today.weekday()) % 7 or 7
+    today  = datetime.now(tz=timezone.utc)
+    days   = (4 - today.weekday()) % 7 or 7
     friday = (today + timedelta(days=days)).replace(hour=17, minute=0, second=0, microsecond=0)
     return int(friday.timestamp() * 1000)
 
 
-# ── ClickUp calendar readers ──────────────────────────────────────────────────
-
 def fetch_clickup_tasks(list_id: str) -> list[dict]:
-    """Fetch all open tasks from a ClickUp list."""
-    url = f"{CLICKUP_BASE}/list/{list_id}/task"
+    url    = f"{CLICKUP_BASE}/list/{list_id}/task"
     params = {"include_closed": "false", "subtasks": "false", "limit": 100}
     try:
         resp = requests.get(url, headers=CLICKUP_HEADERS, params=params, timeout=15)
@@ -255,55 +131,30 @@ def fetch_clickup_tasks(list_id: str) -> list[dict]:
     return []
 
 
-def get_upcoming_seasonal_dates(weeks_ahead: int = 8) -> list[dict]:
-    """Return seasonal dates with due dates in the next N weeks."""
-    now = datetime.now(tz=timezone.utc)
+def get_upcoming_dates(list_id: str, weeks_ahead: int = 5) -> list[dict]:
+    now    = datetime.now(tz=timezone.utc)
     cutoff = now + timedelta(weeks=weeks_ahead)
-    tasks = fetch_clickup_tasks(SEASONAL_LIST)
-    upcoming = []
-    for t in tasks:
+    items  = []
+    for t in fetch_clickup_tasks(list_id):
         due_ms = t.get("due_date")
         if not due_ms:
             continue
         due_dt = datetime.fromtimestamp(int(due_ms) / 1000, tz=timezone.utc)
         if now <= due_dt <= cutoff:
-            upcoming.append({
-                "name": t["name"],
-                "date": due_dt.strftime("%Y-%m-%d"),
+            items.append({
+                "name":    t["name"],
+                "date":    due_dt.strftime("%Y-%m-%d"),
                 "display": due_dt.strftime("%-d %B %Y"),
             })
-    upcoming.sort(key=lambda x: x["date"])
-    return upcoming
+    items.sort(key=lambda x: x["date"])
+    return items
 
 
-def get_upcoming_production_dates(weeks_ahead: int = 8) -> list[dict]:
-    """Return production calendar items in the next N weeks."""
-    now = datetime.now(tz=timezone.utc)
+def get_email_tasks(weeks_ahead: int = 5) -> list[dict]:
+    now    = datetime.now(tz=timezone.utc)
     cutoff = now + timedelta(weeks=weeks_ahead)
-    tasks = fetch_clickup_tasks(PRODUCTION_LIST)
-    upcoming = []
-    for t in tasks:
-        due_ms = t.get("due_date")
-        if not due_ms:
-            continue
-        due_dt = datetime.fromtimestamp(int(due_ms) / 1000, tz=timezone.utc)
-        if now <= due_dt <= cutoff:
-            upcoming.append({
-                "name": t["name"],
-                "date": due_dt.strftime("%Y-%m-%d"),
-                "display": due_dt.strftime("%-d %B %Y"),
-            })
-    upcoming.sort(key=lambda x: x["date"])
-    return upcoming
-
-
-def get_email_tasks_this_week() -> list[dict]:
-    """Return marketing calendar tasks tagged 'e-mail' due in the next 7 days."""
-    now = datetime.now(tz=timezone.utc)
-    cutoff = now + timedelta(days=7)
-    tasks = fetch_clickup_tasks(MARKETING_LIST)
-    email_tasks = []
-    for t in tasks:
+    items  = []
+    for t in fetch_clickup_tasks(MARKETING_LIST):
         tags = [tag.get("name", "").lower() for tag in t.get("tags", [])]
         if "e-mail" not in tags:
             continue
@@ -311,442 +162,250 @@ def get_email_tasks_this_week() -> list[dict]:
         if not due_ms:
             continue
         due_dt = datetime.fromtimestamp(int(due_ms) / 1000, tz=timezone.utc)
-        if due_dt <= cutoff:
-            email_tasks.append({
-                "name": t["name"],
-                "date": due_dt.strftime("%Y-%m-%d"),
+        if now <= due_dt <= cutoff:
+            items.append({
+                "name":    t["name"],
+                "date":    due_dt.strftime("%Y-%m-%d"),
                 "display": due_dt.strftime("%-d %B %Y"),
-                "due_ms": int(due_ms),
+                "due_ms":  int(due_ms),
             })
-    email_tasks.sort(key=lambda x: x["date"])
-    return email_tasks
+    items.sort(key=lambda x: x["date"])
+    return items[:4]
 
-
-# ── Catalogue helpers ─────────────────────────────────────────────────────────
 
 def catalogue_summary(catalogue: dict, max_products: int = 60) -> str:
-    """Build a compact text summary of the Shopify catalogue for Claude."""
     lines = []
-
-    bestsellers = catalogue.get("bestsellers", [])
-    if bestsellers:
+    if catalogue.get("bestsellers"):
         lines.append("TOP SELLING PRODUCTS (last 90 days):")
-        for b in bestsellers[:10]:
-            lines.append(f"  - {b['title']} ({b.get('orders', '?')} orders)")
-
+        for b in catalogue["bestsellers"][:10]:
+            lines.append(f"  - {b['title']} ({b.get('orders','?')} orders)")
     lines.append("\nALL ACTIVE PRODUCTS:")
     for p in catalogue.get("products", [])[:max_products]:
         price = f"£{p['price']:.0f}" if p.get("price") else ""
-        lines.append(f"  - {p['title']} {price} → rockonruby.co.uk/products/{p['handle']}")
-
+        lines.append(f"  - {p['title']} {price} -> rockonruby.co.uk/products/{p['handle']}")
     lines.append("\nCOLLECTIONS:")
     for c in catalogue.get("collections", [])[:30]:
-        lines.append(f"  - {c['title']} → rockonruby.co.uk/collections/{c['handle']}")
-
+        lines.append(f"  - {c['title']} -> rockonruby.co.uk/collections/{c['handle']}")
     return "\n".join(lines)
 
 
-def find_product_url(title: str, catalogue: dict) -> str:
-    """Find the best matching product or collection URL for a given title."""
-    title_lower = title.lower()
-    for p in catalogue.get("products", []):
-        if p["title"].lower() == title_lower:
-            return f"rockonruby.co.uk/products/{p['handle']}"
-    for p in catalogue.get("products", []):
-        if title_lower in p["title"].lower() or p["title"].lower() in title_lower:
-            return f"rockonruby.co.uk/products/{p['handle']}"
-    for c in catalogue.get("collections", []):
-        if title_lower in c["title"].lower():
-            return f"rockonruby.co.uk/collections/{c['handle']}"
-    return "rockonruby.co.uk"
+def pick_blog_topics(seasonal, production, catalogue, history, count=4) -> list[dict]:
+    cat_sum  = catalogue_summary(catalogue)
+    today    = datetime.now().strftime("%-d %B %Y")
+    seas_str = "\n".join(f"  - {d['name']} ({d['display']})" for d in seasonal)  or "  None upcoming"
+    prod_str = "\n".join(f"  - {d['name']} ({d['display']})" for d in production) or "  None upcoming"
+    recent   = ", ".join(e["topic"] for e in history.get("blogs", [])[-12:]) or "none"
 
+    prompt = f"""You are a content strategist for Rock On Ruby, a UK personalised clothing brand.
 
-# ── Blog generation ───────────────────────────────────────────────────────────
+TODAY: {today}
 
-def pick_blog_topics(
-    seasonal: list[dict],
-    production: list[dict],
-    catalogue: dict,
-    history: dict,
-    count: int = 2,
-) -> list[dict]:
-    """
-    Ask Claude to pick the 2 best blog topics from the calendar context
-    and match them to specific products. Returns a list of topic dicts.
-    """
-    cat_summary = catalogue_summary(catalogue)
-
-    seasonal_lines = "\n".join(
-        f"  - {d['name']} ({d['display']})" for d in seasonal
-    ) or "  None upcoming"
-
-    production_lines = "\n".join(
-        f"  - {d['name']} ({d['display']})" for d in production
-    ) or "  None upcoming"
-
-    recent_blogs = [e["topic"] for e in history.get("blogs", [])[-10:]]
-    recent_str = ", ".join(recent_blogs) if recent_blogs else "none"
-
-    prompt = f"""
-You are a content strategist for Rock On Ruby, a UK personalised clothing and accessories brand.
-
-Here is what's coming up in the next 8 weeks:
-
-SEASONAL DATES:
-{seasonal_lines}
+UPCOMING SEASONAL DATES (next 5 weeks):
+{seas_str}
 
 PRODUCTION MILESTONES:
-{production_lines}
+{prod_str}
 
-{cat_summary}
+{cat_sum}
 
-RECENTLY WRITTEN BLOGS (do not repeat these topics):
-{recent_str}
+RECENTLY WRITTEN (do not repeat): {recent}
 
-Choose exactly {count} blog topics that:
-1. Are relevant to a seasonal date or production milestone coming up in the next 8 weeks
-2. Connect directly to specific Rock On Ruby products (use actual product names and URLs from the catalogue above)
-3. Haven't been written recently
-4. Would genuinely help UK women aged 30-50 who are buying personalised gifts or clothing for themselves
+Pick exactly {count} blog topics that:
+1. Connect to a date/milestone STILL IN THE FUTURE after {today}
+2. Match specific products from the catalogue
+3. Have not been written recently
+4. Help UK women 30-50 buying personalised gifts or clothing
+5. Do NOT use events that have already passed
 
-For each topic return EXACTLY this format (no other text):
+For each topic return EXACTLY this format:
 
-TOPIC: [blog title as an H1 — conversational, SEO-friendly, includes year if time-sensitive]
-KEYWORD: [primary search keyword, 2-5 words, what someone would type into Google]
-SEASONAL_HOOK: [which upcoming date or milestone this connects to]
-FEATURED_PRODUCTS: [2-4 specific product names from the catalogue, comma-separated]
-COLLECTION_URL: [the best collection or product URL from rockonruby.co.uk to link to]
-STORY_ANGLE: [one sentence — the relatable real-life moment that opens the blog]
-TENSION: [one sentence — the problem the reader has]
+TOPIC: [H1 title — conversational, SEO-friendly, year if time-sensitive]
+KEYWORD: [2-5 word search phrase]
+SEASONAL_HOOK: [which date/milestone]
+FEATURED_PRODUCTS: [2-4 product names, comma-separated]
+COLLECTION_URL: [best rockonruby.co.uk URL]
+STORY_ANGLE: [one sentence — relatable opening moment]
+TENSION: [one sentence — reader's problem]
 SHIFT: [one sentence — how ROR solves it]
-BUYER_PERSONA: [one sentence — who is searching for this and why]
+BUYER_PERSONA: [one sentence — who searches this and why]
 
 ---
 
 TOPIC: ...
-(repeat for each topic)
-""".strip()
+(repeat for all {count})"""
 
-    raw = claude_call(
-        "You are a precise content strategist. Return only the structured output requested, nothing else.",
-        prompt,
-        max_tokens=1500,
-    )
-
+    raw    = claude_call("Return only the structured output requested. Nothing else.", prompt, max_tokens=2000)
     topics = []
     for block in raw.strip().split("---"):
         block = block.strip()
         if not block or "TOPIC:" not in block:
             continue
-        def extract(key: str) -> str:
-            import re
-            m = re.search(rf"^{key}:\s*(.+)$", block, re.MULTILINE)
+        def ex(k):
+            m = re.search(rf"^{k}:\s*(.+)$", block, re.MULTILINE)
             return m.group(1).strip() if m else ""
-
         topics.append({
-            "title":      extract("TOPIC"),
-            "keyword":    extract("KEYWORD"),
-            "hook":       extract("SEASONAL_HOOK"),
-            "products":   extract("FEATURED_PRODUCTS"),
-            "url":        extract("COLLECTION_URL"),
-            "angle":      extract("STORY_ANGLE"),
-            "tension":    extract("TENSION"),
-            "shift":      extract("SHIFT"),
-            "persona":    extract("BUYER_PERSONA"),
+            "title":    ex("TOPIC"),
+            "keyword":  ex("KEYWORD"),
+            "hook":     ex("SEASONAL_HOOK"),
+            "products": ex("FEATURED_PRODUCTS"),
+            "url":      ex("COLLECTION_URL"),
+            "angle":    ex("STORY_ANGLE"),
+            "tension":  ex("TENSION"),
+            "shift":    ex("SHIFT"),
+            "persona":  ex("BUYER_PERSONA"),
         })
-
     return topics[:count]
 
 
 def generate_blog(topic: dict, catalogue: dict) -> str:
-    """Two-pass blog generation: Pass 1 = Holly voice, Pass 2 = SEO optimised."""
-    cat_summary = catalogue_summary(catalogue, max_products=30)
+    cat_sum = catalogue_summary(catalogue, max_products=30)
+    context = f"BLOG BRIEF:\nTitle: {topic['title']}\nKeyword: {topic['keyword']}\nHook: {topic['hook']}\nProducts: {topic['products']}\nURL: {topic['url']}\nAngle: {topic['angle']}\nTension: {topic['tension']}\nShift: {topic['shift']}\nPersona: {topic['persona']}\n\n{cat_sum}"
 
-    context = f"""
-BLOG BRIEF:
-Title/H1: {topic['title']}
-Primary keyword: {topic['keyword']}
-Seasonal hook: {topic['hook']}
-Featured products: {topic['products']}
-Best collection/product URL: {topic['url']}
-Story angle (opening moment): {topic['angle']}
-Tension (reader's problem): {topic['tension']}
-Shift (ROR's solution): {topic['shift']}
-Buyer persona: {topic['persona']}
+    print("    Pass 1 (voice)...")
+    draft = claude_call(BLOG_PASS1_SYSTEM, f"Write a rough first draft in Holly's voice. Chatty, warm.\n\n{context}", max_tokens=3000)
+    print("    Pass 2 (SEO)...")
+    return claude_call(BLOG_PASS2_SYSTEM, f"Optimise this draft. Keep Holly's voice.\n\n{context}\n\nPASS 1:\n{draft}", max_tokens=6000)
 
-RELEVANT CATALOGUE EXCERPT:
-{cat_summary}
-""".strip()
-
-    # Pass 1 — rough Holly voice draft
-    print(f"    Pass 1 (Holly voice): {topic['keyword']}")
-    pass1_prompt = f"""
-Write a rough first draft of this blog in Holly's voice.
-Chatty, warm, self-deprecating. Short paragraphs. Human first, SEO second.
-Do not hold back on personality. Make it sound like Holly is talking to a mate.
-
-{context}
-""".strip()
-    draft = claude_call(BLOG_PASS1_SYSTEM, pass1_prompt, max_tokens=3000)
-
-    # Pass 2 — SEO optimised
-    print(f"    Pass 2 (SEO): {topic['keyword']}")
-    pass2_prompt = f"""
-Take this Pass 1 blog draft and optimise it fully using your system instructions.
-Keep Holly's voice intact. Do not make it corporate.
-
-{context}
-
-PASS 1 DRAFT:
-{draft}
-""".strip()
-    return claude_call(BLOG_PASS2_SYSTEM, pass2_prompt, max_tokens=6000)
-
-
-# ── Email generation ──────────────────────────────────────────────────────────
 
 def generate_email(email_task: dict, catalogue: dict) -> dict:
-    """Write a complete finished email from a Marketing Calendar task name."""
-    cat_summary = catalogue_summary(catalogue, max_products=30)
-
-    prompt = f"""
-Write a complete Rock On Ruby marketing email based on this brief.
-
-EMAIL TITLE FROM MARKETING CALENDAR: {email_task['name']}
-SEND DATE: {email_task['display']}
-
-{cat_summary}
-
-Instructions:
-- Use the email title as your brief. Interpret it and write the full email.
-- Choose the most relevant Rock On Ruby products from the catalogue to feature.
-- Write the complete email — subject line, preview text, and full body.
-- Follow your system instructions exactly.
-- The CTA should link to the most relevant product or collection URL from the catalogue.
-""".strip()
+    cat_sum = catalogue_summary(catalogue, max_products=30)
+    prompt  = f"Write a complete Rock On Ruby marketing email.\n\nEMAIL FROM CALENDAR: {email_task['name']}\nSEND DATE: {email_task['display']}\n\n{cat_sum}\n\nUse the title as your brief. Write the full email. Follow system instructions exactly."
 
     raw = claude_call(EMAIL_SYSTEM, prompt, max_tokens=2000)
 
-    # Parse subject and preview from output
-    import re
-    subject = ""
-    preview = ""
-    body = raw
+    subj_m = re.search(r"^SUBJECT:\s*(.+)$", raw, re.MULTILINE)
+    prev_m = re.search(r"^PREVIEW:\s*(.+)$", raw, re.MULTILINE)
+    subj   = subj_m.group(1).strip() if subj_m else re.sub(r"^Email\s*[-]\s*", "", email_task["name"], flags=re.IGNORECASE).strip()
+    prev   = prev_m.group(1).strip() if prev_m else ""
+    body   = re.sub(r"^(SUBJECT|PREVIEW):.*\n?", "", raw, flags=re.MULTILINE)
+    body   = re.sub(r"^---\n?", "", body, flags=re.MULTILINE).strip()
 
-    subject_match = re.search(r"^SUBJECT:\s*(.+)$", raw, re.MULTILINE)
-    preview_match = re.search(r"^PREVIEW:\s*(.+)$", raw, re.MULTILINE)
-
-    if subject_match:
-        subject = subject_match.group(1).strip()
-    if preview_match:
-        preview = preview_match.group(1).strip()
-
-    # Strip header lines to get clean body
-    body = re.sub(r"^SUBJECT:.*\n?", "", body, flags=re.MULTILINE)
-    body = re.sub(r"^PREVIEW:.*\n?", "", body, flags=re.MULTILINE)
-    body = re.sub(r"^---\n?", "", body, flags=re.MULTILINE)
-    body = body.strip()
-
-    # Fall back to task name as subject if not parsed
-    if not subject:
-        # Strip "Email - " prefix
-        subject = re.sub(r"^Email\s*[-–]\s*", "", email_task["name"], flags=re.IGNORECASE).strip()
-
-    return {
-        "subject": subject,
-        "preview": preview,
-        "body": body,
-        "task_name": email_task["name"],
-        "due_ms": email_task["due_ms"],
-        "display_date": email_task["display"],
-    }
+    return {"subject": subj, "preview": prev, "body": body, "task_name": email_task["name"], "due_ms": email_task["due_ms"], "display_date": email_task["display"]}
 
 
-# ── ClickUp task creation ─────────────────────────────────────────────────────
-
-def clickup_create_task(name: str, description: str, tags: list[str], due_ms: int, status: str = "generated") -> str | None:
-    payload = {
-        "name": name,
-        "description": description,
-        "due_date": due_ms,
-        "due_date_time": True,
-        "status": status,
-        "tags": tags,
-    }
+def clickup_create_task(name, description, tags, due_ms, status="generated"):
+    payload = {"name": name, "description": description, "due_date": due_ms, "due_date_time": True, "status": status, "tags": tags}
     try:
-        resp = requests.post(
-            f"{CLICKUP_BASE}/list/{INBOX_LIST_ID}/task",
-            headers=CLICKUP_HEADERS,
-            json=payload,
-            timeout=15,
-        )
+        resp = requests.post(f"{CLICKUP_BASE}/list/{INBOX_LIST_ID}/task", headers=CLICKUP_HEADERS, json=payload, timeout=15)
         if resp.ok:
-            url = resp.json().get("url", "")
-            print(f"  + Created: {name}")
-            print(f"    {url}")
+            print(f"  + {name}")
+            print(f"    {resp.json().get('url','')}")
             return resp.json().get("id")
-        print(f"  x Failed: {name} — {resp.status_code}: {resp.text[:120]}")
+        print(f"  x Failed: {name} — {resp.status_code}: {resp.text[:100]}")
     except Exception as e:
         print(f"  x Error: {name} — {e}")
     return None
 
 
-def push_blog_task(topic: dict, blog_content: str, due_ms: int) -> bool:
+def push_blog_task(topic, content, due_ms):
     today = datetime.now().strftime("%d %b")
-    task_name = f"[SEO Blog] {topic['title']} — {today}"
-
-    description = f"""KEYWORD: {topic['keyword']}
-SEASONAL HOOK: {topic['hook']}
-FEATURED PRODUCTS: {topic['products']}
-TARGET URL: {topic['url']}
-
----
-
-{blog_content}
-
----
-Love Team ROR x"""
-
-    task_id = clickup_create_task(
-        name=task_name,
-        description=description,
-        tags=["blog"],
-        due_ms=due_ms,
-        status="generated",
-    )
-    return task_id is not None
+    return clickup_create_task(
+        name=f"[SEO Blog] {topic['title']} — {today}",
+        description=f"KEYWORD: {topic['keyword']}\nHOOK: {topic['hook']}\nPRODUCTS: {topic['products']}\nURL: {topic['url']}\n\n---\n\n{content}\n\n---\nLove Team ROR x",
+        tags=["blog"], due_ms=due_ms,
+    ) is not None
 
 
-def push_email_task(email: dict, due_ms: int) -> bool:
+def push_email_task(email):
     today = datetime.now().strftime("%d %b")
-    task_name = f"[Email] {email['subject']} — {today}"
+    return clickup_create_task(
+        name=f"[Email] {email['subject']} — {today}",
+        description=f"SUBJECT: {email['subject']}\nPREVIEW: {email['preview']}\nSEND DATE: {email['display_date']}\nSOURCE: {email['task_name']}\n\n---\n\n{email['body']}",
+        tags=["email"], due_ms=email["due_ms"],
+    ) is not None
 
-    description = f"""SUBJECT: {email['subject']}
-PREVIEW TEXT: {email['preview']}
-SEND DATE: {email['display_date']}
-SOURCE: {email['task_name']}
-
----
-
-{email['body']}"""
-
-    task_id = clickup_create_task(
-        name=task_name,
-        description=description,
-        tags=["email"],
-        due_ms=due_ms,
-        status="generated",
-    )
-    return task_id is not None
-
-
-# ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> int:
     print("\n-- ROR Content Generator --")
-    print(f"  {datetime.now().strftime('%A %d %B %Y, %H:%M')}")
+    print(f"   {datetime.now().strftime('%A %d %B %Y, %H:%M')}\n")
 
     if not ANTHROPIC_KEY:
-        print("  ANTHROPIC_API_KEY not set — exiting.")
-        return 1
-
+        print("  ANTHROPIC_API_KEY not set — exiting."); return 1
     if not CLICKUP_KEY:
-        print("  CLICKUP_API_KEY not set — exiting.")
-        return 1
+        print("  CLICKUP_API_KEY not set — exiting."); return 1
 
     catalogue = load_catalogue()
     if not catalogue:
-        print("  shopify_catalogue.json not found or empty. Run shopify_sync.py first.")
-        return 1
+        print("  shopify_catalogue.json not found. Run shopify_sync.py first."); return 1
 
     history = load_history()
-    due_ms = next_friday_ms()
+    due_ms  = next_friday_ms()
+    cat_sum = catalogue_summary(catalogue)
 
-    # ── Step 1: Read calendars ────────────────────────────────────────────────
-    print("\n  Reading calendars...")
-    seasonal   = get_upcoming_seasonal_dates(weeks_ahead=8)
-    production = get_upcoming_production_dates(weeks_ahead=8)
-    email_tasks = get_email_tasks_this_week()
+    # 1. Read calendars
+    print("[1/6] Reading calendars...")
+    seasonal    = get_upcoming_dates(SEASONAL_LIST,   weeks_ahead=5)
+    production  = get_upcoming_dates(PRODUCTION_LIST, weeks_ahead=5)
+    email_tasks = get_email_tasks(weeks_ahead=5)
+    print(f"  Seasonal dates: {len(seasonal)} | Production: {len(production)} | Emails: {len(email_tasks)}")
 
-    print(f"  Seasonal dates: {len(seasonal)}")
-    for d in seasonal[:5]:
-        print(f"    - {d['name']} ({d['display']})")
-
-    print(f"  Production milestones: {len(production)}")
-    for d in production[:3]:
-        print(f"    - {d['name']} ({d['display']})")
-
-    print(f"  Email tasks due this week: {len(email_tasks)}")
-    for e in email_tasks:
-        print(f"    - {e['name']} ({e['display']})")
-
-    # ── Step 2: Pick and write 2 blogs ────────────────────────────────────────
-    print("\n  Picking blog topics...")
-    topics = pick_blog_topics(seasonal, production, catalogue, history, count=2)
-
+    # 2. Pick topics
+    print("\n[2/6] Picking blog topics...")
+    topics = pick_blog_topics(seasonal, production, catalogue, history, count=4)
     if not topics:
-        print("  No blog topics generated — check calendar data and API key.")
-        return 1
+        print("  No topics — check calendar and API."); return 1
+    for t in topics:
+        print(f"  · {t['title']}")
 
+    # 3. Write blogs
+    print("\n[3/6] Writing blogs...")
     blog_results = []
     for i, topic in enumerate(topics, 1):
-        print(f"\n  Blog {i}/{len(topics)}: {topic['title']}")
+        print(f"\n  Blog {i}/4: {topic['keyword']}")
         try:
-            content = generate_blog(topic, catalogue)
-            blog_results.append((topic, content))
+            blog_results.append((topic, generate_blog(topic, catalogue)))
         except Exception as e:
-            print(f"  x Blog failed: {e}")
+            print(f"  x Failed: {e}")
 
-    # ── Step 3: Write emails ──────────────────────────────────────────────────
+    # 4. Write emails
+    print("\n[4/6] Writing emails...")
     email_results = []
     if email_tasks:
-        print(f"\n  Writing {len(email_tasks)} email(s)...")
-        for email_task in email_tasks:
-            print(f"\n  Email: {email_task['name']}")
+        for et in email_tasks:
+            print(f"  · {et['name']}")
             try:
-                email = generate_email(email_task, catalogue)
-                email_results.append(email)
+                email_results.append(generate_email(et, catalogue))
             except Exception as e:
-                print(f"  x Email failed: {e}")
+                print(f"  x Failed: {e}")
     else:
-        print("\n  No email tasks due this week — skipping.")
+        print("  No email tasks due — skipping.")
 
-    # ── Step 4: Push to ClickUp ───────────────────────────────────────────────
-    print("\n  Pushing to ClickUp...")
-    blogs_pushed = 0
-    emails_pushed = 0
-
+    # 5. Push blogs + emails
+    print("\n[5/6] Pushing blogs and emails...")
+    blogs_pushed = emails_pushed = 0
     for topic, content in blog_results:
-        ok = push_blog_task(topic, content, due_ms)
-        if ok:
+        if push_blog_task(topic, content, due_ms):
             blogs_pushed += 1
-            history.setdefault("blogs", []).append({
-                "date": datetime.now().strftime("%Y-%m-%d"),
-                "topic": topic["keyword"],
-                "title": topic["title"],
-            })
+            history.setdefault("blogs", []).append({"date": datetime.now().strftime("%Y-%m-%d"), "topic": topic["keyword"], "title": topic["title"]})
 
     for email in email_results:
-        ok = push_email_task(email, email["due_ms"])
-        if ok:
+        if push_email_task(email):
             emails_pushed += 1
-            history.setdefault("emails", []).append({
-                "date": datetime.now().strftime("%Y-%m-%d"),
-                "topic": email["task_name"],
-                "subject": email["subject"],
-            })
+            history.setdefault("emails", []).append({"date": datetime.now().strftime("%Y-%m-%d"), "topic": email["task_name"], "subject": email["subject"]})
 
     save_history(history)
 
-    # ── Step 5: Content series ideas ─────────────────────────────────────────
-    series_ok = run_series_generator(due_ms, history)
+    # 6a. Carousels
+    print("\n[6a/6] Writing carousels...")
+    carousels_pushed = run_carousel_generator(
+        topics=[t for t, _ in blog_results][:3],
+        catalogue_summary_text=cat_sum,
+        seasonal=seasonal,
+        due_ms=due_ms,
+        history=history,
+    )
     save_history(history)
 
-    # ── Summary ───────────────────────────────────────────────────────────────
-    print(f"\n  Done.")
-    print(f"  Blogs created:  {blogs_pushed}/{len(blog_results)}")
-    print(f"  Emails created: {emails_pushed}/{len(email_results)}")
-    print(f"  Series ideas:   {'pushed to ClickUp' if series_ok else 'skipped'}")
+    # 6b. Weather
+    print("\n[6b/6] Checking weather...")
+    weather_pushed = run_weather_generator(due_ms=due_ms, history=history, catalogue_summary=cat_sum)
+    save_history(history)
+
+    print(f"\n-- Done --")
+    print(f"  Blogs:     {blogs_pushed}/4")
+    print(f"  Emails:    {emails_pushed}/{len(email_results)}")
+    print(f"  Carousels: {carousels_pushed}/3")
+    print(f"  Weather:   {weather_pushed}/3 (0 = no trigger this week)")
 
     return 0
 
