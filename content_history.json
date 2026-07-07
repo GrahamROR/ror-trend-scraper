@@ -59,6 +59,26 @@
       "date": "2026-07-07",
       "topic": "Commonwealth Games 2026 clothing gifts",
       "title": "The Best Personalised Clothing for the Commonwealth Games 2026 \u2014 Supporting Team Scotland (and Everyone Else)"
+    },
+    {
+      "date": "2026-07-07",
+      "topic": "England World Cup watch party outfit",
+      "title": "What to Wear to Watch England in the World Cup Quarter Finals (2026 Edition)"
+    },
+    {
+      "date": "2026-07-07",
+      "topic": "personalised World Cup gifts UK",
+      "title": "The Best Personalised Gifts to Celebrate England Reaching the World Cup Final (2026)"
+    },
+    {
+      "date": "2026-07-07",
+      "topic": "kids summer holiday personalised clothing",
+      "title": "What to Pack for the Kids' First Week of the Summer Holidays (Without Losing Your Mind)"
+    },
+    {
+      "date": "2026-07-07",
+      "topic": "Commonwealth Games 2026 Glasgow outfit",
+      "title": "How to Get Behind Team Scotland at the Commonwealth Games (Glasgow 2026)"
     }
   ],
   "emails": [
@@ -669,6 +689,31 @@
       "concept": "A weekly series where Holly screenshots \u2014 or reads aloud \u2014 a real, unedited customer message or order note (with permission, names removed) and uses it as a jumping-off point to talk about what people are actually trying to say when they commission something personal.",
       "name": "The Brief They Actually Sent",
       "urls": []
+    }
+  ],
+  "carousels": [
+    {
+      "date": "2026-07-07",
+      "topic": "England World Cup watch party outfit",
+      "title": "England Quarter Final Watch Party Outfit Guide \u2014 July 2026"
+    },
+    {
+      "date": "2026-07-07",
+      "topic": "personalised World Cup gifts UK",
+      "title": "England's In The Final \u2014 Here's What You're Actually Wearing"
+    },
+    {
+      "date": "2026-07-07",
+      "topic": "kids summer holiday personalised clothing",
+      "title": "Summer Hols Survival Pack \u2014 Kids' Personalised Clothing"
+    }
+  ],
+  "weather": [
+    {
+      "date": "2026-07-07",
+      "story": "heatwave",
+      "headline": "7-day heatwave incoming",
+      "tasks_pushed": 3
     }
   ]
 }
