@@ -29,6 +29,26 @@
       "date": "2026-06-30",
       "topic": "what to wear World Cup watch party",
       "title": "How to Dress for a World Cup Final Watch Party (Without Trying Too Hard) 2026"
+    },
+    {
+      "date": "2026-07-14",
+      "topic": "World Cup watch party outfit",
+      "title": "What to Wear to a World Cup Final Watch Party (That Isn't a Football Shirt)"
+    },
+    {
+      "date": "2026-07-14",
+      "topic": "personalised children's summer holiday gifts",
+      "title": "Best Personalised Gifts to Kick Off the School Summer Holidays in Style (2026)"
+    },
+    {
+      "date": "2026-07-14",
+      "topic": "Commonwealth Games family outfit ideas",
+      "title": "How to Build a Matching Family Look for the Commonwealth Games 2026 Without Trying Too Hard"
+    },
+    {
+      "date": "2026-07-14",
+      "topic": "personalised summer accessories UK women",
+      "title": "The Best Personalised Caps and Totes to Pack for a UK Summer Day Out (2026)"
     }
   ],
   "emails": [
@@ -456,6 +476,29 @@
       "urls": []
     }
   ],
-  "carousels": [],
-  "weather": []
+  "carousels": [
+    {
+      "date": "2026-07-14",
+      "topic": "World Cup watch party outfit",
+      "title": "World Cup Watch Party \u2014 Not A Football Shirt In Sight"
+    },
+    {
+      "date": "2026-07-14",
+      "topic": "personalised children's summer holiday gifts",
+      "title": "Last Bell, Best Summer \u2014 Children's Personalised Holiday Gifts 2026"
+    },
+    {
+      "date": "2026-07-14",
+      "topic": "Commonwealth Games family outfit ideas",
+      "title": "Commonwealth Games Family Matching \u2014 Don't Try Too Hard"
+    }
+  ],
+  "weather": [
+    {
+      "date": "2026-07-14",
+      "story": "heatwave",
+      "headline": "6-day heatwave incoming",
+      "tasks_pushed": 3
+    }
+  ]
 }
