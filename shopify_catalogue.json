@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-07-13T08:40:11.039908+00:00",
+  "synced_at": "2026-07-20T08:31:58.704469+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -1059,7 +1059,7 @@
         "New in",
         "Tote Bags"
       ],
-      "price": 24.0
+      "price": 26.0
     },
     {
       "title": "Coffee Please Slogan Sweatshirt",
@@ -1232,7 +1232,6 @@
       "url": "rockonruby.co.uk/products/custard-cream-connoisseur-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "DTF",
         "Gifts For Mum",
@@ -2337,7 +2336,7 @@
         "New in",
         "Tote Bags"
       ],
-      "price": 24.0
+      "price": 26.0
     },
     {
       "title": "Forever Winging It Makeup Bag",
@@ -3387,6 +3386,7 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
+        "bestseller",
         "Caps",
         "Embroidered",
         "Gifts For Mum",
@@ -3484,6 +3484,7 @@
         "Christmas",
         "Christmas T Shirt",
         "Christmas Tops",
+        "Clothing",
         "DTF",
         "interest:food"
       ],
@@ -3572,7 +3573,8 @@
         "Clothing",
         "DTF",
         "interest:alcohol",
-        "interest:wine"
+        "interest:wine",
+        "T-shirts"
       ],
       "price": 26.0
     },
@@ -3632,6 +3634,7 @@
         "Christmas",
         "Christmas T Shirt",
         "Christmas Tops",
+        "Clothing",
         "DTF",
         "interest:food"
       ],
@@ -3678,7 +3681,8 @@
         "Christmas T Shirt",
         "Christmas Tops",
         "DTF",
-        "interest:food"
+        "interest:food",
+        "T-shirts"
       ],
       "price": 26.0
     },
@@ -3691,6 +3695,7 @@
         "Christmas",
         "Christmas T Shirt",
         "Christmas Tops",
+        "Clothing",
         "DTF",
         "interest:food"
       ],
@@ -4553,6 +4558,21 @@
       "price": 36.0
     },
     {
+      "title": "Personalised Initial Leopard Print Cross Body Bag",
+      "handle": "personalised-initial-leopard-print-cross-body-bag",
+      "url": "rockonruby.co.uk/products/personalised-initial-leopard-print-cross-body-bag",
+      "product_type": "",
+      "tags": [
+        "Accessories",
+        "bestseller",
+        "Embroidered",
+        "Gifts For Her",
+        "New in",
+        "Personalised Accessories"
+      ],
+      "price": 26.0
+    },
+    {
       "title": "Personalised Initial Leopard print Makeup Bag",
       "handle": "personalised-initial-leopard-print-makeup-bag",
       "url": "rockonruby.co.uk/products/personalised-initial-leopard-print-makeup-bag",
@@ -4579,7 +4599,7 @@
         "New in",
         "Tote Bags"
       ],
-      "price": 24.0
+      "price": 26.0
     },
     {
       "title": "Personalised Initial Leopard print Tote Bag",
@@ -4723,7 +4743,7 @@
         "Teacher Gifts",
         "Tote Bags"
       ],
-      "price": 25.0
+      "price": 26.0
     },
     {
       "title": "Personalised Make up Bag",
@@ -5080,6 +5100,7 @@
       "url": "rockonruby.co.uk/products/personalised-t-shirts",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "Custom Slogan",
         "DTF",
@@ -5292,10 +5313,14 @@
       "url": "rockonruby.co.uk/products/personalised-varsity-year-leopard-print-shopping-bag",
       "product_type": "Tote Bag",
       "tags": [
+        "Accessories",
         "DTF",
-        "New in"
+        "New in",
+        "Personalised Accessories",
+        "Personalised Year",
+        "Tote Bags"
       ],
-      "price": 24.0
+      "price": 26.0
     },
     {
       "title": "Personalised Varsity Year Leopard Print Tote Bag",
@@ -5583,6 +5608,7 @@
       "url": "rockonruby.co.uk/products/personalised-year-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "Collections",
         "DTF",
@@ -6034,7 +6060,6 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Embroidered",
         "Embroidered Cap",
@@ -6595,6 +6620,7 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
+        "bestseller",
         "Caps",
         "Embroidered",
         "Holiday Bundle",
@@ -6612,7 +6638,6 @@
       "product_type": "Bucket Hat",
       "tags": [
         "Accessories",
-        "bestseller",
         "Bucket Hat",
         "Embroidered",
         "Gifts for Dad",
@@ -6666,50 +6691,50 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 212,
-      "revenue": 7421.2
+      "orders": 174,
+      "revenue": 6091.2
     },
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 86,
-      "revenue": 2112.0
-    },
-    {
-      "title": "Personalised Year Unisex T-shirt",
-      "handle": "",
-      "orders": 74,
-      "revenue": 1950.0
+      "orders": 89,
+      "revenue": 2184.0
     },
     {
       "title": "Personalised 'Only Here For The...' Cap",
       "handle": "",
-      "orders": 59,
-      "revenue": 1464.0
+      "orders": 70,
+      "revenue": 1728.0
+    },
+    {
+      "title": "Personalised Year Unisex T-shirt",
+      "handle": "",
+      "orders": 65,
+      "revenue": 1716.0
     },
     {
       "title": "Embroidered Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 58,
-      "revenue": 1323.0
+      "orders": 61,
+      "revenue": 1386.0
     },
     {
       "title": "Embroidered Yes I Like Pina Coladas T-shirt",
       "handle": "",
-      "orders": 27,
-      "revenue": 784.0
+      "orders": 28,
+      "revenue": 812.0
     },
     {
       "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
       "handle": "",
-      "orders": 22,
-      "revenue": 770.0
+      "orders": 21,
+      "revenue": 735.0
     },
     {
       "title": "Personalised Slogan T-shirt",
       "handle": "",
-      "orders": 27,
-      "revenue": 756.0
+      "orders": 26,
+      "revenue": 728.0
     },
     {
       "title": "Rock On Ruby Branded Tote Bag",
@@ -6718,34 +6743,40 @@
       "revenue": 704.0
     },
     {
-      "title": "Personalised Handwriting Cuff Sweatshirt",
+      "title": "Personalised Initial Leopard Print Cross Body Bag",
       "handle": "",
-      "orders": 12,
-      "revenue": 560.0
-    },
-    {
-      "title": "Personalisation on the back of the neck (+\u00a34.95)",
-      "handle": "",
-      "orders": 107,
-      "revenue": 529.83
+      "orders": 23,
+      "revenue": 598.0
     },
     {
       "title": "Custard Cream Connoisseur T-Shirt",
       "handle": "",
-      "orders": 18,
-      "revenue": 468.0
+      "orders": 20,
+      "revenue": 520.0
+    },
+    {
+      "title": "Personalised Handwriting Cuff Sweatshirt",
+      "handle": "",
+      "orders": 11,
+      "revenue": 512.0
     },
     {
       "title": "Yes I Like Pina Colada Cap",
       "handle": "",
-      "orders": 22,
-      "revenue": 462.0
+      "orders": 24,
+      "revenue": 504.0
     },
     {
-      "title": "Happy Hour Slogan Sweatshirt",
+      "title": "Yes I Like Pina Coladas Bucket Hat",
       "handle": "",
-      "orders": 12,
-      "revenue": 420.0
+      "orders": 18,
+      "revenue": 432.0
+    },
+    {
+      "title": "Personalisation on the back of the neck (+\u00a34.95)",
+      "handle": "",
+      "orders": 87,
+      "revenue": 430.83
     },
     {
       "title": "Custard Cream Connoisseur Sweatshirt",
@@ -6754,34 +6785,28 @@
       "revenue": 418.0
     },
     {
-      "title": "Yes I Like Pina Coladas Bucket Hat",
+      "title": "Personalised Handwriting T-Shirt",
       "handle": "",
-      "orders": 16,
-      "revenue": 384.0
+      "orders": 13,
+      "revenue": 416.0
+    },
+    {
+      "title": "Happy Hour Slogan Sweatshirt",
+      "handle": "",
+      "orders": 11,
+      "revenue": 385.0
+    },
+    {
+      "title": "Not Today Leopard Print Cap",
+      "handle": "",
+      "orders": 15,
+      "revenue": 360.0
     },
     {
       "title": "Personalised Slogan Sweatshirt",
       "handle": "",
-      "orders": 10,
-      "revenue": 380.0
-    },
-    {
-      "title": "Personalised Handwriting T-Shirt",
-      "handle": "",
-      "orders": 11,
-      "revenue": 352.0
-    },
-    {
-      "title": "Happy Hour Slogan T-Shirt",
-      "handle": "",
-      "orders": 13,
-      "revenue": 338.0
-    },
-    {
-      "title": "Bourbon Biscuit Fan Club T-Shirt",
-      "handle": "",
-      "orders": 12,
-      "revenue": 312.0
+      "orders": 9,
+      "revenue": 342.0
     }
   ]
 }
