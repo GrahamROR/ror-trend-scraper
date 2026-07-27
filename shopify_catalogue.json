@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-07-20T08:31:58.704469+00:00",
+  "synced_at": "2026-07-27T09:01:50.706093+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -227,6 +227,11 @@
       "url": "rockonruby.co.uk/collections/homeware"
     },
     {
+      "title": "Leopard Print Accessories",
+      "handle": "new-leopard-print-accessories",
+      "url": "rockonruby.co.uk/collections/new-leopard-print-accessories"
+    },
+    {
       "title": "Leopard Print Lover",
       "handle": "leopard-print-lover",
       "url": "rockonruby.co.uk/collections/leopard-print-lover"
@@ -245,11 +250,6 @@
       "title": "Mugs",
       "handle": "mugs",
       "url": "rockonruby.co.uk/collections/mugs"
-    },
-    {
-      "title": "New Leopard Print Accessories",
-      "handle": "new-leopard-print-accessories",
-      "url": "rockonruby.co.uk/collections/new-leopard-print-accessories"
     },
     {
       "title": "New in",
@@ -516,8 +516,7 @@
         "Embroidered",
         "Gifts for Dad",
         "interest:coffee",
-        "interest:dad",
-        "New in"
+        "interest:dad"
       ],
       "price": 22.0
     },
@@ -530,7 +529,6 @@
         "Clothing",
         "DTF",
         "Gifts for Dad",
-        "New in",
         "Slogan T-shirts",
         "T-shirts"
       ],
@@ -560,7 +558,6 @@
         "Accessories",
         "DTF",
         "Gifts For Mum",
-        "New in",
         "Personalised Accessories",
         "Personalised Gifts"
       ],
@@ -645,7 +642,8 @@
       "tags": [
         "Christmas T Shirt",
         "Clothing",
-        "Collections"
+        "Collections",
+        "DTF"
       ],
       "price": 26.0
     },
@@ -718,8 +716,7 @@
         "Caps",
         "Embroidered",
         "Embroidered Cap",
-        "interest:biscuit",
-        "New in"
+        "interest:biscuit"
       ],
       "price": 24.0
     },
@@ -733,7 +730,6 @@
         "DTF",
         "interest:biscuit",
         "interest:food",
-        "New in",
         "Slogan Sweatshirts",
         "Sweatshirts"
       ],
@@ -750,7 +746,6 @@
         "Gifts For Mum",
         "interest:biscuit",
         "interest:food",
-        "New in",
         "Slogan T-shirts",
         "T-shirts"
       ],
@@ -766,8 +761,7 @@
         "Caps",
         "Embroidered",
         "Gifts for Dad",
-        "interest:food",
-        "New in"
+        "interest:food"
       ],
       "price": 22.0
     },
@@ -796,7 +790,7 @@
         "Beanie Hats",
         "Embroidered"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Children's Blah Blah Blah T-shirt",
@@ -976,7 +970,7 @@
         "interest:alcohol",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Coffee and Juice Please Adult and Child Sweatshirt Set",
@@ -1024,7 +1018,6 @@
         "Clothing",
         "DTF",
         "interest:coffee",
-        "New in",
         "Slogan T-shirts",
         "T-shirts"
       ],
@@ -1041,8 +1034,7 @@
         "Embroidered",
         "Gifts for Dad",
         "Gifts For Mum",
-        "interest:coffee",
-        "New in"
+        "interest:coffee"
       ],
       "price": 24.0
     },
@@ -1220,7 +1212,6 @@
         "Gifts For Mum",
         "interest:biscuit",
         "interest:food",
-        "New in",
         "Slogan Sweatshirts",
         "Sweatshirts"
       ],
@@ -1237,7 +1228,6 @@
         "Gifts For Mum",
         "interest:biscuit",
         "interest:food",
-        "New in",
         "Slogan T-shirts",
         "T-shirts"
       ],
@@ -1397,6 +1387,33 @@
       "price": 22.0
     },
     {
+      "title": "Don't Ever Stop Being Silly Slogan Cap",
+      "handle": "dont-ever-stop-being-silly-slogan-cap",
+      "url": "rockonruby.co.uk/products/dont-ever-stop-being-silly-slogan-cap",
+      "product_type": "Cap",
+      "tags": [
+        "Accessories",
+        "Caps",
+        "Embroidered",
+        "New in"
+      ],
+      "price": 22.0
+    },
+    {
+      "title": "Don't Ever Stop Being Silly Slogan T-Shirt",
+      "handle": "dont-ever-stop-being-silly-slogan-t-shirt",
+      "url": "rockonruby.co.uk/products/dont-ever-stop-being-silly-slogan-t-shirt",
+      "product_type": "T-Shirt",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "New in",
+        "Slogan T-shirts",
+        "T-shirts"
+      ],
+      "price": 26.0
+    },
+    {
       "title": "Don't Let Today Be A Waste Of Make Up Bag",
       "handle": "waste-of-make-up-bag",
       "url": "rockonruby.co.uk/products/waste-of-make-up-bag",
@@ -1448,7 +1465,7 @@
         "Embroidered",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Embroidered Cherry Adult and Child Sweatshirt Set",
@@ -1591,18 +1608,6 @@
       "price": 52.0
     },
     {
-      "title": "Embroidered Forever and Always Sweatshirt Set",
-      "handle": "embroidered-forever-and-always-sweatshirt-set",
-      "url": "rockonruby.co.uk/products/embroidered-forever-and-always-sweatshirt-set",
-      "product_type": "Sweatshirt",
-      "tags": [
-        "Embroidered",
-        "Gifting",
-        "Valentine\u2019s Day"
-      ],
-      "price": 65.0
-    },
-    {
       "title": "Embroidered Happy Hour Slogan Cap",
       "handle": "embroidered-happy-hour-cap-slogan-baseball-hat",
       "url": "rockonruby.co.uk/products/embroidered-happy-hour-cap-slogan-baseball-hat",
@@ -1615,7 +1620,7 @@
         "interest:happyhour",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Embroidered Here Comes The Bride T-shirt",
@@ -1676,7 +1681,7 @@
         "interest:reading",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 24.0
     },
     {
       "title": "Embroidered I'd Rather Be Reading Beanie Hat",
@@ -1719,7 +1724,7 @@
         "Gifts Under \u00a330",
         "Personalised Accessories"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Embroidered Legend Beanie Hat",
@@ -1732,7 +1737,7 @@
         "Embroidered",
         "Gifts For Him"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Embroidered Made In Year T-shirt",
@@ -1836,7 +1841,7 @@
         "Personalised Accessories",
         "Personalised Caps"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Embroidered No. 1 Personalised Sweatshirt",
@@ -1920,7 +1925,7 @@
         "Embroidered",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Embroidered Overthinking T-Shirt",
@@ -1946,7 +1951,7 @@
         "Gifts For Her",
         "Personalised Accessories"
       ],
-      "price": 24.0
+      "price": 30.0
     },
     {
       "title": "Embroidered Personalised Cuff Sweatshirt",
@@ -2033,7 +2038,7 @@
         "Embroidered",
         "Personalised Accessories"
       ],
-      "price": 24.0
+      "price": 30.0
     },
     {
       "title": "Embroidered Personalised Year Sweatshirt",
@@ -2118,7 +2123,7 @@
       "tags": [
         "Embroidered"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Embroidered ROR Spark Beanie Hat",
@@ -2128,7 +2133,7 @@
       "tags": [
         "Embroidered"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Embroidered Smile Beanie Hat",
@@ -2139,7 +2144,7 @@
         "Accessories",
         "Embroidered"
       ],
-      "price": 19.0
+      "price": 22.0
     },
     {
       "title": "Embroidered So Sweet Children's Sweatshirt",
@@ -2171,7 +2176,7 @@
         "Personalised Accessories",
         "Personalised Caps"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Embroidered Wifey Always Forever Sweatshirt",
@@ -2239,6 +2244,7 @@
       "url": "rockonruby.co.uk/products/embroidered-yes-i-like-pina-coladas-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "Collections",
         "Embroidered",
@@ -2350,7 +2356,6 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
-        "New in",
         "Personalised Accessories"
       ],
       "price": 14.0
@@ -2448,7 +2453,7 @@
         "Embroidered",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Have A Great Day Slogan T-shirt",
@@ -2532,7 +2537,7 @@
         "Embroidered",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Hubby Est Year Embroidered Personalised T-shirt",
@@ -2587,8 +2592,10 @@
       "tags": [
         "Clothing",
         "Collections",
+        "DTF",
         "interest:alcohol",
-        "The Cocktail Collection"
+        "The Cocktail Collection",
+        "Vinyl"
       ],
       "price": 36.0
     },
@@ -2621,7 +2628,7 @@
         "Make Up Bags",
         "Pencil Cases"
       ],
-      "price": 16.0
+      "price": 14.0
     },
     {
       "title": "I'd Rather be Reading Sweatshirt",
@@ -2687,7 +2694,6 @@
         "Clothing",
         "DTF",
         "Gifts for Dad",
-        "New in",
         "Slogan T-shirts",
         "T-shirts"
       ],
@@ -2729,8 +2735,7 @@
         "Caps",
         "Embroidered",
         "Embroidered Cap",
-        "interest:biscuit",
-        "New in"
+        "interest:biscuit"
       ],
       "price": 24.0
     },
@@ -2744,7 +2749,6 @@
         "DTF",
         "interest:biscuit",
         "interest:food",
-        "New in",
         "Slogan Sweatshirts",
         "Sweatshirts",
         "Valentine\u2019s Day"
@@ -2752,7 +2756,7 @@
       "price": 38.0
     },
     {
-      "title": "Jammy Dodger T-Shirt",
+      "title": "Jammy Dodger Enthusiast T-Shirt",
       "handle": "jammy-dodger-t-shirt",
       "url": "rockonruby.co.uk/products/jammy-dodger-t-shirt",
       "product_type": "T-Shirt",
@@ -2760,7 +2764,6 @@
         "Clothing",
         "DTF",
         "Gifts For Mum",
-        "New in",
         "Slogan T-shirts",
         "T-shirts"
       ],
@@ -2819,8 +2822,7 @@
         "Caps",
         "Embroidered",
         "Gifts for Dad",
-        "interest:food",
-        "New in"
+        "interest:food"
       ],
       "price": 22.0
     },
@@ -2835,7 +2837,7 @@
         "interest:reading",
         "Tote Bags"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Let's Have A Brew Slogan Sweatshirt",
@@ -2967,7 +2969,7 @@
         "interest:margarita",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Married AF Heart T-Shirt",
@@ -2994,8 +2996,7 @@
         "Custom Slogan",
         "Embroidered",
         "Gifts for Dad",
-        "interest:food",
-        "New in"
+        "interest:food"
       ],
       "price": 22.0
     },
@@ -3122,7 +3123,7 @@
         "Embroidered",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Merry Varsity Christmas Sweatshirt",
@@ -3150,7 +3151,7 @@
         "Slogan Cap",
         "Valentine\u2019s Day"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Mourning the Death of my Motivation Pencil Case",
@@ -3164,7 +3165,7 @@
         "interest:makeup",
         "Make Up Bags"
       ],
-      "price": 15.0
+      "price": 14.0
     },
     {
       "title": "Mr and Mrs Embroidered Matching Cap Set",
@@ -3280,8 +3281,7 @@
         "Caps",
         "Embroidered",
         "Gifts for Dad",
-        "interest:food",
-        "New in"
+        "interest:food"
       ],
       "price": 22.0
     },
@@ -3322,7 +3322,6 @@
       "tags": [
         "Clothing",
         "DTF",
-        "New in",
         "Slogan Sweatshirts"
       ],
       "price": 35.0
@@ -3389,8 +3388,7 @@
         "bestseller",
         "Caps",
         "Embroidered",
-        "Gifts For Mum",
-        "New in"
+        "Gifts For Mum"
       ],
       "price": 24.0
     },
@@ -3512,6 +3510,7 @@
       "product_type": "Sweatshirt",
       "tags": [
         "Christmas Jumpers",
+        "DTF",
         "interest:food"
       ],
       "price": 35.0
@@ -3529,7 +3528,7 @@
         "DTF",
         "interest:food"
       ],
-      "price": 35.0
+      "price": 36.0
     },
     {
       "title": "Only Here For The Hot Dogs Slogan Cap",
@@ -3724,7 +3723,6 @@
       "tags": [
         "Accessories",
         "DTF",
-        "New in",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -3738,7 +3736,6 @@
       "tags": [
         "Accessories",
         "DTF",
-        "New in",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -3798,7 +3795,6 @@
         "Embroidered",
         "Gifts for Dad",
         "interest:dad",
-        "New in",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -3813,7 +3809,6 @@
         "Clothing",
         "DTF",
         "Gifts for Dad",
-        "New in",
         "Personalised T-shirts",
         "T-shirts"
       ],
@@ -3880,7 +3875,7 @@
         "Gifts for Dad",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Ask Me About Slogan Cap",
@@ -3894,7 +3889,7 @@
         "Gifts for Dad",
         "Personalised Caps"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Bag Strap",
@@ -3921,7 +3916,7 @@
         "Embroidered",
         "Personalised Accessories"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Bucket Hat",
@@ -3950,7 +3945,7 @@
         "quick-add",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Christmas Slogan Sweatshirt",
@@ -3978,7 +3973,7 @@
         "Personalised Accessories",
         "Personalised Caps"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised College Initial Cap",
@@ -3993,7 +3988,7 @@
         "Personalised Accessories",
         "Personalised Caps"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised College Initial Sweatshirt",
@@ -4021,7 +4016,7 @@
         "Embroidered",
         "Personalised Accessories"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Dad and Mini EST Year T-Shirt Set",
@@ -4065,7 +4060,7 @@
         "Personalised Accessories",
         "Personalised Caps"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Embroidered Birth Flower T-Shirt",
@@ -4093,7 +4088,7 @@
         "Personalised Accessories",
         "Stocking Fillers"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Embroidered Initial 'College' Beanie Hat with Deep Cuff",
@@ -4109,7 +4104,7 @@
         "Stocking Fillers",
         "Varsity Collection"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Embroidered Initial T-Shirt",
@@ -4185,7 +4180,7 @@
         "Personalised Accessories",
         "Personalised Year"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Embroidered Only Here For... Sweatshirt",
@@ -4196,7 +4191,6 @@
         "Clothing",
         "Embroidered",
         "Gifts For Her",
-        "New in",
         "Personalised Sweatshirts",
         "Sweatshirts"
       ],
@@ -4226,7 +4220,6 @@
         "Collections",
         "Embroidered",
         "Hoodies",
-        "New in",
         "Personalised Hoodies",
         "Slogan Hoodies",
         "Teacher Gifts"
@@ -4272,7 +4265,6 @@
         "Collections",
         "Embroidered",
         "interest:birthday",
-        "New in",
         "Personalised Hoodies",
         "Personalised Year"
       ],
@@ -4581,10 +4573,23 @@
         "Accessories",
         "DTF",
         "Make Up Bags",
-        "New in",
         "Personalised Accessories"
       ],
       "price": 18.0
+    },
+    {
+      "title": "Personalised Initial Leopard Print Rucksack",
+      "handle": "personalised-initial-leopard-print-rucksack",
+      "url": "rockonruby.co.uk/products/personalised-initial-leopard-print-rucksack",
+      "product_type": "",
+      "tags": [
+        "Accessories",
+        "Embroidered",
+        "Gifts For Her",
+        "New in",
+        "Personalised Accessories"
+      ],
+      "price": 34.0
     },
     {
       "title": "Personalised Initial Leopard Print Shopping Bag",
@@ -4609,7 +4614,6 @@
       "tags": [
         "Accessories",
         "DTF",
-        "New in",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -4627,7 +4631,7 @@
         "Personalised Accessories",
         "Personalised Caps"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Just Lovely Cherry Sweatshirt",
@@ -4704,7 +4708,6 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
-        "New in",
         "Personalised Accessories"
       ],
       "price": 18.0
@@ -4722,7 +4725,6 @@
         "intent:gift",
         "interest:makeup",
         "interest:reading",
-        "New in",
         "Personalised Accessories",
         "Teacher Gifts",
         "Tote Bags"
@@ -4795,7 +4797,21 @@
         "Personalised Accessories",
         "Personalised Caps"
       ],
-      "price": 21.0
+      "price": 22.0
+    },
+    {
+      "title": "Personalised Mini Initials Leopard Print Cross Body Bag",
+      "handle": "personalised-mini-initials-leopard-print-cross-body-bag",
+      "url": "rockonruby.co.uk/products/personalised-mini-initials-leopard-print-cross-body-bag",
+      "product_type": "",
+      "tags": [
+        "Accessories",
+        "Embroidered",
+        "Gifts For Her",
+        "New in",
+        "Personalised Accessories"
+      ],
+      "price": 26.0
     },
     {
       "title": "Personalised Mini Slogan Cropped Ribbed Vest",
@@ -4839,7 +4855,7 @@
         "Embroidered",
         "Personalised Caps"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Mrs Script Sweatshirt",
@@ -4905,7 +4921,6 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
-        "New in",
         "Personalised Accessories",
         "Teacher Gifts",
         "Valentine\u2019s Day"
@@ -4936,7 +4951,6 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
-        "New in",
         "Personalised Accessories"
       ],
       "price": 18.0
@@ -4954,7 +4968,7 @@
         "Custom Slogan",
         "DTF"
       ],
-      "price": 36.95
+      "price": 38.0
     },
     {
       "title": "Personalised Outline Year Sweatshirt",
@@ -5058,7 +5072,6 @@
         "Gifts For Her",
         "Gifts For Mum",
         "Make Up Bags",
-        "New in",
         "Personalised Accessories",
         "Teacher Gifts"
       ],
@@ -5072,7 +5085,6 @@
       "tags": [
         "Accessories",
         "DTF",
-        "New in",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -5100,7 +5112,6 @@
       "url": "rockonruby.co.uk/products/personalised-t-shirts",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "Custom Slogan",
         "DTF",
@@ -5193,7 +5204,7 @@
         "Stocking Fillers",
         "Valentine\u2019s Day"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Varsity Initial Leopard Print Cap",
@@ -5206,7 +5217,6 @@
         "Embroidered",
         "Embroidered Cap",
         "Gifts For Mum",
-        "New in",
         "Personalised Caps",
         "Slogan Cap"
       ],
@@ -5225,7 +5235,6 @@
         "intent:gift",
         "interest:makeup",
         "interest:reading",
-        "New in",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -5302,7 +5311,6 @@
         "Accessories",
         "DTF",
         "Make Up Bags",
-        "New in",
         "Personalised Accessories"
       ],
       "price": 18.0
@@ -5330,7 +5338,6 @@
       "tags": [
         "Accessories",
         "DTF",
-        "New in",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -5416,7 +5423,6 @@
         "intent:gift",
         "interest:makeup",
         "interest:reading",
-        "New in",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -5502,7 +5508,7 @@
         "Personalised Accessories",
         "Personalised Year"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Personalised Year Denim Baseball Cap",
@@ -5608,7 +5614,6 @@
       "url": "rockonruby.co.uk/products/personalised-year-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "Collections",
         "DTF",
@@ -5748,7 +5753,7 @@
         "Embroidered",
         "Wedding Party"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Retro Embroidered Mrs T-Shirt",
@@ -5987,7 +5992,7 @@
         "Embroidered",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Snacks and Trash TV T-Shirt",
@@ -6051,7 +6056,7 @@
         "interest:margarita",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Spritz Season Slogan Cap",
@@ -6152,8 +6157,7 @@
         "Embroidered",
         "Embroidered Cap",
         "Gifts For Mum",
-        "interest:tea",
-        "New in"
+        "interest:tea"
       ],
       "price": 24.0
     },
@@ -6168,8 +6172,7 @@
         "Embroidered",
         "Embroidered Cap",
         "Gifts For Mum",
-        "interest:tea",
-        "New in"
+        "interest:tea"
       ],
       "price": 22.0
     },
@@ -6273,7 +6276,7 @@
         "Gifts for Dad",
         "Slogan Cap"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "The Life of a Snow Girl Christmas Sweatshirt",
@@ -6489,10 +6492,9 @@
         "Clothing",
         "Custom Slogan",
         "DTF",
-        "New in",
         "Personalised Sweatshirts"
       ],
-      "price": 36.95
+      "price": 38.0
     },
     {
       "title": "Unisex Personalised Year Heavyweight Hoodie",
@@ -6557,7 +6559,7 @@
         "Slogan Cap",
         "Wedding Party"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Wifey Est Year Embroidered T Shirt",
@@ -6629,7 +6631,7 @@
         "Slogan Cap",
         "The Cocktail Collection"
       ],
-      "price": 21.0
+      "price": 22.0
     },
     {
       "title": "Yes I Like Pina Coladas Bucket Hat",
@@ -6691,68 +6693,74 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 174,
-      "revenue": 6091.2
+      "orders": 153,
+      "revenue": 5361.15
     },
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 89,
-      "revenue": 2184.0
+      "orders": 82,
+      "revenue": 1992.0
     },
     {
       "title": "Personalised 'Only Here For The...' Cap",
       "handle": "",
-      "orders": 70,
-      "revenue": 1728.0
-    },
-    {
-      "title": "Personalised Year Unisex T-shirt",
-      "handle": "",
-      "orders": 65,
-      "revenue": 1716.0
+      "orders": 72,
+      "revenue": 1776.0
     },
     {
       "title": "Embroidered Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 61,
-      "revenue": 1386.0
-    },
-    {
-      "title": "Embroidered Yes I Like Pina Coladas T-shirt",
-      "handle": "",
-      "orders": 28,
-      "revenue": 812.0
-    },
-    {
-      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
-      "handle": "",
-      "orders": 21,
-      "revenue": 735.0
-    },
-    {
-      "title": "Personalised Slogan T-shirt",
-      "handle": "",
-      "orders": 26,
-      "revenue": 728.0
-    },
-    {
-      "title": "Rock On Ruby Branded Tote Bag",
-      "handle": "",
-      "orders": 43,
-      "revenue": 704.0
+      "orders": 64,
+      "revenue": 1453.0
     },
     {
       "title": "Personalised Initial Leopard Print Cross Body Bag",
       "handle": "",
-      "orders": 23,
-      "revenue": 598.0
+      "orders": 54,
+      "revenue": 1404.0
+    },
+    {
+      "title": "Personalised Year Unisex T-shirt",
+      "handle": "",
+      "orders": 52,
+      "revenue": 1378.0
+    },
+    {
+      "title": "Embroidered Yes I Like Pina Coladas T-shirt",
+      "handle": "",
+      "orders": 29,
+      "revenue": 840.0
+    },
+    {
+      "title": "Rock On Ruby Branded Tote Bag",
+      "handle": "",
+      "orders": 46,
+      "revenue": 752.0
+    },
+    {
+      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
+      "handle": "",
+      "orders": 20,
+      "revenue": 700.0
+    },
+    {
+      "title": "Personalised Slogan T-shirt",
+      "handle": "",
+      "orders": 24,
+      "revenue": 672.0
+    },
+    {
+      "title": "Yes I Like Pina Colada Cap",
+      "handle": "",
+      "orders": 30,
+      "revenue": 633.0
     },
     {
       "title": "Custard Cream Connoisseur T-Shirt",
       "handle": "",
-      "orders": 20,
-      "revenue": 520.0
+      "orders": 22,
+      "revenue": 572.0
     },
     {
       "title": "Personalised Handwriting Cuff Sweatshirt",
@@ -6761,28 +6769,16 @@
       "revenue": 512.0
     },
     {
-      "title": "Yes I Like Pina Colada Cap",
-      "handle": "",
-      "orders": 24,
-      "revenue": 504.0
-    },
-    {
       "title": "Yes I Like Pina Coladas Bucket Hat",
       "handle": "",
-      "orders": 18,
+      "orders": 17,
       "revenue": 432.0
     },
     {
-      "title": "Personalisation on the back of the neck (+\u00a34.95)",
+      "title": "Happy Hour Slogan Sweatshirt",
       "handle": "",
-      "orders": 87,
-      "revenue": 430.83
-    },
-    {
-      "title": "Custard Cream Connoisseur Sweatshirt",
-      "handle": "",
-      "orders": 11,
-      "revenue": 418.0
+      "orders": 12,
+      "revenue": 420.0
     },
     {
       "title": "Personalised Handwriting T-Shirt",
@@ -6791,10 +6787,16 @@
       "revenue": 416.0
     },
     {
-      "title": "Happy Hour Slogan Sweatshirt",
+      "title": "Custard Cream Connoisseur Sweatshirt",
       "handle": "",
-      "orders": 11,
-      "revenue": 385.0
+      "orders": 10,
+      "revenue": 380.0
+    },
+    {
+      "title": "Bourbon Biscuit Fan Club T-Shirt",
+      "handle": "",
+      "orders": 14,
+      "revenue": 364.0
     },
     {
       "title": "Not Today Leopard Print Cap",
@@ -6803,10 +6805,10 @@
       "revenue": 360.0
     },
     {
-      "title": "Personalised Slogan Sweatshirt",
+      "title": "Personalisation on the back of the neck (+\u00a34.95)",
       "handle": "",
-      "orders": 9,
-      "revenue": 342.0
+      "orders": 72,
+      "revenue": 356.58
     }
   ]
 }
