@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-08-24T06:30:07.885009+00:00",
+  "synced_at": "2026-08-31T11:55:32.655676+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -1244,6 +1244,7 @@
       "url": "rockonruby.co.uk/products/dont-ever-stop-being-silly-slogan-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "DTF",
         "New in",
@@ -3082,7 +3083,23 @@
       "price": 26.0
     },
     {
-      "title": "Personalised 'Only Here For The...' Cap",
+      "title": "Personalised 'Only here For...' Adult & Child Cap Set",
+      "handle": "personalised-only-here-for-adult-child-cap-set",
+      "url": "rockonruby.co.uk/products/personalised-only-here-for-adult-child-cap-set",
+      "product_type": "Cap",
+      "tags": [
+        "Accessories",
+        "Caps",
+        "Embroidered",
+        "Gifts for Dad",
+        "New in",
+        "Personalised Accessories",
+        "Personalised Caps"
+      ],
+      "price": 42.0
+    },
+    {
+      "title": "Personalised 'Only Here For...' Cap",
       "handle": "personalised-only-here-for-cap",
       "url": "rockonruby.co.uk/products/personalised-only-here-for-cap",
       "product_type": "Cap",
@@ -3099,22 +3116,6 @@
         "Personalised Caps"
       ],
       "price": 24.0
-    },
-    {
-      "title": "Personalised 'Only here For...' Adult & Child Cap Set",
-      "handle": "personalised-only-here-for-adult-child-cap-set",
-      "url": "rockonruby.co.uk/products/personalised-only-here-for-adult-child-cap-set",
-      "product_type": "Cap",
-      "tags": [
-        "Accessories",
-        "Caps",
-        "Embroidered",
-        "Gifts for Dad",
-        "New in",
-        "Personalised Accessories",
-        "Personalised Caps"
-      ],
-      "price": 42.0
     },
     {
       "title": "Personalised Ask Me About Slogan Cap",
@@ -3372,20 +3373,6 @@
       "price": 45.0
     },
     {
-      "title": "Personalised Handwriting Blanket",
-      "handle": "personalised-handwriting-blanket",
-      "url": "rockonruby.co.uk/products/personalised-handwriting-blanket",
-      "product_type": "Blanket",
-      "tags": [
-        "Embroidered",
-        "Handwriting",
-        "Home Accessories",
-        "intent:gift",
-        "Valentine\u2019s Day"
-      ],
-      "price": 65.0
-    },
-    {
       "title": "Personalised Handwriting Boat Bag",
       "handle": "personalised-handwriting-boat-bag-2",
       "url": "rockonruby.co.uk/products/personalised-handwriting-boat-bag-2",
@@ -3567,19 +3554,6 @@
       "price": 28.0
     },
     {
-      "title": "Personalised Heart Initial Boxer Shorts",
-      "handle": "personalised-heart-initial-underpants",
-      "url": "rockonruby.co.uk/products/personalised-heart-initial-underpants",
-      "product_type": "Boxer Shorts",
-      "tags": [
-        "Clothing",
-        "Embroidered",
-        "Gifts For Him",
-        "Valentine\u2019s Day"
-      ],
-      "price": 22.0
-    },
-    {
       "title": "Personalised I Just Want to... Tote Bag",
       "handle": "personalised-i-just-want-to-tote-bag",
       "url": "rockonruby.co.uk/products/personalised-i-just-want-to-tote-bag",
@@ -3687,7 +3661,6 @@
       "product_type": "Tote Bag",
       "tags": [
         "Accessories",
-        "bestseller",
         "DTF",
         "Personalised Accessories",
         "Tote Bags"
@@ -4266,6 +4239,7 @@
       "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
+        "bestseller",
         "DTF",
         "Make Up Bags",
         "Personalised Accessories"
@@ -4526,7 +4500,6 @@
       "url": "rockonruby.co.uk/products/personalised-year-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "Collections",
         "DTF",
@@ -5197,7 +5170,6 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -5329,122 +5301,122 @@
     {
       "title": "Personalised Initial Leopard Print Cross Body Bag",
       "handle": "",
-      "orders": 146,
-      "revenue": 3796.0
+      "orders": 152,
+      "revenue": 3952.0
     },
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 90,
-      "revenue": 3230.55
+      "orders": 84,
+      "revenue": 3043.45
     },
     {
       "title": "Personalised Varsity Year Leopard Print Tote Bag",
       "handle": "",
-      "orders": 85,
-      "revenue": 2224.0
+      "orders": 101,
+      "revenue": 2666.0
     },
     {
-      "title": "Personalised 'Only Here For The...' Cap",
+      "title": "Personalised 'Only Here For...' Cap",
       "handle": "",
-      "orders": 81,
-      "revenue": 1969.0
+      "orders": 74,
+      "revenue": 1825.0
     },
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 76,
-      "revenue": 1944.0
-    },
-    {
-      "title": "Personalised Year Unisex T-shirt",
-      "handle": "",
-      "orders": 32,
-      "revenue": 858.0
-    },
-    {
-      "title": "Embroidered Unisex Personalised Slogan Cap",
-      "handle": "",
-      "orders": 32,
-      "revenue": 815.0
+      "orders": 61,
+      "revenue": 1584.0
     },
     {
       "title": "Personalised Initial Leopard Print Backpack",
       "handle": "",
-      "orders": 23,
-      "revenue": 814.0
-    },
-    {
-      "title": "Yes I Like Pina Colada Cap",
-      "handle": "",
-      "orders": 36,
-      "revenue": 802.0
+      "orders": 31,
+      "revenue": 1086.0
     },
     {
       "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
       "handle": "",
-      "orders": 22,
-      "revenue": 781.0
+      "orders": 23,
+      "revenue": 823.0
+    },
+    {
+      "title": "Yes I Like Pina Colada Cap",
+      "handle": "",
+      "orders": 35,
+      "revenue": 787.0
     },
     {
       "title": "Rock On Ruby Branded Tote Bag",
       "handle": "",
-      "orders": 48,
-      "revenue": 768.0
+      "orders": 47,
+      "revenue": 752.0
     },
     {
-      "title": "Personalised Slogan T-shirt",
+      "title": "Embroidered Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 23,
-      "revenue": 644.0
-    },
-    {
-      "title": "Personalised Mini Initials Leopard Print Cross Body Bag",
-      "handle": "",
-      "orders": 23,
-      "revenue": 598.0
+      "orders": 26,
+      "revenue": 693.0
     },
     {
       "title": "Happy Hour Slogan Sweatshirt",
       "handle": "",
-      "orders": 16,
-      "revenue": 567.0
+      "orders": 19,
+      "revenue": 677.0
+    },
+    {
+      "title": "Personalised Mini Initials Leopard Print Cross Body Bag",
+      "handle": "",
+      "orders": 26,
+      "revenue": 676.0
+    },
+    {
+      "title": "Personalised Year Unisex T-shirt",
+      "handle": "",
+      "orders": 24,
+      "revenue": 650.0
     },
     {
       "title": "Forever Winging It Leopard Print Shopping Bag",
       "handle": "",
-      "orders": 20,
-      "revenue": 564.0
+      "orders": 23,
+      "revenue": 648.0
     },
     {
-      "title": "Embroidered Yes I Like Pina Coladas T-shirt",
+      "title": "Personalised Initial Leopard print Tote Bag",
+      "handle": "",
+      "orders": 22,
+      "revenue": 568.0
+    },
+    {
+      "title": "Embroidered Custom Slogan T-Shirt",
       "handle": "",
       "orders": 19,
       "revenue": 532.0
     },
     {
+      "title": "Personalised Slogan T-shirt",
+      "handle": "",
+      "orders": 18,
+      "revenue": 504.0
+    },
+    {
+      "title": "Don't Ever Stop Being Silly Slogan T-Shirt",
+      "handle": "",
+      "orders": 19,
+      "revenue": 494.0
+    },
+    {
+      "title": "Embroidered Yes I Like Pina Coladas T-shirt",
+      "handle": "",
+      "orders": 15,
+      "revenue": 420.0
+    },
+    {
       "title": "Custard Cream Connoisseur Sweatshirt",
       "handle": "",
-      "orders": 9,
-      "revenue": 342.0
-    },
-    {
-      "title": "Custard Cream Connoisseur T-Shirt",
-      "handle": "",
-      "orders": 13,
-      "revenue": 338.0
-    },
-    {
-      "title": "Embroidered Personalised Year T-Shirt",
-      "handle": "",
-      "orders": 11,
-      "revenue": 336.0
-    },
-    {
-      "title": "Personalised Handwriting Cuff Sweatshirt",
-      "handle": "",
-      "orders": 7,
-      "revenue": 336.0
+      "orders": 10,
+      "revenue": 380.0
     }
   ]
 }
