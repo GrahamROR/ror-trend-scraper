@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-09-14T11:02:01.371216+00:00",
+  "synced_at": "2026-09-21T11:11:29.898020+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -528,7 +528,7 @@
         "interest:coffee",
         "interest:dad"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "85% Dad jokes, 15% Coffee Slogan T-Shirt",
@@ -700,7 +700,6 @@
       "url": "rockonruby.co.uk/products/book-lover-mystery-bag",
       "product_type": "Mystery Bag",
       "tags": [
-        "bestseller",
         "DTF",
         "New in",
         "Offers"
@@ -764,7 +763,7 @@
         "Gifts for Dad",
         "interest:food"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "Cheese Varsity Slogan Christmas Jumper Sweatshirt",
@@ -1085,6 +1084,7 @@
       "url": "rockonruby.co.uk/products/custard-cream-connoisseur-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "DTF",
         "Gifts For Her",
@@ -1250,7 +1250,7 @@
         "Embroidered",
         "New in"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "Don't Ever Stop Being Silly Slogan T-Shirt",
@@ -1319,7 +1319,7 @@
         "Embroidered",
         "Slogan Cap"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "Embroidered Coffee Date Cap",
@@ -1334,7 +1334,7 @@
         "interest:coffee",
         "Slogan Cap"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "Embroidered Coffee Please Sweatshirt",
@@ -1832,7 +1832,7 @@
       "tags": [
         "Embroidered"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "Embroidered ROR Spark Beanie Hat",
@@ -2047,6 +2047,7 @@
       "url": "rockonruby.co.uk/products/happy-hour-slogan-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Christmas",
         "Christmas Jumpers",
         "Christmas Tops",
@@ -2392,7 +2393,7 @@
         "Gifts for Dad",
         "interest:food"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "Let Me Finish My Book Tote Bag",
@@ -2478,7 +2479,7 @@
         "Gifts for Dad",
         "interest:food"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "Men's Personalised Year Sweatshirt",
@@ -2549,7 +2550,7 @@
         "Slogan Cap",
         "Valentine\u2019s Day"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "Mr and Mrs Est Year Personalised Embroidered Matching T shirt Set",
@@ -2638,7 +2639,7 @@
         "Gifts for Dad",
         "interest:food"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "My Other Job Is A Dallas Cowboys Cheerleader Raglan Baby Tee",
@@ -2675,6 +2676,7 @@
       "url": "rockonruby.co.uk/products/my-other-job-is-a-dallas-cowboys-cheerleader-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "DTF",
         "Slogan Sweatshirts"
@@ -3630,12 +3632,13 @@
       "product_type": "",
       "tags": [
         "Accessories",
+        "bestseller",
         "Embroidered",
         "Gifts For Her",
         "New in",
         "Personalised Accessories"
       ],
-      "price": 26.0
+      "price": 28.0
     },
     {
       "title": "Personalised Initial Leopard print Makeup Bag",
@@ -4793,7 +4796,7 @@
         "interest:margarita",
         "Slogan Cap"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "Spritz Season Slogan Cap",
@@ -4810,7 +4813,7 @@
         "quick-add",
         "Slogan Cap"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "Spritzy Bit Tipsy Slogan Christmas Jumper Sweatshirt",
@@ -4911,7 +4914,7 @@
         "Gifts For Mum",
         "interest:tea"
       ],
-      "price": 22.0
+      "price": 24.0
     },
     {
       "title": "Tea Please Sweatshirt",
@@ -5182,7 +5185,6 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -5244,7 +5246,6 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Embroidered",
         "Holiday Bundle",
@@ -5313,124 +5314,124 @@
   ],
   "bestsellers": [
     {
-      "title": "Personalised Initial Leopard Print Cross Body Bag",
-      "handle": "",
-      "orders": 157,
-      "revenue": 4082.0
-    },
-    {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 107,
-      "revenue": 3971.65
+      "orders": 123,
+      "revenue": 4590.3
+    },
+    {
+      "title": "Personalised Initial Leopard Print Cross Body Bag",
+      "handle": "",
+      "orders": 129,
+      "revenue": 3360.0
     },
     {
       "title": "Personalised Varsity Year Leopard Print Tote Bag",
       "handle": "",
-      "orders": 114,
-      "revenue": 3004.0
-    },
-    {
-      "title": "Personalised 'Only Here For...' Cap",
-      "handle": "",
-      "orders": 52,
-      "revenue": 1297.0
-    },
-    {
-      "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
-      "handle": "",
-      "orders": 48,
-      "revenue": 1272.0
+      "orders": 124,
+      "revenue": 3264.0
     },
     {
       "title": "Personalised Initial Leopard Print Backpack",
       "handle": "",
-      "orders": 36,
-      "revenue": 1256.0
+      "orders": 39,
+      "revenue": 1358.0
     },
     {
-      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
+      "title": "Personalised 'Only Here For...' Cap",
       "handle": "",
-      "orders": 28,
-      "revenue": 1004.0
+      "orders": 50,
+      "revenue": 1249.0
+    },
+    {
+      "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
+      "handle": "",
+      "orders": 45,
+      "revenue": 1224.0
     },
     {
       "title": "Happy Hour Slogan Sweatshirt",
       "handle": "",
-      "orders": 26,
-      "revenue": 969.0
+      "orders": 28,
+      "revenue": 1043.0
     },
     {
       "title": "Rock On Ruby Branded Tote Bag",
       "handle": "",
-      "orders": 58,
-      "revenue": 928.0
+      "orders": 61,
+      "revenue": 976.0
+    },
+    {
+      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
+      "handle": "",
+      "orders": 26,
+      "revenue": 934.0
     },
     {
       "title": "Personalised Initial Leopard print Tote Bag",
       "handle": "",
-      "orders": 33,
-      "revenue": 854.0
+      "orders": 36,
+      "revenue": 932.0
     },
     {
-      "title": "Yes I Like Pina Colada Cap",
+      "title": "Book Lover Mystery Bag",
       "handle": "",
-      "orders": 35,
-      "revenue": 802.0
+      "orders": 23,
+      "revenue": 920.0
     },
     {
       "title": "I'd Rather be Reading Sweatshirt",
       "handle": "",
-      "orders": 21,
-      "revenue": 798.0
-    },
-    {
-      "title": "Forever Winging It Leopard Print Shopping Bag",
-      "handle": "",
-      "orders": 27,
-      "revenue": 760.0
-    },
-    {
-      "title": "Personalised Mini Initials Leopard Print Cross Body Bag",
-      "handle": "",
-      "orders": 29,
-      "revenue": 754.0
+      "orders": 24,
+      "revenue": 912.0
     },
     {
       "title": "Personalised Varsity Year Leopard print Makeup Bag",
       "handle": "",
-      "orders": 36,
-      "revenue": 684.0
+      "orders": 39,
+      "revenue": 774.0
+    },
+    {
+      "title": "Personalised Mini Initials Leopard Print Cross Body Bag",
+      "handle": "",
+      "orders": 28,
+      "revenue": 728.0
     },
     {
       "title": "Don't Ever Stop Being Silly Slogan T-Shirt",
       "handle": "",
-      "orders": 25,
-      "revenue": 650.0
+      "orders": 27,
+      "revenue": 702.0
+    },
+    {
+      "title": "Yes I Like Pina Colada Cap",
+      "handle": "",
+      "orders": 30,
+      "revenue": 700.0
     },
     {
       "title": "Embroidered Unisex Personalised Slogan Cap",
       "handle": "",
       "orders": 23,
-      "revenue": 634.0
+      "revenue": 660.0
+    },
+    {
+      "title": "Forever Winging It Leopard Print Shopping Bag",
+      "handle": "",
+      "orders": 23,
+      "revenue": 658.0
     },
     {
       "title": "Custard Cream Connoisseur Sweatshirt",
       "handle": "",
-      "orders": 16,
-      "revenue": 608.0
-    },
-    {
-      "title": "Book Lover Mystery Bag",
-      "handle": "",
-      "orders": 15,
-      "revenue": 600.0
+      "orders": 17,
+      "revenue": 646.0
     },
     {
       "title": "Personalised Year Unisex T-shirt",
       "handle": "",
-      "orders": 23,
-      "revenue": 598.0
+      "orders": 22,
+      "revenue": 572.0
     }
   ]
 }
