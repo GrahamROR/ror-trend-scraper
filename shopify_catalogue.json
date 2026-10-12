@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-10-05T12:46:11.417407+00:00",
+  "synced_at": "2026-10-12T13:37:25.844362+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -565,6 +565,20 @@
       "price": 10.0
     },
     {
+      "title": "9pm Bed Time Club Hoodie",
+      "handle": "9pm-bed-time-club-hoodie",
+      "url": "rockonruby.co.uk/products/9pm-bed-time-club-hoodie",
+      "product_type": "Hoodie",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "Hoodies",
+        "New in",
+        "Slogan Hoodies"
+      ],
+      "price": 48.0
+    },
+    {
       "title": "9PM Bed Time Club Leopard Print Makeup Bag",
       "handle": "9pm-bed-time-club-leopard-print-makeup-bag",
       "url": "rockonruby.co.uk/products/9pm-bed-time-club-leopard-print-makeup-bag",
@@ -621,16 +635,6 @@
         "Sweatshirts"
       ],
       "price": 38.0
-    },
-    {
-      "title": "Back To School Leopard Bundle",
-      "handle": "back-to-school-leopard-bundle",
-      "url": "rockonruby.co.uk/products/back-to-school-leopard-bundle",
-      "product_type": "",
-      "tags": [
-        "New in"
-      ],
-      "price": 62.0
     },
     {
       "title": "Baubles Christmas Jumper",
@@ -700,25 +704,27 @@
       "price": 22.0
     },
     {
-      "title": "Book Lover Mystery Bag",
-      "handle": "book-lover-mystery-bag",
-      "url": "rockonruby.co.uk/products/book-lover-mystery-bag",
-      "product_type": "Mystery Bag",
-      "tags": [
-        "bestseller",
-        "DTF",
-        "New in",
-        "Offers"
-      ],
-      "price": 40.0
-    },
-    {
       "title": "Bourbon Biscuit Fan Club Greetings Card",
       "handle": "bourbon-biscuit-fan-club-greetings-card",
       "url": "rockonruby.co.uk/products/bourbon-biscuit-fan-club-greetings-card",
       "product_type": "",
       "tags": [],
       "price": 4.95
+    },
+    {
+      "title": "Bourbon Biscuit Fan Club Hoodie",
+      "handle": "bourbon-biscuit-fan-club-hoodie",
+      "url": "rockonruby.co.uk/products/bourbon-biscuit-fan-club-hoodie",
+      "product_type": "",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "Hoodies",
+        "interest:biscuit",
+        "New in",
+        "Slogan Hoodie"
+      ],
+      "price": 48.0
     },
     {
       "title": "Bourbon Biscuit Fan Club Slogan Cap",
@@ -1071,6 +1077,21 @@
       "price": 4.95
     },
     {
+      "title": "Custard Cream Connoisseur Hoodie",
+      "handle": "custard-cream-connoisseur-hoodie",
+      "url": "rockonruby.co.uk/products/custard-cream-connoisseur-hoodie",
+      "product_type": "",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "Hoodies",
+        "interest:biscuit",
+        "New in",
+        "Slogan Hoodie"
+      ],
+      "price": 48.0
+    },
+    {
       "title": "Custard Cream Connoisseur Slogan Cap",
       "handle": "custard-cream-connoisseur-slogan-cap",
       "url": "rockonruby.co.uk/products/custard-cream-connoisseur-slogan-cap",
@@ -1246,6 +1267,20 @@
         "DTF"
       ],
       "price": 26.0
+    },
+    {
+      "title": "Don't Ever Stop Being Silly Hoodie",
+      "handle": "dont-ever-stop-being-silly-hoodie",
+      "url": "rockonruby.co.uk/products/dont-ever-stop-being-silly-hoodie",
+      "product_type": "Hoodie",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "Hoodies",
+        "New in",
+        "Slogan Hoodies"
+      ],
+      "price": 48.0
     },
     {
       "title": "Don't Ever Stop Being Silly Slogan Cap",
@@ -2055,7 +2090,7 @@
       "title": "Forever Winging It Leopard Print Makeup Bag",
       "handle": "forever-winging-it-leopard-print-makeup-bag",
       "url": "rockonruby.co.uk/products/forever-winging-it-leopard-print-makeup-bag",
-      "product_type": "",
+      "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
         "DTF",
@@ -2362,6 +2397,21 @@
       "price": 26.0
     },
     {
+      "title": "I\u2019d Rather Be Reading Hoodie",
+      "handle": "i-d-rather-be-reading-hoodie",
+      "url": "rockonruby.co.uk/products/i-d-rather-be-reading-hoodie",
+      "product_type": "Hoodie",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "Hoodies",
+        "interest:reading",
+        "New in",
+        "Slogan Hoodies"
+      ],
+      "price": 48.0
+    },
+    {
       "title": "Jadore Parties T-Shirt",
       "handle": "jadore-parties-t-shirt",
       "url": "rockonruby.co.uk/products/jadore-parties-t-shirt",
@@ -2382,6 +2432,21 @@
       "product_type": "",
       "tags": [],
       "price": 4.95
+    },
+    {
+      "title": "Jammy Dodger Enthusiast Hoodie",
+      "handle": "jammie-dodger-enthusiast-hoodie",
+      "url": "rockonruby.co.uk/products/jammie-dodger-enthusiast-hoodie",
+      "product_type": "Hoodie",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "Hoodies",
+        "interest:biscuit",
+        "New in",
+        "Slogan Hoodies"
+      ],
+      "price": 48.0
     },
     {
       "title": "Jammy Dodger Enthusiast Slogan Cap",
@@ -3245,6 +3310,7 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
+        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -3783,7 +3849,6 @@
       "product_type": "",
       "tags": [
         "Accessories",
-        "bestseller",
         "Embroidered",
         "Gifts For Her",
         "New in",
@@ -4413,7 +4478,6 @@
       "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
-        "bestseller",
         "DTF",
         "Make Up Bags",
         "Personalised Accessories"
@@ -4674,7 +4738,6 @@
       "url": "rockonruby.co.uk/products/personalised-year-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "Collections",
         "DTF",
@@ -4767,6 +4830,7 @@
       "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
+        "bestseller",
         "Debenhams_Bags",
         "DTF",
         "intent:gift",
@@ -4838,6 +4902,7 @@
       "url": "rockonruby.co.uk/products/ror-1-4-zip-fleece",
       "product_type": "",
       "tags": [
+        "bestseller",
         "Clothing",
         "Embroidered",
         "New in",
@@ -5422,7 +5487,6 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -5554,38 +5618,32 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 137,
-      "revenue": 5122.1
+      "orders": 149,
+      "revenue": 5564.0
     },
     {
       "title": "Personalised Varsity Year Leopard Print Tote Bag",
       "handle": "",
-      "orders": 106,
-      "revenue": 2808.0
+      "orders": 91,
+      "revenue": 2418.0
     },
     {
       "title": "Personalised Initial Leopard Print Cross Body Bag",
       "handle": "",
-      "orders": 93,
-      "revenue": 2448.0
+      "orders": 66,
+      "revenue": 1754.0
     },
     {
       "title": "Happy Hour Slogan Sweatshirt",
       "handle": "",
-      "orders": 39,
-      "revenue": 1440.0
+      "orders": 38,
+      "revenue": 1404.0
     },
     {
       "title": "Personalised Initial Leopard Print Backpack",
       "handle": "",
-      "orders": 40,
-      "revenue": 1392.0
-    },
-    {
-      "title": "Personalised 'Only Here For...' Cap",
-      "handle": "",
-      "orders": 47,
-      "revenue": 1225.0
+      "orders": 36,
+      "revenue": 1248.0
     },
     {
       "title": "Book Lover Mystery Bag",
@@ -5594,22 +5652,28 @@
       "revenue": 1080.0
     },
     {
+      "title": "Personalised 'Only Here For...' Cap",
+      "handle": "",
+      "orders": 40,
+      "revenue": 1056.0
+    },
+    {
       "title": "Personalised Initial Leopard print Tote Bag",
       "handle": "",
-      "orders": 41,
-      "revenue": 1066.0
+      "orders": 39,
+      "revenue": 1014.0
     },
     {
       "title": "I'd Rather be Reading Sweatshirt",
       "handle": "",
-      "orders": 27,
-      "revenue": 1026.0
+      "orders": 26,
+      "revenue": 988.0
     },
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 38,
-      "revenue": 936.0
+      "orders": 39,
+      "revenue": 960.0
     },
     {
       "title": "Rock On Ruby Branded Tote Bag",
@@ -5620,20 +5684,14 @@
     {
       "title": "Personalised Varsity Year Leopard print Makeup Bag",
       "handle": "",
-      "orders": 38,
-      "revenue": 756.0
+      "orders": 40,
+      "revenue": 792.0
     },
     {
       "title": "Custard Cream Connoisseur Sweatshirt",
       "handle": "",
-      "orders": 18,
-      "revenue": 684.0
-    },
-    {
-      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
-      "handle": "",
       "orders": 19,
-      "revenue": 684.0
+      "revenue": 722.0
     },
     {
       "title": "Don't Ever Stop Being Silly Slogan T-Shirt",
@@ -5642,16 +5700,22 @@
       "revenue": 676.0
     },
     {
-      "title": "Personalised Year Unisex T-shirt",
+      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
       "handle": "",
-      "orders": 25,
-      "revenue": 650.0
+      "orders": 15,
+      "revenue": 540.0
     },
     {
-      "title": "Personalised Mini Initials Leopard Print Cross Body Bag",
+      "title": "Personalised Slogan Sweatshirt",
       "handle": "",
-      "orders": 20,
-      "revenue": 520.0
+      "orders": 13,
+      "revenue": 494.0
+    },
+    {
+      "title": "Forever Winging It Leopard Print Shopping Bag",
+      "handle": "",
+      "orders": 16,
+      "revenue": 476.0
     },
     {
       "title": "Embroidered Custom Slogan T-Shirt",
@@ -5660,16 +5724,16 @@
       "revenue": 476.0
     },
     {
-      "title": "Personalised Slogan Sweatshirt",
-      "handle": "",
-      "orders": 12,
-      "revenue": 456.0
-    },
-    {
       "title": "Embroidered Unisex Personalised Slogan Cap",
       "handle": "",
       "orders": 19,
       "revenue": 440.91
+    },
+    {
+      "title": "Personalised Mini Initials Leopard Print Cross Body Bag",
+      "handle": "",
+      "orders": 15,
+      "revenue": 390.0
     }
   ]
 }
