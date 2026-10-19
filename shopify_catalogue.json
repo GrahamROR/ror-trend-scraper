@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-10-12T13:37:25.844362+00:00",
+  "synced_at": "2026-10-19T11:20:26.561896+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -157,6 +157,11 @@
       "url": "rockonruby.co.uk/collections/gifting"
     },
     {
+      "title": "Gifting Bundles",
+      "handle": "gifting-bundles",
+      "url": "rockonruby.co.uk/collections/gifting-bundles"
+    },
+    {
       "title": "Gifts For Children",
       "handle": "gifts-for-children",
       "url": "rockonruby.co.uk/collections/gifts-for-children"
@@ -225,6 +230,11 @@
       "title": "Holiday Packing Essentials",
       "handle": "holiday-packing-essentials",
       "url": "rockonruby.co.uk/collections/holiday-packing-essentials"
+    },
+    {
+      "title": "Holly's Faves",
+      "handle": "hollys-faves",
+      "url": "rockonruby.co.uk/collections/hollys-faves"
     },
     {
       "title": "Home Accessories",
@@ -514,7 +524,6 @@
         "Custom Slogan",
         "Embroidered",
         "Gifts for Dad",
-        "New in",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -854,7 +863,6 @@
         "Custom Slogan",
         "Embroidered",
         "Gifts For Children",
-        "New in",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -1101,8 +1109,7 @@
         "Caps",
         "Embroidered",
         "Embroidered Cap",
-        "interest:biscuit",
-        "New in"
+        "interest:biscuit"
       ],
       "price": 24.0
     },
@@ -1290,8 +1297,7 @@
       "tags": [
         "Accessories",
         "Caps",
-        "Embroidered",
-        "New in"
+        "Embroidered"
       ],
       "price": 24.0
     },
@@ -1303,7 +1309,6 @@
       "tags": [
         "Clothing",
         "DTF",
-        "New in",
         "Slogan T-shirts",
         "T-shirts"
       ],
@@ -1910,6 +1915,7 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
+        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -1997,6 +2003,36 @@
       "price": 40.0
     },
     {
+      "title": "Enemies to Lovers Reading Sweatshirt",
+      "handle": "enemies-to-lovers-reading-sweatshirt",
+      "url": "rockonruby.co.uk/products/enemies-to-lovers-reading-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "interest:reading",
+        "New in",
+        "Slogan Sweatshirts",
+        "Sweatshirts"
+      ],
+      "price": 38.0
+    },
+    {
+      "title": "Escaping Reality Reading Sweatshirt",
+      "handle": "escaping-reality-reading-sweatshirt",
+      "url": "rockonruby.co.uk/products/escaping-reality-reading-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "interest:reading",
+        "New in",
+        "Slogan Sweatshirts",
+        "Sweatshirts"
+      ],
+      "price": 38.0
+    },
+    {
       "title": "Fab Yule Lous Christmas T-Shirt",
       "handle": "fab-yule-lous-christmas-t-shirt",
       "url": "rockonruby.co.uk/products/fab-yule-lous-christmas-t-shirt",
@@ -2062,6 +2098,7 @@
       "url": "rockonruby.co.uk/products/fair-isle-style-wham-christmas-sweatshirt",
       "product_type": "",
       "tags": [
+        "bestseller",
         "Christmas",
         "Christmas Jumpers",
         "Christmas Tops",
@@ -2109,7 +2146,6 @@
         "DTF",
         "Gifts For Mum",
         "interest:coffee",
-        "New in",
         "Tote Bags"
       ],
       "price": 28.0
@@ -2149,7 +2185,6 @@
       "url": "rockonruby.co.uk/products/happy-hour-slogan-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
-        "bestseller",
         "Christmas",
         "Christmas Jumpers",
         "Christmas Tops",
@@ -2319,6 +2354,7 @@
       "url": "rockonruby.co.uk/products/id-rather-be-reading-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "DTF",
         "interest:reading",
@@ -2659,6 +2695,7 @@
       "url": "rockonruby.co.uk/products/meats-cheeses-christmas-sweatshirt",
       "product_type": "",
       "tags": [
+        "bestseller",
         "Christmas",
         "Christmas Jumpers",
         "Christmas Tops",
@@ -2854,7 +2891,6 @@
         "Clothing",
         "Custom Slogan",
         "DTF",
-        "New in",
         "Personalised T-shirts",
         "T-shirts"
       ],
@@ -2868,7 +2904,6 @@
       "tags": [
         "Clothing",
         "DTF",
-        "New in",
         "Slogan T-shirts",
         "T-shirts"
       ],
@@ -2970,8 +3005,7 @@
         "Caps",
         "Embroidered",
         "Gifts For Mum",
-        "interest:biscuit",
-        "New in"
+        "interest:biscuit"
       ],
       "price": 24.0
     },
@@ -3015,8 +3049,7 @@
         "Caps",
         "Embroidered",
         "Gifts for Dad",
-        "interest:biscuit",
-        "New in"
+        "interest:biscuit"
       ],
       "price": 24.0
     },
@@ -3044,8 +3077,7 @@
         "Accessories",
         "Caps",
         "Gifts For Mum",
-        "interest:biscuit",
-        "New in"
+        "interest:biscuit"
       ],
       "price": 24.0
     },
@@ -3123,7 +3155,6 @@
         "Embroidered",
         "Embroidered Cap",
         "interest:alcohol",
-        "New in",
         "Personalised Accessories"
       ],
       "price": 24.0
@@ -3297,7 +3328,6 @@
         "Caps",
         "Embroidered",
         "Gifts for Dad",
-        "New in",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -3310,7 +3340,6 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -3837,7 +3866,6 @@
         "Accessories",
         "Embroidered",
         "Gifts For Her",
-        "New in",
         "Personalised Accessories"
       ],
       "price": 34.0
@@ -3849,6 +3877,7 @@
       "product_type": "",
       "tags": [
         "Accessories",
+        "bestseller",
         "Embroidered",
         "Gifts For Her",
         "New in",
@@ -3879,7 +3908,6 @@
         "DTF",
         "Gifts For Mum",
         "interest:coffee",
-        "New in",
         "Tote Bags"
       ],
       "price": 28.0
@@ -3992,7 +4020,6 @@
         "DTF",
         "Gifts For Mum",
         "interest:coffee",
-        "New in",
         "Teacher Gifts",
         "Tote Bags"
       ],
@@ -4247,7 +4274,6 @@
         "Embroidered",
         "Embroidered Cap",
         "Gifts For Mum",
-        "New in",
         "Personalised Caps",
         "Slogan Cap"
       ],
@@ -4478,6 +4504,7 @@
       "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
+        "bestseller",
         "DTF",
         "Make Up Bags",
         "Personalised Accessories"
@@ -4492,7 +4519,6 @@
       "tags": [
         "Accessories",
         "DTF",
-        "New in",
         "Personalised Accessories",
         "Personalised Year",
         "Tote Bags"
@@ -4506,7 +4532,6 @@
       "product_type": "Tote Bag",
       "tags": [
         "Accessories",
-        "bestseller",
         "DTF",
         "Personalised Accessories",
         "Tote Bags"
@@ -4830,7 +4855,6 @@
       "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
-        "bestseller",
         "Debenhams_Bags",
         "DTF",
         "intent:gift",
@@ -4902,7 +4926,6 @@
       "url": "rockonruby.co.uk/products/ror-1-4-zip-fleece",
       "product_type": "",
       "tags": [
-        "bestseller",
         "Clothing",
         "Embroidered",
         "New in",
@@ -5290,6 +5313,21 @@
       "price": 28.0
     },
     {
+      "title": "The Man The Myth The Legend Sweatshirt",
+      "handle": "the-man-the-myth-the-legend-sweatshirt",
+      "url": "rockonruby.co.uk/products/the-man-the-myth-the-legend-sweatshirt",
+      "product_type": "Sweatshirt",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "Gifts for Dad",
+        "Gifts For Him",
+        "Slogan Sweatshirts",
+        "Sweatshirts"
+      ],
+      "price": 36.0
+    },
+    {
       "title": "The Man The Myth The Legend T-shirt",
       "handle": "the-man-the-myth-the-legend-t-shirt",
       "url": "rockonruby.co.uk/products/the-man-the-myth-the-legend-t-shirt",
@@ -5487,6 +5525,7 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
+        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
@@ -5618,32 +5657,26 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 149,
-      "revenue": 5564.0
+      "orders": 152,
+      "revenue": 5673.0
     },
     {
       "title": "Personalised Varsity Year Leopard Print Tote Bag",
       "handle": "",
-      "orders": 91,
-      "revenue": 2418.0
+      "orders": 76,
+      "revenue": 2028.0
     },
     {
       "title": "Personalised Initial Leopard Print Cross Body Bag",
       "handle": "",
-      "orders": 66,
-      "revenue": 1754.0
+      "orders": 55,
+      "revenue": 1478.0
     },
     {
       "title": "Happy Hour Slogan Sweatshirt",
       "handle": "",
-      "orders": 38,
-      "revenue": 1404.0
-    },
-    {
-      "title": "Personalised Initial Leopard Print Backpack",
-      "handle": "",
-      "orders": 36,
-      "revenue": 1248.0
+      "orders": 39,
+      "revenue": 1440.0
     },
     {
       "title": "Book Lover Mystery Bag",
@@ -5652,16 +5685,16 @@
       "revenue": 1080.0
     },
     {
-      "title": "Personalised 'Only Here For...' Cap",
+      "title": "Personalised Initial Leopard Print Backpack",
       "handle": "",
-      "orders": 40,
-      "revenue": 1056.0
+      "orders": 29,
+      "revenue": 998.0
     },
     {
       "title": "Personalised Initial Leopard print Tote Bag",
       "handle": "",
-      "orders": 39,
-      "revenue": 1014.0
+      "orders": 38,
+      "revenue": 988.0
     },
     {
       "title": "I'd Rather be Reading Sweatshirt",
@@ -5672,20 +5705,26 @@
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 39,
-      "revenue": 960.0
-    },
-    {
-      "title": "Rock On Ruby Branded Tote Bag",
-      "handle": "",
-      "orders": 52,
-      "revenue": 832.0
+      "orders": 34,
+      "revenue": 840.0
     },
     {
       "title": "Personalised Varsity Year Leopard print Makeup Bag",
       "handle": "",
       "orders": 40,
       "revenue": 792.0
+    },
+    {
+      "title": "Personalised 'Only Here For...' Cap",
+      "handle": "",
+      "orders": 29,
+      "revenue": 792.0
+    },
+    {
+      "title": "Rock On Ruby Branded Tote Bag",
+      "handle": "",
+      "orders": 49,
+      "revenue": 784.0
     },
     {
       "title": "Custard Cream Connoisseur Sweatshirt",
@@ -5696,44 +5735,44 @@
     {
       "title": "Don't Ever Stop Being Silly Slogan T-Shirt",
       "handle": "",
-      "orders": 26,
-      "revenue": 676.0
+      "orders": 24,
+      "revenue": 624.0
     },
     {
-      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
+      "title": "Meats & Cheeses Christmas Sweatshirt",
       "handle": "",
-      "orders": 15,
-      "revenue": 540.0
+      "orders": 16,
+      "revenue": 576.0
     },
     {
       "title": "Personalised Slogan Sweatshirt",
       "handle": "",
-      "orders": 13,
-      "revenue": 494.0
+      "orders": 14,
+      "revenue": 532.0
     },
     {
-      "title": "Forever Winging It Leopard Print Shopping Bag",
+      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
       "handle": "",
-      "orders": 16,
-      "revenue": 476.0
+      "orders": 14,
+      "revenue": 504.0
+    },
+    {
+      "title": "Fair Isle Style Wham! Christmas Sweatshirt",
+      "handle": "",
+      "orders": 14,
+      "revenue": 504.0
+    },
+    {
+      "title": "Embroidered Unisex Personalised Slogan Cap",
+      "handle": "",
+      "orders": 21,
+      "revenue": 484.91
     },
     {
       "title": "Embroidered Custom Slogan T-Shirt",
       "handle": "",
       "orders": 17,
       "revenue": 476.0
-    },
-    {
-      "title": "Embroidered Unisex Personalised Slogan Cap",
-      "handle": "",
-      "orders": 19,
-      "revenue": 440.91
-    },
-    {
-      "title": "Personalised Mini Initials Leopard Print Cross Body Bag",
-      "handle": "",
-      "orders": 15,
-      "revenue": 390.0
     }
   ]
 }
