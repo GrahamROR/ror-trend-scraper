@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-10-19T11:20:26.561896+00:00",
+  "synced_at": "2026-10-26T11:37:10.510569+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -120,6 +120,11 @@
       "title": "Cocktails & Dreams",
       "handle": "cocktails-dreams",
       "url": "rockonruby.co.uk/collections/cocktails-dreams"
+    },
+    {
+      "title": "Coffee Lover Gifts",
+      "handle": "coffee-lover-gifts",
+      "url": "rockonruby.co.uk/collections/coffee-lover-gifts"
     },
     {
       "title": "Collections",
@@ -524,6 +529,7 @@
         "Custom Slogan",
         "Embroidered",
         "Gifts for Dad",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -728,6 +734,7 @@
       "tags": [
         "Clothing",
         "DTF",
+        "Gifts For Her",
         "Hoodies",
         "interest:biscuit",
         "New in",
@@ -863,6 +870,7 @@
         "Custom Slogan",
         "Embroidered",
         "Gifts For Children",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -893,6 +901,8 @@
         "Gifts For Children",
         "interest:birthday",
         "interest:parent",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Personalised Year"
       ],
       "price": 28.0
@@ -1068,6 +1078,8 @@
         "interest:anniversary",
         "interest:birthday",
         "interest:wedding",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Personalised Year",
         "REVIEW",
         "roman-numerals",
@@ -1155,6 +1167,7 @@
         "Clothing",
         "Custom Slogan",
         "Embroidered",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts",
         "The Cocktail Collection",
@@ -1171,6 +1184,7 @@
         "Clothing",
         "Custom Slogan",
         "Embroidered",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts",
         "Wedding Party"
@@ -1202,6 +1216,7 @@
         "Gifts for Dad",
         "interest:dad",
         "interest:parent",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts"
       ],
@@ -1358,10 +1373,11 @@
     },
     {
       "title": "Drinking Spritz Christmas Sweatshirt",
-      "handle": "mulled-wine-for-a-good-time-christmas-sweatshirt-copy",
-      "url": "rockonruby.co.uk/products/mulled-wine-for-a-good-time-christmas-sweatshirt-copy",
+      "handle": "drinking-spritz-christmas-sweatshirt",
+      "url": "rockonruby.co.uk/products/drinking-spritz-christmas-sweatshirt",
       "product_type": "",
       "tags": [
+        "bestseller",
         "Christmas",
         "Christmas Jumpers",
         "Christmas Tops",
@@ -1442,6 +1458,7 @@
         "interest:mum",
         "interest:parent",
         "Mama Merch",
+        "Personalised",
         "Personalised Sweatshirts",
         "Sweatshirts"
       ],
@@ -1456,6 +1473,7 @@
         "Clothing",
         "Embroidered",
         "Gifting",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts"
       ],
@@ -1470,6 +1488,7 @@
         "Clothing",
         "Custom Slogan",
         "Embroidered",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts"
       ],
@@ -1488,6 +1507,7 @@
         "interest:birthday",
         "interest:dad",
         "interest:parent",
+        "Personalised",
         "Personalised Sweatshirts",
         "Personalised Year"
       ],
@@ -1591,6 +1611,7 @@
         "Clothing",
         "Embroidered",
         "Gifts For Her",
+        "Personalised",
         "Personalised Sweatshirts",
         "Sweatshirts",
         "Valentine\u2019s Day"
@@ -1694,6 +1715,7 @@
         "Caps",
         "Embroidered",
         "Gifts for Dad",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -1734,6 +1756,7 @@
         "Accessories",
         "Embroidered",
         "Gifts For Her",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 30.0
@@ -1746,6 +1769,7 @@
       "tags": [
         "Clothing",
         "Embroidered",
+        "Personalised",
         "Personalised Sweatshirts",
         "Sweatshirts"
       ],
@@ -1792,6 +1816,7 @@
         "Embroidered",
         "Gifts For Her",
         "interest:reading",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 22.0
@@ -1808,6 +1833,7 @@
         "Embroidered",
         "Gifts for Dad",
         "Gifts For Him",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -1821,6 +1847,7 @@
       "tags": [
         "Accessories",
         "Embroidered",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 30.0
@@ -1835,6 +1862,8 @@
         "Collections",
         "Embroidered",
         "interest:birthday",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Personalised Year",
         "Sweatshirts"
       ],
@@ -1850,6 +1879,7 @@
         "Collections",
         "Embroidered",
         "interest:birthday",
+        "Personalised",
         "Personalised T-shirts",
         "Personalised Year",
         "T-shirts"
@@ -1882,6 +1912,8 @@
         "Embroidered",
         "interest:anniversary",
         "interest:birthday",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Personalised Year",
         "roman-numerals",
         "Sweatshirts"
@@ -1915,12 +1947,12 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
         "Gifts for Dad",
         "Gifts For Him",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -1938,6 +1970,7 @@
         "interest:anniversary",
         "interest:birthday",
         "interest:wedding",
+        "Personalised",
         "Personalised Sweatshirts",
         "roman-numerals",
         "Wedding Party"
@@ -2159,6 +2192,8 @@
         "Clothing",
         "DTF",
         "interest:birthday",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Personalised Year",
         "Sweatshirts"
       ],
@@ -2204,10 +2239,12 @@
       "url": "rockonruby.co.uk/products/happy-hour-slogan-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Christmas T Shirt",
         "Christmas Tops",
         "Clothing",
         "DTF",
+        "Gifts For Her",
         "interest:alcohol",
         "interest:happyhour",
         "Slogan T-shirts",
@@ -2296,6 +2333,7 @@
         "Embroidered",
         "Gifting",
         "interest:birthday",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts",
         "Wedding Party"
@@ -2354,7 +2392,6 @@
       "url": "rockonruby.co.uk/products/id-rather-be-reading-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
-        "bestseller",
         "Clothing",
         "DTF",
         "interest:reading",
@@ -2538,6 +2575,7 @@
         "Caps",
         "Embroidered",
         "Embroidered Cap",
+        "Personalised",
         "Personalised Caps",
         "quick-add",
         "Slogan Cap"
@@ -2718,6 +2756,8 @@
         "Gifts for Dad",
         "Gifts For Him",
         "interest:birthday",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Personalised Year",
         "Sweatshirts"
       ],
@@ -2863,6 +2903,7 @@
         "interest:mum",
         "interest:parent",
         "Mama Merch",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts"
       ],
@@ -2889,9 +2930,9 @@
       "product_type": "Baby Tee",
       "tags": [
         "Clothing",
-        "Custom Slogan",
         "DTF",
-        "Personalised T-shirts",
+        "Slogan",
+        "Slogan T-shirts",
         "T-shirts"
       ],
       "price": 26.0
@@ -2988,6 +3029,7 @@
         "Gifts For Mum",
         "intent:gift",
         "Mama Merch",
+        "Personalised",
         "Personalised Sweatshirts",
         "Slogan Sweatshirts",
         "Sweatshirts",
@@ -3227,6 +3269,7 @@
       "tags": [
         "Accessories",
         "DTF",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -3240,6 +3283,7 @@
       "tags": [
         "Accessories",
         "DTF",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -3285,6 +3329,7 @@
         "Embroidered",
         "Gifts for Dad",
         "interest:dad",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -3299,6 +3344,7 @@
         "Clothing",
         "DTF",
         "Gifts for Dad",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts"
       ],
@@ -3328,6 +3374,7 @@
         "Caps",
         "Embroidered",
         "Gifts for Dad",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -3345,7 +3392,9 @@
         "Embroidered",
         "Embroidered Cap",
         "Gifts for Dad",
+        "Gifts For Her",
         "New in",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -3361,6 +3410,7 @@
         "Caps",
         "Embroidered",
         "Gifts for Dad",
+        "Personalised",
         "Personalised Caps"
       ],
       "price": 24.0
@@ -3403,6 +3453,7 @@
         "Caps",
         "Embroidered",
         "Gifts for Dad",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -3418,6 +3469,7 @@
         "Caps",
         "Embroidered",
         "Gifts for Dad",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -3432,6 +3484,7 @@
         "Clothing",
         "DTF",
         "Gifts for Dad",
+        "Personalised",
         "Personalised Sweatshirts",
         "Sweatshirts",
         "Varsity Collection"
@@ -3458,6 +3511,7 @@
       "tags": [
         "Embroidered",
         "Gifts for Dad",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts"
       ],
@@ -3476,6 +3530,7 @@
         "interest:birthday",
         "interest:dad",
         "interest:parent",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -3506,6 +3561,7 @@
         "Beanie Hats",
         "Embroidered",
         "Gifts Under \u00a330",
+        "Personalised",
         "Personalised Accessories",
         "Stocking Fillers",
         "Varsity Collection"
@@ -3539,6 +3595,7 @@
         "interest:mum",
         "interest:parent",
         "Mama Merch",
+        "Personalised",
         "Personalised Sweatshirts",
         "Personalised Year"
       ],
@@ -3553,6 +3610,7 @@
         "Clothing",
         "Embroidered",
         "Gifts For Her",
+        "Personalised",
         "Personalised Sweatshirts",
         "Sweatshirts"
       ],
@@ -3568,6 +3626,7 @@
         "Collections",
         "Embroidered",
         "Hoodies",
+        "Personalised",
         "Personalised Hoodies",
         "Slogan Hoodies",
         "Teacher Gifts"
@@ -3583,6 +3642,7 @@
         "Clothing",
         "Custom Slogan",
         "Embroidered",
+        "Personalised",
         "Personalised Sweatshirts",
         "Sweatshirts"
       ],
@@ -3598,6 +3658,7 @@
         "Collections",
         "Embroidered",
         "interest:birthday",
+        "Personalised",
         "Personalised Hoodies",
         "Personalised Year"
       ],
@@ -3613,6 +3674,7 @@
         "Collections",
         "Embroidered",
         "interest:birthday",
+        "Personalised",
         "Personalised Hoodies",
         "Personalised Year"
       ],
@@ -3663,6 +3725,7 @@
         "Gifts For Mum",
         "Handwriting",
         "intent:gift",
+        "Personalised",
         "Personalised Caps",
         "Slogan Cap"
       ],
@@ -3680,6 +3743,7 @@
         "Gifts For Mum",
         "Handwriting",
         "intent:gift",
+        "Personalised",
         "Personalised Sweatshirts",
         "Sweatshirts",
         "Teacher Gifts",
@@ -3697,6 +3761,7 @@
         "Embroidered",
         "Handwriting",
         "intent:gift",
+        "Personalised",
         "Personalised Hoodies"
       ],
       "price": 55.0
@@ -3711,6 +3776,7 @@
         "Embroidered",
         "Handwriting",
         "intent:gift",
+        "Personalised",
         "Personalised Hoodies",
         "Valentine\u2019s Day"
       ],
@@ -3761,6 +3827,7 @@
         "Gifts For Mum",
         "Handwriting",
         "intent:gift",
+        "Personalised",
         "Personalised Sweatshirts",
         "Sweatshirts",
         "Teacher Gifts",
@@ -3779,6 +3846,7 @@
         "Gifts For Him",
         "Handwriting",
         "intent:gift",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts"
       ],
@@ -3822,6 +3890,7 @@
         "Caps",
         "Embroidered",
         "interest:reading",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 24.0
@@ -3836,6 +3905,7 @@
         "Custom Slogan",
         "DTF",
         "New in",
+        "Personalised",
         "Personalised Sweatshirts",
         "Sweatshirts"
       ],
@@ -3851,6 +3921,7 @@
         "Clothing",
         "Cosy Collection",
         "DTF",
+        "Personalised",
         "Personalised Sweatshirts",
         "Slogan Sweatshirts",
         "Sweatshirts"
@@ -3865,7 +3936,7 @@
       "tags": [
         "Accessories",
         "Embroidered",
-        "Gifts For Her",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 34.0
@@ -3881,6 +3952,7 @@
         "Embroidered",
         "Gifts For Her",
         "New in",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 28.0
@@ -3894,6 +3966,7 @@
         "Accessories",
         "DTF",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 18.0
@@ -3919,8 +3992,8 @@
       "product_type": "Tote Bag",
       "tags": [
         "Accessories",
-        "bestseller",
         "DTF",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -3936,6 +4009,7 @@
         "DTF",
         "Gifts For Him",
         "interest:birthday",
+        "Personalised",
         "Personalised Sweatshirts",
         "Personalised Year",
         "Sweatshirts"
@@ -3952,6 +4026,7 @@
         "DTF",
         "Gifts For Him",
         "interest:birthday",
+        "Personalised",
         "Personalised Sweatshirts",
         "Personalised Year",
         "Sweatshirts"
@@ -3969,6 +4044,7 @@
         "Gifts For Him",
         "Gifts Under \u00a330",
         "interest:birthday",
+        "Personalised",
         "Personalised T-shirts",
         "Personalised Year",
         "T-shirts"
@@ -3987,6 +4063,7 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 18.0
@@ -4004,6 +4081,7 @@
         "intent:gift",
         "interest:makeup",
         "interest:reading",
+        "Personalised",
         "Personalised Accessories",
         "Teacher Gifts",
         "Tote Bags"
@@ -4055,6 +4133,7 @@
         "interest:mum",
         "interest:parent",
         "Mama Merch",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps"
       ],
@@ -4070,6 +4149,7 @@
         "Embroidered",
         "Gifts For Her",
         "New in",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 26.0
@@ -4083,6 +4163,7 @@
         "Custom Land",
         "Custom Slogan",
         "Embroidered",
+        "Personalised",
         "Personalised T-shirts",
         "Slogan Crop Tops",
         "T-shirts"
@@ -4099,6 +4180,7 @@
         "Collections",
         "Custom Slogan",
         "Embroidered",
+        "Personalised",
         "Personalised Sweatshirts",
         "Slogan Sweatshirts",
         "Sweatshirts"
@@ -4114,6 +4196,7 @@
         "Accessories",
         "Caps",
         "Embroidered",
+        "Personalised",
         "Personalised Caps"
       ],
       "price": 22.0
@@ -4127,6 +4210,7 @@
         "Clothing",
         "Collections",
         "Embroidered",
+        "Personalised",
         "Personalised Sweatshirts",
         "Sweatshirts",
         "Wedding Party"
@@ -4146,6 +4230,7 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories",
         "Teacher Gifts"
       ],
@@ -4164,6 +4249,7 @@
         "interest:mum",
         "interest:parent",
         "Mama Merch",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -4182,6 +4268,7 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories",
         "Teacher Gifts",
         "Valentine\u2019s Day"
@@ -4195,6 +4282,7 @@
       "product_type": "T-Shirt",
       "tags": [
         "DTF",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts",
         "Wedding Party"
@@ -4212,6 +4300,7 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 18.0
@@ -4274,6 +4363,7 @@
         "Embroidered",
         "Embroidered Cap",
         "Gifts For Mum",
+        "Personalised",
         "Personalised Caps",
         "Slogan Cap"
       ],
@@ -4290,6 +4380,7 @@
         "Gifts For Her",
         "Gifts For Mum",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories",
         "Teacher Gifts"
       ],
@@ -4303,6 +4394,7 @@
       "tags": [
         "Accessories",
         "DTF",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -4317,6 +4409,7 @@
         "Clothing",
         "Custom Slogan",
         "DTF",
+        "Personalised",
         "Personalised Sweatshirts",
         "Sweatshirts",
         "Teacher Gifts",
@@ -4333,6 +4426,7 @@
         "Clothing",
         "Custom Slogan",
         "DTF",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts",
         "Teacher Gifts"
@@ -4354,6 +4448,7 @@
         "Gifts Under \u00a330",
         "Hats",
         "Holiday Gifts",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps",
         "Personalised Gifts",
@@ -4371,6 +4466,7 @@
         "Collections",
         "Embroidered",
         "interest:birthday",
+        "Personalised",
         "Personalised Sweatshirts",
         "Personalised Year"
       ],
@@ -4387,6 +4483,7 @@
         "Embroidered",
         "Gifts For Her",
         "Gifts Under \u00a330",
+        "Personalised",
         "Personalised Accessories",
         "Stocking Fillers",
         "Valentine\u2019s Day"
@@ -4403,7 +4500,9 @@
         "Caps",
         "Embroidered",
         "Embroidered Cap",
+        "Gifts For Her",
         "Gifts For Mum",
+        "Personalised",
         "Personalised Caps",
         "Slogan Cap"
       ],
@@ -4422,6 +4521,7 @@
         "intent:gift",
         "interest:makeup",
         "interest:reading",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -4438,6 +4538,7 @@
         "Embroidered",
         "Gifts Under \u00a330",
         "Holiday Bundle",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -4468,6 +4569,7 @@
         "Caps",
         "Embroidered",
         "interest:birthday",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps",
         "Personalised Year"
@@ -4492,6 +4594,7 @@
         "DTF",
         "Gifts for Dad",
         "interest:birthday",
+        "Personalised",
         "Personalised Hoodies",
         "Personalised Year"
       ],
@@ -4504,9 +4607,9 @@
       "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
-        "bestseller",
         "DTF",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 18.0
@@ -4519,6 +4622,7 @@
       "tags": [
         "Accessories",
         "DTF",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Year",
         "Tote Bags"
@@ -4532,7 +4636,10 @@
       "product_type": "Tote Bag",
       "tags": [
         "Accessories",
+        "bestseller",
         "DTF",
+        "Gifts For Her",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -4548,6 +4655,8 @@
         "DTF",
         "Gifts For Her",
         "interest:birthday",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Personalised Year",
         "Sweatshirts",
         "Teacher Gifts"
@@ -4563,6 +4672,7 @@
         "Clothing",
         "DTF",
         "interest:birthday",
+        "Personalised",
         "Personalised Year",
         "T-shirts"
       ],
@@ -4581,6 +4691,7 @@
         "Gifts Under \u00a330",
         "Hats",
         "interest:birthday",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps",
         "Personalised Gifts",
@@ -4602,6 +4713,7 @@
         "intent:gift",
         "interest:makeup",
         "interest:reading",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -4621,6 +4733,7 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories",
         "Valentine\u2019s Day"
       ],
@@ -4655,6 +4768,8 @@
         "interest:birthday",
         "interest:mum",
         "interest:parent",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Personalised Year",
         "Sweatshirts"
       ],
@@ -4670,6 +4785,7 @@
         "Beanie Hats",
         "Embroidered",
         "interest:birthday",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Year"
       ],
@@ -4685,8 +4801,10 @@
         "Caps",
         "Embroidered",
         "interest:birthday",
+        "Personalised",
         "Personalised Accessories",
-        "Personalised Caps"
+        "Personalised Caps",
+        "Personalised Year"
       ],
       "price": 24.0
     },
@@ -4703,6 +4821,7 @@
         "interest:birthday",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories",
         "Stocking Fillers",
         "Vinyl"
@@ -4720,6 +4839,8 @@
         "DTF",
         "Gifts For Her",
         "interest:birthday",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Personalised Year",
         "Sweatshirts",
         "Teacher Gifts"
@@ -4736,6 +4857,8 @@
         "Collections",
         "DTF",
         "interest:birthday",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Personalised Year",
         "Sweatshirts"
       ],
@@ -4751,6 +4874,7 @@
         "DTF",
         "Gifts Under \u00a330",
         "interest:birthday",
+        "Personalised",
         "Personalised T-shirts",
         "Personalised Year",
         "T-shirts"
@@ -4767,6 +4891,7 @@
         "Collections",
         "DTF",
         "interest:birthday",
+        "Personalised",
         "Personalised T-shirts",
         "Personalised Year",
         "T-shirts"
@@ -4785,6 +4910,7 @@
         "interest:birthday",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Year",
         "Vinyl"
@@ -4900,6 +5026,8 @@
         "DTF",
         "Gifts For Her",
         "interest:birthday",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Personalised Year",
         "Sweatshirts"
       ],
@@ -4968,6 +5096,7 @@
         "Gifts For Him",
         "interest:anniversary",
         "interest:birthday",
+        "Personalised",
         "Personalised Sweatshirts",
         "Personalised Year",
         "roman-numerals",
@@ -5148,6 +5277,7 @@
       "tags": [
         "DTF",
         "Gifts Under \u00a330",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts"
       ],
@@ -5305,6 +5435,7 @@
         "Gifts for Dad",
         "Gifts For Him",
         "Gifts Under \u00a330",
+        "Personalised",
         "Personalised Gifts",
         "Personalised T-shirts",
         "Slogan T-shirts",
@@ -5483,6 +5614,7 @@
         "Clothing",
         "Custom Slogan",
         "DTF",
+        "Personalised",
         "Personalised Sweatshirts"
       ],
       "price": 38.0
@@ -5497,6 +5629,7 @@
         "Collections",
         "DTF",
         "interest:birthday",
+        "Personalised",
         "Personalised Hoodies",
         "Personalised Year"
       ],
@@ -5525,11 +5658,11 @@
       "product_type": "Cap",
       "tags": [
         "Accessories",
-        "bestseller",
         "Caps",
         "Custom Slogan",
         "Embroidered",
         "Gifts for Dad",
+        "Personalised",
         "Personalised Accessories",
         "Personalised Caps",
         "Valentine\u2019s Day"
@@ -5561,6 +5694,7 @@
         "Embroidered",
         "Gifting",
         "interest:birthday",
+        "Personalised",
         "Personalised T-shirts",
         "T-shirts",
         "Wedding Party"
@@ -5589,6 +5723,7 @@
         "Accessories",
         "Caps",
         "Embroidered",
+        "Gifts For Her",
         "Holiday Bundle",
         "interest:alcohol",
         "interest:pinacolada",
@@ -5657,26 +5792,32 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 152,
-      "revenue": 5673.0
+      "orders": 155,
+      "revenue": 5772.1
     },
     {
       "title": "Personalised Varsity Year Leopard Print Tote Bag",
       "handle": "",
-      "orders": 76,
-      "revenue": 2028.0
+      "orders": 61,
+      "revenue": 1612.0
+    },
+    {
+      "title": "Meats & Cheeses Christmas Sweatshirt",
+      "handle": "",
+      "orders": 40,
+      "revenue": 1440.77
     },
     {
       "title": "Personalised Initial Leopard Print Cross Body Bag",
       "handle": "",
-      "orders": 55,
-      "revenue": 1478.0
+      "orders": 49,
+      "revenue": 1328.0
     },
     {
       "title": "Happy Hour Slogan Sweatshirt",
       "handle": "",
-      "orders": 39,
-      "revenue": 1440.0
+      "orders": 34,
+      "revenue": 1260.0
     },
     {
       "title": "Book Lover Mystery Bag",
@@ -5685,22 +5826,28 @@
       "revenue": 1080.0
     },
     {
-      "title": "Personalised Initial Leopard Print Backpack",
+      "title": "I'd Rather be Reading Sweatshirt",
       "handle": "",
-      "orders": 29,
-      "revenue": 998.0
+      "orders": 27,
+      "revenue": 1026.0
+    },
+    {
+      "title": "Fair Isle Style Wham! Christmas Sweatshirt",
+      "handle": "",
+      "orders": 27,
+      "revenue": 972.81
     },
     {
       "title": "Personalised Initial Leopard print Tote Bag",
       "handle": "",
-      "orders": 38,
-      "revenue": 988.0
+      "orders": 36,
+      "revenue": 936.0
     },
     {
-      "title": "I'd Rather be Reading Sweatshirt",
+      "title": "Rock On Ruby Branded Tote Bag",
       "handle": "",
-      "orders": 26,
-      "revenue": 988.0
+      "orders": 57,
+      "revenue": 912.38
     },
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
@@ -5711,20 +5858,8 @@
     {
       "title": "Personalised Varsity Year Leopard print Makeup Bag",
       "handle": "",
-      "orders": 40,
-      "revenue": 792.0
-    },
-    {
-      "title": "Personalised 'Only Here For...' Cap",
-      "handle": "",
-      "orders": 29,
-      "revenue": 792.0
-    },
-    {
-      "title": "Rock On Ruby Branded Tote Bag",
-      "handle": "",
-      "orders": 49,
-      "revenue": 784.0
+      "orders": 37,
+      "revenue": 756.0
     },
     {
       "title": "Custard Cream Connoisseur Sweatshirt",
@@ -5733,46 +5868,46 @@
       "revenue": 722.0
     },
     {
-      "title": "Don't Ever Stop Being Silly Slogan T-Shirt",
+      "title": "Personalised 'Only Here For...' Cap",
       "handle": "",
       "orders": 24,
-      "revenue": 624.0
-    },
-    {
-      "title": "Meats & Cheeses Christmas Sweatshirt",
-      "handle": "",
-      "orders": 16,
-      "revenue": 576.0
+      "revenue": 648.0
     },
     {
       "title": "Personalised Slogan Sweatshirt",
       "handle": "",
-      "orders": 14,
-      "revenue": 532.0
+      "orders": 17,
+      "revenue": 646.0
     },
     {
-      "title": "My Other Job is a Dallas Cowboys Cheerleader Sweatshirt",
+      "title": "Personalised Initial Leopard Print Backpack",
       "handle": "",
-      "orders": 14,
-      "revenue": 504.0
-    },
-    {
-      "title": "Fair Isle Style Wham! Christmas Sweatshirt",
-      "handle": "",
-      "orders": 14,
-      "revenue": 504.0
-    },
-    {
-      "title": "Embroidered Unisex Personalised Slogan Cap",
-      "handle": "",
-      "orders": 21,
-      "revenue": 484.91
+      "orders": 19,
+      "revenue": 646.0
     },
     {
       "title": "Embroidered Custom Slogan T-Shirt",
       "handle": "",
       "orders": 17,
       "revenue": 476.0
+    },
+    {
+      "title": "Embroidered Unisex Personalised Slogan Cap",
+      "handle": "",
+      "orders": 18,
+      "revenue": 418.91
+    },
+    {
+      "title": "Bourbon Biscuit Fan Club Sweatshirt",
+      "handle": "",
+      "orders": 11,
+      "revenue": 418.0
+    },
+    {
+      "title": "Rock On Ruby 1/4 Zip Fleece",
+      "handle": "",
+      "orders": 9,
+      "revenue": 405.0
     }
   ]
 }
