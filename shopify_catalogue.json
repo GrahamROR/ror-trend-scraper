@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-10-26T11:37:10.510569+00:00",
+  "synced_at": "2026-11-02T13:55:50.997732+00:00",
   "collections": [
     {
       "title": "Accessories",
@@ -10,6 +10,16 @@
       "title": "All",
       "handle": "all",
       "url": "rockonruby.co.uk/collections/all"
+    },
+    {
+      "title": "All Hoodies",
+      "handle": "all-hoodies",
+      "url": "rockonruby.co.uk/collections/all-hoodies"
+    },
+    {
+      "title": "All Personalised",
+      "handle": "all-personalised",
+      "url": "rockonruby.co.uk/collections/all-personalised"
     },
     {
       "title": "All ROR Christmas",
@@ -575,7 +585,8 @@
         "Gifts Under \u00a315",
         "intent:gift",
         "interest:makeup",
-        "Make Up Bags"
+        "Make Up Bags",
+        "Personalised"
       ],
       "price": 10.0
     },
@@ -601,9 +612,7 @@
       "tags": [
         "Accessories",
         "DTF",
-        "Gifts For Mum",
-        "Personalised Accessories",
-        "Personalised Gifts"
+        "Gifts For Mum"
       ],
       "price": 18.0
     },
@@ -730,7 +739,7 @@
       "title": "Bourbon Biscuit Fan Club Hoodie",
       "handle": "bourbon-biscuit-fan-club-hoodie",
       "url": "rockonruby.co.uk/products/bourbon-biscuit-fan-club-hoodie",
-      "product_type": "",
+      "product_type": "Hoodie",
       "tags": [
         "Clothing",
         "DTF",
@@ -886,7 +895,8 @@
         "DTF",
         "Gifts For Children",
         "interest:birthday",
-        "interest:parent"
+        "interest:parent",
+        "Personalised"
       ],
       "price": 28.0
     },
@@ -982,20 +992,6 @@
         "interest:coffee"
       ],
       "price": 24.0
-    },
-    {
-      "title": "Coffee Please Slogan Sweatshirt",
-      "handle": "coffee-please-slogan-sweatshirt",
-      "url": "rockonruby.co.uk/products/coffee-please-slogan-sweatshirt",
-      "product_type": "Sweatshirt",
-      "tags": [
-        "Clothing",
-        "DTF",
-        "interest:coffee",
-        "Slogan Sweatshirts",
-        "Sweatshirts"
-      ],
-      "price": 36.0
     },
     {
       "title": "Coffee Please Sweatshirt",
@@ -1100,7 +1096,7 @@
       "title": "Custard Cream Connoisseur Hoodie",
       "handle": "custard-cream-connoisseur-hoodie",
       "url": "rockonruby.co.uk/products/custard-cream-connoisseur-hoodie",
-      "product_type": "",
+      "product_type": "Hoodie",
       "tags": [
         "Clothing",
         "DTF",
@@ -1200,6 +1196,8 @@
         "Clothing",
         "DTF",
         "interest:reading",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Slogan Sweatshirts",
         "Sweatshirts"
       ],
@@ -1355,6 +1353,7 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Vinyl"
       ],
       "price": 14.0
@@ -1377,7 +1376,6 @@
       "url": "rockonruby.co.uk/products/drinking-spritz-christmas-sweatshirt",
       "product_type": "",
       "tags": [
-        "bestseller",
         "Christmas",
         "Christmas Jumpers",
         "Christmas Tops",
@@ -1412,6 +1410,7 @@
         "Embroidered",
         "Embroidered Cap",
         "interest:coffee",
+        "Personalised",
         "Slogan Cap"
       ],
       "price": 24.0
@@ -1555,6 +1554,8 @@
         "interest:anniversary",
         "interest:birthday",
         "interest:wedding",
+        "Personalised",
+        "Personalised Sweatshirts",
         "roman-numerals",
         "Sweatshirts",
         "Wedding Party"
@@ -1570,6 +1571,8 @@
         "Clothing",
         "Collections",
         "Embroidered",
+        "Personalised",
+        "Personalised Sweatshirts",
         "Sweatshirts",
         "Wedding Party"
       ],
@@ -1629,6 +1632,7 @@
         "Embroidered",
         "Gifts For Him",
         "Gifts Under \u00a330",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 22.0
@@ -1700,6 +1704,7 @@
         "interest:mum",
         "interest:parent",
         "Mama Merch",
+        "Personalised",
         "Slogan T-shirts",
         "T-shirts"
       ],
@@ -1784,6 +1789,7 @@
         "Accessories",
         "Embroidered",
         "Gifts Under \u00a330",
+        "Personalised",
         "Personalised Accessories",
         "Valentine\u2019s Day"
       ],
@@ -1800,6 +1806,7 @@
         "Collections",
         "Embroidered",
         "Festival",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -1896,6 +1903,7 @@
         "Boat Bag",
         "Embroidered",
         "Gifts For Her",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -1986,6 +1994,7 @@
         "Accessories",
         "Boat Bag",
         "Embroidered",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -1999,6 +2008,7 @@
       "tags": [
         "Accessories",
         "Embroidered",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 21.0
@@ -2228,6 +2238,7 @@
         "Gifts For Her",
         "interest:alcohol",
         "interest:happyhour",
+        "Personalised",
         "Slogan Sweatshirts",
         "Sweatshirts"
       ],
@@ -2239,7 +2250,6 @@
       "url": "rockonruby.co.uk/products/happy-hour-slogan-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
-        "bestseller",
         "Christmas T Shirt",
         "Christmas Tops",
         "Clothing",
@@ -2367,7 +2377,8 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
-        "Pencil Cases"
+        "Pencil Cases",
+        "Personalised"
       ],
       "price": 14.0
     },
@@ -2395,11 +2406,25 @@
         "Clothing",
         "DTF",
         "interest:reading",
+        "Personalised",
         "Slogan Sweatshirts",
         "Sweatshirts",
         "Teacher Gifts"
       ],
       "price": 38.0
+    },
+    {
+      "title": "I'd Rather Be Reading T-Shirt",
+      "handle": "id-rather-be-reading-t-shirt",
+      "url": "rockonruby.co.uk/products/id-rather-be-reading-t-shirt",
+      "product_type": "T-Shirt",
+      "tags": [
+        "Clothing",
+        "DTF",
+        "Slogan T-shirts",
+        "T-shirts"
+      ],
+      "price": 26.0
     },
     {
       "title": "I'd Rather Be Reading Tote Bag",
@@ -2424,7 +2449,8 @@
         "Christmas",
         "Christmas Jumpers",
         "Christmas Tops",
-        "DTF"
+        "DTF",
+        "Personalised"
       ],
       "price": 36.0
     },
@@ -2680,6 +2706,7 @@
         "Caps",
         "Embroidered",
         "Gifts for Dad",
+        "Personalised",
         "Slogan Cap"
       ],
       "price": 24.0
@@ -2811,7 +2838,7 @@
         "Accessories",
         "Caps",
         "Embroidered",
-        "Personalised Accessories",
+        "Personalised",
         "Slogan Cap",
         "Valentine\u2019s Day"
       ],
@@ -2827,6 +2854,8 @@
         "Embroidered",
         "Gifting",
         "interest:birthday",
+        "Personalised",
+        "Personalised T-shirts",
         "T-shirts",
         "Wedding Party"
       ],
@@ -2841,6 +2870,8 @@
         "Embroidered",
         "Gifting",
         "interest:birthday",
+        "Personalised",
+        "Personalised T-shirts",
         "T-shirts",
         "Wedding Party"
       ],
@@ -2855,6 +2886,7 @@
         "Accessories",
         "Boat Bag",
         "Embroidered",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags",
         "Wedding Party"
@@ -2870,6 +2902,8 @@
         "Embroidered",
         "Gifting",
         "interest:birthday",
+        "Personalised",
+        "Personalised T-shirts",
         "T-shirts",
         "Wedding Party"
       ],
@@ -2981,6 +3015,7 @@
       "url": "rockonruby.co.uk/products/naughty-nice-christmas-jumper",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Christmas",
         "Christmas Jumpers",
         "Christmas Tops",
@@ -3012,7 +3047,8 @@
         "Accessories",
         "Caps",
         "Embroidered",
-        "Gifts For Mum"
+        "Gifts For Mum",
+        "Personalised"
       ],
       "price": 24.0
     },
@@ -3162,6 +3198,7 @@
       "url": "rockonruby.co.uk/products/only-here-for-the-pigs-in-blankets-christmas-sweatshirt",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Christmas",
         "Christmas Jumpers",
         "Christmas Tops",
@@ -3196,8 +3233,7 @@
         "Caps",
         "Embroidered",
         "Embroidered Cap",
-        "interest:alcohol",
-        "Personalised Accessories"
+        "interest:alcohol"
       ],
       "price": 24.0
     },
@@ -3271,7 +3307,8 @@
         "DTF",
         "Personalised",
         "Personalised Accessories",
-        "Tote Bags"
+        "Tote Bags",
+        "Varsity Collection"
       ],
       "price": 28.0
     },
@@ -3285,7 +3322,8 @@
         "DTF",
         "Personalised",
         "Personalised Accessories",
-        "Tote Bags"
+        "Tote Bags",
+        "Varsity Collection"
       ],
       "price": 28.0
     },
@@ -3313,7 +3351,8 @@
         "Christmas Tops",
         "Clothing",
         "DTF",
-        "interest:birthday"
+        "Personalised",
+        "Personalised Sweatshirts"
       ],
       "price": 38.0
     },
@@ -3360,7 +3399,9 @@
         "Christmas T Shirt",
         "Christmas Tops",
         "Clothing",
-        "DTF"
+        "DTF",
+        "Personalised",
+        "Personalised T-shirts"
       ],
       "price": 26.0
     },
@@ -3424,6 +3465,7 @@
         "Accessories",
         "Embroidered",
         "Gifts For Her",
+        "Personalised",
         "Personalised Accessories",
         "Stocking Fillers"
       ],
@@ -3439,6 +3481,7 @@
         "Bucket Hat",
         "Custom Land",
         "Embroidered",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 24.0
@@ -3499,7 +3542,8 @@
       "tags": [
         "addedpersonalisation",
         "DTF",
-        "Gifting"
+        "Gifting",
+        "Personalised"
       ],
       "price": 6.95
     },
@@ -3546,6 +3590,7 @@
         "Beanie Hats",
         "Embroidered",
         "Gifts Under \u00a330",
+        "Personalised",
         "Personalised Accessories",
         "Stocking Fillers"
       ],
@@ -3577,6 +3622,7 @@
         "Clothing",
         "Collections",
         "Embroidered",
+        "Personalised",
         "Sweatshirts",
         "Wedding Party"
       ],
@@ -3692,6 +3738,7 @@
         "Gifts For Her",
         "Handwriting",
         "intent:gift",
+        "Personalised",
         "Personalised Accessories",
         "Teacher Gifts",
         "Tote Bags",
@@ -3710,6 +3757,7 @@
         "Gifts For Him",
         "Handwriting",
         "intent:gift",
+        "Personalised",
         "Valentine\u2019s Day"
       ],
       "price": 24.0
@@ -3796,6 +3844,7 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 25.0
@@ -3810,6 +3859,7 @@
         "Embroidered",
         "Handwriting",
         "intent:gift",
+        "Personalised",
         "Personalised Accessories",
         "Valentine\u2019s Day"
       ],
@@ -3862,6 +3912,7 @@
         "Embroidered",
         "Handwriting",
         "intent:gift",
+        "Personalised",
         "Personalised Accessories",
         "Tote Bags"
       ],
@@ -3876,6 +3927,8 @@
         "Accessories",
         "DTF",
         "interest:reading",
+        "Personalised",
+        "Personalised Accessories",
         "Tote Bags"
       ],
       "price": 22.0
@@ -3967,7 +4020,8 @@
         "DTF",
         "Make Up Bags",
         "Personalised",
-        "Personalised Accessories"
+        "Personalised Accessories",
+        "Varsity Collection"
       ],
       "price": 18.0
     },
@@ -3980,8 +4034,10 @@
         "Accessories",
         "DTF",
         "Gifts For Mum",
-        "interest:coffee",
-        "Tote Bags"
+        "Personalised",
+        "Personalised Accessories",
+        "Tote Bags",
+        "Varsity Collection"
       ],
       "price": 28.0
     },
@@ -3995,7 +4051,8 @@
         "DTF",
         "Personalised",
         "Personalised Accessories",
-        "Tote Bags"
+        "Tote Bags",
+        "Varsity Collection"
       ],
       "price": 26.0
     },
@@ -4064,7 +4121,8 @@
         "interest:makeup",
         "Make Up Bags",
         "Personalised",
-        "Personalised Accessories"
+        "Personalised Accessories",
+        "Varsity Collection"
       ],
       "price": 18.0
     },
@@ -4079,12 +4137,12 @@
         "Gifts For Her",
         "Gifts Under \u00a330",
         "intent:gift",
-        "interest:makeup",
         "interest:reading",
         "Personalised",
         "Personalised Accessories",
         "Teacher Gifts",
-        "Tote Bags"
+        "Tote Bags",
+        "Varsity Collection"
       ],
       "price": 24.0
     },
@@ -4097,7 +4155,8 @@
         "Accessories",
         "DTF",
         "Gifts For Mum",
-        "interest:coffee",
+        "Personalised",
+        "Personalised Accessories",
         "Teacher Gifts",
         "Tote Bags"
       ],
@@ -4116,6 +4175,7 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 16.0
@@ -4316,7 +4376,9 @@
         "Christmas Tops",
         "Clothing",
         "Custom Slogan",
-        "DTF"
+        "DTF",
+        "Personalised",
+        "Personalised Sweatshirts"
       ],
       "price": 38.0
     },
@@ -4332,6 +4394,7 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 16.0
@@ -4348,6 +4411,7 @@
         "intent:gift",
         "interest:makeup",
         "Make Up Bags",
+        "Personalised",
         "Personalised Accessories"
       ],
       "price": 14.0
@@ -4376,6 +4440,7 @@
       "product_type": "Make Up Bag",
       "tags": [
         "Accessories",
+        "bestseller",
         "DTF",
         "Gifts For Her",
         "Gifts For Mum",
@@ -4406,6 +4471,7 @@
       "url": "rockonruby.co.uk/products/personalised-sweatshirts",
       "product_type": "Sweatshirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "Custom Slogan",
         "DTF",
@@ -4523,7 +4589,8 @@
         "interest:reading",
         "Personalised",
         "Personalised Accessories",
-        "Tote Bags"
+        "Tote Bags",
+        "Varsity Collection"
       ],
       "price": 24.0
     },
@@ -4555,7 +4622,9 @@
         "Christmas Tops",
         "Clothing",
         "DTF",
-        "interest:birthday"
+        "interest:birthday",
+        "Personalised",
+        "Personalised Sweatshirts"
       ],
       "price": 38.0
     },
@@ -4581,7 +4650,9 @@
       "handle": "personalised-varsity-year-greetings-card",
       "url": "rockonruby.co.uk/products/personalised-varsity-year-greetings-card",
       "product_type": "",
-      "tags": [],
+      "tags": [
+        "Personalised"
+      ],
       "price": 4.95
     },
     {
@@ -4596,7 +4667,8 @@
         "interest:birthday",
         "Personalised",
         "Personalised Hoodies",
-        "Personalised Year"
+        "Personalised Year",
+        "Varsity Collection"
       ],
       "price": 48.0
     },
@@ -4610,7 +4682,8 @@
         "DTF",
         "Make Up Bags",
         "Personalised",
-        "Personalised Accessories"
+        "Personalised Accessories",
+        "Varsity Collection"
       ],
       "price": 18.0
     },
@@ -4625,7 +4698,8 @@
         "Personalised",
         "Personalised Accessories",
         "Personalised Year",
-        "Tote Bags"
+        "Tote Bags",
+        "Varsity Collection"
       ],
       "price": 28.0
     },
@@ -4636,12 +4710,12 @@
       "product_type": "Tote Bag",
       "tags": [
         "Accessories",
-        "bestseller",
         "DTF",
         "Gifts For Her",
         "Personalised",
         "Personalised Accessories",
-        "Tote Bags"
+        "Tote Bags",
+        "Varsity Collection"
       ],
       "price": 26.0
     },
@@ -4659,7 +4733,8 @@
         "Personalised Sweatshirts",
         "Personalised Year",
         "Sweatshirts",
-        "Teacher Gifts"
+        "Teacher Gifts",
+        "Varsity Collection"
       ],
       "price": 36.0
     },
@@ -4674,7 +4749,8 @@
         "interest:birthday",
         "Personalised",
         "Personalised Year",
-        "T-shirts"
+        "T-shirts",
+        "Varsity Collection"
       ],
       "price": 28.0
     },
@@ -4715,7 +4791,8 @@
         "interest:reading",
         "Personalised",
         "Personalised Accessories",
-        "Tote Bags"
+        "Tote Bags",
+        "Varsity Collection"
       ],
       "price": 24.0
     },
@@ -4749,6 +4826,7 @@
         "Gifting",
         "Gifts For Mum",
         "Mama Merch",
+        "Personalised",
         "Slogan Sweatshirts",
         "Sweatshirts"
       ],
@@ -4887,6 +4965,7 @@
       "url": "rockonruby.co.uk/products/personalised-year-t-shirt",
       "product_type": "T-Shirt",
       "tags": [
+        "bestseller",
         "Clothing",
         "Collections",
         "DTF",
@@ -5011,6 +5090,7 @@
       "product_type": "T-Shirt",
       "tags": [
         "Embroidered",
+        "Personalised",
         "T-shirts",
         "Wedding Party"
       ],
@@ -5057,6 +5137,7 @@
         "Clothing",
         "Embroidered",
         "New in",
+        "Personalised",
         "Sweatshirts"
       ],
       "price": 45.0
@@ -5183,7 +5264,8 @@
         "Christmas",
         "Christmas Jumpers",
         "Christmas Tops",
-        "Clothing"
+        "Clothing",
+        "DTF"
       ],
       "price": 38.0
     },
@@ -5232,6 +5314,7 @@
         "Embroidered Cap",
         "interest:alcohol",
         "interest:spritz",
+        "Personalised",
         "quick-add",
         "Slogan Cap"
       ],
@@ -5363,6 +5446,7 @@
         "Clothing",
         "DTF",
         "interest:tea",
+        "Personalised",
         "Slogan T-shirts",
         "T-shirts"
       ],
@@ -5377,6 +5461,7 @@
         "Embroidered",
         "Gifting",
         "interest:birthday",
+        "Personalised",
         "Sweatshirts",
         "Wedding Party"
       ],
@@ -5391,6 +5476,7 @@
         "Clothing",
         "Collections",
         "Embroidered",
+        "Personalised",
         "T-shirts",
         "Wedding Party"
       ],
@@ -5453,6 +5539,7 @@
         "DTF",
         "Gifts for Dad",
         "Gifts For Him",
+        "Personalised",
         "Slogan Sweatshirts",
         "Sweatshirts"
       ],
@@ -5469,6 +5556,7 @@
         "Gifts for Dad",
         "Gifts For Him",
         "Gifts Under \u00a330",
+        "Personalised",
         "Slogan T-shirts",
         "T-shirts"
       ],
@@ -5597,6 +5685,7 @@
         "Accessories",
         "Bobble Hat",
         "Embroidered",
+        "Personalised",
         "Personalised Accessories",
         "Stocking Fillers"
       ],
@@ -5679,6 +5768,8 @@
         "Embroidered",
         "Gifting",
         "interest:birthday",
+        "Personalised",
+        "Personalised T-shirts",
         "T-shirts",
         "Wedding Party"
       ],
@@ -5746,8 +5837,7 @@
         "Gifts Under \u00a330",
         "Hats",
         "Holiday Gifts",
-        "Personalised Accessories",
-        "Personalised Gifts",
+        "Personalised",
         "Slogan Cap",
         "Summer Gifts"
       ],
@@ -5792,38 +5882,38 @@
     {
       "title": "Personalised Year Sweatshirt",
       "handle": "",
-      "orders": 155,
-      "revenue": 5772.1
-    },
-    {
-      "title": "Personalised Varsity Year Leopard Print Tote Bag",
-      "handle": "",
-      "orders": 61,
-      "revenue": 1612.0
+      "orders": 144,
+      "revenue": 5356.3
     },
     {
       "title": "Meats & Cheeses Christmas Sweatshirt",
       "handle": "",
-      "orders": 40,
-      "revenue": 1440.77
+      "orders": 54,
+      "revenue": 1944.77
+    },
+    {
+      "title": "Personalised Varsity Year Leopard Print Tote Bag",
+      "handle": "",
+      "orders": 55,
+      "revenue": 1482.0
     },
     {
       "title": "Personalised Initial Leopard Print Cross Body Bag",
       "handle": "",
-      "orders": 49,
-      "revenue": 1328.0
+      "orders": 45,
+      "revenue": 1228.0
+    },
+    {
+      "title": "Fair Isle Style Wham! Christmas Sweatshirt",
+      "handle": "",
+      "orders": 34,
+      "revenue": 1224.81
     },
     {
       "title": "Happy Hour Slogan Sweatshirt",
       "handle": "",
-      "orders": 34,
-      "revenue": 1260.0
-    },
-    {
-      "title": "Book Lover Mystery Bag",
-      "handle": "",
-      "orders": 27,
-      "revenue": 1080.0
+      "orders": 31,
+      "revenue": 1152.0
     },
     {
       "title": "I'd Rather be Reading Sweatshirt",
@@ -5832,82 +5922,82 @@
       "revenue": 1026.0
     },
     {
-      "title": "Fair Isle Style Wham! Christmas Sweatshirt",
-      "handle": "",
-      "orders": 27,
-      "revenue": 972.81
-    },
-    {
-      "title": "Personalised Initial Leopard print Tote Bag",
-      "handle": "",
-      "orders": 36,
-      "revenue": 936.0
-    },
-    {
       "title": "Rock On Ruby Branded Tote Bag",
       "handle": "",
-      "orders": 57,
-      "revenue": 912.38
+      "orders": 54,
+      "revenue": 864.38
     },
     {
       "title": "Vintage Style Denim Unisex Personalised Slogan Cap",
       "handle": "",
-      "orders": 34,
-      "revenue": 840.0
+      "orders": 33,
+      "revenue": 816.0
     },
     {
-      "title": "Personalised Varsity Year Leopard print Makeup Bag",
+      "title": "Personalised Initial Leopard print Tote Bag",
       "handle": "",
-      "orders": 37,
-      "revenue": 756.0
+      "orders": 31,
+      "revenue": 806.0
+    },
+    {
+      "title": "Book Lover Mystery Bag",
+      "handle": "",
+      "orders": 20,
+      "revenue": 800.0
     },
     {
       "title": "Custard Cream Connoisseur Sweatshirt",
       "handle": "",
-      "orders": 19,
-      "revenue": 722.0
+      "orders": 20,
+      "revenue": 760.0
     },
     {
-      "title": "Personalised 'Only Here For...' Cap",
+      "title": "Personalised Varsity Year Leopard print Makeup Bag",
       "handle": "",
-      "orders": 24,
+      "orders": 31,
       "revenue": 648.0
     },
     {
       "title": "Personalised Slogan Sweatshirt",
       "handle": "",
-      "orders": 17,
-      "revenue": 646.0
+      "orders": 16,
+      "revenue": 608.0
     },
     {
-      "title": "Personalised Initial Leopard Print Backpack",
+      "title": "Personalised 'Only Here For...' Cap",
       "handle": "",
       "orders": 19,
-      "revenue": 646.0
-    },
-    {
-      "title": "Embroidered Custom Slogan T-Shirt",
-      "handle": "",
-      "orders": 17,
-      "revenue": 476.0
-    },
-    {
-      "title": "Embroidered Unisex Personalised Slogan Cap",
-      "handle": "",
-      "orders": 18,
-      "revenue": 418.91
-    },
-    {
-      "title": "Bourbon Biscuit Fan Club Sweatshirt",
-      "handle": "",
-      "orders": 11,
-      "revenue": 418.0
+      "revenue": 528.0
     },
     {
       "title": "Rock On Ruby 1/4 Zip Fleece",
       "handle": "",
-      "orders": 9,
-      "revenue": 405.0
+      "orders": 11,
+      "revenue": 495.0
+    },
+    {
+      "title": "Bourbon Biscuit Fan Club Sweatshirt",
+      "handle": "",
+      "orders": 12,
+      "revenue": 456.0
+    },
+    {
+      "title": "Embroidered Unisex Personalised Slogan Cap",
+      "handle": "",
+      "orders": 16,
+      "revenue": 374.91
+    },
+    {
+      "title": "Personalised Initial Leopard Print Backpack",
+      "handle": "",
+      "orders": 11,
+      "revenue": 374.0
+    },
+    {
+      "title": "Personalised Year Unisex T-shirt",
+      "handle": "",
+      "orders": 13,
+      "revenue": 338.0
     }
   ]
 }
